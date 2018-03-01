@@ -15,35 +15,37 @@ import javafx.stage.Stage;
 import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.*;
+import java.util.Scanner;
 
 public class Main extends Application {
     private static final double SCENE_WIDTH = 700;
     private static final double SCENE_HEIGHT = 500;
     TextArea status = new TextArea("");
+    ToggleGroup tasks = new ToggleGroup();
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
+        addTask();
         BorderPane root = new BorderPane();
-        VBox taskPane = addTasks();
-        //Node statusPane = addStatus();
+        VBox taskPane = combineTasks();
+        //Node statusPane =  ();
         HBox menuPane = setMenu();
         VBox schedulePane = addSchedule();
         VBox currSchedulePane = addCurrentSchedule();
-        GridPane scheudlesPane = combineSchedules(schedulePane, currSchedulePane);
+        GridPane schedulesPane = combineSchedules(schedulePane, currSchedulePane);
 
         root.setRight(taskPane);
         //root.setCenter(statusPane);
         root.setTop(menuPane);
-        root.setCenter(scheudlesPane);
+        root.setCenter(schedulesPane);
 
         primaryStage.setTitle("Productivity+");
         primaryStage.setScene(new Scene(root, SCENE_WIDTH, SCENE_HEIGHT));
         primaryStage.show();
     }
 
-    private VBox addTasks() {
+    private VBox combineTasks() {
         VBox radioButtons = new VBox();
-        ToggleGroup tasks = new ToggleGroup();
         radioButtons.setAlignment(Pos.TOP_LEFT);
         radioButtons.setPadding(new Insets(5));
         radioButtons.setSpacing(5);
@@ -51,74 +53,34 @@ public class Main extends Application {
         Text directions = new Text("Select Current Task");
         directions.setFont(Font.font(14));
 
-        RadioButton sleeping = new RadioButton("Sleeping");
-        sleeping.setToggleGroup(tasks);
-        sleeping.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if (sleeping.isSelected()) {
-                    status.setText("User is sleeping");
-                }
-            }
-        });
-
-        RadioButton eating = new RadioButton("Eating");
-        eating.setToggleGroup(tasks);
-        eating.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if (eating.isSelected()) {
-                    status.setText("User is eating");
-                }
-            }
-        });
-
-        RadioButton homework = new RadioButton("Homework");
-        homework.setToggleGroup(tasks);
-        homework.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if (homework.isSelected()) {
-                    status.setText("User is doing homework");
-                }
-            }
-        });
-
-        RadioButton working = new RadioButton("Working");
-        working.setToggleGroup(tasks);
-        working.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if (working.isSelected()) {
-                    status.setText("User is working");
-                }
-            }
-        });
-
-        RadioButton cleaning = new RadioButton("Cleaning");
-        cleaning.setToggleGroup(tasks);
-        cleaning.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if (cleaning.isSelected()) {
-                    status.setText("User is cleaning");
-                }
-            }
-        });
-
-        RadioButton newTask = new RadioButton("Add a new task");
-        newTask.setToggleGroup(tasks);
-        newTask.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if (newTask.isSelected()) {
-                    status.setText("Enter a new task");
-                }
-            }
-        });
-
-        radioButtons.getChildren().addAll(sleeping, eating, homework, working, cleaning, newTask);
+        // TODO: don't want to add toggle group, but want to add everything
+        // in the toggle group. FIX!!!!ß
+        radioButtons.getChildren().addAll(tasks, directions);
         return radioButtons;
+    }
+
+    private void setToggleGroup (RadioButton task){
+        task.setToggleGroup(tasks);
+    }
+
+    private void addTask() {
+
+        String taskText = getTaskString();
+
+        RadioButton task = new RadioButton(taskText);
+
+        task.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                setToggleGroup(task);
+            }
+        });
+    }
+
+    private String getTaskString() {
+        Scanner keyboard = new Scanner(System.in);
+        String taskText = keyboard.next();
+        return taskText;
     }
 
     private Node addStatus() {
