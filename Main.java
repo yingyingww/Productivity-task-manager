@@ -3,11 +3,9 @@ package finalProject;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.layout.*;
@@ -20,20 +18,19 @@ import javafx.scene.shape.Rectangle;
 public class Main extends Application {
     private static final double SCENE_WIDTH = 700;
     private static final double SCENE_HEIGHT = 500;
+    RadioButton[] taskHolder = new RadioButton[10];
     TextArea status = new TextArea("");
-    ToggleGroup tasks = new ToggleGroup();
-    VBox taskRow = new VBox();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         BorderPane root = new BorderPane();
-        VBox taskPane = combineTasks();
+        VBox taskPanel = createTaskPanel();
         HBox menuPane = setMenu();
         VBox schedulePane = addSchedule();
         VBox currSchedulePane = addCurrentSchedule();
         GridPane schedulesPane = combineSchedules(schedulePane, currSchedulePane);
 
-        root.setRight(taskPane);
+        root.setRight(taskPanel);
         root.setTop(menuPane);
         root.setCenter(schedulesPane);
 
@@ -42,58 +39,58 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    private VBox combineTasks() {
-        VBox radioButtons = new VBox();
-        radioButtons.setAlignment(Pos.TOP_LEFT);
-        radioButtons.setPadding(new Insets(5));
-        radioButtons.setSpacing(5);
+    private VBox createTaskPanel() {
+        VBox taskPanel = new VBox();
 
-        Text directions = new Text("Select Current Task");
-        directions.setFont(Font.font(14));
+        Text taskPanelDirections = new Text("Select Current Task");
 
-        HBox newTaskPane = getTaskString();
+        HBox addTaskField = createAddTaskField();
 
-        radioButtons.getChildren().addAll(taskRow, directions, newTaskPane);
-        return radioButtons;
+        VBox tasks = new VBox();
+//        tasks.setAlignment(Pos.TOP_LEFT);
+//        tasks.setPadding(new Insets(5));
+//        tasks.setSpacing(5);
+
+        ToggleGroup taskGroup = new ToggleGroup();
+        for (int i=0; i<10; i++) {
+            RadioButton task = new RadioButton(String.valueOf(i));
+            task.setVisible(false);
+            taskHolder[i] = task;
+            task.setToggleGroup(taskGroup);
+            tasks.getChildren().add(task);
+        }
+
+        taskPanel.getChildren().addAll(taskPanelDirections, addTaskField, tasks);
+        return taskPanel;
     }
 
-    // Not really sure why this isn't working. I think maybe root needs to be updated again
-    // FIX
-    private void setTasks (RadioButton task){
-        task.setToggleGroup(tasks);
-        taskRow.getChildren().add(task);
-    }
-
-    private void addTask(String taskText) {
-
-        RadioButton task = new RadioButton(taskText);
-
-        task.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                setTasks(task);
-            }
-        });
-    }
-
-    private HBox getTaskString() {
+    private HBox createAddTaskField() {
         HBox newTaskPane = new HBox();
 
-        Label newTask = new Label("Name of Task:");
-        TextField userTextField = new TextField();
+        TextField addTaskField = new TextField();
+        addTaskField.setPromptText("Create a New Task");
+        Button addTaskButton = new Button("Add Task");
 
-        Button addTask = new Button("Add Task");
-
-        addTask.setOnAction(new EventHandler<ActionEvent>() {
-
+        EventHandler<ActionEvent> printTaskName = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                addTask(userTextField.getText());
+                String userInput = addTaskField.getText();
+                System.out.println(userInput);
+                //really bad/inefficient code, but it works to give us an idea
+                for (int i=0; i<10; i++) {
+                    if (!taskHolder[i].isVisible()) {
+                        taskHolder[i].setText(userInput);
+                        taskHolder[i].setVisible(true);
+                        break;
+                    }
+                }
             }
-        });
+        };
 
-        newTaskPane.getChildren().addAll(newTask, userTextField, addTask);
+        addTaskField.setOnAction(printTaskName);
+        addTaskButton.setOnAction(printTaskName);
 
+        newTaskPane.getChildren().addAll(addTaskField, addTaskButton);
         return newTaskPane;
     }
 
@@ -217,7 +214,7 @@ public class Main extends Application {
         return schedule;
     }
 
-    /*
+    /**
     private Node addStatus() {
         FlowPane pane = new FlowPane();
         pane.setAlignment(Pos.TOP_CENTER);
