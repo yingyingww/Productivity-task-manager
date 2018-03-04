@@ -1,4 +1,4 @@
-package finalProject;
+package Main;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -15,10 +15,12 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+import java.net.URL;
+
 public class Main extends Application {
     private static final double SCENE_WIDTH = 700;
     private static final double SCENE_HEIGHT = 500;
-    RadioButton[] taskHolder = new RadioButton[10];
+    ToggleButton[] taskHolder = new ToggleButton[10];
     TextArea status = new TextArea("");
 
     @Override
@@ -35,7 +37,17 @@ public class Main extends Application {
         root.setCenter(schedulesPane);
 
         primaryStage.setTitle("Productivity+");
-        primaryStage.setScene(new Scene(root, SCENE_WIDTH, SCENE_HEIGHT));
+        Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT);
+        primaryStage.setScene(scene);
+
+        URL url = this.getClass().getResource("/Main/Main.css");
+        if (url == null) {
+            System.out.println("Resource not found. Aborting.");
+            System.exit(-1);
+        }
+        String css = url.toExternalForm();
+        scene.getStylesheets().add(css);
+
         primaryStage.show();
     }
 
@@ -53,9 +65,15 @@ public class Main extends Application {
 
         ToggleGroup taskGroup = new ToggleGroup();
         for (int i=0; i<10; i++) {
-            RadioButton task = new RadioButton(String.valueOf(i));
+            ToggleButton task = new ToggleButton(String.valueOf(i));
             task.setVisible(false);
             taskHolder[i] = task;
+            task.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent e) {
+                    System.out.println(task.isSelected());
+                }
+            });
             task.setToggleGroup(taskGroup);
             tasks.getChildren().add(task);
         }

@@ -1,0 +1,33 @@
+root {
+    display: block;
+}
+
+.label {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+
+.button {
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(#2A5058, #61a2b1);
+}
+
+/*.toggle-button {*/
+    /*-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border,*/
+    /*-fx-inner-border, -fx-body-color;*/
+    /*-fx-text-fill: -fx-text-base-color;*/
+/*}*/
+/*.toggle-button:selected {*/
+    /*-fx-background-color: -fx-shadow-highlight-color,*/
+    /*linear-gradient(to bottom, derive(-fx-outer-border, -20%), ...),*/
+    /*linear-gradient(to bottom, derive(-fx-color, -22%) 0%, ...);*/
+/*}*/
