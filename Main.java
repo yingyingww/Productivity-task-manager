@@ -5,37 +5,35 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.layout.*;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.paint.*;
-import java.util.Scanner;
 
 public class Main extends Application {
     private static final double SCENE_WIDTH = 700;
     private static final double SCENE_HEIGHT = 500;
     TextArea status = new TextArea("");
     ToggleGroup tasks = new ToggleGroup();
+    VBox taskRow = new VBox();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        addTask();
         BorderPane root = new BorderPane();
         VBox taskPane = combineTasks();
-        //Node statusPane =  ();
         HBox menuPane = setMenu();
         VBox schedulePane = addSchedule();
         VBox currSchedulePane = addCurrentSchedule();
         GridPane schedulesPane = combineSchedules(schedulePane, currSchedulePane);
 
         root.setRight(taskPane);
-        //root.setCenter(statusPane);
         root.setTop(menuPane);
         root.setCenter(schedulesPane);
 
@@ -53,45 +51,50 @@ public class Main extends Application {
         Text directions = new Text("Select Current Task");
         directions.setFont(Font.font(14));
 
-        // TODO: don't want to add toggle group, but want to add everything
-        // in the toggle group. FIX!!!!ß
-        radioButtons.getChildren().addAll(tasks, directions);
+        HBox newTaskPane = getTaskString();
+
+        radioButtons.getChildren().addAll(taskRow, directions, newTaskPane);
         return radioButtons;
     }
 
-    private void setToggleGroup (RadioButton task){
+    // Not really sure why this isn't working. I think maybe root needs to be updated again
+    // FIX
+    private void setTasks (RadioButton task){
         task.setToggleGroup(tasks);
+        taskRow.getChildren().add(task);
     }
 
-    private void addTask() {
-
-        String taskText = getTaskString();
+    private void addTask(String taskText) {
 
         RadioButton task = new RadioButton(taskText);
 
         task.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                setToggleGroup(task);
+                setTasks(task);
             }
         });
     }
 
-    private String getTaskString() {
-        Scanner keyboard = new Scanner(System.in);
-        String taskText = keyboard.next();
-        return taskText;
-    }
+    private HBox getTaskString() {
+        HBox newTaskPane = new HBox();
 
-    private Node addStatus() {
-        FlowPane pane = new FlowPane();
-        pane.setAlignment(Pos.TOP_CENTER);
-        status.setText("Selected task will appear hear");
-        status.setFont(Font.font("Times New Roman", FontWeight.NORMAL, 14));
-        status.setWrapText(true);
-        status.setPrefColumnCount(20);
-        pane.getChildren().add(status);
-        return pane;
+        Label newTask = new Label("Name of Task:");
+        TextField userTextField = new TextField();
+
+        Button addTask = new Button("Add Task");
+
+        addTask.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent e) {
+                addTask(userTextField.getText());
+            }
+        });
+
+        newTaskPane.getChildren().addAll(newTask, userTextField, addTask);
+
+        return newTaskPane;
     }
 
     private HBox setMenu() {
@@ -131,7 +134,7 @@ public class Main extends Application {
         productivityTips.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                status.setText("Productivity Tips");
+                productivityTips();
             }
         });
 
@@ -152,6 +155,18 @@ public class Main extends Application {
         menuPane.getChildren().add(menuBar);
 
         return menuPane;
+    }
+
+    private void productivityTips() {
+        Alert tips = new Alert(AlertType.NONE);
+        tips.setTitle("Productivity Tips");
+        tips.setHeaderText(null);
+        String tip1 = "You haven't been sleeping much. Try getting 8 hours, and hopefully that will boost your mood.";
+        String tip2 = "Try breaking up the time you spend doing homework into smaller chunks.";
+        String allTips = tip1 + "\n\n" + tip2;
+        tips.setContentText(allTips);
+
+        tips.showAndWait();
     }
 
     private VBox addSchedule() {
@@ -201,6 +216,19 @@ public class Main extends Application {
         schedule.add(currSchedule,2, 1);
         return schedule;
     }
+
+    /*
+    private Node addStatus() {
+        FlowPane pane = new FlowPane();
+        pane.setAlignment(Pos.TOP_CENTER);
+        status.setText("Selected task will appear hear");
+        status.setFont(Font.font("Times New Roman", FontWeight.NORMAL, 14));
+        status.setWrapText(true);
+        status.setPrefColumnCount(20);
+        pane.getChildren().add(status);
+        return pane;
+    }
+    */
 
     public static void main(String[] args) {
         launch(args);
