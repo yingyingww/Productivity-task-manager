@@ -1,25 +1,28 @@
-// Timer Logic (Model) - Yingying
+package Main;// Timer Logic (Model)
 // Start/stop timer function// Ask for productivity when stop is called
 // Store task, start, stop, and productivity
 // Find total time
+
+
+
 
 //import java.util.TimerTask;
 import java.util.Date;
 //import java.util.Timer;
 
-public class Timer {
+public class TimerLogic {
     public Date time;
-    public Date startTime;
-    public Date endTime;
-    public int timeInterval;
+    public long startTime;
+    public long endTime;
+    public long timeInterval;
 
 
-    public Timer myTimer = new Timer();
-    private int minutes;
+    //public Timer myTimer = new Timer();
+    //private int minutes;
 
     //public TimerTask task = new TimerTask(){
-        //public void run(){
-            //minutes++;
+    //public void run(){
+    //minutes++;
 
     //}
 //System.currentTimeMillis()
@@ -37,5 +40,6 @@ public class Timer {
     }
 
 }
+
 
 
