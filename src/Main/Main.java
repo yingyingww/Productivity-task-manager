@@ -14,12 +14,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-
 import java.net.URL;
 
 public class Main extends Application {
-    private static final double SCENE_WIDTH = 700;
-    private static final double SCENE_HEIGHT = 500;
     ToggleButton[] taskHolder = new ToggleButton[10];
     TextArea status = new TextArea("");
 
@@ -27,22 +24,24 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         BorderPane root = new BorderPane();
         VBox taskPanel = createTaskPanel();
+        taskPanel.setStyle("-fx-background-color: lightblue;");
         HBox menuPane = setMenu();
         VBox schedulePane = addSchedule();
         VBox currSchedulePane = addCurrentSchedule();
         GridPane schedulesPane = combineSchedules(schedulePane, currSchedulePane);
+        schedulesPane.setStyle("-fx-background-color: lightcoral;");
 
         root.setRight(taskPanel);
         root.setTop(menuPane);
         root.setCenter(schedulesPane);
 
         primaryStage.setTitle("Productivity+");
-        Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT);
+        Scene scene = new Scene(root, 700, 500);
         primaryStage.setScene(scene);
 
         URL url = this.getClass().getResource("/Main/Main.css");
         if (url == null) {
-            System.out.println("Resource not found. Aborting.");
+            System.out.println("CSS Not Found. Exiting.");
             System.exit(-1);
         }
         String css = url.toExternalForm();
@@ -54,14 +53,11 @@ public class Main extends Application {
     private VBox createTaskPanel() {
         VBox taskPanel = new VBox();
 
-        Text taskPanelDirections = new Text("Select Current Task");
+        Label taskPanelDirections = new Label("Select Current Task");
 
         HBox addTaskField = createAddTaskField();
 
         VBox tasks = new VBox();
-//        tasks.setAlignment(Pos.TOP_LEFT);
-//        tasks.setPadding(new Insets(5));
-//        tasks.setSpacing(5);
 
         ToggleGroup taskGroup = new ToggleGroup();
         for (int i=0; i<10; i++) {
@@ -117,7 +113,7 @@ public class Main extends Application {
         menuPane.setAlignment(Pos.TOP_LEFT);
 
         MenuBar menuBar = new MenuBar();
-        menuBar.setMinWidth(SCENE_HEIGHT);
+        menuBar.setMinWidth(700);
 
         Menu mainMenu = new Menu("Menu");
 

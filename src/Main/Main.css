@@ -1,35 +1,30 @@
-root {
-    display: block;
-}
-
-.label {
-    -fx-font-size: 30px;
+.label, .text-field, .text {
+    -fx-font-size: 15px;
     -fx-font-weight: bold;
-    -fx-text-fill: #333333;
-    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+    -fx-text-fill: black;
 }
 
-.button {
-    -fx-text-fill: white;
-    -fx-font-family: "Arial";
-    -fx-font-weight: bold;
-    -fx-background-color: black;
-}
+/*.button {*/
+    /*-fx-text-fill: white;*/
+    /*-fx-font-family: "Arial";*/
+    /*-fx-font-weight: bold;*/
+    /*-fx-background-color: black;*/
+/*}*/
 
-.button:hover {
-    -fx-background-color: linear-gradient(black, red);
-}
+/*.button:hover {*/
+    /*-fx-background-color: linear-gradient(black, red);*/
+/*}*/
 
-.toggle-button {
-    -fx-text-fill: white;
-    -fx-font-family: "Arial";
-    -fx-font-weight: bold;
-    -fx-background-color: black;
-}
+/*.toggle-button {*/
+    /*-fx-text-fill: white;*/
+    /*-fx-font-family: "Arial";*/
+    /*-fx-font-weight: bold;*/
+    /*-fx-background-color: black;*/
+/*}*/
 
-.toggle-button:selected {
-    -fx-text-fill: white;
-    -fx-font-family: "Arial";
-    -fx-font-weight: bold;
-    -fx-background-color: blue;
-}
+/*.toggle-button:selected {*/
+    /*-fx-text-fill: white;*/
+    /*-fx-font-family: "Arial";*/
+    /*-fx-font-weight: bold;*/
+    /*-fx-background-color: blue;*/
+/*}*/
