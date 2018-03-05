@@ -1,28 +1,28 @@
 package Main;
-import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
+        import javafx.application.Application;
+        import javafx.collections.FXCollections;
+        import javafx.collections.ObservableList;
+        import javafx.geometry.Insets;
+        import javafx.geometry.Pos;
+        import javafx.scene.Group;
+        import javafx.scene.Scene;
+        import javafx.scene.control.*;
+        import javafx.scene.layout.GridPane;
+        import javafx.scene.text.Font;
+        import javafx.scene.text.FontWeight;
+        import javafx.scene.text.Text;
+        import javafx.stage.Stage;
 
-import javax.swing.*;
+        import javax.swing.*;
 
-import java.awt.event.ActionListener;
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.*;
-import javafx.stage.Stage;
+        import java.awt.event.ActionListener;
+        import javafx.application.Application;
+        import javafx.event.ActionEvent;
+        import javafx.event.EventHandler;
+        import javafx.scene.Scene;
+        import javafx.scene.control.Button;
+        import javafx.scene.layout.*;
+        import javafx.stage.Stage;
 
 
 public class SetSchedule extends Application {
@@ -86,12 +86,11 @@ public class SetSchedule extends Application {
 
         TextField addTaskName = new TextField();
         addTaskName.setPromptText("Create a New Task");
-
         EventHandler<ActionEvent> printTaskName = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                String userInput = addTaskName.getText();
-                System.out.println(userInput);
+                String nameInput = addTaskName.getText();
+                System.out.println("Task name is: "+ nameInput);
                 //only print when click enter, not printing if click "create a task" button at the end
             }
         };
@@ -110,9 +109,31 @@ public class SetSchedule extends Application {
 
         Text startTimeText = new Text("Start Time: ");
         ComboBox startHours = new ComboBox(hours);
+        startHours.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Object startHoursInput = startHours.getValue();
+                System.out.println("Start hour is: "+ startHoursInput);
+            }
+        });
         Text text = new Text(" : ");
         ComboBox startMinutes = new ComboBox(minutes);
+        //One thing I am worried is startMinutesInput read 00, 01, 02 instead of integers 0, 1, 2
+        startMinutes.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Object startMinutesInput = startMinutes.getValue();
+                System.out.println("Start Minute is: "+ startMinutesInput);
+            }
+        });
         ComboBox amPM = new ComboBox(amPm);
+        amPM.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Object startAMPMInput = amPM.getValue();
+                System.out.println("Start at:"+startAMPMInput);
+            }
+        });
         startT.getChildren().addAll(startTimeText,startHours, text, startMinutes, amPM);
         return startT;
 
@@ -126,9 +147,31 @@ public class SetSchedule extends Application {
 
         Text endTimeText = new Text("End Time: ");
         ComboBox endHours = new ComboBox(hours);
+        endHours.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Object endHoursInput = endHours.getValue();
+                System.out.println("End hour is: "+ endHoursInput);
+            }
+        });
         Text text = new Text(" : ");
         ComboBox endMinutes = new ComboBox(minutes);
+        // endMinutesInput reads 00, 01, 02 instead of integers 0, 1, 2
+        endMinutes.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Object endMinutesInput = endMinutes.getValue();
+                System.out.println("End Minute is: "+ endMinutesInput);
+            }
+        });
         ComboBox amPM = new ComboBox(amPm);
+        amPM.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Object endAMPMInput = amPM.getValue();
+                System.out.println("End at: "+ endAMPMInput);
+            }
+        });
         endT.getChildren().addAll(endTimeText,endHours,text, endMinutes, amPM);
         return endT;
 
