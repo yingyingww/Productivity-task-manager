@@ -1,2 +1,8 @@
-# final-project-final-project-h
-final-project-final-project-h created by GitHub Classroom
+# Productivity+: A New Kind of Task Manager
+### By Andrew Biehl, Eva Grench, Calypso Leonard, and Yingying Wang
+
+Productivity+ is your new go-to daily schedule manager. Combining the visuals of a calendar app with the check-box functionality of a normal task manager, you can now track everything you do during your day, from brushing your teeth to working out.
+
+Imagine how awkward it would feel to quarter off time to "eat breakfast" every day on your calendar app, or set a reminder to "sleep" on your task manager. Well now you have a place to do those things! Set your daily schedule goals and compare your real-time activities side-by-side. Receive tips and feedback, keep track of how productive you feel and export your data for other applications. Productivity+ can do it all!
+
+*Please note: Productivity+ is a work in progress, and most functionalities have not been fully implemented yet. Thank you for your patience!*
