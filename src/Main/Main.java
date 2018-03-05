@@ -1,3 +1,5 @@
+package Main;
+
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -67,6 +69,13 @@ public class Main extends Application {
             task.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent e) {
+                    TimerLogic tml = new TimerLogic();
+                    if (task.isSelected()){
+                        tml.start();
+                    }
+                    if (!task.isSelected()){
+                        tml.end();
+                    }
                     System.out.println(task.isSelected());
                 }
             });
