@@ -27,12 +27,12 @@ public class TimerLogic {
     //}
 //System.currentTimeMillis()
     public void start(){
-        startTime = time.getTime();
+        startTime = System.currentTimeMillis();
         System.out.println("Start time is " + startTime);
     }
 
     public void end(){
-        endTime = time.getTime();
+        endTime = System.currentTimeMillis();
         timeInterval = endTime -startTime;
         System.out.println("End time is "+endTime);
         System.out.println("Time interval is  "+ timeInterval);
