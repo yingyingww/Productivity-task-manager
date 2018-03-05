@@ -189,7 +189,7 @@ public class Main extends Application {
         tips.showAndWait();
     }
 
-    public static void productivityCheck() {
+    private void productivityCheck() {
         Alert check = new Alert(AlertType.NONE);
         check.setTitle("Productivity Check");
         check.setHeaderText("How Productive did you feel during the last activity?");
@@ -197,6 +197,12 @@ public class Main extends Application {
         Slider productivity = new Slider(0, 10, 5);
         Label level = new Label("-");
         Button notRelevant = new Button("Not Relevant");
+        notRelevant.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                check.close();
+            }
+        });
 
         GridPane sliderLabel = new GridPane();
 
@@ -205,12 +211,23 @@ public class Main extends Application {
         productivity.setShowTickMarks(true);
         productivity.setSnapToTicks(true);
 
+        productivity.valueProperty().addListener((obs, oldval, newval) ->
+        productivity.setValue(newval.intValue()));
+
         productivity.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 level.setText("Productivity level: " + newValue);
             }
         });
+
+        sliderLabel.add(productivity, 0, 0);
+        sliderLabel.add(level, 0, 1);
+        sliderLabel.add(notRelevant, 0,2);
+        check.getDialogPane().setContent(sliderLabel);
+
+        check.showAndWait();
+    }
 
         sliderLabel.add(productivity, 0, 0);
         sliderLabel.add(level, 0, 1);
