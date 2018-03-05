@@ -177,7 +177,7 @@ public class Main extends Application {
         return menuPane;
     }
 
-    private void productivityTips() {
+    public static void productivityTips() {
         Alert tips = new Alert(AlertType.NONE);
         tips.setTitle("Productivity Tips");
         tips.setHeaderText(null);
@@ -189,7 +189,7 @@ public class Main extends Application {
         tips.showAndWait();
     }
 
-    private void productivityCheck() {
+    public static void productivityCheck() {
         Alert check = new Alert(AlertType.NONE);
         check.setTitle("Productivity Check");
         check.setHeaderText("How Productive did you feel during the last activity?");
