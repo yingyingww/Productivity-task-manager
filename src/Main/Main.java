@@ -190,7 +190,7 @@ public class Main extends Application {
     }
 
     private void productivityCheck() {
-        Alert check = new Alert(AlertType.NONE);
+        Alert check = new Alert(AlertType.CONFIRMATION);
         check.setTitle("Productivity Check");
         check.setHeaderText("How Productive did you feel during the last activity?");
 
