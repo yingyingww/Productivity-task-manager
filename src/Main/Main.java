@@ -229,13 +229,6 @@ public class Main extends Application {
         check.showAndWait();
     }
 
-        sliderLabel.add(productivity, 0, 0);
-        sliderLabel.add(level, 0, 1);
-        sliderLabel.add(notRelevant, 0,2);
-        check.getDialogPane().setContent(sliderLabel);
-
-        check.showAndWait();
-    }
 
     private VBox addSchedule() {
         VBox schedule = new VBox();
