@@ -1,6 +1,6 @@
-package Main;
-
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -129,7 +129,7 @@ public class Main extends Application {
         reportProductivity.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                status.setText("Report Productivity");
+                productivityCheck();
             }
         });
 
@@ -178,6 +178,37 @@ public class Main extends Application {
         tips.setContentText(allTips);
 
         tips.showAndWait();
+    }
+
+    private void productivityCheck() {
+        Alert check = new Alert(AlertType.NONE);
+        check.setTitle("Productivity Check");
+        check.setHeaderText("How Productive did you feel during the last activity?");
+
+        Slider productivity = new Slider(0, 10, 5);
+        Label level = new Label("-");
+        Button notRelevant = new Button("Not Relevant");
+
+        GridPane sliderLabel = new GridPane();
+
+        productivity.setBlockIncrement(1);
+        productivity.setShowTickLabels(true);
+        productivity.setShowTickMarks(true);
+        productivity.setSnapToTicks(true);
+
+        productivity.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                level.setText("Productivity level: " + newValue);
+            }
+        });
+
+        sliderLabel.add(productivity, 0, 0);
+        sliderLabel.add(level, 0, 1);
+        sliderLabel.add(notRelevant, 0,2);
+        check.getDialogPane().setContent(sliderLabel);
+
+        check.showAndWait();
     }
 
     private VBox addSchedule() {
