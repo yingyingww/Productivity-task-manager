@@ -1,22 +1,26 @@
-package Main;
-        import javafx.application.Application;
-        import javafx.collections.FXCollections;
-        import javafx.collections.ObservableList;
-        import javafx.geometry.Insets;
-        import javafx.geometry.Pos;
-        import javafx.scene.Scene;
-        import javafx.scene.control.*;
-        import javafx.scene.layout.GridPane;
-        import javafx.scene.paint.Color;
-        import javafx.scene.shape.Rectangle;
-        import javafx.scene.text.Font;
-        import javafx.scene.text.FontWeight;
-        import javafx.scene.text.Text;
-        import javafx.stage.Stage;
-        import javafx.event.ActionEvent;
-        import javafx.event.EventHandler;
-        import javafx.scene.control.Button;
-        import javafx.scene.layout.*;
+package finalProject;
+
+import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
+import javafx.scene.layout.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class SetSchedule extends Application {
@@ -62,44 +66,95 @@ public class SetSchedule extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
     private VBox createTask() {
         VBox newTaskPane = new VBox();
         Text taskPanelDirections = new Text("Create A New Task");
         taskPanelDirections.setFont(Font.font("Arial", FontWeight.BOLD, 16));
 
-        Text chooseday = new Text("Choose a preset schedule: ");
+        Text chooseDay = new Text("Choose a preset schedule: ");
 
         newTaskPane.setPadding(new Insets(15, 12, 15, 12));
         newTaskPane.setSpacing(20);
         newTaskPane.setStyle("-fx-background-color: lightblue;");
 
-        HBox taskName = createTaskName();
-        HBox startTime = createStartTime();
-        HBox endTime = createEndTime();
-        HBox weekdays = createWeekday();
-        HBox frequency = createFrequency();
+        HBox taskNameInput = new HBox();
+        Text taskName = new Text("Task Name: ");
+        TextField addTaskName = new TextField();
+        addTaskName.setPromptText("Create a New Task");
+        taskNameInput.getChildren().addAll(taskName, addTaskName);
+
+        HBox startTime= new HBox();
+        Text startTimeText = new Text("Start Time: ");
+        ComboBox startHours = new ComboBox(hours);
+        Text startColon = new Text(" : ");
+        ComboBox startMinutes = new ComboBox(minutes);
+        ComboBox startAmPM = new ComboBox(amPm);
+        startTime.getChildren().addAll(startTimeText, startHours, startColon, startMinutes, startAmPM);
+
+        HBox endTime= new HBox();
+        Text endTimeText = new Text("End Time: ");
+        ComboBox endHours = new ComboBox(hours);
+        Text endColon = new Text(" : ");
+        ComboBox endMinutes = new ComboBox(minutes);
+        ComboBox endAmPM = new ComboBox(amPm);
+        endTime.getChildren().addAll(endTimeText, endHours, endColon, endMinutes, endAmPM);
+
         Button createTaskBtn = new Button();
         createTaskBtn.setText("Create Task");
+
         createTaskBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("Created A Task");
+                Object nameInput = addTaskName.getText();
+
+                Object startHoursInput = startHours.getValue();
+                Object startMinutesInput = startMinutes.getValue();
+                Object startAMPMInput = startAmPM.getValue();
+
+                Object endHoursInput = endHours.getValue();
+                Object endMinutesInput = endMinutes.getValue();
+                Object endAMPMInput = endAmPM.getValue();
+
+                ArrayList taskAttributes = new ArrayList();
+                taskAttributes.addAll(Arrays.asList(nameInput, startHoursInput, startMinutesInput, startAMPMInput, endHoursInput, endMinutesInput, endAMPMInput));
+
+                boolean allFieldsFilled = true;
+                for(Object attribute : taskAttributes) {
+                    if(attribute == null || attribute.equals("")) {
+                        allFieldsFilled = false;
+                    }
+                }
+
+                // TODO: Make sure the user can't input an invalid amount of time
+                if (allFieldsFilled) {
+                    Controller controller = new Controller();
+                    controller.calendarRectangle(taskAttributes);
+                    System.out.println(taskAttributes);
+                } else {
+                    System.out.println("Fill out everything");
+                }
             }
         });
 
-        newTaskPane.getChildren().addAll(taskPanelDirections, chooseday, weekdays, taskName, startTime,
-                endTime, frequency, createTaskBtn);
+        HBox weekdays = createWeekday();
+
+        newTaskPane.getChildren().addAll(taskPanelDirections, chooseDay, weekdays, taskNameInput, startTime,
+                endTime, /*frequency, */createTaskBtn);
+
         return newTaskPane;
     }
 
+    /*
     private HBox createFrequency() {
         HBox freq = new HBox();
         Button once = new Button();
         once.setText("One-Time Event");
         once.setOnAction(new EventHandler<ActionEvent>() {
             @Override
+            // Last index will be 0 if one time event and 1 if recurring
             public void handle(ActionEvent event) {
-                System.out.println("This is a one-time Event");
+                taskAttributes.add(0);
             }
         });
         Button more = new Button();
@@ -107,101 +162,14 @@ public class SetSchedule extends Application {
         more.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("This is a recurring events");
+                taskAttributes.add(1);
             }
         });
         freq.getChildren().addAll(once, more);
         return freq;
 
     }
-
-    private HBox createTaskName(){
-        HBox taskN = new HBox();
-        Text taskName = new Text("Task Name: ");
-
-        TextField addTaskName = new TextField();
-        addTaskName.setPromptText("Create a New Task");
-        EventHandler<ActionEvent> printTaskName = new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-                String nameInput = addTaskName.getText();
-                System.out.println("Task name is: "+ nameInput);
-                //only print when click enter, not printing if click "create a task" button at the end
-            }
-        };
-
-        addTaskName.setOnAction(printTaskName);
-
-
-        taskN.getChildren().addAll(taskName, addTaskName);
-        return taskN;
-    }
-    private HBox createStartTime(){
-        HBox startT= new HBox();
-        Text startTimeText = new Text("Start Time: ");
-        ComboBox startHours = new ComboBox(hours);
-        startHours.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Object startHoursInput = startHours.getValue();
-                System.out.println("Start hour is: "+ startHoursInput);
-            }
-        });
-        Text text = new Text(" : ");
-        ComboBox startMinutes = new ComboBox(minutes);
-        //One thing I am worried is startMinutesInput read 00, 01, 02 instead of integers 0, 1, 2
-        startMinutes.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Object startMinutesInput = startMinutes.getValue();
-                System.out.println("Start Minute is: "+ startMinutesInput);
-            }
-        });
-        ComboBox amPM = new ComboBox(amPm);
-        amPM.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Object startAMPMInput = amPM.getValue();
-                System.out.println("Start at:"+startAMPMInput);
-            }
-        });
-        startT.getChildren().addAll(startTimeText,startHours, text, startMinutes, amPM);
-        return startT;
-
-    }
-    private HBox createEndTime(){
-        HBox endT= new HBox();
-        Text endTimeText = new Text("End Time: ");
-        ComboBox endHours = new ComboBox(hours);
-        endHours.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Object endHoursInput = endHours.getValue();
-                System.out.println("End hour is: "+ endHoursInput);
-            }
-        });
-        Text text = new Text(" : ");
-        ComboBox endMinutes = new ComboBox(minutes);
-        // endMinutesInput reads 00, 01, 02 instead of integers 0, 1, 2
-        endMinutes.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Object endMinutesInput = endMinutes.getValue();
-                System.out.println("End Minute is: "+ endMinutesInput);
-            }
-        });
-        ComboBox amPM = new ComboBox(amPm);
-        amPM.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Object endAMPMInput = amPM.getValue();
-                System.out.println("End at: "+ endAMPMInput);
-            }
-        });
-        endT.getChildren().addAll(endTimeText,endHours,text, endMinutes, amPM);
-        return endT;
-
-    }
+    */
 
     private HBox createWeekday(){
         HBox wkd = new HBox();
@@ -278,6 +246,7 @@ public class SetSchedule extends Application {
 
         return wkd;
     }
+
     private VBox addSchedule() {
         VBox schedule = new VBox();
         schedule.setAlignment(Pos.TOP_CENTER);
@@ -311,7 +280,8 @@ public class SetSchedule extends Application {
         mainPage.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                status.setText("Main Page");
+                Main mainWindow = new Main();
+                mainWindow.start(new Stage());
             }
         });
 
@@ -368,7 +338,6 @@ public class SetSchedule extends Application {
 
         return schedule;
     }
-
 
     public static void main(String[] args) {
         launch(args);
