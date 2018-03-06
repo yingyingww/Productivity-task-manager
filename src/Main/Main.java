@@ -189,7 +189,7 @@ public class Main extends Application {
         tips.showAndWait();
     }
 
-    private void productivityCheck() {
+    public static void productivityCheck() {
         Alert check = new Alert(AlertType.CONFIRMATION);
         check.setTitle("Productivity Check");
         check.setHeaderText("How Productive did you feel during the last activity?");
