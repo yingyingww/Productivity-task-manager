@@ -12,6 +12,9 @@ public class Task {
         return this.name;
     }
 
+    /**
+     * Calls startTask() if its not running and endTask() if it is.
+     */
     public void changeTaskState() {
         if (!this.isRunning) {
             startTask();

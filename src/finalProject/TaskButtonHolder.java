@@ -1,3 +1,8 @@
+/**
+ * Holds both a list of task buttons that are used to start and end
+ * tasks, as well as a list of tasks, which can be started and ended.
+ */
+
 package finalProject;
 
 import java.util.LinkedList;
@@ -9,21 +14,17 @@ public class TaskButtonHolder {
 
     //No constructor needed.
 
+    /**
+     * this is the meat of the task creation. It creates a task and a task
+     * button.
+     * @param name the name of the task / task button
+     */
     public void addTaskButton(String name) {
         int taskNumber = this.size();
         TaskButton taskButton = new TaskButton(name);
         taskButton.setOnAction(e -> this.taskHolder.changeTaskStates(taskNumber));
         taskButtons.add(taskButton);
         taskHolder.addTask(name);
-    }
-
-    public void remove(int taskNumber) {
-        try {
-            taskButtons.remove(taskNumber);
-        }
-        catch (IndexOutOfBoundsException e) {
-            System.out.println("removeTaskButton: No TaskButton at this index.");
-        }
     }
 
     public int size() {

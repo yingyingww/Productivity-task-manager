@@ -26,13 +26,23 @@ public class TaskHolder {
         currentRunningTask = taskNumber;
     }
 
+    /**
+     * The meat of starting and ending tasks, makes sure that an old task is
+     * ended and a new task begins.
+     * @param taskNumber the identification of each task (and its button)
+     *                   based on its position in the taskHolder
+     */
     public void changeTaskStates(int taskNumber) {
-        // what if it's empty?
+        // TODO: what if it's empty?
         if (currentRunningTask == -1) {
+            // if no task is running
             setCurrentRunningTask(taskNumber);
         } else if (currentRunningTask == taskNumber) {
+            // if the current task is already running,
+            // turn it off
             setCurrentRunningTask(-1);
         } else {
+            // used to switch tasks
             this.tasks.get(currentRunningTask).changeTaskState();
             setCurrentRunningTask(taskNumber);
         }
