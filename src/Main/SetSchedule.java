@@ -20,8 +20,8 @@ package Main;
 
 
 public class SetSchedule extends Application {
-    ObservableList<String> hours = FXCollections.observableArrayList(
-            "1", "2","3","4","5","6","7","8","9","10","11","12"
+    ObservableList<Integer> hours = FXCollections.observableArrayList(
+            1, 2,3,4,5,6,7,8,9,10,11,12
     );
     ObservableList<String> weekDays = FXCollections.observableArrayList(
             "Monday", "Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"
@@ -34,6 +34,11 @@ public class SetSchedule extends Application {
             "46","47","48", "49","50","51","52","53","54","55","56",
             "57","58","59"
     );
+//    ObservableList<Integer> minutes = FXCollections.observableArrayList(
+//            0,1, 2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
+//        21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,
+//        46,47,48,49,50,51,52,53,54,55,56,57,58,59
+//    );
     ObservableList<String> amPm = FXCollections.observableArrayList(
             "AM","PM"
     );
@@ -72,6 +77,7 @@ public class SetSchedule extends Application {
         HBox startTime = createStartTime();
         HBox endTime = createEndTime();
         HBox weekdays = createWeekday();
+        HBox frequency = createFrequency();
         Button createTaskBtn = new Button();
         createTaskBtn.setText("Create Task");
         createTaskBtn.setOnAction(new EventHandler<ActionEvent>() {
@@ -81,9 +87,34 @@ public class SetSchedule extends Application {
             }
         });
 
-        newTaskPane.getChildren().addAll(taskPanelDirections, chooseday, weekdays, taskName, startTime, endTime, createTaskBtn);
+        newTaskPane.getChildren().addAll(taskPanelDirections, chooseday, weekdays, taskName, startTime,
+                endTime, frequency, createTaskBtn);
         return newTaskPane;
     }
+
+    private HBox createFrequency() {
+        HBox freq = new HBox();
+        Button once = new Button();
+        once.setText("One-Time Event");
+        once.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("This is a one-time Event");
+            }
+        });
+        Button more = new Button();
+        more.setText("Recurring events");
+        more.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("This is a recurring events");
+            }
+        });
+        freq.getChildren().addAll(once, more);
+        return freq;
+
+    }
+
     private HBox createTaskName(){
         HBox taskN = new HBox();
         Text taskName = new Text("Task Name: ");
