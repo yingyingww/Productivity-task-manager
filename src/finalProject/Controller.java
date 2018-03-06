@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Controller {
 
+    // Changes the format of the time to something acceptable
     public ArrayList calendarRectangle(ArrayList taskAttributes) {
         ArrayList rectangleAttributes = new ArrayList();
 

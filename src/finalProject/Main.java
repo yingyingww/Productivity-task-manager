@@ -27,6 +27,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        // Set up all necessary parts of the window
         VBox taskPanel = addTaskPanel();
         HBox menuPane = setMenu();
         VBox schedulePane = addSchedule();
@@ -42,6 +43,7 @@ public class Main extends Application {
         Scene scene = new Scene(root, 700, 500);
         primaryStage.setScene(scene);
 
+        // Add css features
         URL url = this.getClass().getResource("/finalProject/Main.css");
         if (url == null) {
             System.out.println("CSS Not Found. Exiting.");
@@ -113,6 +115,8 @@ public class Main extends Application {
         return taskCreator;
     }
 
+    // Create two menus. One main menu for navigation and popups
+    // The other for exiting.
     private HBox setMenu() {
         HBox menuPane = new HBox();
         menuPane.setAlignment(Pos.TOP_LEFT);
@@ -180,6 +184,8 @@ public class Main extends Application {
         return menuPane;
     }
 
+    // Provide the user with tips on being more production
+    // Would eventually make sense with what they've logged
     public static void productivityTips() {
         Alert tips = new Alert(AlertType.INFORMATION);
         tips.setTitle("Productivity Tips");
@@ -192,6 +198,7 @@ public class Main extends Application {
         tips.showAndWait();
     }
 
+    // Asks the user how productive they felt after a given task
     public static void productivityCheck() {
         Alert check = new Alert(AlertType.CONFIRMATION);
         check.setTitle("Productivity Check");
@@ -199,13 +206,6 @@ public class Main extends Application {
 
         Slider productivity = new Slider(0, 10, 5);
         Label level = new Label("-");
-        /*Button notRelevant = new Button("Not Relevant");
-        notRelevant.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                check.close();
-            }
-        });*/
 
         GridPane sliderLabel = new GridPane();
 
@@ -226,7 +226,6 @@ public class Main extends Application {
 
         sliderLabel.add(productivity, 0, 0);
         sliderLabel.add(level, 0, 1);
-        //sliderLabel.add(notRelevant, 0,2);
         check.getDialogPane().setContent(sliderLabel);
 
         check.showAndWait();
@@ -248,7 +247,7 @@ public class Main extends Application {
         info.showAndWait();
     }
 
-
+    // Currently sets up a dummy schedule
     private VBox addSchedule() {
         VBox schedule = new VBox();
         schedule.setAlignment(Pos.TOP_CENTER);
@@ -291,6 +290,7 @@ public class Main extends Application {
         return schedule;
     }
 
+    // Also sets up a less complex dummy schedule
     private VBox addCurrentSchedule() {
         VBox currSchedule = new VBox();
         currSchedule.setAlignment(Pos.TOP_CENTER);
@@ -310,7 +310,8 @@ public class Main extends Application {
         currSchedule.getChildren().addAll(task1, task2, task3, task4);
         return currSchedule;
     }
-
+    
+    // Puts the two schedules next two each other to be compared
     private GridPane combineSchedules(VBox idealSchedule, VBox currSchedule) {
         GridPane schedule = new GridPane();
         schedule.setAlignment(Pos.TOP_CENTER);

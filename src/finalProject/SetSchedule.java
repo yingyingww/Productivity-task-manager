@@ -38,11 +38,7 @@ public class SetSchedule extends Application {
             "46","47","48", "49","50","51","52","53","54","55","56",
             "57","58","59"
     );
-//    ObservableList<Integer> minutes = FXCollections.observableArrayList(
-//            0,1, 2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
-//        21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,
-//        46,47,48,49,50,51,52,53,54,55,56,57,58,59
-//    );
+
     ObservableList<String> amPm = FXCollections.observableArrayList(
             "AM","PM"
     );
@@ -67,6 +63,8 @@ public class SetSchedule extends Application {
         primaryStage.show();
     }
 
+    // Creates all of the buttons and text fields that take in information
+    // about a given task
     private VBox createTask() {
         VBox newTaskPane = new VBox();
         Text taskPanelDirections = new Text("Create A New Task");
@@ -103,6 +101,9 @@ public class SetSchedule extends Application {
         Button createTaskBtn = new Button();
         createTaskBtn.setText("Create Task");
 
+        // When the create task button is clicked, all of the information
+        // is put into an array and sends it to the controller so the 
+        // model can use that info.
         createTaskBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -145,6 +146,7 @@ public class SetSchedule extends Application {
         return newTaskPane;
     }
 
+    // Not sure if we will use this or not.
     /*
     private HBox createFrequency() {
         HBox freq = new HBox();
@@ -171,6 +173,7 @@ public class SetSchedule extends Application {
     }
     */
 
+    // Ideally will allow the user to pick set scheudles
     private HBox createWeekday(){
         HBox wkd = new HBox();
 
