@@ -178,7 +178,7 @@ public class Main extends Application {
     }
 
     public static void productivityTips() {
-        Alert tips = new Alert(AlertType.NONE);
+        Alert tips = new Alert(AlertType.INFORMATION);
         tips.setTitle("Productivity Tips");
         tips.setHeaderText(null);
         String tip1 = "You haven't been sleeping much. Try getting 8 hours, and hopefully that will boost your mood.";
