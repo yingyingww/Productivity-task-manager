@@ -16,6 +16,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import java.net.URL;
+import java.util.Set;
+
 import javafx.geometry.Insets;
 
 public class Main extends Application {
@@ -24,7 +26,7 @@ public class Main extends Application {
     BorderPane root = new BorderPane();
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         VBox taskPanel = addTaskPanel();
         HBox menuPane = setMenu();
         VBox schedulePane = addSchedule();
@@ -124,7 +126,8 @@ public class Main extends Application {
         setSchedule.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                status.setText("Set Schedule");
+                SetSchedule scheduleSetter = new SetSchedule();
+                scheduleSetter.start(new Stage());
             }
         });
 
@@ -249,20 +252,42 @@ public class Main extends Application {
     private VBox addSchedule() {
         VBox schedule = new VBox();
         schedule.setAlignment(Pos.TOP_CENTER);
+        schedule.setPrefSize(100,400);
 
-        Rectangle task1 = new Rectangle (100, 100, 100, 50);
-        task1.setFill(Color.BLUE);
+        Label taskName1 = new Label("Sleeping");
+        CalendarTaskRectangle task1 = new CalendarTaskRectangle(taskName1, 500, Color.YELLOW);
+        StackPane task1Pane = task1.setTaskRectangleAsStack();
 
-        Rectangle task2 = new Rectangle (100, 200, 100, 50);
-        task2.setFill(Color.RED);
+        Label taskName2 = new Label("Eating");
+        CalendarTaskRectangle task2 = new CalendarTaskRectangle(taskName2, 50, Color.ALICEBLUE);
+        StackPane task2Pane = task2.setTaskRectangleAsStack();
 
-        Rectangle task3 = new Rectangle (100, 300, 100, 50);
-        task3.setFill(Color.GREEN);
+        Label taskName3 = new Label("Homework");
+        CalendarTaskRectangle task3 = new CalendarTaskRectangle(taskName3, 150, Color.WHITE);
+        StackPane task3Pane = task3.setTaskRectangleAsStack();
 
-        Rectangle task4 = new Rectangle (100, 400, 100, 50);
-        task4.setFill(Color.PURPLE);
+        Label taskName4 = new Label("Running");
+        CalendarTaskRectangle task4 = new CalendarTaskRectangle(taskName4, 60, Color.VIOLET);
+        StackPane task4Pane = task4.setTaskRectangleAsStack();
 
-        schedule.getChildren().addAll(task1, task2, task3, task4);
+        Label taskName5 = new Label("Sleeping");
+        CalendarTaskRectangle task5 = new CalendarTaskRectangle(taskName5, 500, Color.GREEN);
+        StackPane task5Pane = task5.setTaskRectangleAsStack();
+
+        Label taskName6 = new Label("Eating");
+        CalendarTaskRectangle task6 = new CalendarTaskRectangle(taskName6, 50, Color.CRIMSON);
+        StackPane task6Pane = task6.setTaskRectangleAsStack();
+
+        Label taskName7 = new Label("Homework");
+        CalendarTaskRectangle task7 = new CalendarTaskRectangle(taskName7, 150, Color.AQUA);
+        StackPane task7Pane = task7.setTaskRectangleAsStack();
+
+        Label taskName8 = new Label("Running");
+        CalendarTaskRectangle task8 = new CalendarTaskRectangle(taskName8, 60, Color.CORAL);
+        StackPane task8Pane = task8.setTaskRectangleAsStack();
+
+        schedule.getChildren().addAll(task1Pane, task2Pane, task3Pane, task4Pane, task5Pane, task6Pane, task7Pane, task8Pane);
+        schedule.setSpacing(10);
         return schedule;
     }
 
@@ -293,19 +318,6 @@ public class Main extends Application {
         schedule.add(currSchedule,2, 1);
         return schedule;
     }
-
-    /**
-    private Node addStatus() {
-        FlowPane pane = new FlowPane();
-        pane.setAlignment(Pos.TOP_CENTER);
-        status.setText("Selected task will appear hear");
-        status.setFont(Font.font("Times New Roman", FontWeight.NORMAL, 14));
-        status.setWrapText(true);
-        status.setPrefColumnCount(20);
-        pane.getChildren().add(status);
-        return pane;
-    }
-    */
 
     public static void main(String[] args) {
         launch(args);
