@@ -17,16 +17,16 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import java.net.URL;
+import javafx.geometry.Insets;
 
 public class Main extends Application {
-    ToggleButton[] taskHolder = new ToggleButton[10];
     TextArea status = new TextArea("");
+    TaskButtonHolder taskButtonHolder = new TaskButtonHolder();
+    BorderPane root = new BorderPane();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        BorderPane root = new BorderPane();
-        VBox taskPanel = createTaskPanel();
-        taskPanel.setStyle("-fx-background-color: lightblue;");
+        VBox taskPanel = addTaskPanel();
         HBox menuPane = setMenu();
         VBox schedulePane = addSchedule();
         VBox currSchedulePane = addCurrentSchedule();
@@ -52,69 +52,64 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    private VBox createTaskPanel() {
+    /**
+     * @return the task panel on the right side of the main page
+     */
+    private VBox addTaskPanel() {
         VBox taskPanel = new VBox();
 
-        Label taskPanelDirections = new Label("Select Current Task");
+        //I want to move these to the CSS if possible
+        taskPanel.setPadding(new Insets(10, 10, 10, 10));
+        taskPanel.setStyle("-fx-background-color: lightblue;");
 
-        HBox addTaskField = createAddTaskField();
+        Label directions = new Label("Select Current Task");
 
-        VBox tasks = new VBox();
-
-        ToggleGroup taskGroup = new ToggleGroup();
-        for (int i=0; i<10; i++) {
-            ToggleButton task = new ToggleButton(String.valueOf(i));
-            task.setVisible(false);
-            taskHolder[i] = task;
-            task.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent e) {
-                    TimerLogic tml = new TimerLogic();
-                    if (task.isSelected()){
-                        tml.start();
-                    }
-                    if (!task.isSelected()){
-                        tml.end();
-                    }
-                    System.out.println(task.isSelected());
-                }
-            });
-            task.setToggleGroup(taskGroup);
-            tasks.getChildren().add(task);
+        ToggleGroup taskButtonGroup = new ToggleGroup();
+        VBox taskButtons = new VBox();
+        for (int i=0; i<taskButtonHolder.size(); i++) {
+            taskButtons.getChildren().add(taskButtonHolder.get(i));
+            taskButtonHolder.get(i).setToggleGroup(taskButtonGroup);
         }
 
-        taskPanel.getChildren().addAll(taskPanelDirections, addTaskField, tasks);
+        HBox taskCreator = addTaskCreator();
+
+        taskPanel.getChildren().addAll(directions, taskButtons, taskCreator);
         return taskPanel;
     }
+    
+    /**
+     * updates the task panel after a new button has been added
+     */
+    private void updateTaskPanel() {
+        VBox taskPanel = addTaskPanel();
+        root.setRight(taskPanel);
+    }
 
-    private HBox createAddTaskField() {
-        HBox newTaskPane = new HBox();
+    /**
+     * @return the "task creator" text field that allows you
+     * to create a new task button
+     */
+    private HBox addTaskCreator() {
+        HBox taskCreator = new HBox();
 
-        TextField addTaskField = new TextField();
-        addTaskField.setPromptText("Create a New Task");
-        Button addTaskButton = new Button("Add Task");
+        TextField taskCreatorField = new TextField();
+        taskCreatorField.setPromptText("Add a New Task");
+        Button taskCreatorButton = new Button("Add Task");
 
-        EventHandler<ActionEvent> printTaskName = new EventHandler<ActionEvent>() {
+        EventHandler<ActionEvent> addTask = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                String userInput = addTaskField.getText();
-                System.out.println(userInput);
-                //really bad/inefficient code, but it works to give us an idea
-                for (int i=0; i<10; i++) {
-                    if (!taskHolder[i].isVisible()) {
-                        taskHolder[i].setText(userInput);
-                        taskHolder[i].setVisible(true);
-                        break;
-                    }
-                }
+                String name = taskCreatorField.getText();
+                taskButtonHolder.addTaskButton(name);
+                updateTaskPanel();
             }
         };
 
-        addTaskField.setOnAction(printTaskName);
-        addTaskButton.setOnAction(printTaskName);
+        taskCreatorField.setOnAction(addTask);
+        taskCreatorButton.setOnAction(addTask);
 
-        newTaskPane.getChildren().addAll(addTaskField, addTaskButton);
-        return newTaskPane;
+        taskCreator.getChildren().addAll(taskCreatorField, taskCreatorButton);
+        return taskCreator;
     }
 
     private HBox setMenu() {
