@@ -1,4 +1,4 @@
-package Main;
+package finalProject;
 
 import javafx.scene.control.ToggleButton;
 

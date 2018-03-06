@@ -276,7 +276,7 @@ public class SetSchedule extends Application {
 
         Menu mainMenu = new Menu("Menu");
 
-        MenuItem mainPage = new MenuItem("Main Page");
+        MenuItem mainPage = new MenuItem("finalProject Page");
         mainPage.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -289,7 +289,7 @@ public class SetSchedule extends Application {
         reportProductivity.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Main.productivityCheck();
+                finalProject.productivityCheck();
             }
         });
 
@@ -305,7 +305,7 @@ public class SetSchedule extends Application {
         productivityTips.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Main.productivityTips();
+                finalProject.productivityTips();
             }
         });
 

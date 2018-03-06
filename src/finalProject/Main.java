@@ -1,4 +1,4 @@
-package Main;
+package finalProject;
 
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -8,7 +8,6 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.layout.*;
 import javafx.scene.control.Alert.AlertType;
@@ -41,7 +40,7 @@ public class Main extends Application {
         Scene scene = new Scene(root, 700, 500);
         primaryStage.setScene(scene);
 
-        URL url = this.getClass().getResource("/Main/Main.css");
+        URL url = this.getClass().getResource("/finalProject/Main.css");
         if (url == null) {
             System.out.println("CSS Not Found. Exiting.");
             System.exit(-1);

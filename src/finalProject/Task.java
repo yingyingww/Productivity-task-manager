@@ -1,4 +1,4 @@
-package Main;
+package finalProject;
 
 public class Task {
     private String name;

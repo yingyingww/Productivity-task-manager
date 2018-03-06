@@ -1,4 +1,4 @@
-package Main;
+package finalProject;
 
 // controller
 // Timer Logic (Model)
