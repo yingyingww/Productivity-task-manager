@@ -157,8 +157,14 @@ public class Main extends Application {
                 productivityTips();
             }
         });
+        
+        MenuItem newUserInfo = new MenuItem("Instructions for New Users");
+        newUserInfo.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {newUser();}
+        });
 
-        mainMenu.getItems().addAll(setSchedule, reportProductivity, trends, productivityTips);
+        mainMenu.getItems().addAll(setSchedule, reportProductivity, trends, productivityTips, newUserInfo);
 
         Menu exitMenu = new Menu("Exit");
         MenuItem exit = new MenuItem("Exit");
@@ -196,13 +202,13 @@ public class Main extends Application {
 
         Slider productivity = new Slider(0, 10, 5);
         Label level = new Label("-");
-        Button notRelevant = new Button("Not Relevant");
+        /*Button notRelevant = new Button("Not Relevant");
         notRelevant.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 check.close();
             }
-        });
+        });*/
 
         GridPane sliderLabel = new GridPane();
 
@@ -223,10 +229,26 @@ public class Main extends Application {
 
         sliderLabel.add(productivity, 0, 0);
         sliderLabel.add(level, 0, 1);
-        sliderLabel.add(notRelevant, 0,2);
+        //sliderLabel.add(notRelevant, 0,2);
         check.getDialogPane().setContent(sliderLabel);
 
         check.showAndWait();
+    }
+    
+    public static void newUser() {
+        Alert info = new Alert(AlertType.INFORMATION);
+        info.setTitle("How to Use Productivity+");
+        info.setHeaderText("Welcome to Productivity+");
+        String info1 = "Thanks for using our app! Our goal is to help you develop your most productive schedule.";
+        String info2 = "You can get started by clicking 'Set Schedule' and entering the ideal schedule for your day.";
+        String info3 = "Simply type in the name of each activity you would like to do during the day, and enter the";
+        String info4 = "start and end times you would prefer. Once you have entered your schedule, head to the main page";
+        String info5 = "where you will keep track of your actual schedule. When you begin a task, click that task's button";
+        String info6 = "then click it again to end the task. We'll keep track of the rest!";
+        String allTips = info1 + "\n\n" + info2 + "\n\n" + info3 + "\n\n" + info4 + "\n\n" + info5 + "\n\n" + info6;
+        info.setContentText(allTips);
+
+        info.showAndWait();
     }
 
 
