@@ -33,7 +33,7 @@ public class Main extends Application {
         VBox schedulePane = addSchedule();
         VBox currSchedulePane = addCurrentSchedule();
         GridPane schedulesPane = combineSchedules(schedulePane, currSchedulePane);
-        schedulesPane.setStyle("-fx-background-color: lightcoral;");
+        schedulesPane.setStyle("-fx-background-color: #922b21;");
 
         root.setRight(taskPanel);
         root.setTop(menuPane);
@@ -63,7 +63,7 @@ public class Main extends Application {
 
         //I want to move these to the CSS if possible
         taskPanel.setPadding(new Insets(10, 10, 10, 10));
-        taskPanel.setStyle("-fx-background-color: lightblue;");
+        taskPanel.setStyle("-fx-background-color: #1f618d;");
 
         Label directions = new Label("Select Current Task");
 
