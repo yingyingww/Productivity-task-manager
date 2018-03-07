@@ -53,7 +53,7 @@ public class SetSchedule extends Application {
         VBox schedulePane = addSchedule();
 
         GridPane schedulesPane = combineSchedules(schedulePane);
-        schedulesPane.setStyle("-fx-background-color: lightcoral;");
+        schedulesPane.setStyle("-fx-background-color:  #922b21;");
         root.setCenter(schedulesPane);
         HBox menuPane = setMenu();
         root.setTop(menuPane);
@@ -74,7 +74,7 @@ public class SetSchedule extends Application {
 
         newTaskPane.setPadding(new Insets(15, 12, 15, 12));
         newTaskPane.setSpacing(20);
-        newTaskPane.setStyle("-fx-background-color: lightblue;");
+        newTaskPane.setStyle("-fx-background-color: #1f618d;");
 
         HBox taskNameInput = new HBox();
         Text taskName = new Text("Task Name: ");
