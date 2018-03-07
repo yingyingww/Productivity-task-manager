@@ -1,8 +1,13 @@
 To Do List:
-- Figure out how to close the productivity tips popup
-- Figure out how to make radio buttons show up after they have been added in the text field
 - Make a bunch of different classes/generally clean up
+  - Popups to be their own class
 - Make radio buttons match the color of the task they are assiociated with
 - Add the time of the day on the left
 - Make schedules way better
-- Figure out layout
+  - Have a task of the right size pop up on the left after the user has added it
+- Figure out how to pass/store data between MVC
+- Figure out how to organize colors and assign them
+- Figure out how to deal with bad input
+- How to store data longterm, so templates and analysis isn't lost when the app is closed
+  - dummy data
+  - write object to file and load object state in
