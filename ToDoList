@@ -11,3 +11,4 @@ To Do List:
 - How to store data longterm, so templates and analysis isn't lost when the app is closed
   - dummy data
   - write object to file and load object state in
+  - serializable
