@@ -19,6 +19,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -130,7 +131,12 @@ public class SetSchedule extends Application {
                 // TODO: Make sure the user can't input an invalid amount of time
                 if (allFieldsFilled) {
                     Controller controller = new Controller();
-                    controller.calendarRectangle(taskAttributes);
+                    // TODO: Figure out best way to do this
+                    try {
+                        controller.calendarRectangle(taskAttributes);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
                     System.out.println(taskAttributes);
                 } else {
                     System.out.println("Fill out everything");

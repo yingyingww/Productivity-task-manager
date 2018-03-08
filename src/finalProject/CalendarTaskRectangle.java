@@ -7,10 +7,10 @@ import javafx.scene.shape.Rectangle;
 
 public class CalendarTaskRectangle {
     public Label taskName;
-    public int timeSpent;
+    public long timeSpent;
     public Color color;
 
-    public CalendarTaskRectangle(Label taskName, int timeSpent, Color color) {
+    public CalendarTaskRectangle(Label taskName, long timeSpent, Color color) {
         this.taskName = taskName;
         this.timeSpent = timeSpent;
         this.color = color;
@@ -19,7 +19,7 @@ public class CalendarTaskRectangle {
     public StackPane setTaskRectangleAsStack() {
         StackPane stack = new StackPane();
 
-        int height = (timeSpent/16) + 10;
+        long height = (timeSpent/16) + 10;
 
         Rectangle taskRectangle = new Rectangle(100, height);
         taskRectangle.setFill(color);
