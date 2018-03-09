@@ -3,6 +3,7 @@ package finalProject;
 public class Task {
     private String name;
     private boolean isRunning = false;
+    TimerLogic aTimer = new TimerLogic();
 
     public Task(String name) {
         this.name = name;
@@ -26,13 +27,13 @@ public class Task {
 
     // The following two methods will be used to call other classes.
     private void startTask() {
-        //filler code to start...
+        aTimer.logStartTime();
         String beginTaskStatement = "Task " + this.getName() + " has begun.";
         System.out.println(beginTaskStatement);
     }
 
     private void endTask() {
-        //filler code to start...
+        aTimer.logEndTime();
         String endTaskStatement = "Task " + this.getName() + " has ended.";
         System.out.println(endTaskStatement);
     }
