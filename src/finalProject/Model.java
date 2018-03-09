@@ -12,7 +12,7 @@ public class Model {
         } else if (taskExists(name)){
             throw new taskAlreadyExistsException("This task already exists.");
         } else {
-            tasks.add(new Task(name)); // have to change task constructor
+            tasks.add(new Task(name, null)); // have to change task constructor
         }
     }
 
@@ -30,7 +30,7 @@ public class Model {
 
     private boolean taskExists(String name) {
         // check to see if the case is the same!!
-        return tasks.contains(name);
+        return tasks.contains(new Task(name, null));
     }
 
 }
