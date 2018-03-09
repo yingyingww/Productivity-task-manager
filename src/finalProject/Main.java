@@ -200,7 +200,12 @@ public class Main extends Application {
 
     // Asks the user how productive they felt after a given task
     public static void productivityCheck() {
-        Alert check = new Alert(AlertType.CONFIRMATION);
+
+
+
+        ButtonType irrelevant = new ButtonType("Not Relevant", ButtonBar.ButtonData.CANCEL_CLOSE);
+        ButtonType submit = new ButtonType("Submit", ButtonBar.ButtonData.OK_DONE);
+        Alert check = new Alert(AlertType.CONFIRMATION, "", irrelevant, submit);
         check.setTitle("Productivity Check");
         check.setHeaderText("How Productive did you feel during the last activity?");
 
@@ -229,6 +234,8 @@ public class Main extends Application {
         check.getDialogPane().setContent(sliderLabel);
 
         check.showAndWait();
+        double productivityVaule = productivity.getValue();
+        Controller.updateTask(productivityVaule);
     }
     
     public static void newUser() {
