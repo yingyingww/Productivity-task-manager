@@ -12,6 +12,7 @@ public class Controller2 {
     public void addTask(String name) {
         try {
             model.addTask(name);
+
         } catch (EmptyTaskNameException e) {
             System.out.println(e.getMessage());
             System.exit(-1);

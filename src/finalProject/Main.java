@@ -24,7 +24,7 @@ public class Main extends Application {
     TaskButtonHolder taskButtonHolder = new TaskButtonHolder(this);
     BorderPane root = new BorderPane();
     VBox taskPanel = new VBox();
-    Controller2 c = new Controller2();
+    Controller2 c = new Controller2(this, new Model());
 
     @Override
     public void start(Stage primaryStage) {
