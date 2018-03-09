@@ -6,11 +6,16 @@ import java.util.List;
 public class TaskHolder {
     private List<Task> tasks  = new LinkedList<>();
     private int currentRunningTask = -1;
+    Main m;
 
     //No constructor needed.
 
+    public void setMain(Main m) {
+        this.m = m;
+    }
+
     public void addTask(String name) {
-        tasks.add(new Task(name));
+        tasks.add(new Task(name, this.m));
     }
 
     public void remove(int taskNumber) {
