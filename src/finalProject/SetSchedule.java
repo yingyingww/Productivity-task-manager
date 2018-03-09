@@ -133,7 +133,7 @@ public class SetSchedule extends Application {
                     Controller controller = new Controller();
                     // TODO: Figure out best way to do this
                     try {
-                        controller.calendarRectangle(taskAttributes);
+                        controller.taskInstanceCreated(taskAttributes);
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }

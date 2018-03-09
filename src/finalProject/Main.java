@@ -258,7 +258,8 @@ public class Main extends Application {
         VBox schedule = new VBox();
         schedule.setAlignment(Pos.TOP_CENTER);
         schedule.setPrefSize(100,400);
-
+        
+        /*
         Label taskName1 = new Label("Sleeping");
         CalendarTaskRectangle task1 = new CalendarTaskRectangle(taskName1, 500, Color.YELLOW);
         StackPane task1Pane = task1.setTaskRectangleAsStack();
@@ -292,6 +293,7 @@ public class Main extends Application {
         StackPane task8Pane = task8.setTaskRectangleAsStack();
 
         schedule.getChildren().addAll(task1Pane, task2Pane, task3Pane, task4Pane, task5Pane, task6Pane, task7Pane, task8Pane);
+        */
         schedule.setSpacing(10);
         return schedule;
     }

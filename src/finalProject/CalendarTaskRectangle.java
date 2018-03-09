@@ -5,24 +5,25 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class CalendarTaskRectangle {
+public class CalendarTaskRectangle extends StackPane {
     public Label taskName;
-    public long timeSpent;
+    public int height;
+    public int startPoint;
     public Color color;
 
-    public CalendarTaskRectangle(Label taskName, long timeSpent, Color color) {
+    public CalendarTaskRectangle(Label taskName, int height, int startPoint, Color color) {
         this.taskName = taskName;
-        this.timeSpent = timeSpent;
+        this.height = height;
+        this.startPoint = startPoint;
         this.color = color;
     }
 
     public StackPane setTaskRectangleAsStack() {
         StackPane stack = new StackPane();
 
-        long height = (timeSpent/16) + 10;
-
         Rectangle taskRectangle = new Rectangle(100, height);
         taskRectangle.setFill(color);
+        taskRectangle.setY(startPoint);
 
         taskName.setTextFill(Color.WHITE);
 
