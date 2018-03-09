@@ -1,6 +1,6 @@
 package finalProject;
 
-public class Task {
+public class Task implements Comparable<Task>{
     private String name;
     private boolean isRunning = false;
     Main m;
@@ -11,6 +11,24 @@ public class Task {
         this.m = m;
     }
 
+    @Override
+    public boolean equals(Object obj){
+        if (this == obj) { return true; }
+        if (!(obj instanceof Task)) { return false; }
+        Task that = (Task) obj;
+        return this.getName().equals(that.getName());
+    }
+
+    @Override
+    public int hashCode(){
+        return this.getName().hashCode();
+    }
+
+    @Override
+    public int compareTo(Task that){
+        return this.getName().compareTo(that.getName());
+    }
+
     public String getName() {
         return this.name;
     }
@@ -18,7 +36,7 @@ public class Task {
     /**
      * Calls startTask() if its not running and endTask() if it is.
      */
-    public void changeTaskState() {
+    public void changeState() {
         if (!this.isRunning) {
             startTask();
         } else {

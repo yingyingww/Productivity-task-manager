@@ -10,6 +10,15 @@ public class TaskHolder {
 
     //No constructor needed.
 
+    public boolean contains(String name) {
+        for (int i=0; i<tasks.size(); i++) {
+            if (tasks.get(i).getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void setMain(Main m) {
         this.m = m;
     }
@@ -48,9 +57,9 @@ public class TaskHolder {
             setCurrentRunningTask(-1);
         } else {
             // used to switch tasks
-            this.tasks.get(currentRunningTask).changeTaskState();
+            this.tasks.get(currentRunningTask).changeState();
             setCurrentRunningTask(taskNumber);
         }
-        this.tasks.get(taskNumber).changeTaskState();
+        this.tasks.get(taskNumber).changeState();
     }
 }
