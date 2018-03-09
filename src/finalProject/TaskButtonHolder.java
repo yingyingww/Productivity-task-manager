@@ -12,7 +12,9 @@ public class TaskButtonHolder {
     private List<TaskButton> taskButtons = new LinkedList<>();
     private TaskHolder taskHolder = new TaskHolder();
 
-    //No constructor needed.
+    public TaskButtonHolder(Main m) {
+        taskHolder.setMain(m);
+    }
 
     /**
      * this is the meat of the task creation. It creates a task and a task
