@@ -22,7 +22,7 @@ import javafx.geometry.Insets;
 
 public class Main extends Application {
     TextArea status = new TextArea("");
-    TaskButtonHolder taskButtonHolder = new TaskButtonHolder();
+    TaskButtonHolder taskButtonHolder = new TaskButtonHolder(this);
     BorderPane root = new BorderPane();
 
     @Override
