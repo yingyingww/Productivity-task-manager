@@ -33,6 +33,4 @@ public class Model {
         return tasks.contains(name);
     }
 
-
-
 }

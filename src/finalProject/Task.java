@@ -3,8 +3,8 @@ package finalProject;
 public class Task implements Comparable<Task>{
     private String name;
     private boolean isRunning = false;
-    Main m;
     TimerLogic a = new TimerLogic();
+    Main m;
 
     public Task(String name, Main m) {
         this.name = name;
