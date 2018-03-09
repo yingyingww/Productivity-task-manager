@@ -16,7 +16,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import java.net.URL;
-import java.util.Set;
 
 import javafx.geometry.Insets;
 
@@ -24,11 +23,12 @@ public class Main extends Application {
     TextArea status = new TextArea("");
     TaskButtonHolder taskButtonHolder = new TaskButtonHolder(this);
     BorderPane root = new BorderPane();
+    VBox taskPanel = new VBox();
+    Controller2 c = new Controller2();
 
     @Override
     public void start(Stage primaryStage) {
-        // Set up all necessary parts of the window
-        VBox taskPanel = addTaskPanel();
+        updateTaskPanel();
         HBox menuPane = setMenu();
         VBox schedulePane = addSchedule();
         VBox currSchedulePane = addCurrentSchedule();
@@ -58,8 +58,9 @@ public class Main extends Application {
     /**
      * @return the task panel on the right side of the main page
      */
-    private VBox addTaskPanel() {
-        VBox taskPanel = new VBox();
+    private void updateTaskPanel() {
+        taskPanel.getChildren().clear();
+        //VBox taskPanel = new VBox();
 
         //I want to move these to the CSS if possible
         taskPanel.setPadding(new Insets(10, 10, 10, 10));
@@ -77,15 +78,6 @@ public class Main extends Application {
         HBox taskCreator = addTaskCreator();
 
         taskPanel.getChildren().addAll(directions, taskButtons, taskCreator);
-        return taskPanel;
-    }
-    
-    /**
-     * updates the task panel after a new button has been added
-     */
-    private void updateTaskPanel() {
-        VBox taskPanel = addTaskPanel();
-        root.setRight(taskPanel);
     }
 
     /**
@@ -105,6 +97,7 @@ public class Main extends Application {
                 String name = taskCreatorField.getText();
                 taskButtonHolder.addTaskButton(name);
                 updateTaskPanel();
+                //TODO: Change this!
             }
         };
 
@@ -158,7 +151,7 @@ public class Main extends Application {
                 productivityTips();
             }
         });
-        
+
         MenuItem newUserInfo = new MenuItem("Instructions for New Users");
         newUserInfo.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -220,7 +213,7 @@ public class Main extends Application {
         productivity.setSnapToTicks(true);
 
         productivity.valueProperty().addListener((obs, oldval, newval) ->
-        productivity.setValue(newval.intValue()));
+                productivity.setValue(newval.intValue()));
 
         productivity.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
@@ -236,7 +229,7 @@ public class Main extends Application {
         check.showAndWait();
         double productivityVaule = productivity.getValue();
     }
-    
+
     public static void newUser() {
         Alert info = new Alert(AlertType.INFORMATION);
         info.setTitle("How to Use Productivity+");
@@ -258,42 +251,40 @@ public class Main extends Application {
         VBox schedule = new VBox();
         schedule.setAlignment(Pos.TOP_CENTER);
         schedule.setPrefSize(100,400);
-        
-        /*
-        Label taskName1 = new Label("Sleeping");
-        CalendarTaskRectangle task1 = new CalendarTaskRectangle(taskName1, 500, Color.YELLOW);
-        StackPane task1Pane = task1.setTaskRectangleAsStack();
 
-        Label taskName2 = new Label("Eating");
-        CalendarTaskRectangle task2 = new CalendarTaskRectangle(taskName2, 50, Color.ALICEBLUE);
-        StackPane task2Pane = task2.setTaskRectangleAsStack();
-
-        Label taskName3 = new Label("Homework");
-        CalendarTaskRectangle task3 = new CalendarTaskRectangle(taskName3, 150, Color.WHITE);
-        StackPane task3Pane = task3.setTaskRectangleAsStack();
-
-        Label taskName4 = new Label("Running");
-        CalendarTaskRectangle task4 = new CalendarTaskRectangle(taskName4, 60, Color.VIOLET);
-        StackPane task4Pane = task4.setTaskRectangleAsStack();
-
-        Label taskName5 = new Label("Sleeping");
-        CalendarTaskRectangle task5 = new CalendarTaskRectangle(taskName5, 500, Color.GREEN);
-        StackPane task5Pane = task5.setTaskRectangleAsStack();
-
-        Label taskName6 = new Label("Eating");
-        CalendarTaskRectangle task6 = new CalendarTaskRectangle(taskName6, 50, Color.CRIMSON);
-        StackPane task6Pane = task6.setTaskRectangleAsStack();
-
-        Label taskName7 = new Label("Homework");
-        CalendarTaskRectangle task7 = new CalendarTaskRectangle(taskName7, 150, Color.AQUA);
-        StackPane task7Pane = task7.setTaskRectangleAsStack();
-
-        Label taskName8 = new Label("Running");
-        CalendarTaskRectangle task8 = new CalendarTaskRectangle(taskName8, 60, Color.CORAL);
-        StackPane task8Pane = task8.setTaskRectangleAsStack();
-
-        schedule.getChildren().addAll(task1Pane, task2Pane, task3Pane, task4Pane, task5Pane, task6Pane, task7Pane, task8Pane);
-        */
+//        Label taskName1 = new Label("Sleeping");
+//        CalendarTaskRectangle task1 = new CalendarTaskRectangle(taskName1, 500, Color.YELLOW);
+//        StackPane task1Pane = task1.setTaskRectangleAsStack();
+//
+//        Label taskName2 = new Label("Eating");
+//        CalendarTaskRectangle task2 = new CalendarTaskRectangle(taskName2, 50, Color.ALICEBLUE);
+//        StackPane task2Pane = task2.setTaskRectangleAsStack();
+//
+//        Label taskName3 = new Label("Homework");
+//        CalendarTaskRectangle task3 = new CalendarTaskRectangle(taskName3, 150, Color.WHITE);
+//        StackPane task3Pane = task3.setTaskRectangleAsStack();
+//
+//        Label taskName4 = new Label("Running");
+//        CalendarTaskRectangle task4 = new CalendarTaskRectangle(taskName4, 60, Color.VIOLET);
+//        StackPane task4Pane = task4.setTaskRectangleAsStack();
+//
+//        Label taskName5 = new Label("Sleeping");
+//        CalendarTaskRectangle task5 = new CalendarTaskRectangle(taskName5, 500, Color.GREEN);
+//        StackPane task5Pane = task5.setTaskRectangleAsStack();
+//
+//        Label taskName6 = new Label("Eating");
+//        CalendarTaskRectangle task6 = new CalendarTaskRectangle(taskName6, 50, Color.CRIMSON);
+//        StackPane task6Pane = task6.setTaskRectangleAsStack();
+//
+//        Label taskName7 = new Label("Homework");
+//        CalendarTaskRectangle task7 = new CalendarTaskRectangle(taskName7, 150, Color.AQUA);
+//        StackPane task7Pane = task7.setTaskRectangleAsStack();
+//
+//        Label taskName8 = new Label("Running");
+//        CalendarTaskRectangle task8 = new CalendarTaskRectangle(taskName8, 60, Color.CORAL);
+//        StackPane task8Pane = task8.setTaskRectangleAsStack();
+//
+//        schedule.getChildren().addAll(task1Pane, task2Pane, task3Pane, task4Pane, task5Pane, task6Pane, task7Pane, task8Pane);
         schedule.setSpacing(10);
         return schedule;
     }
@@ -318,7 +309,7 @@ public class Main extends Application {
         currSchedule.getChildren().addAll(task1, task2, task3, task4);
         return currSchedule;
     }
-    
+
     // Puts the two schedules next two each other to be compared
     private GridPane combineSchedules(VBox idealSchedule, VBox currSchedule) {
         GridPane schedule = new GridPane();
