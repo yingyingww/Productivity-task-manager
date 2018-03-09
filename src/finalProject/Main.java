@@ -235,7 +235,6 @@ public class Main extends Application {
 
         check.showAndWait();
         double productivityVaule = productivity.getValue();
-        Controller.updateTask(productivityVaule);
     }
     
     public static void newUser() {
