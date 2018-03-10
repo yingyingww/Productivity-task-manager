@@ -14,11 +14,9 @@ public class Controller2 {
             model.addTask(name);
             main.addTaskButton(name);
         } catch (EmptyTaskNameException e) {
-            System.out.println(e.getMessage());
-            System.exit(-1);
+            main.errorEnteringTasks(e.getMessage());
         } catch (taskAlreadyExistsException e) {
-            System.out.println(e.getMessage());
-            System.exit(-1);
+            main.errorEnteringTasks(e.getMessage());
         }
     }
 

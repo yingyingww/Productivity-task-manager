@@ -262,6 +262,13 @@ public class Main extends Application {
         info.showAndWait();
     }
 
+    public void errorEnteringTasks(String error) {
+        Alert info = new Alert(AlertType.ERROR);
+        info.setTitle("Error!");
+        info.setHeaderText("Error: " + error);
+        info.showAndWait();
+    }
+
     // Currently sets up a dummy schedule
     private VBox addSchedule() {
         VBox schedule = new VBox();

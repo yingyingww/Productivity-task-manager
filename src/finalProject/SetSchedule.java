@@ -39,7 +39,6 @@ public class SetSchedule extends Application {
             "46","47","48", "49","50","51","52","53","54","55","56",
             "57","58","59"
     );
-
     ObservableList<String> amPm = FXCollections.observableArrayList(
             "AM","PM"
     );
