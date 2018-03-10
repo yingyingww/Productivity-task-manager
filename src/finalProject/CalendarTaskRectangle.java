@@ -7,11 +7,11 @@ import javafx.scene.shape.Rectangle;
 
 public class CalendarTaskRectangle extends StackPane {
     public Label taskName;
-    public int height;
-    public double startPoint;
+    public float height;
+    public float startPoint;
     public Color color;
 
-    public CalendarTaskRectangle(Label taskName, int height, double startPoint, Color color) {
+    public CalendarTaskRectangle(Label taskName, float height, float startPoint, Color color) {
         this.taskName = taskName;
         this.height = height;
         this.startPoint = startPoint;
@@ -23,13 +23,11 @@ public class CalendarTaskRectangle extends StackPane {
 
         Rectangle taskRectangle = new Rectangle(100, height);
         taskRectangle.setFill(color);
-        taskRectangle.setY(startPoint);
 
         taskName.setTextFill(Color.BLACK);
 
         stack.getChildren().addAll(taskRectangle, taskName);
-
-        System.out.println("Made a rectangle");
+        stack.relocate(0,startPoint);
 
         return stack;
     }

@@ -12,26 +12,25 @@ public class Calendar extends Pane {
     public int height;
 
     public Calendar() {
-        calendarColors = new Color[] {Color.CYAN, Color.MAGENTA, Color.YELLOW, Color.PINK, Color.ALICEBLUE};
+        calendarColors = new Color[] {Color.CYAN, Color.MAGENTA, Color.YELLOW, Color.PINK, Color.ALICEBLUE, Color.VIOLET};
         numberOfTasks = 0;
         // TODO: Figure out what it really should be
-        height = 1440;
+        height = 500;
         todaysTask = new ArrayList<>();
     }
 
-    public void addTaskToCalendar(Label taskName, int rectHeight, double rectStartPoint) {
+    public void addTaskToCalendar(Label taskName, float rectHeight, float rectStartPoint) {
         todaysTask.add(new CalendarTaskRectangle(taskName, rectHeight, rectStartPoint, calendarColors[numberOfTasks]));
         numberOfTasks++;
     }
 
     public Pane displayCalendar() {
         Pane schedule = new Pane();
-        schedule.setPrefSize(100,1440);
+        schedule.setPrefSize(100,500);
 
         if(hasTasks()) {
             for (CalendarTaskRectangle task : todaysTask) {
                 schedule.getChildren().add(task.setTaskRectangleAsStack());
-                System.out.println("new task");
             }
         }
 

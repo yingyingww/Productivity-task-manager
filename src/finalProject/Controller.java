@@ -18,18 +18,12 @@ public class Controller {
     public Calendar updateCalendar(ArrayList taskAttributes) {
         Label taskName = (Label) taskAttributes.get(0);
 
-        double startPoint = getStartPoint(taskAttributes);
-        int heightOfRectangle = getHeightOfRectangle(taskAttributes);
-
-        System.out.println("we got here!");
+        float startPoint = getStartPoint(taskAttributes);
+        float heightOfRectangle = getHeightOfRectangle(taskAttributes);
 
         Calendar currentSchedule = setSchedule.getIdealSchedule();
 
-        System.out.println("we got here 2!");
-
         currentSchedule.addTaskToCalendar(taskName, heightOfRectangle, startPoint);
-
-        System.out.println("we got here 3!");
 
         return currentSchedule;
 
@@ -43,13 +37,15 @@ public class Controller {
 
 
     public int changeToMilitaryTime(String amPm, int hour) {
-        if (amPm == "PM") {
+        if (amPm == "PM" && hour < 12) {
             hour += 12;
+        } if (amPm == "AM" && hour == 12) {
+            hour = 0;
         }
         return hour;
     }
 
-    public double getStartPoint(ArrayList startArray) {
+    public float getStartPoint(ArrayList startArray) {
         int startHour = changeToMilitaryTime((String) startArray.get(3), (int) startArray.get(1));
         int startMinute = Integer.valueOf((String) startArray.get(2));
         int startTime = startMinute + (60 * startHour);
@@ -59,14 +55,16 @@ public class Controller {
 
         int dayLength = 60 * 24;
 
-        double startPoint = (startTime / dayLength) * calHeight;
+        float startPoint = ((float) startTime / (float) dayLength) * (float) calHeight;
 
+        System.out.println("calHeight: " + calHeight);
+        System.out.println("(startTime / dayLength): " + ((float) startTime / (float) dayLength));
         System.out.println("startPoint: " + startPoint);
 
         return startPoint;
     }
 
-    public int getHeightOfRectangle(ArrayList timesArray) {
+    public float getHeightOfRectangle(ArrayList timesArray) {
         int startHour = changeToMilitaryTime((String) timesArray.get(3), (int) timesArray.get(1));
         int startMinute = Integer.valueOf((String) timesArray.get(2));
         int endHour = changeToMilitaryTime((String) timesArray.get(6), (int) timesArray.get(4));;
@@ -75,7 +73,11 @@ public class Controller {
         int totalHours = endHour - startHour;
         int totalMinutes = endMinute - startMinute;
 
-        int height = totalMinutes + (60 * totalHours);
+        Calendar calendar = new Calendar();
+        int calHeight = calendar.height;
+        float dayLength = (float) (60 * 24);
+
+        float height = (((float) totalMinutes + (60 * (float) totalHours)) / dayLength) * (float) calHeight;
         System.out.println("height: " + height);
         return height;
     }

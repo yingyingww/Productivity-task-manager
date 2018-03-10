@@ -100,6 +100,14 @@ public class SetSchedule extends Application {
         ComboBox endAmPM = new ComboBox(amPm);
         endTime.getChildren().addAll(endTimeText, endHours, endColon, endMinutes, endAmPM);
 
+        ColorPicker colorPicker = new ColorPicker();
+        colorPicker.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("Color: " + colorPicker.getValue());
+            }
+        });
+        
         Button createTaskButton = new Button();
         createTaskButton.setText("Create Task");
 
@@ -122,21 +130,32 @@ public class SetSchedule extends Application {
                 ArrayList taskAttributes = new ArrayList();
                 taskAttributes.addAll(Arrays.asList(nameInput, startHoursInput, startMinutesInput, startAMPMInput, endHoursInput, endMinutesInput, endAMPMInput));
 
+                // TODO: Make own method maybe in controller?
                 boolean allFieldsFilled = true;
+                boolean validTime = true;
                 for(Object attribute : taskAttributes) {
                     if(attribute == null || attribute.equals("")) {
                         allFieldsFilled = false;
+                    } if(startAMPMInput.equals("PM") && endAMPMInput.equals("AM")) {
+                        validTime = false;
+                    } else if(startAMPMInput.equals(endAMPMInput) && (int) startHoursInput > (int) endHoursInput) {
+                        validTime = false;
+                    } else if(startAMPMInput.equals(endAMPMInput) && startHoursInput.equals(endHoursInput) && Integer.valueOf((String) startMinutesInput) > Integer.valueOf((String) endMinutesInput)) {
+                        validTime = false;
+                    } else if(startAMPMInput.equals(endAMPMInput) && startHoursInput.equals(endHoursInput) && startMinutesInput.equals(endMinutesInput)) {
+                        validTime = false;
                     }
                 }
 
-                // TODO: Make sure the user can't input an invalid amount of time
-                if (allFieldsFilled) {
+                if (allFieldsFilled && validTime) {
                     // TODO: Figure out best way to do this
                     System.out.println("Task Attributes are: " + taskAttributes);
                     idealSchedule = controller.updateCalendar(taskAttributes);
                     root.setCenter(addSchedule());
                 } else {
+                    // TODO: make this a popup
                     System.out.println("Fill out everything");
+                    System.out.println("Input a valid time");
                 }
             }
         });
@@ -144,7 +163,7 @@ public class SetSchedule extends Application {
         HBox weekdays = createWeekday();
 
         newTaskPane.getChildren().addAll(taskPanelDirections, chooseDay, weekdays, taskNameInput, startTime,
-                endTime, /*frequency, */createTaskButton);
+                endTime, /*frequency, */createTaskButton, colorPicker);
 
         return newTaskPane;
     }
