@@ -20,10 +20,6 @@ public class Controller2 {
         }
     }
 
-    public String fart() {
-       return "fart";
-    }
-
     public void taskClicked(String name) {
         Task t = model.getTask(name);
         model.switchTasks(t);

@@ -28,10 +28,6 @@ public class Main extends Application {
     Controller2 c = new Controller2(this);
     VBox taskButtonsView = new VBox();
 
-    public String fart() {
-        return "fart";
-    }
-
     @Override
     public void start(Stage primaryStage) {
         BorderPane root = new BorderPane();
