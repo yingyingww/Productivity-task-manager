@@ -195,12 +195,18 @@ public class Main extends Application {
     }
 
     // Asks the user how productive they felt after a given task
-    public int productivityCheck(String name) {
+   public int productivityCheck(String name) {
+
+
+        int productivityValue = Integer.parseInt(null);
+
         ButtonType irrelevant = new ButtonType("Not Relevant", ButtonBar.ButtonData.CANCEL_CLOSE);
         ButtonType submit = new ButtonType("Submit", ButtonBar.ButtonData.OK_DONE);
+
         Alert check = new Alert(AlertType.CONFIRMATION, "", irrelevant, submit);
+        final Button submitButton = (Button) check.getDialogPane().lookupButton(ButtonType.CANCEL);
         check.setTitle("Productivity Check");
-        check.setHeaderText("How Productive did you feel during '" + name + "'?");
+        check.setHeaderText("How Productive did you feel during the '" + name + "' activity?");
 
         Slider productivity = new Slider(0, 10, 5);
         Label level = new Label("-");
@@ -213,7 +219,15 @@ public class Main extends Application {
         productivity.setSnapToTicks(true);
 
         productivity.valueProperty().addListener((obs, oldval, newval) ->
-                productivity.setValue(newval.intValue()));
+        productivity.setValue(newval.intValue()));
+
+        EventHandler<ActionEvent> updateValue = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                int productivityValue = (int)productivity.getValue();
+            }
+        };
+        submitButton.setOnAction(updateValue);
 
         productivity.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
@@ -227,9 +241,7 @@ public class Main extends Application {
         check.getDialogPane().setContent(sliderLabel);
 
         check.showAndWait();
-
-        //this needs to return the value of the slider or null if cancelled (either X or "Not relevant")
-        return 0;
+        return productivityValue;
     }
 
     public static void newUser() {
