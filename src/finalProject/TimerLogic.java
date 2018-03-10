@@ -1,4 +1,8 @@
 package finalProject;
+/**
+ * The TimerLogic java file is a will log the start/end Time of a Task
+ *
+ */
 
 // controller
 // Timer Logic (Model)
@@ -16,7 +20,9 @@ import java.util.concurrent.TimeUnit;
 public class TimerLogic {
     private Date startTime;
     private Date endTime;
-    
+    //private Calendar startCal;
+
+
     public Date logStartTime(){
         Calendar startCal = Calendar.getInstance();
         startTime = startCal.getTime();
@@ -38,6 +44,7 @@ public class TimerLogic {
         long intervalInMinutes;
         long intervalInMs = endTime.getTime() - startTime.getTime();
         long intervalInSeconds = TimeUnit.MILLISECONDS.toSeconds(intervalInMs);
+        //System.out.println("Time Interval is: " + intervalInSeconds + " seconds");
         if (intervalInSeconds % 60 == 0){
             intervalInMinutes = TimeUnit.MILLISECONDS.toMinutes(intervalInMs);
             System.out.println("Time Interval is: " + intervalInMinutes + " minute(s)");
@@ -48,7 +55,6 @@ public class TimerLogic {
         }
         return intervalInMinutes;
     }
-   
 
      public static void main(String[] args) {
         TimerLogic a = new TimerLogic();
