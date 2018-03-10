@@ -1,9 +1,9 @@
 package finalProject;
 
-import java.util.HashSet;
+import java.util.HashMap;
 
 public class Model {
-    private HashSet<Task> tasks = new HashSet<>();
+    private HashMap<String, Task> tasks = new HashMap<>();
     private Task currentTask;
 
     public void addTask(String name) throws EmptyTaskNameException, taskAlreadyExistsException {
@@ -12,7 +12,7 @@ public class Model {
         } else if (taskExists(name)){
             throw new taskAlreadyExistsException("This task already exists.");
         } else {
-            tasks.add(new Task(name, null)); // have to change task constructor
+            tasks.put(name, new Task(name)); // have to change task constructor
         }
     }
 
@@ -30,7 +30,11 @@ public class Model {
 
     private boolean taskExists(String name) {
         // check to see if the case is the same!!
-        return tasks.contains(new Task(name, null));
+        return tasks.containsKey(name);
+    }
+
+    public Task getTask(String name) {
+        return this.tasks.get(name);
     }
 
 }

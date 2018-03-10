@@ -12,7 +12,7 @@ public class Controller2 {
     public void addTask(String name) {
         try {
             model.addTask(name);
-
+            main.addTaskButton(name);
         } catch (EmptyTaskNameException e) {
             System.out.println(e.getMessage());
             System.exit(-1);
@@ -22,8 +22,9 @@ public class Controller2 {
         }
     }
 
-    public void taskClick() {
-
+    public void taskClicked(String name) {
+        Task t = model.getTask(name);
+        model.switchTasks(t);
     }
 
 }

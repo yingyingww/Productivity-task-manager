@@ -16,19 +16,22 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.List;
 
 import javafx.geometry.Insets;
 
 public class Main extends Application {
     TextArea status = new TextArea("");
-    TaskButtonHolder taskButtonHolder = new TaskButtonHolder(this);
-    BorderPane root = new BorderPane();
+    private List<ToggleButton> taskButtons = new LinkedList<>();
     VBox taskPanel = new VBox();
     Controller2 c = new Controller2(this, new Model());
+    VBox taskButtonsView = new VBox();
 
     @Override
     public void start(Stage primaryStage) {
-        updateTaskPanel();
+        BorderPane root = new BorderPane();
+        createTaskPanel();
         HBox menuPane = setMenu();
         VBox schedulePane = addSchedule();
         VBox currSchedulePane = addCurrentSchedule();
@@ -58,7 +61,7 @@ public class Main extends Application {
     /**
      * @return the task panel on the right side of the main page
      */
-    private void updateTaskPanel() {
+    private void createTaskPanel() {
         taskPanel.getChildren().clear();
         //VBox taskPanel = new VBox();
 
@@ -68,16 +71,26 @@ public class Main extends Application {
 
         Label directions = new Label("Select Current Task");
 
-        ToggleGroup taskButtonGroup = new ToggleGroup();
-        VBox taskButtons = new VBox();
-        for (int i=0; i<taskButtonHolder.size(); i++) {
-            taskButtons.getChildren().add(taskButtonHolder.get(i));
-            taskButtonHolder.get(i).setToggleGroup(taskButtonGroup);
-        }
-
         HBox taskCreator = addTaskCreator();
 
-        taskPanel.getChildren().addAll(directions, taskButtons, taskCreator);
+        taskPanel.getChildren().addAll(directions, taskButtonsView, taskCreator);
+    }
+
+    private void updateTaskButtons() {
+        taskButtonsView = new VBox();
+        ToggleGroup taskButtonGroup = new ToggleGroup();
+        for (int i=0; i<this.taskButtons.size(); i++) {
+            taskButtonsView.getChildren().add(this.taskButtons.get(i));
+            this.taskButtons.get(i).setToggleGroup(taskButtonGroup);
+        }
+        createTaskPanel();
+    }
+
+    public void addTaskButton(String name) {
+        ToggleButton t = new ToggleButton(name);
+        t.setOnAction(event -> c.taskClicked(name));
+        taskButtons.add(t);
+        updateTaskButtons();
     }
 
     /**
@@ -95,9 +108,7 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent e) {
                 String name = taskCreatorField.getText();
-                taskButtonHolder.addTaskButton(name);
-                updateTaskPanel();
-                //TODO: Change this!
+                c.addTask(name);
             }
         };
 
