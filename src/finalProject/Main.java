@@ -25,7 +25,7 @@ public class Main extends Application {
     TextArea status = new TextArea("");
     private List<ToggleButton> taskButtons = new LinkedList<>();
     VBox taskPanel = new VBox();
-    Controller2 c = new Controller2(this, new Model());
+    Controller2 c = new Controller2(this);
     VBox taskButtonsView = new VBox();
 
     @Override
@@ -139,14 +139,6 @@ public class Main extends Application {
             }
         });
 
-        MenuItem reportProductivity = new MenuItem("Report Productivity");
-        reportProductivity.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                productivityCheck();
-            }
-        });
-
         MenuItem trends = new MenuItem("Trends");
         trends.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -169,7 +161,7 @@ public class Main extends Application {
             public void handle(ActionEvent event) {newUser();}
         });
 
-        mainMenu.getItems().addAll(setSchedule, reportProductivity, trends, productivityTips, newUserInfo);
+        mainMenu.getItems().addAll(setSchedule, trends, productivityTips, newUserInfo);
 
         Menu exitMenu = new Menu("Exit");
         MenuItem exit = new MenuItem("Exit");
@@ -203,15 +195,12 @@ public class Main extends Application {
     }
 
     // Asks the user how productive they felt after a given task
-    public static void productivityCheck() {
-
-
-
+    public int productivityCheck(String name) {
         ButtonType irrelevant = new ButtonType("Not Relevant", ButtonBar.ButtonData.CANCEL_CLOSE);
         ButtonType submit = new ButtonType("Submit", ButtonBar.ButtonData.OK_DONE);
         Alert check = new Alert(AlertType.CONFIRMATION, "", irrelevant, submit);
         check.setTitle("Productivity Check");
-        check.setHeaderText("How Productive did you feel during the last activity?");
+        check.setHeaderText("How Productive did you feel during '" + name + "'?");
 
         Slider productivity = new Slider(0, 10, 5);
         Label level = new Label("-");
@@ -238,7 +227,9 @@ public class Main extends Application {
         check.getDialogPane().setContent(sliderLabel);
 
         check.showAndWait();
-        double productivityVaule = productivity.getValue();
+
+        //this needs to return the value of the slider or null if cancelled (either X or "Not relevant")
+        return 0;
     }
 
     public static void newUser() {

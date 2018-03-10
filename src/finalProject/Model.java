@@ -5,6 +5,11 @@ import java.util.HashMap;
 public class Model {
     private HashMap<String, Task> tasks = new HashMap<>();
     private Task currentTask;
+    private Controller2 controller;
+
+    public Model(Controller2 controller) {
+        this.controller = controller;
+    }
 
     public void addTask(String name) throws EmptyTaskNameException, taskAlreadyExistsException {
         if (name.isEmpty()) {
@@ -12,7 +17,7 @@ public class Model {
         } else if (taskExists(name)){
             throw new taskAlreadyExistsException("This task already exists.");
         } else {
-            tasks.put(name, new Task(name)); // have to change task constructor
+            tasks.put(name, new Task(name, controller)); // have to change task constructor
         }
     }
 
@@ -22,7 +27,6 @@ public class Model {
             currentTask = newCurrent;
         } else if (newCurrent.equals(currentTask)) {
             currentTask = null;
-            // ask for productivity!
         } else {
             currentTask.changeState();
             currentTask = newCurrent;

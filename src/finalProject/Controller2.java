@@ -4,9 +4,9 @@ public class Controller2 {
     Main main;
     Model model;
 
-    public Controller2(Main main, Model model) {
+    public Controller2(Main main) {
         this.main = main;
-        this.model = model;
+        this.model = new Model(this);
     }
 
     public void addTask(String name) {
@@ -27,4 +27,8 @@ public class Controller2 {
         model.switchTasks(t);
     }
 
+
+    public int getProductivity(String name) {
+        return this.main.productivityCheck(name);
+    }
 }

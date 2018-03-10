@@ -294,14 +294,6 @@ public class SetSchedule extends Application {
             }
         });
 
-        MenuItem reportProductivity = new MenuItem("Report Productivity");
-        reportProductivity.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Main.productivityCheck();
-            }
-        });
-
         MenuItem trends = new MenuItem("Trends");
         trends.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -318,7 +310,7 @@ public class SetSchedule extends Application {
             }
         });
 
-        mainMenu.getItems().addAll(mainPage, reportProductivity, trends, productivityTips);
+        mainMenu.getItems().addAll(mainPage, trends, productivityTips);
 
         Menu exitMenu = new Menu("Exit");
         MenuItem exit = new MenuItem("Exit");

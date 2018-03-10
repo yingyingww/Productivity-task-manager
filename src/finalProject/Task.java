@@ -8,10 +8,12 @@ public class Task {
     private String name;
     private boolean isRunning = false;
     private Timer t = new Timer();
-    private List<List<Date>> Instances = new ArrayList<>();
+    private List<TaskInstance> TaskInstances = new ArrayList<>();
+    private Controller2 controller;
 
-    public Task(String name) {
+    public Task(String name, Controller2 controller) {
         this.name = name;
+        this.controller = controller;
     }
 
     public String getName() {
@@ -32,22 +34,20 @@ public class Task {
 
     // The following two methods will be used to call other classes.
     private void startTask() {
-        String beginTaskStatement = "Task " + this.getName() + " has begun.";
-        System.out.println(beginTaskStatement);
         t.logStartTime();
     }
 
     private void endTask() {
-        String endTaskStatement = "Task " + this.getName() + " has ended.";
-        System.out.println(endTaskStatement);
         t.logEndTime();
-        this.addInstance();
+        Date start = t.getStartTime();
+        Date end = t.getEndTime();
+        int productivity = getProductivity();
+        System.out.println("Task " + name + "\nstarted: " + start + "\nended: " + end + "\nproductivity: " + productivity);
+        TaskInstances.add(new TaskInstance(start, end, productivity));
     }
 
-    private void addInstance() {
-        List<Date> Instance = new ArrayList<>();
-        Instance.add(t.getStartTime());
-        Instance.add(t.getEndTime());
-        Instances.add(Instance);
+    public int getProductivity() {
+        return controller.getProductivity(this.getName());
     }
+
 }
