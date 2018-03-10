@@ -14,7 +14,9 @@ public class Model {
     public void addTask(String name) throws EmptyTaskNameException, taskAlreadyExistsException {
         if (name.isEmpty()) {
             throw new EmptyTaskNameException("Please choose a task name.");
-        } else if (taskExists(name)){
+        }
+        name = name.toLowerCase();
+        if (taskExists(name)){
             throw new taskAlreadyExistsException("This task already exists.");
         } else {
             tasks.put(name, new Task(name, controller)); // have to change task constructor
@@ -39,6 +41,7 @@ public class Model {
     }
 
     public Task getTask(String name) {
+        name = name.toLowerCase();
         return this.tasks.get(name);
     }
 

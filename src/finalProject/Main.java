@@ -234,7 +234,7 @@ public class Main extends Application {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 level.setText("Productivity level: " + newValue);
-                productivityValue = (int)productivity.getValue(); //Stopgap to inelegantly deal with the error caused by eventhandler
+                //productivityValue = (int)productivity.getValue(); //Stopgap to inelegantly deal with the error caused by eventhandler
           //so the app isn't thrown off while I figure out a better solution
             }
         });
@@ -244,7 +244,7 @@ public class Main extends Application {
         check.getDialogPane().setContent(sliderLabel);
 
         check.showAndWait();
-        return productivityValue;
+        return 100;
     }
 
     public static void newUser() {
