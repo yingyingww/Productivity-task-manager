@@ -1,8 +1,14 @@
 package finalProject;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 public class Task {
     private String name;
     private boolean isRunning = false;
+    private Timer t = new Timer();
+    private List<List<Date>> Instances = new ArrayList<>();
 
     public Task(String name) {
         this.name = name;
@@ -28,10 +34,20 @@ public class Task {
     private void startTask() {
         String beginTaskStatement = "Task " + this.getName() + " has begun.";
         System.out.println(beginTaskStatement);
+        t.logStartTime();
     }
 
     private void endTask() {
         String endTaskStatement = "Task " + this.getName() + " has ended.";
         System.out.println(endTaskStatement);
+        t.logEndTime();
+        this.addInstance();
+    }
+
+    private void addInstance() {
+        List<Date> Instance = new ArrayList<>();
+        Instance.add(t.getStartTime());
+        Instance.add(t.getEndTime());
+        Instances.add(Instance);
     }
 }

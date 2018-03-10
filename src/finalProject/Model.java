@@ -17,15 +17,16 @@ public class Model {
     }
 
     public void switchTasks(Task newCurrent) {
+        newCurrent.changeState();
         if (currentTask == null) {
             currentTask = newCurrent;
         } else if (newCurrent.equals(currentTask)) {
             currentTask = null;
+            // ask for productivity!
         } else {
             currentTask.changeState();
             currentTask = newCurrent;
         }
-        newCurrent.changeState();
     }
 
     private boolean taskExists(String name) {

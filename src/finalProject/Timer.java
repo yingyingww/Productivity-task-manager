@@ -16,20 +16,19 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-
 public class Timer {
     private Date startTime;
     private Date endTime;
 
 
-    public Date logStartTime(){
+    public void logStartTime(){
         Calendar startCal = Calendar.getInstance();
         startTime = startCal.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         System.out.println("Start Time is: " + sdf.format(startTime) );
     }
 
-    public Date logEndTime(){
+    public void logEndTime(){
         Calendar endCal = Calendar.getInstance();
         endTime = endCal.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
@@ -37,7 +36,7 @@ public class Timer {
         getTimeInterval();
     }
 
-    public long getTimeInterval(){
+    public void getTimeInterval(){
         long intervalInMinutes;
         long intervalInMs = endTime.getTime() - startTime.getTime();
         long intervalInSeconds = TimeUnit.MILLISECONDS.toSeconds(intervalInMs);
@@ -50,7 +49,14 @@ public class Timer {
             intervalInMinutes = TimeUnit.MILLISECONDS.toMinutes(intervalInMs)+1;
             System.out.println("Time Interval is: " + intervalInMinutes + " minute(s)");
         }
-        return intervalInMinutes;
+    }
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
     }
 
      public static void main(String[] args) {
@@ -65,6 +71,3 @@ public class Timer {
          a.logEndTime();
      }
 }
-
-
-
