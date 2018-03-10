@@ -1,6 +1,6 @@
 package finalProject;
 /**
- * The TimerLogic java file is a will log the start/end Time of a Task
+ * The Timer java file is a will log the start/end Time of a Task
  *
  */
 
@@ -17,10 +17,9 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 
-public class TimerLogic {
+public class Timer {
     private Date startTime;
     private Date endTime;
-    //private Calendar startCal;
 
 
     public Date logStartTime(){
@@ -28,7 +27,6 @@ public class TimerLogic {
         startTime = startCal.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         System.out.println("Start Time is: " + sdf.format(startTime) );
-        return startTime;
     }
 
     public Date logEndTime(){
@@ -37,7 +35,6 @@ public class TimerLogic {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         System.out.println("End Time is: " + sdf.format(endTime));
         getTimeInterval();
-        return endTime;
     }
 
     public long getTimeInterval(){
@@ -57,7 +54,7 @@ public class TimerLogic {
     }
 
      public static void main(String[] args) {
-        TimerLogic a = new TimerLogic();
+        Timer a = new Timer();
         a.logStartTime();
         //wait for 3 secs
          try {
