@@ -228,13 +228,14 @@ public class Main extends Application {
             }
         };
         submitButton.setOnAction(updateValue);*/
-        productivityValue = (int)productivity.getValue(); //Stopgap to inelegantly deal with the error caused by above
-          //so the app isn't thrown off while I figure out a better solution
+
 
         productivity.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 level.setText("Productivity level: " + newValue);
+                productivityValue = (int)productivity.getValue(); //Stopgap to inelegantly deal with the error caused by eventhandler
+          //so the app isn't thrown off while I figure out a better solution
             }
         });
 
