@@ -198,7 +198,7 @@ public class Main extends Application {
    public int productivityCheck(String name) {
 
 
-        int productivityValue = Integer.parseInt(null);
+        int productivityValue = -1;
 
         ButtonType irrelevant = new ButtonType("Not Relevant", ButtonBar.ButtonData.CANCEL_CLOSE);
         ButtonType submit = new ButtonType("Submit", ButtonBar.ButtonData.OK_DONE);
@@ -221,13 +221,15 @@ public class Main extends Application {
         productivity.valueProperty().addListener((obs, oldval, newval) ->
         productivity.setValue(newval.intValue()));
 
-        EventHandler<ActionEvent> updateValue = new EventHandler<ActionEvent>() {
+        /*EventHandler<ActionEvent> updateValue = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
                 int productivityValue = (int)productivity.getValue();
             }
         };
-        submitButton.setOnAction(updateValue);
+        submitButton.setOnAction(updateValue);*/
+        productivityValue = (int)productivity.getValue(); //Stopgap to inelegantly deal with the error caused by above
+          //so the app isn't thrown off while I figure out a better solution
 
         productivity.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
