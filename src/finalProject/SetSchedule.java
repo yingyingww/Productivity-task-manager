@@ -45,15 +45,17 @@ public class SetSchedule extends Application {
     );
     String presetDay;
     TextArea status = new TextArea("");
+    Controller controller = new Controller(this);
+    Calendar idealSchedule = new Calendar();
+    BorderPane root = new BorderPane();
 
     @Override
     public void start(Stage primaryStage) {
-        BorderPane root = new BorderPane();
         VBox createTaskPanel = createTask();
         root.setRight(createTaskPanel);
         VBox schedulePane = addSchedule();
 
-        GridPane schedulesPane = combineSchedules(schedulePane);
+        //GridPane schedulesPane = combineSchedules(schedulePane);
         schedulesPane.setStyle("-fx-background-color:  #922b21;");
         root.setCenter(schedulesPane);
         HBox menuPane = setMenu();
@@ -99,16 +101,16 @@ public class SetSchedule extends Application {
         ComboBox endAmPM = new ComboBox(amPm);
         endTime.getChildren().addAll(endTimeText, endHours, endColon, endMinutes, endAmPM);
 
-        Button createTaskBtn = new Button();
-        createTaskBtn.setText("Create Task");
+        Button createTaskButtonn = new Button();
+        createTaskButtonn.setText("Create Task");
 
         // When the create task button is clicked, all of the information
         // is put into an array and sends it to the controller so the 
         // model can use that info.
-        createTaskBtn.setOnAction(new EventHandler<ActionEvent>() {
+        createTaskButtonn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Object nameInput = addTaskName.getText();
+                Label nameInput = new Label(addTaskName.getText());
 
                 Object startHoursInput = startHours.getValue();
                 Object startMinutesInput = startMinutes.getValue();
@@ -130,14 +132,10 @@ public class SetSchedule extends Application {
 
                 // TODO: Make sure the user can't input an invalid amount of time
                 if (allFieldsFilled) {
-                    Controller controller = new Controller();
                     // TODO: Figure out best way to do this
-                    try {
-                        controller.taskInstanceCreated(taskAttributes);
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
-                    System.out.println(taskAttributes);
+                    System.out.println("Task Attributes are: " + taskAttributes);
+                    idealSchedule = controller.updateCalendar(taskAttributes);
+                    root.setCenter(addSchedule());
                 } else {
                     System.out.println("Fill out everything");
                 }
@@ -147,37 +145,31 @@ public class SetSchedule extends Application {
         HBox weekdays = createWeekday();
 
         newTaskPane.getChildren().addAll(taskPanelDirections, chooseDay, weekdays, taskNameInput, startTime,
-                endTime, /*frequency, */createTaskBtn);
+                endTime, /*frequency, */createTaskButton);
 
         return newTaskPane;
     }
 
-    // Not sure if we will use this or not.
     /*
-    private HBox createFrequency() {
-        HBox freq = new HBox();
-        Button once = new Button();
-        once.setText("One-Time Event");
-        once.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            // Last index will be 0 if one time event and 1 if recurring
-            public void handle(ActionEvent event) {
-                taskAttributes.add(0);
-            }
-        });
-        Button more = new Button();
-        more.setText("Recurring events");
-        more.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                taskAttributes.add(1);
-            }
-        });
-        freq.getChildren().addAll(once, more);
-        return freq;
-
+    public void setCalendar(Calendar updatedCalendar) {
+        this.idealSchedule = updatedCalendar;
     }
     */
+
+    public Calendar getIdealSchedule() {
+        return idealSchedule;
+    }
+
+    private ScrollPane addSchedule() {
+        ScrollPane schedule = new ScrollPane();
+        schedule.setPrefSize(100, 1000);
+
+        if(idealSchedule.hasTasks()) {
+            schedule.setContent(idealSchedule.displayCalendar());
+        }
+
+        return schedule;
+    }
 
     // Ideally will allow the user to pick set scheudles
     private HBox createWeekday(){
@@ -256,25 +248,6 @@ public class SetSchedule extends Application {
         return wkd;
     }
 
-    private VBox addSchedule() {
-        VBox schedule = new VBox();
-        schedule.setAlignment(Pos.TOP_CENTER);
-
-        Rectangle task1 = new Rectangle (100, 100, 100, 50);
-        task1.setFill(Color.BLUE);
-
-        Rectangle task2 = new Rectangle (100, 200, 100, 50);
-        task2.setFill(Color.RED);
-
-        Rectangle task3 = new Rectangle (100, 300, 100, 50);
-        task3.setFill(Color.GREEN);
-
-        Rectangle task4 = new Rectangle (100, 400, 100, 50);
-        task4.setFill(Color.PURPLE);
-
-        schedule.getChildren().addAll(task1, task2, task3, task4);
-        return schedule;
-    }
 
     private HBox setMenu(){
         HBox menuPane = new HBox();
@@ -294,6 +267,14 @@ public class SetSchedule extends Application {
             }
         });
 
+        MenuItem reportProductivity = new MenuItem("Report Productivity");
+        reportProductivity.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Main.productivityCheck();
+            }
+        });
+
         MenuItem trends = new MenuItem("Trends");
         trends.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -310,7 +291,7 @@ public class SetSchedule extends Application {
             }
         });
 
-        mainMenu.getItems().addAll(mainPage, trends, productivityTips);
+        mainMenu.getItems().addAll(mainPage, reportProductivity, trends, productivityTips);
 
         Menu exitMenu = new Menu("Exit");
         MenuItem exit = new MenuItem("Exit");
@@ -329,6 +310,7 @@ public class SetSchedule extends Application {
         return menuPane;
     }
 
+    /*
     private GridPane combineSchedules(VBox idealSchedule) {
         GridPane schedule = new GridPane();
         schedule.add(new Label("Preset Day:" + presetDay),1,1);
@@ -339,6 +321,34 @@ public class SetSchedule extends Application {
 
         return schedule;
     }
+    */
+
+    // Not sure if we will use this or not.
+    /*
+    private HBox createFrequency() {
+        HBox freq = new HBox();
+        Button once = new Button();
+        once.setText("One-Time Event");
+        once.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            // Last index will be 0 if one time event and 1 if recurring
+            public void handle(ActionEvent event) {
+                taskAttributes.add(0);
+            }
+        });
+        Button more = new Button();
+        more.setText("Recurring events");
+        more.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                taskAttributes.add(1);
+            }
+        });
+        freq.getChildren().addAll(once, more);
+        return freq;
+
+    }
+    */
 
     public static void main(String[] args) {
         launch(args);
