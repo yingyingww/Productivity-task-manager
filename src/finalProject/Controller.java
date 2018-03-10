@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
-    Model model = new Model();
+    //Model model = new Model();
     SetSchedule setSchedule;
 
     public Controller(SetSchedule setSchedule) {

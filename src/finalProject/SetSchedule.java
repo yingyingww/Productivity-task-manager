@@ -53,11 +53,11 @@ public class SetSchedule extends Application {
     public void start(Stage primaryStage) {
         VBox createTaskPanel = createTask();
         root.setRight(createTaskPanel);
-        VBox schedulePane = addSchedule();
+        ScrollPane schedulePane = addSchedule();
 
         //GridPane schedulesPane = combineSchedules(schedulePane);
-        schedulesPane.setStyle("-fx-background-color:  #922b21;");
-        root.setCenter(schedulesPane);
+        schedulePane.setStyle("-fx-background-color:  #922b21;");
+        root.setCenter(schedulePane);
         HBox menuPane = setMenu();
         root.setTop(menuPane);
         Scene scene = new Scene(root,700,500);
@@ -101,13 +101,13 @@ public class SetSchedule extends Application {
         ComboBox endAmPM = new ComboBox(amPm);
         endTime.getChildren().addAll(endTimeText, endHours, endColon, endMinutes, endAmPM);
 
-        Button createTaskButtonn = new Button();
-        createTaskButtonn.setText("Create Task");
+        Button createTaskButton = new Button();
+        createTaskButton.setText("Create Task");
 
         // When the create task button is clicked, all of the information
         // is put into an array and sends it to the controller so the 
         // model can use that info.
-        createTaskButtonn.setOnAction(new EventHandler<ActionEvent>() {
+        createTaskButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 Label nameInput = new Label(addTaskName.getText());
@@ -267,14 +267,6 @@ public class SetSchedule extends Application {
             }
         });
 
-        MenuItem reportProductivity = new MenuItem("Report Productivity");
-        reportProductivity.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Main.productivityCheck();
-            }
-        });
-
         MenuItem trends = new MenuItem("Trends");
         trends.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -291,7 +283,7 @@ public class SetSchedule extends Application {
             }
         });
 
-        mainMenu.getItems().addAll(mainPage, reportProductivity, trends, productivityTips);
+        mainMenu.getItems().addAll(mainPage, trends, productivityTips);
 
         Menu exitMenu = new Menu("Exit");
         MenuItem exit = new MenuItem("Exit");
