@@ -63,6 +63,7 @@ public class Main extends Application {
         ScrollPane schedulePane = addSchedule();
         VBox currSchedulePane = addCurrentSchedule();
         GridPane schedulesPane = combineSchedules(schedulePane, currSchedulePane);
+        //set the color to 
         schedulesPane.setStyle("-fx-background-color: #922b21;");
 
         root.setRight(taskPanel);
@@ -70,7 +71,7 @@ public class Main extends Application {
         root.setCenter(schedulesPane);
 
         primaryStage.setTitle("Productivity+");
-        Scene scene = new Scene(root, 700, 500);
+        Scene scene = new Scene(root, 1400, 700);
         primaryStage.setScene(scene);
 
         // Add css features
@@ -94,6 +95,8 @@ public class Main extends Application {
 
         //I want to move these to the CSS if possible
         taskPanel.setPadding(new Insets(10, 10, 10, 10));
+        
+        //set the color...
         taskPanel.setStyle("-fx-background-color: #1f618d;");
 
         Label directions = new Label("Select Current Task");
@@ -126,11 +129,9 @@ public class Main extends Application {
      */
     private HBox addTaskCreator() {
         HBox taskCreator = new HBox();
-
         TextField taskCreatorField = new TextField();
         taskCreatorField.setPromptText("Add a New Task");
         Button taskCreatorButton = new Button("Add Task");
-
         EventHandler<ActionEvent> addTask = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -138,7 +139,6 @@ public class Main extends Application {
                 c.addTask(name);
             }
         };
-
         taskCreatorField.setOnAction(addTask);
         taskCreatorButton.setOnAction(addTask);
 
@@ -153,7 +153,7 @@ public class Main extends Application {
         menuPane.setAlignment(Pos.TOP_LEFT);
 
         MenuBar menuBar = new MenuBar();
-        menuBar.setMinWidth(700);
+        menuBar.setMinWidth(1400);
 
         Menu mainMenu = new Menu("Menu");
 
