@@ -8,10 +8,10 @@ import java.util.List;
 
 public class Controller {
     //Model model = new Model();
-    SetSchedule setSchedule;
+    Main main;
 
-    public Controller(SetSchedule setSchedule) {
-        this.setSchedule = setSchedule;
+    public Controller(Main main) {
+        this.main = main;
     }
 
     // Changes the format of the time to something acceptable
@@ -21,7 +21,7 @@ public class Controller {
         float startPoint = getStartPoint(taskAttributes);
         float heightOfRectangle = getHeightOfRectangle(taskAttributes);
 
-        Calendar currentSchedule = setSchedule.getIdealSchedule();
+        Calendar currentSchedule = main.getIdealSchedule();
 
         currentSchedule.addTaskToCalendar(taskName, heightOfRectangle, startPoint);
 
