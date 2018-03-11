@@ -44,5 +44,30 @@ public class Model {
         name = name.toLowerCase();
         return this.tasks.get(name);
     }
+    
+    public Task findMostProductive() {
+        Task curMost = currentTask;
+        int tempProductivity = 0;
+        for (Task curTask : tasks.values()) {
+            if (curTask.getProductivity() > tempProductivity){
+                tempProductivity = curTask.getProductivity();
+                curMost = curTask;
+             }
+        }
+        return  curMost;
+    }
+
+    public Task findLeastProductive(){
+        Task curLeast= currentTask;
+        int tempProductivity = 0;
+        for (Task curTask : tasks.values()) {
+            if (curTask.getAvgProductivity() < tempProductivity){
+                tempProductivity = curTask.getProductivity();
+                curLeast = curTask;
+            }
+        }
+        return curLeast;
+    }
+
 
 }
