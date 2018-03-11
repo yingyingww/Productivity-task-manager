@@ -49,5 +49,13 @@ public class Task {
     public int getProductivity() {
         return controller.getProductivity(this.getName());
     }
+    
+    public int getAvgProductivity(){
+        int avgProductivity = 0;
+        for (TaskInstance instance: TaskInstances){
+            avgProductivity += instance.getProductivity();
+        }
+        return (avgProductivity / TaskInstances.size());
+    }
 
 }
