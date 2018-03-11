@@ -38,9 +38,6 @@ public class Main extends Application {
     ObservableList<Integer> hours = FXCollections.observableArrayList(
             1, 2,3,4,5,6,7,8,9,10,11,12
     );
-    ObservableList<String> weekDays = FXCollections.observableArrayList(
-            "Monday", "Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"
-    );
     ObservableList<String> minutes = FXCollections.observableArrayList(
             "00","01", "02","03","04","05","06","07","08","09",
             "10","11","12", "13","14","15","16","17","18","19","20","21",
@@ -157,6 +154,14 @@ public class Main extends Application {
 
         Menu mainMenu = new Menu("Menu");
 
+        MenuItem mainPage = new MenuItem("Main Page");
+        mainPage.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                //need to create something here to go back to the Main Page
+            }
+        });
+
         MenuItem setSchedule = new MenuItem("Set Schedule");
         setSchedule.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -189,7 +194,7 @@ public class Main extends Application {
             public void handle(ActionEvent event) {newUser();}
         });
 
-        mainMenu.getItems().addAll(setSchedule, trends, productivityTips, newUserInfo);
+        mainMenu.getItems().addAll(mainPage, setSchedule, trends, productivityTips, newUserInfo);
 
         Menu exitMenu = new Menu("Exit");
         MenuItem exit = new MenuItem("Exit");
@@ -390,11 +395,17 @@ public class Main extends Application {
         newTaskPane.setSpacing(20);
         newTaskPane.setStyle("-fx-background-color: #1f618d;");
 
+        // we either get rid of this task name entirely, or make it display the chosen task
+        //from select task bar
         HBox taskNameInput = new HBox();
-        Text taskName = new Text("Task Name: ");
-        TextField addTaskName = new TextField();
-        addTaskName.setPromptText("Create a New Task");
-        taskNameInput.getChildren().addAll(taskName, addTaskName);
+        //String textName = Model.currentTask.getName();
+        //Text taskName = new Text("Task Name: " + textName);
+        Text taskName = new Text("Task Name: (As selected from the 'Select Current Task')" );
+
+        //TextField addTaskName = new TextField();
+        //addTaskName.setPromptText("Create a New Task");
+
+        taskNameInput.getChildren().addAll(taskName);
 
         HBox startTime= new HBox();
         Text startTimeText = new Text("Start Time: ");
@@ -429,7 +440,8 @@ public class Main extends Application {
         createTaskButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Label nameInput = new Label(addTaskName.getText());
+
+                //Label nameInput = new Label(addTaskName.getText());
 
                 Object startHoursInput = startHours.getValue();
                 Object startMinutesInput = startMinutes.getValue();
@@ -440,7 +452,7 @@ public class Main extends Application {
                 Object endAMPMInput = endAmPM.getValue();
 
                 ArrayList taskAttributes = new ArrayList();
-                taskAttributes.addAll(Arrays.asList(nameInput, startHoursInput, startMinutesInput, startAMPMInput, endHoursInput, endMinutesInput, endAMPMInput));
+                taskAttributes.addAll(Arrays.asList(startHoursInput, startMinutesInput, startAMPMInput, endHoursInput, endMinutesInput, endAMPMInput));
 
                 // TODO: Make own method maybe in controller?
                 boolean allFieldsFilled = true;
@@ -474,8 +486,8 @@ public class Main extends Application {
 
         HBox weekdays = createWeekday();
 
-        newTaskPane.getChildren().addAll(taskPanelDirections, chooseDay, weekdays, taskNameInput, startTime,
-                endTime, /*frequency, */createTaskButton, colorPicker);
+        newTaskPane.getChildren().addAll(taskPanelDirections, taskNameInput, startTime,
+                endTime, /*frequency, */createTaskButton, colorPicker, chooseDay, weekdays);
 
         return newTaskPane;
     }
