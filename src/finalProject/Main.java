@@ -71,7 +71,7 @@ public class Main extends Application {
         root.setCenter(schedulesPane);
 
         primaryStage.setTitle("Productivity+");
-        Scene scene = new Scene(root, 1400, 700);
+        Scene scene = new Scene(root, 1000, 500);
         primaryStage.setScene(scene);
 
         // Add css features
@@ -153,7 +153,7 @@ public class Main extends Application {
         menuPane.setAlignment(Pos.TOP_LEFT);
 
         MenuBar menuBar = new MenuBar();
-        menuBar.setMinWidth(1400);
+        menuBar.setMinWidth(500);
 
         Menu mainMenu = new Menu("Menu");
 
