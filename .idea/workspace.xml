@@ -2,36 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b49624fc-b4e9-454d-b738-678bb971d393" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$4.class" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Calendar.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Calendar.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/CalendarTaskRectangle.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/CalendarTaskRectangle.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Controller.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Controller.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Controller2.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Controller2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/EmptyTaskNameException.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/EmptyTaskNameException.class" />
       <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$1.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$1.class" />
       <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$10.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$10.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$11.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$12.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$13.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$14.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$15.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$16.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$2.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$2.class" />
       <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$3.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$3.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$4.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$5.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$4.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$4.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$5.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$5.class" />
       <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$6.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$6.class" />
       <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$7.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$7.class" />
       <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$8.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$8.class" />
       <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$9.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$9.class" />
       <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Model.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Model.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Task.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Task.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/TaskInstance.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/TaskInstance.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Timer.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Timer.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/taskAlreadyExistsException.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/taskAlreadyExistsException.class" />
-      <change beforePath="$PROJECT_DIR$/src/finalProject/Main.java" afterPath="$PROJECT_DIR$/src/finalProject/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,8 +29,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/finalProject/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="293" column="44" lean-forward="true" selection-start-line="293" selection-start-column="44" selection-end-line="293" selection-end-column="44" />
+            <state relative-caret-position="186">
+              <caret line="290" column="51" lean-forward="false" selection-start-line="290" selection-start-column="51" selection-end-line="290" selection-end-column="51" />
               <folding>
                 <element signature="e#6050#6051#0" expanded="true" />
                 <element signature="e#6095#6096#0" expanded="true" />
@@ -61,8 +44,8 @@
                 <element signature="e#7253#7254#0" expanded="true" />
                 <element signature="e#18179#18180#0" expanded="true" />
                 <element signature="e#18215#18216#0" expanded="true" />
-                <element signature="e#22033#22034#0" expanded="true" />
-                <element signature="e#22061#22062#0" expanded="true" />
+                <element signature="e#22302#22303#0" expanded="true" />
+                <element signature="e#22330#22331#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -198,6 +181,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -356,6 +342,14 @@
       <option name="presentableId" value="Default" />
       <updated>1520725298041</updated>
     </task>
+    <task id="LOCAL-00001" summary="made the productivityCheck work">
+      <created>1520873294331</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1520873294331</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -418,6 +412,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="made the productivityCheck work" />
+    <option name="LAST_COMMIT_MESSAGE" value="made the productivityCheck work" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
@@ -440,8 +438,8 @@
             <element signature="e#7253#7254#0" expanded="true" />
             <element signature="e#18179#18180#0" expanded="true" />
             <element signature="e#18215#18216#0" expanded="true" />
-            <element signature="e#22033#22034#0" expanded="true" />
-            <element signature="e#22061#22062#0" expanded="true" />
+            <element signature="e#22302#22303#0" expanded="true" />
+            <element signature="e#22330#22331#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -514,8 +512,8 @@
             <element signature="e#7253#7254#0" expanded="true" />
             <element signature="e#18179#18180#0" expanded="true" />
             <element signature="e#18215#18216#0" expanded="true" />
-            <element signature="e#22033#22034#0" expanded="true" />
-            <element signature="e#22061#22062#0" expanded="true" />
+            <element signature="e#22302#22303#0" expanded="true" />
+            <element signature="e#22330#22331#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -553,8 +551,8 @@
             <element signature="e#7253#7254#0" expanded="true" />
             <element signature="e#18179#18180#0" expanded="true" />
             <element signature="e#18215#18216#0" expanded="true" />
-            <element signature="e#22033#22034#0" expanded="true" />
-            <element signature="e#22061#22062#0" expanded="true" />
+            <element signature="e#22302#22303#0" expanded="true" />
+            <element signature="e#22330#22331#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -584,8 +582,8 @@
             <element signature="e#7253#7254#0" expanded="true" />
             <element signature="e#18179#18180#0" expanded="true" />
             <element signature="e#18215#18216#0" expanded="true" />
-            <element signature="e#22033#22034#0" expanded="true" />
-            <element signature="e#22061#22062#0" expanded="true" />
+            <element signature="e#22302#22303#0" expanded="true" />
+            <element signature="e#22330#22331#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -635,8 +633,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/finalProject/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="293" column="44" lean-forward="true" selection-start-line="293" selection-start-column="44" selection-end-line="293" selection-end-column="44" />
+        <state relative-caret-position="186">
+          <caret line="290" column="51" lean-forward="false" selection-start-line="290" selection-start-column="51" selection-end-line="290" selection-end-column="51" />
           <folding>
             <element signature="e#6050#6051#0" expanded="true" />
             <element signature="e#6095#6096#0" expanded="true" />
@@ -650,11 +648,86 @@
             <element signature="e#7253#7254#0" expanded="true" />
             <element signature="e#18179#18180#0" expanded="true" />
             <element signature="e#18215#18216#0" expanded="true" />
-            <element signature="e#22033#22034#0" expanded="true" />
-            <element signature="e#22061#22062#0" expanded="true" />
+            <element signature="e#22302#22303#0" expanded="true" />
+            <element signature="e#22330#22331#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>9.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>final-project-final-project-h</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
