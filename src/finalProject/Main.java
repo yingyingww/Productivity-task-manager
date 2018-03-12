@@ -142,7 +142,7 @@ public class Main extends Application {
         taskPanel.setPadding(new Insets(10, 10, 10, 10));
         
         //set the color...
-        taskPanel.setStyle("-fx-background-color: #1f618d;");
+        taskPanel.setStyle("-fx-background-color: #99ccff");
 
         Label directions = new Label("Select Current Task");
 
@@ -430,7 +430,7 @@ public class Main extends Application {
 
     private VBox createTask() {
         VBox newTaskPane = new VBox();
-        Text taskPanelDirections = new Text("Create A New Task");
+        Text taskPanelDirections = new Text("Set Your Schedule");
         taskPanelDirections.setFont(Font.font("Arial", FontWeight.BOLD, 16));
 
         // We will deeal with the preset day if we have time later!
@@ -438,14 +438,14 @@ public class Main extends Application {
 
         newTaskPane.setPadding(new Insets(15, 12, 15, 12));
         newTaskPane.setSpacing(20);
-        newTaskPane.setStyle("-fx-background-color: #1f618d;");
+        newTaskPane.setStyle("-fx-background-color: #999966");
 
         // we either get rid of this task name entirely, or make it display the chosen task
         //from select task bar
         HBox taskNameInput = new HBox();
         //String textName = Model.currentTask.getName();
         //Text taskName = new Text("Task Name: " + textName);
-        Text taskName = new Text("Task Name: (As selected from the 'Select Current Task')" );
+        Text taskName = new Text("Task Name:(As selected from the 'Select Current Task')" );
 
         //TextField addTaskName = new TextField();
         //addTaskName.setPromptText("Create a New Task");
