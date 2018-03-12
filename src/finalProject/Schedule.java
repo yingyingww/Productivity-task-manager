@@ -6,13 +6,13 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import java.util.ArrayList;
 
-public class Calendar extends Pane {
+public class Schedule extends Pane {
     ArrayList<CalendarTaskRectangle> todaysTask;
     //private Color[] calendarColors;
     private int numberOfTasks;
     public int height;
 
-    public Calendar() {
+    public Schedule() {
         //calendarColors = new Color[] {Color.CYAN, Color.MAGENTA, Color.YELLOW, Color.PINK, Color.ALICEBLUE, Color.VIOLET};
         numberOfTasks = 0;
         // TODO: Figure out what it really should be

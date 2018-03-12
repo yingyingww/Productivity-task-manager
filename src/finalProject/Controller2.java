@@ -3,10 +3,12 @@ package finalProject;
 public class Controller2 {
     Main main;
     Model model;
+    Controller controller;
 
-    public Controller2(Main main) {
+    public Controller2(Main main, Controller controller) {
+        this.controller = controller;
         this.main = main;
-        this.model = new Model(this);
+        this.model = new Model(controller,this);
     }
 
     public void addTask(String name) {

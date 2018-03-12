@@ -45,7 +45,7 @@
 //    String presetDay;
 //    TextArea status = new TextArea("");
 //    Controller controller = new Controller(this);
-//    Calendar idealSchedule = new Calendar();
+//    Schedule idealSchedule = new Schedule();
 //    BorderPane root = new BorderPane();
 //
 //    @Override
@@ -169,12 +169,12 @@
 //    }
 //
 //    /*
-//    public void setCalendar(Calendar updatedCalendar) {
+//    public void setCalendar(Schedule updatedCalendar) {
 //        this.idealSchedule = updatedCalendar;
 //    }
 //    */
 //
-//    public Calendar getIdealSchedule() {
+//    public Schedule getIdealSchedule() {
 //        return idealSchedule;
 //    }
 //

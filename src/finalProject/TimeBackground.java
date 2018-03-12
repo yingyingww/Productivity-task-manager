@@ -14,8 +14,8 @@ public class TimeBackground {
             "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM", "10 PM", "11 PM"
     );
     float dayLength = 60 * 24;
-    Calendar calendar = new Calendar();
-    int calHeight = calendar.height;
+    Schedule schedule = new Schedule();
+    int calHeight = schedule.height;
 
 
     public void displayTimes(GridPane schedule) {

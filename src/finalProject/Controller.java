@@ -2,9 +2,7 @@ package finalProject;
 
 import javafx.scene.control.Label;
 
-import java.util.Arrays;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Controller {
     //Model model = new Model();
@@ -15,13 +13,13 @@ public class Controller {
     }
 
     // Changes the format of the time to something acceptable
-    public Calendar updateCalendar(ArrayList taskAttributes) {
+    public Schedule updateCalendar(ArrayList taskAttributes) {
         Label taskName = (Label) taskAttributes.get(0);
 
         float startPoint = getStartPoint(taskAttributes);
         float heightOfRectangle = getHeightOfRectangle(taskAttributes);
 
-        Calendar currentSchedule = main.getIdealSchedule();
+        Schedule currentSchedule = main.getIdealSchedule();
 
         currentSchedule.addTaskToCalendar(taskName, heightOfRectangle, startPoint);
 
@@ -50,8 +48,8 @@ public class Controller {
         int startMinute = Integer.valueOf((String) startArray.get(2));
         int startTime = startMinute + (60 * startHour);
 
-        Calendar calendar = new Calendar();
-        int calHeight = calendar.height;
+        Schedule schedule = new Schedule();
+        int calHeight = schedule.height;
 
         int dayLength = 60 * 24;
 
@@ -69,8 +67,8 @@ public class Controller {
         int totalHours = endHour - startHour;
         int totalMinutes = endMinute - startMinute;
 
-        Calendar calendar = new Calendar();
-        int calHeight = calendar.height;
+        Schedule schedule = new Schedule();
+        int calHeight = schedule.height;
         float dayLength = (float) (60 * 24);
 
         float height = (((float) totalMinutes + (60 * (float) totalHours)) / dayLength) * (float) calHeight;

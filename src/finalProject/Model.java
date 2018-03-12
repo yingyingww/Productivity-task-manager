@@ -5,10 +5,12 @@ import java.util.HashMap;
 public class Model {
     private HashMap<String, Task> tasks = new HashMap<>();
     private Task currentTask;
-    private Controller2 controller;
+    private Controller controller;
+    private Controller2 controller2;
 
-    public Model(Controller2 controller) {
+    public Model(Controller controller, Controller2 controller2) {
         this.controller = controller;
+        this.controller2 = controller2;
     }
 
     public void addTask(String name) throws EmptyTaskNameException, taskAlreadyExistsException {
@@ -19,7 +21,7 @@ public class Model {
         if (taskExists(name)){
             throw new taskAlreadyExistsException("This task already exists.");
         } else {
-            tasks.put(name, new Task(name, controller)); // have to change task constructor
+            tasks.put(name, new Task(name, controller, controller2)); // have to change task constructor
         }
     }
 

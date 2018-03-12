@@ -1,8 +1,6 @@
 package finalProject;
 
 import javafx.application.Application;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,7 +19,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -31,7 +28,6 @@ public class Main extends Application {
     TextArea status = new TextArea("");
     private List<ToggleButton> taskButtons = new LinkedList<>();
     VBox taskPanel=new VBox();
-    Controller2 c = new Controller2(this);
     VBox taskButtonsView = new VBox();
     BorderPane root = new BorderPane();
     ObservableList<Integer> hours = FXCollections.observableArrayList(
@@ -49,7 +45,8 @@ public class Main extends Application {
             "AM","PM"
     );
     Controller controller = new Controller(this);
-    Calendar idealSchedule = new Calendar();
+    Controller2 c = new Controller2(this, controller);
+    Schedule idealSchedule = new Schedule();
     TimeBackground timeBackground = new TimeBackground();
     //String presetDay;
     //Slider productivity;
@@ -77,6 +74,7 @@ public class Main extends Application {
         primaryStage.show();
     }
     //    Stage primaryStage;
+
     public void setMainPage(){
         createTaskPanel();
         HBox menuPane = setMenu();
@@ -451,7 +449,7 @@ public class Main extends Application {
         return newTaskPane;
     }
 
-    public Calendar getIdealSchedule() {
+    public Schedule getIdealSchedule() {
         return idealSchedule;
     }
 
