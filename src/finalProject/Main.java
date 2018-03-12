@@ -263,16 +263,15 @@ public class Main extends Application {
         ButtonType ignoreButton = new ButtonType("Ignore", ButtonBar.ButtonData.CANCEL_CLOSE);
 
         Alert productivityAlert = new Alert(AlertType.CONFIRMATION, null, ButtonType.OK, ignoreButton);
+        productivityAlert.getDialogPane().setContent(content);
         productivityAlert.setTitle("Productivity Checkup: " + name);
         productivityAlert.setHeaderText("How productive was the activity '" + name + "'?");
-        productivityAlert.getDialogPane().setContent(content);
 
         Optional<ButtonType> response = productivityAlert.showAndWait();
         if (response.isPresent() && response.get() == ButtonType.OK) {
             return (int) rating.getValue();
         } else {
-            int noRating = -1;
-            return noRating;
+            return -1;
         }
     }
 
