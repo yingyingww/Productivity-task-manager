@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 public class Timer {
     private Date startTime;
     private Date endTime;
+    private int duration;
 
 
     public void logStartTime(){
@@ -36,7 +37,7 @@ public class Timer {
         getTimeInterval();
     }
 
-    public void getTimeInterval(){
+    public int getTimeInterval(){
         long intervalInMinutes;
         long intervalInMs = endTime.getTime() - startTime.getTime();
         long intervalInSeconds = TimeUnit.MILLISECONDS.toSeconds(intervalInMs);
@@ -49,6 +50,7 @@ public class Timer {
             intervalInMinutes = TimeUnit.MILLISECONDS.toMinutes(intervalInMs)+1;
             System.out.println("Time Interval is: " + intervalInMinutes + " minute(s)");
         }
+        return (int) intervalInMinutes;
     }
 
     public Date getStartTime() {
