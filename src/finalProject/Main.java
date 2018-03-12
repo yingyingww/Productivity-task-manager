@@ -64,7 +64,7 @@ public class Main extends Application {
         setMainPage();
 
         primaryStage.setTitle("Productivity+");
-        Scene scene = new Scene(root, 800, 500);
+        Scene scene = new Scene(root, 900, 500);
         primaryStage.setScene(scene);
 
         // Add css features
@@ -168,7 +168,7 @@ public class Main extends Application {
         menuPane.setAlignment(Pos.TOP_LEFT);
 
         MenuBar menuBar = new MenuBar();
-        menuBar.setMinWidth(500);
+        menuBar.setMinWidth(900);
 
         Menu mainMenu = new Menu("Menu");
 
@@ -596,7 +596,8 @@ public class Main extends Application {
         sch.setStyle("-fx-background-color: #9999ff");
         ScrollPane schedule = new ScrollPane();
         Text scrollSchedule = new Text("Ideal Schedule");
-        schedule.setPrefSize(100, 1000);
+        scrollSchedule.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+        schedule.setPrefSize(200, 1000);
 
         if(idealSchedule.hasTasks()) {
             schedule.setContent(idealSchedule.displayCalendar());
