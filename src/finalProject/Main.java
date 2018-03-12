@@ -23,10 +23,7 @@ import javafx.scene.shape.Rectangle;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import javafx.geometry.Insets;
 
@@ -251,53 +248,41 @@ public class Main extends Application {
 
     // Asks the user how productive they felt after a given task
     public int productivityCheck(String name) {
-        productivityValue = -1;
-
         ButtonType irrelevant = new ButtonType("Not Relevant", ButtonBar.ButtonData.CANCEL_CLOSE);
-        ButtonType submit = new ButtonType("Submit", ButtonBar.ButtonData.OK_DONE);
+        Alert alert = new Alert(AlertType.CONFIRMATION, null, ButtonType.OK, irrelevant);
+        alert.setTitle("Productivity Check");
+        alert.setHeaderText("Please rate your productivity during '" + name + "'.");
 
-        Alert check = new Alert(AlertType.CONFIRMATION, "", irrelevant, submit);
-        final Button submitButton = (Button) check.getDialogPane().lookupButton(ButtonType.CANCEL);
-        check.setTitle("Productivity Check");
-        check.setHeaderText("How Productive did you feel during the '" + name + "' activity?");
+        VBox sliderLabel = new VBox();
+
+        Label info = new Label("Please rate your productivity on a scale of 1 to 10.");
+        Label level = new Label("Productivity level: 5");
 
         Slider productivity = new Slider(0, 10, 5);
-        Label level = new Label("-");
-
-        GridPane sliderLabel = new GridPane();
-
-        productivity.setBlockIncrement(1);
-        productivity.setShowTickLabels(true);
         productivity.setShowTickMarks(true);
-        productivity.setSnapToTicks(true);
+        productivity.setShowTickLabels(true);
+        productivity.setMajorTickUnit(1);
+        productivity.setMinorTickCount(0);
+        productivity.setBlockIncrement(1);
 
         productivity.valueProperty().addListener((obs, oldval, newval) ->
                 productivity.setValue(newval.intValue()));
 
-        /*EventHandler<ActionEvent> updateValue = new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-                int productivityValue = (int)productivity.getValue();
-            }
-        };
-        submitButton.setOnAction(updateValue);*/
-
-
         productivity.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                level.setText("Productivity level: " + newValue);
-                //productivityValue = (int)productivity.getValue(); //Stopgap to inelegantly deal with the error caused by eventhandler
-                //so the app isn't thrown off while I figure out a better solution
+                level.setText("Productivity level: " + newValue.intValue());
             }
         });
 
-        sliderLabel.add(productivity, 0, 0);
-        sliderLabel.add(level, 0, 1);
-        check.getDialogPane().setContent(sliderLabel);
+        sliderLabel.getChildren().addAll(info, productivity, level);
+        alert.getDialogPane().setContent(sliderLabel);
 
-        check.showAndWait();
-        return 100;
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            return (int) productivity.getValue();
+        }
+        return -1;
     }
 
     public static void newUser() {
