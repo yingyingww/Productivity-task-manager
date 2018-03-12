@@ -56,6 +56,7 @@ public class Main extends Application {
     //String presetDay;
     //Slider productivity;
     int productivityValue = -1;
+    //String currentPage = "Main Page";
 
 
     @Override
@@ -119,7 +120,6 @@ public class Main extends Application {
         emptyPane.getChildren().addAll(mainPage, todaySchedule);
 
         return emptyPane;
-
     }
 
     public void setSchedule() {
@@ -128,7 +128,6 @@ public class Main extends Application {
         ScrollPane schedule = addSchedule();
         root.setRight(schedule);
     }
-
 
 
     /**
@@ -194,6 +193,7 @@ public class Main extends Application {
     // Create two menus. One main menu for navigation and popups
     // The other for exiting.
     private HBox setMenu() {
+
         HBox menuPane = new HBox();
         menuPane.setAlignment(Pos.TOP_LEFT);
 
@@ -209,6 +209,7 @@ public class Main extends Application {
                 //need to create something here to go back to the Main Page
 //                start(primaryStage);
                 setMainPage();
+                //Main.this.currentPage = "Main Page";
             }
         });
 
@@ -217,8 +218,7 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent event) {
                 setSchedule();
-//                SetSchedule scheduleSetter = new SetSchedule();
-//                scheduleSetter.start(new Stage());
+                //Main.this.currentPage = "Set Schedule";
             }
         });
 
@@ -238,13 +238,8 @@ public class Main extends Application {
             }
         });
 
-        MenuItem newUserInfo = new MenuItem("Instructions for New Users");
-        newUserInfo.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {newUser();}
-        });
 
-        mainMenu.getItems().addAll(mainPage, setSchedule, trends, productivityTips, newUserInfo);
+        mainMenu.getItems().addAll(mainPage, setSchedule, trends, productivityTips);
 
         Menu exitMenu = new Menu("Exit");
         MenuItem exit = new MenuItem("Exit");
@@ -257,7 +252,18 @@ public class Main extends Application {
 
         exitMenu.getItems().add(exit);
 
-        menuBar.getMenus().addAll(mainMenu, exitMenu);
+        Menu instructionForNewUsers = new Menu("Instruction");
+        MenuItem newUserInfo = new MenuItem("Instructions for New Users");
+        newUserInfo.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {newUser();}
+        });
+        instructionForNewUsers.getItems().addAll(newUserInfo);
+
+
+        //Menu curPage = new Menu ("This is " + this.currentPage);
+
+        menuBar.getMenus().addAll(mainMenu, instructionForNewUsers, exitMenu);
         menuPane.getChildren().add(menuBar);
 
         return menuPane;
@@ -279,9 +285,7 @@ public class Main extends Application {
 
     // Asks the user how productive they felt after a given task
     public int productivityCheck(String name) {
-
-
-        int productivityValue = -1;
+        productivityValue = -1;
 
         ButtonType irrelevant = new ButtonType("Not Relevant", ButtonBar.ButtonData.CANCEL_CLOSE);
         ButtonType submit = new ButtonType("Submit", ButtonBar.ButtonData.OK_DONE);
