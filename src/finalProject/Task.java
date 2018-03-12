@@ -50,10 +50,12 @@ public class Task {
         return controller.getProductivity(this.getName());
     }
     
-    public int getAvgProductivity(){
+    public int getAvgProductivity() {
         int avgProductivity = 0;
-        for (TaskInstance instance: TaskInstances){
-            avgProductivity += instance.getProductivity();
+        for (TaskInstance instance : TaskInstances) {
+            if (instance.getProductivity() != -1) {
+                avgProductivity += instance.getProductivity();
+            }
         }
         return (avgProductivity / TaskInstances.size());
     }
