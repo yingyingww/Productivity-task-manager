@@ -62,17 +62,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         setMainPage();
-//        createTaskPanel();
-//        HBox menuPane = setMenu();
-//        ScrollPane schedulePane = addSchedule();
-//        VBox currSchedulePane = addCurrentSchedule();
-//        GridPane schedulesPane = combineSchedules(schedulePane, currSchedulePane);
-//        //set the color to
-//        schedulesPane.setStyle("-fx-background-color: #922b21;");
-//
-//        root.setRight(taskPanel);
-//        root.setTop(menuPane);
-//        root.setCenter(schedulesPane);
 
         primaryStage.setTitle("Productivity+");
         Scene scene = new Scene(root, 800, 500);
@@ -88,45 +77,26 @@ public class Main extends Application {
         scene.getStylesheets().add(css);
         primaryStage.show();
     }
-
-
-//    Stage primaryStage;
-
+    //    Stage primaryStage;
     public void setMainPage(){
         createTaskPanel();
         HBox menuPane = setMenu();
-        ScrollPane schedulePane = addSchedule();
+        VBox idealPane = addSchedule();
+        //ScrollPane schedulePane = addSchedule();
         VBox currSchedulePane = addCurrentSchedule();
-        //VBox centerPane = createCenterPane();
-        //GridPane schedulesPane = combineSchedules(schedulePane, currSchedulePane);
-        //schedulesPane.setStyle("-fx-background-color: #922b21;");
 
         root.setLeft(taskPanel);
         root.setTop(menuPane);
-        root.setRight(schedulePane);
+        root.setRight(idealPane);
         root.setCenter(currSchedulePane);
     }
 
-//    private VBox createCenterPane() {
-//        VBox emptyPane = new VBox();
-//        // should be the same color as the setMainPage(schedulesPane)
-//        emptyPane.setStyle("-fx-background-color: #922b21;");
-//        Text mainPage = new Text("MainPage");
-//        mainPage.setFont(Font.font("Arial", 16));
-//
-//        Text todaySchedule = new Text("Today's Schedule");
-//        todaySchedule.setFont(Font.font("Arial", FontWeight.BOLD, 24));
-//
-//        emptyPane.getChildren().addAll(mainPage, todaySchedule);
-//
-//        return emptyPane;
-//    }
 
     public void setSchedule() {
         VBox taskPanel = createTask();
         root.setCenter(taskPanel);
-        ScrollPane schedule = addSchedule();
-        root.setRight(schedule);
+        //ScrollPane schedule = addSchedule();
+        //root.setRight(schedule);
     }
 
 
@@ -206,10 +176,7 @@ public class Main extends Application {
         mainPage.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //need to create something here to go back to the Main Page
-//                start(primaryStage);
                 setMainPage();
-                //Main.this.currentPage = "Main Page";
             }
         });
 
@@ -218,7 +185,6 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent event) {
                 setSchedule();
-                //Main.this.currentPage = "Set Schedule";
             }
         });
 
@@ -237,7 +203,6 @@ public class Main extends Application {
                 productivityTips();
             }
         });
-
 
         mainMenu.getItems().addAll(mainPage, setSchedule, trends, productivityTips);
 
@@ -260,9 +225,6 @@ public class Main extends Application {
         });
         instructionForNewUsers.getItems().addAll(newUserInfo);
 
-
-        //Menu curPage = new Menu ("This is " + this.currentPage);
-
         menuBar.getMenus().addAll(mainMenu, instructionForNewUsers, exitMenu);
         menuPane.getChildren().add(menuBar);
 
@@ -279,7 +241,6 @@ public class Main extends Application {
         String tip2 = "Try breaking up the time you spend doing homework into smaller chunks.";
         String allTips = tip1 + "\n\n" + tip2;
         tips.setContentText(allTips);
-
         tips.showAndWait();
     }
 
@@ -431,6 +392,7 @@ public class Main extends Application {
         return currSchedule;
     }
 
+    //we probably don't need this any more
     // Puts the two schedules next two each other to be compared
     private GridPane combineSchedules(ScrollPane idealSchedule, VBox currSchedule) {
         GridPane schedule = new GridPane();
@@ -439,7 +401,6 @@ public class Main extends Application {
         schedule.add(currSchedule,2, 1);
         return schedule;
     }
-
 
     private VBox createTask() {
         VBox newTaskPane = new VBox();
@@ -630,15 +591,18 @@ public class Main extends Application {
 //        return wkd;
 //    }
 
-    private ScrollPane addSchedule() {
+    private VBox addSchedule() {
+        VBox sch = new VBox();
+        sch.setStyle("-fx-background-color: #9999ff");
         ScrollPane schedule = new ScrollPane();
+        Text scrollSchedule = new Text("Ideal Schedule");
         schedule.setPrefSize(100, 1000);
 
         if(idealSchedule.hasTasks()) {
             schedule.setContent(idealSchedule.displayCalendar());
         }
-
-        return schedule;
+        sch.getChildren().addAll(scrollSchedule, schedule);
+        return sch;
     }
 
     public static void main(String[] args) {
