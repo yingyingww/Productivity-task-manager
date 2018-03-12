@@ -21,7 +21,7 @@ public class CalendarTaskRectangle extends StackPane {
     public StackPane setTaskRectangleAsStack() {
         StackPane stack = new StackPane();
 
-        Rectangle taskRectangle = new Rectangle(100, height);
+        Rectangle taskRectangle = new Rectangle(200, height);
         taskRectangle.setFill(Color.WHITE);
         taskRectangle.setStroke(Color.BLACK);
         taskRectangle.setArcWidth(10);

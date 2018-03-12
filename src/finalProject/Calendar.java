@@ -1,5 +1,6 @@
 package finalProject;
 
+import javafx.geometry.Insets;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
@@ -15,7 +16,7 @@ public class Calendar extends Pane {
         //calendarColors = new Color[] {Color.CYAN, Color.MAGENTA, Color.YELLOW, Color.PINK, Color.ALICEBLUE, Color.VIOLET};
         numberOfTasks = 0;
         // TODO: Figure out what it really should be
-        height = 500;
+        height = 1500;
         todaysTask = new ArrayList<>();
     }
 
@@ -30,7 +31,7 @@ public class Calendar extends Pane {
 
     public Pane displayCalendar() {
         Pane schedule = new Pane();
-        schedule.setPrefSize(100,1000);
+        schedule.setPrefSize(200,height);
 
         if(hasTasks()) {
             for (CalendarTaskRectangle task : todaysTask) {

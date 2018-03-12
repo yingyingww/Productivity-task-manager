@@ -57,6 +57,7 @@ public class Main extends Application {
     //Slider productivity;
     int productivityValue = -1;
     //String currentPage = "Main Page";
+    boolean onMain = true;
 
 
     @Override
@@ -64,7 +65,7 @@ public class Main extends Application {
         setMainPage();
 
         primaryStage.setTitle("Productivity+");
-        Scene scene = new Scene(root, 900, 500);
+        Scene scene = new Scene(root, 1000, 700);
         primaryStage.setScene(scene);
 
         // Add css features
@@ -81,14 +82,15 @@ public class Main extends Application {
     public void setMainPage(){
         createTaskPanel();
         HBox menuPane = setMenu();
-        Pane idealPane = addSchedule();
+        ScrollPane schedules = makeScheduleScroll(combineSchedules(addSchedule(), addSchedule()));
         //ScrollPane schedulePane = addSchedule();
-        VBox currSchedulePane = addCurrentSchedule();
+        //VBox currSchedulePane = addCurrentSchedule();
 
         root.setLeft(taskPanel);
         root.setTop(menuPane);
-        root.setRight(idealPane);
-        root.setCenter(currSchedulePane);
+        //root.setRight(idealPane);
+        root.setCenter(schedules);
+        onMain = true;
     }
 
     public void setSchedule() {
@@ -96,6 +98,7 @@ public class Main extends Application {
         root.setCenter(taskPanel);
         //ScrollPane schedule = addSchedule();
         //root.setRight(schedule);
+        onMain = false;
     }
 
     /**
@@ -166,7 +169,7 @@ public class Main extends Application {
         menuPane.setAlignment(Pos.TOP_LEFT);
 
         MenuBar menuBar = new MenuBar();
-        menuBar.setMinWidth(900);
+        menuBar.setMinWidth(1000);
 
         Menu mainMenu = new Menu("Menu");
 
@@ -457,7 +460,7 @@ public class Main extends Application {
             public void handle(ActionEvent event) {
                 setMainPage();
                 idealSchedule.getCalendar();
-                root.setRight(makeScheduleScroll(combineSchedules(addSchedule(), addSchedule())));
+                root.setCenter(makeScheduleScroll(combineSchedules(addSchedule(), addSchedule())));
             }
         });
 
@@ -473,6 +476,7 @@ public class Main extends Application {
 
     private Pane addSchedule() {
         Pane idealSchedulePane = idealSchedule.displayCalendar();
+        idealSchedulePane.setStyle("-fx-background-color: #9999ff");
         return idealSchedulePane;
 //        VBox chosenSchedule = new VBox();
 //        chosenSchedule.setStyle("-fx-background-color: #9999ff");
@@ -492,7 +496,11 @@ public class Main extends Application {
         ScrollPane scrollingSchedule = new ScrollPane();
 
         scrollingSchedule.setContent(combinedSchedules);
-
+        if(onMain) {
+            scrollingSchedule.setPrefSize(420, 700);
+        } else {
+            scrollingSchedule.setPrefSize(220, 700);
+        }
         return  scrollingSchedule;
     }
 
