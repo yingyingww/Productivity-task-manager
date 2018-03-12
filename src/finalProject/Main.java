@@ -85,10 +85,13 @@ public class Main extends Application {
         ScrollPane schedules = makeScheduleScroll(combineSchedules(addSchedule(), addSchedule()));
         //ScrollPane schedulePane = addSchedule();
         //VBox currSchedulePane = addCurrentSchedule();
+        Pane filler = new Pane();
+        filler.setStyle("-fx-background-color: #9999ff");
+        filler.setPrefSize(300, 700);
 
         root.setLeft(taskPanel);
         root.setTop(menuPane);
-        //root.setRight(idealPane);
+        root.setRight(filler);
         root.setCenter(schedules);
         onMain = true;
     }
