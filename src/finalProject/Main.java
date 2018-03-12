@@ -296,48 +296,6 @@ public class Main extends Application {
         info.showAndWait();
     }
 
-    // Also sets up a less complex dummy schedule
-    private VBox addCurrentSchedule() {
-        VBox currSchedule = new VBox();
-
-        Text mainPage = new Text("MainPage");
-        mainPage.setFont(Font.font("Arial", 16));
-
-        Text actualScheduleText = new Text("Today's Actual Schedule");
-        actualScheduleText.setFont(Font.font("Arial", FontWeight.BOLD, 24));
-
-        currSchedule.setStyle("-fx-background-color: #922b21;");
-
-        currSchedule.setAlignment(Pos.TOP_CENTER);
-
-        Rectangle task1 = new Rectangle (200, 100, 100, 50);
-        task1.setFill(Color.YELLOW);
-
-        Rectangle task2 = new Rectangle (200, 200, 100, 50);
-        task2.setFill(Color.SILVER);
-
-        Rectangle task3 = new Rectangle (200, 300, 100, 50);
-        task3.setFill(Color.BLACK);
-
-        Rectangle task4 = new Rectangle (200, 400, 100, 50);
-        task4.setFill(Color.VIOLET);
-
-        currSchedule.getChildren().addAll(mainPage, actualScheduleText, task1, task2, task3, task4);
-        return currSchedule;
-    }
-
-    //we probably don't need this any more
-    // Puts the two schedules next two each other to be compared
-    private GridPane combineSchedules(Pane idealSchedule, Pane currSchedule) {
-        GridPane schedule = new GridPane();
-        schedule.setAlignment(Pos.TOP_CENTER);
-        schedule.add(idealSchedule, 1, 0);
-        schedule.add(currSchedule,2, 0);
-        timeBackground.displayTimes(schedule);
-
-        return schedule;
-    }
-
     private VBox createTask() {
         VBox newTaskPane = new VBox();
         Text taskPanelDirections = new Text("Set Your Schedule");
@@ -469,6 +427,18 @@ public class Main extends Application {
 //        }
 //        chosenSchedule.getChildren().addAll(scrollSchedule, schedule);
 //        return chosenSchedule;
+    }
+
+    //we probably don't need this any more
+    // Puts the two schedules next two each other to be compared
+    private GridPane combineSchedules(Pane idealSchedule, Pane currSchedule) {
+        GridPane schedule = new GridPane();
+        schedule.setAlignment(Pos.TOP_CENTER);
+        schedule.add(idealSchedule, 1, 0);
+        schedule.add(currSchedule,2, 0);
+        timeBackground.displayTimes(schedule);
+
+        return schedule;
     }
 
     private ScrollPane makeScheduleScroll(Pane schedule) {
