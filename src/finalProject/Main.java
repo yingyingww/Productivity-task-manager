@@ -498,15 +498,21 @@ public class Main extends Application {
 //        return chosenSchedule;
     }
 
-    private ScrollPane makeScheduleScroll(Pane combinedSchedules) {
+    private ScrollPane makeScheduleScroll(Pane schedule) {
         ScrollPane scrollingSchedule = new ScrollPane();
 
-        scrollingSchedule.setContent(combinedSchedules);
         if(onMain) {
             scrollingSchedule.setPrefSize(500, 700);
+            timeBackground.displayTimes((GridPane) schedule);
+            scrollingSchedule.setContent(schedule);
         } else {
             scrollingSchedule.setPrefSize(300, 700);
+            GridPane withTimes = new GridPane();
+            withTimes.add(idealSchedule.displayCalendar(), 1, 0);
+            timeBackground.displayTimes(withTimes);
+            scrollingSchedule.setContent(withTimes);
         }
+
         return  scrollingSchedule;
     }
 
