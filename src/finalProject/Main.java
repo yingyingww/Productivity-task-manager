@@ -246,43 +246,34 @@ public class Main extends Application {
         tips.showAndWait();
     }
 
-    // Asks the user how productive they felt after a given task
-    public int productivityCheck(String name) {
-        ButtonType irrelevant = new ButtonType("Not Relevant", ButtonBar.ButtonData.CANCEL_CLOSE);
-        Alert alert = new Alert(AlertType.CONFIRMATION, null, ButtonType.OK, irrelevant);
-        alert.setTitle("Productivity Check");
-        alert.setHeaderText("Please rate your productivity during '" + name + "'.");
+    public int askForProductivity(String name) {
+        Label info = new Label("Rate your productivity on a scale of 1 to 10, or click 'Ignore' to provide no rating.");
 
-        VBox sliderLabel = new VBox();
+        Slider rating = new Slider(0, 10, 5);
+        rating.setShowTickMarks(true);
+        rating.setShowTickLabels(true);
+        rating.setMajorTickUnit(1);
+        rating.setMinorTickCount(0);
+        rating.valueProperty().addListener((obs, oldValue, newValue) ->
+                rating.setValue(newValue.intValue()));
 
-        Label info = new Label("Please rate your productivity on a scale of 1 to 10.");
-        Label level = new Label("Productivity level: 5");
+        VBox content = new VBox();
+        content.getChildren().addAll(info, rating);
 
-        Slider productivity = new Slider(0, 10, 5);
-        productivity.setShowTickMarks(true);
-        productivity.setShowTickLabels(true);
-        productivity.setMajorTickUnit(1);
-        productivity.setMinorTickCount(0);
-        productivity.setBlockIncrement(1);
+        ButtonType ignoreButton = new ButtonType("Ignore", ButtonBar.ButtonData.CANCEL_CLOSE);
 
-        productivity.valueProperty().addListener((obs, oldval, newval) ->
-                productivity.setValue(newval.intValue()));
+        Alert productivityAlert = new Alert(AlertType.CONFIRMATION, null, ButtonType.OK, ignoreButton);
+        productivityAlert.setTitle("Productivity Checkup: " + name);
+        productivityAlert.setHeaderText("How productive was the activity '" + name + "'?");
+        productivityAlert.getDialogPane().setContent(content);
 
-        productivity.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                level.setText("Productivity level: " + newValue.intValue());
-            }
-        });
-
-        sliderLabel.getChildren().addAll(info, productivity, level);
-        alert.getDialogPane().setContent(sliderLabel);
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-            return (int) productivity.getValue();
+        Optional<ButtonType> response = productivityAlert.showAndWait();
+        if (response.isPresent() && response.get() == ButtonType.OK) {
+            return (int) rating.getValue();
+        } else {
+            int noRating = -1;
+            return noRating;
         }
-        return -1;
     }
 
     public static void newUser() {

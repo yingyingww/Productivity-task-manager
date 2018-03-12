@@ -27,6 +27,6 @@ public class Controller2 {
 
 
     public int getProductivity(String name) {
-        return this.main.productivityCheck(name);
+        return this.main.askForProductivity(name);
     }
 }
