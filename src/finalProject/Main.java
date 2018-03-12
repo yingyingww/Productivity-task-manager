@@ -97,30 +97,30 @@ public class Main extends Application {
         HBox menuPane = setMenu();
         ScrollPane schedulePane = addSchedule();
         VBox currSchedulePane = addCurrentSchedule();
-        VBox centerPane = createCenterPane();
-        GridPane schedulesPane = combineSchedules(schedulePane, currSchedulePane);
-        schedulesPane.setStyle("-fx-background-color: #922b21;");
+        //VBox centerPane = createCenterPane();
+        //GridPane schedulesPane = combineSchedules(schedulePane, currSchedulePane);
+        //schedulesPane.setStyle("-fx-background-color: #922b21;");
 
         root.setLeft(taskPanel);
         root.setTop(menuPane);
-        root.setRight(schedulesPane);
-        root.setCenter(centerPane);
+        root.setRight(schedulePane);
+        root.setCenter(currSchedulePane);
     }
 
-    private VBox createCenterPane() {
-        VBox emptyPane = new VBox();
-        // should be the same color as the setMainPage(schedulesPane)
-        emptyPane.setStyle("-fx-background-color: #922b21;");
-        Text mainPage = new Text("MainPage");
-        mainPage.setFont(Font.font("Arial", 16));
-
-        Text todaySchedule = new Text("Today's Schedule");
-        todaySchedule.setFont(Font.font("Arial", FontWeight.BOLD, 24));
-
-        emptyPane.getChildren().addAll(mainPage, todaySchedule);
-
-        return emptyPane;
-    }
+//    private VBox createCenterPane() {
+//        VBox emptyPane = new VBox();
+//        // should be the same color as the setMainPage(schedulesPane)
+//        emptyPane.setStyle("-fx-background-color: #922b21;");
+//        Text mainPage = new Text("MainPage");
+//        mainPage.setFont(Font.font("Arial", 16));
+//
+//        Text todaySchedule = new Text("Today's Schedule");
+//        todaySchedule.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+//
+//        emptyPane.getChildren().addAll(mainPage, todaySchedule);
+//
+//        return emptyPane;
+//    }
 
     public void setSchedule() {
         VBox taskPanel = createTask();
@@ -404,6 +404,15 @@ public class Main extends Application {
     // Also sets up a less complex dummy schedule
     private VBox addCurrentSchedule() {
         VBox currSchedule = new VBox();
+
+        Text mainPage = new Text("MainPage");
+        mainPage.setFont(Font.font("Arial", 16));
+
+        Text actualScheduleText = new Text("Today's Actual Schedule");
+        actualScheduleText.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+
+        currSchedule.setStyle("-fx-background-color: #922b21;");
+
         currSchedule.setAlignment(Pos.TOP_CENTER);
 
         Rectangle task1 = new Rectangle (200, 100, 100, 50);
@@ -418,7 +427,7 @@ public class Main extends Application {
         Rectangle task4 = new Rectangle (200, 400, 100, 50);
         task4.setFill(Color.VIOLET);
 
-        currSchedule.getChildren().addAll(task1, task2, task3, task4);
+        currSchedule.getChildren().addAll(mainPage, actualScheduleText, task1, task2, task3, task4);
         return currSchedule;
     }
 
