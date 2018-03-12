@@ -81,7 +81,7 @@ public class Main extends Application {
     public void setMainPage(){
         createTaskPanel();
         HBox menuPane = setMenu();
-        VBox idealPane = addSchedule();
+        Pane idealPane = addSchedule();
         //ScrollPane schedulePane = addSchedule();
         VBox currSchedulePane = addCurrentSchedule();
 
@@ -91,14 +91,12 @@ public class Main extends Application {
         root.setCenter(currSchedulePane);
     }
 
-
     public void setSchedule() {
         VBox taskPanel = createTask();
         root.setCenter(taskPanel);
         //ScrollPane schedule = addSchedule();
         //root.setRight(schedule);
     }
-
 
     /**
      * @return the task panel on the right side of the main page
@@ -295,7 +293,6 @@ public class Main extends Application {
         return 100;
     }
 
-
     public static void newUser() {
         Alert info = new Alert(AlertType.INFORMATION);
         info.setTitle("How to Use Productivity+");
@@ -318,49 +315,6 @@ public class Main extends Application {
         info.setHeaderText("Error: " + error);
         info.showAndWait();
     }
-
-    // Currently sets up a dummy schedule
-    /*private VBox addSchedule() {
-        VBox schedule = new VBox();
-        schedule.setAlignment(Pos.TOP_CENTER);
-        schedule.setPrefSize(100,400);
-
-//        Label taskName1 = new Label("Sleeping");
-//        CalendarTaskRectangle task1 = new CalendarTaskRectangle(taskName1, 500, Color.YELLOW);
-//        StackPane task1Pane = task1.setTaskRectangleAsStack();
-//
-//        Label taskName2 = new Label("Eating");
-//        CalendarTaskRectangle task2 = new CalendarTaskRectangle(taskName2, 50, Color.ALICEBLUE);
-//        StackPane task2Pane = task2.setTaskRectangleAsStack();
-//
-//        Label taskName3 = new Label("Homework");
-//        CalendarTaskRectangle task3 = new CalendarTaskRectangle(taskName3, 150, Color.WHITE);
-//        StackPane task3Pane = task3.setTaskRectangleAsStack();
-//
-//        Label taskName4 = new Label("Running");
-//        CalendarTaskRectangle task4 = new CalendarTaskRectangle(taskName4, 60, Color.VIOLET);
-//        StackPane task4Pane = task4.setTaskRectangleAsStack();
-//
-//        Label taskName5 = new Label("Sleeping");
-//        CalendarTaskRectangle task5 = new CalendarTaskRectangle(taskName5, 500, Color.GREEN);
-//        StackPane task5Pane = task5.setTaskRectangleAsStack();
-//
-//        Label taskName6 = new Label("Eating");
-//        CalendarTaskRectangle task6 = new CalendarTaskRectangle(taskName6, 50, Color.CRIMSON);
-//        StackPane task6Pane = task6.setTaskRectangleAsStack();
-//
-//        Label taskName7 = new Label("Homework");
-//        CalendarTaskRectangle task7 = new CalendarTaskRectangle(taskName7, 150, Color.AQUA);
-//        StackPane task7Pane = task7.setTaskRectangleAsStack();
-//
-//        Label taskName8 = new Label("Running");
-//        CalendarTaskRectangle task8 = new CalendarTaskRectangle(taskName8, 60, Color.CORAL);
-//        StackPane task8Pane = task8.setTaskRectangleAsStack();
-//
-//        schedule.getChildren().addAll(task1Pane, task2Pane, task3Pane, task4Pane, task5Pane, task6Pane, task7Pane, task8Pane);
-        schedule.setSpacing(10);
-        return schedule;
-    }*/
 
     // Also sets up a less complex dummy schedule
     private VBox addCurrentSchedule() {
@@ -394,7 +348,7 @@ public class Main extends Application {
 
     //we probably don't need this any more
     // Puts the two schedules next two each other to be compared
-    private GridPane combineSchedules(ScrollPane idealSchedule, VBox currSchedule) {
+    private GridPane combineSchedules(Pane idealSchedule, Pane currSchedule) {
         GridPane schedule = new GridPane();
         schedule.setAlignment(Pos.TOP_CENTER);
         schedule.add(idealSchedule, 1, 1);
@@ -486,7 +440,7 @@ public class Main extends Application {
                     // TODO: Figure out best way to do this
                     System.out.println("Task Attributes are: " + taskAttributes);
                     idealSchedule = controller.updateCalendar(taskAttributes);
-                    root.setRight(addSchedule());
+                    root.setRight(makeScheduleScroll(addSchedule()));
                 } else {
                     // TODO: make this a popup
                     System.out.println("Fill out everything");
@@ -503,7 +457,7 @@ public class Main extends Application {
             public void handle(ActionEvent event) {
                 setMainPage();
                 idealSchedule.getCalendar();
-                root.setRight(addSchedule());
+                root.setRight(makeScheduleScroll(combineSchedules(addSchedule(), addSchedule())));
             }
         });
 
@@ -517,7 +471,32 @@ public class Main extends Application {
         return idealSchedule;
     }
 
-//    private HBox createWeekday(){
+    private Pane addSchedule() {
+        Pane idealSchedulePane = idealSchedule.displayCalendar();
+        return idealSchedulePane;
+//        VBox chosenSchedule = new VBox();
+//        chosenSchedule.setStyle("-fx-background-color: #9999ff");
+//        ScrollPane schedule = new ScrollPane();
+//        Text scrollSchedule = new Text("Ideal Schedule");
+//        scrollSchedule.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+//        schedule.setPrefSize(200, 1000);
+//
+//        if(idealSchedule.hasTasks()) {
+//            schedule.setContent(idealSchedule.displayCalendar());
+//        }
+//        chosenSchedule.getChildren().addAll(scrollSchedule, schedule);
+//        return chosenSchedule;
+    }
+
+    private ScrollPane makeScheduleScroll(Pane combinedSchedules) {
+        ScrollPane scrollingSchedule = new ScrollPane();
+
+        scrollingSchedule.setContent(combinedSchedules);
+
+        return  scrollingSchedule;
+    }
+
+    //    private HBox createWeekday(){
 //        HBox wkd = new HBox();
 //
 //        Button monday = new Button();
@@ -592,21 +571,6 @@ public class Main extends Application {
 //
 //        return wkd;
 //    }
-
-    private VBox addSchedule() {
-        VBox sch = new VBox();
-        sch.setStyle("-fx-background-color: #9999ff");
-        ScrollPane schedule = new ScrollPane();
-        Text scrollSchedule = new Text("Ideal Schedule");
-        scrollSchedule.setFont(Font.font("Arial", FontWeight.BOLD, 16));
-        schedule.setPrefSize(200, 1000);
-
-        if(idealSchedule.hasTasks()) {
-            schedule.setContent(idealSchedule.displayCalendar());
-        }
-        sch.getChildren().addAll(scrollSchedule, schedule);
-        return sch;
-    }
 
     public static void main(String[] args) {
         launch(args);

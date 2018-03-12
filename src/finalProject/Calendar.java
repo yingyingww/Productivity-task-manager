@@ -30,7 +30,7 @@ public class Calendar extends Pane {
 
     public Pane displayCalendar() {
         Pane schedule = new Pane();
-        schedule.setPrefSize(100,500);
+        schedule.setPrefSize(100,1000);
 
         if(hasTasks()) {
             for (CalendarTaskRectangle task : todaysTask) {
