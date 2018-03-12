@@ -53,6 +53,7 @@ public class Main extends Application {
     );
     Controller controller = new Controller(this);
     Calendar idealSchedule = new Calendar();
+    TimeBackground timeBackground = new TimeBackground();
     //String presetDay;
     //Slider productivity;
     int productivityValue = -1;
@@ -87,7 +88,7 @@ public class Main extends Application {
         //VBox currSchedulePane = addCurrentSchedule();
         Pane filler = new Pane();
         filler.setStyle("-fx-background-color: #9999ff");
-        filler.setPrefSize(300, 700);
+        filler.setPrefSize(210, 700);
 
         root.setLeft(taskPanel);
         root.setTop(menuPane);
@@ -357,8 +358,10 @@ public class Main extends Application {
     private GridPane combineSchedules(Pane idealSchedule, Pane currSchedule) {
         GridPane schedule = new GridPane();
         schedule.setAlignment(Pos.TOP_CENTER);
-        schedule.add(idealSchedule, 1, 1);
-        schedule.add(currSchedule,2, 1);
+        schedule.add(idealSchedule, 1, 0);
+        schedule.add(currSchedule,2, 0);
+        timeBackground.displayTimes(schedule);
+
         return schedule;
     }
 
@@ -500,9 +503,9 @@ public class Main extends Application {
 
         scrollingSchedule.setContent(combinedSchedules);
         if(onMain) {
-            scrollingSchedule.setPrefSize(420, 700);
+            scrollingSchedule.setPrefSize(500, 700);
         } else {
-            scrollingSchedule.setPrefSize(220, 700);
+            scrollingSchedule.setPrefSize(300, 700);
         }
         return  scrollingSchedule;
     }
