@@ -419,12 +419,12 @@ public class Main extends Application {
         HBox taskNameInput = new HBox();
         //String textName = Model.currentTask.getName();
         //Text taskName = new Text("Task Name: " + textName);
-        Text taskName = new Text("Task Name:(As selected from the 'Select Current Task')" );
+        //Text taskName = new Text("Task Name:(As selected from the 'Select Current Task')" );
 
-        //TextField addTaskName = new TextField();
-        //addTaskName.setPromptText("Create a New Task");
+        TextField addTaskName = new TextField();
+        addTaskName.setPromptText("Create a New Task");
 
-        taskNameInput.getChildren().addAll(taskName);
+        //taskNameInput.getChildren().addAll(taskName);
 
         HBox startTime= new HBox();
         Text startTimeText = new Text("Start Time: ");
@@ -442,14 +442,6 @@ public class Main extends Application {
         ComboBox endAmPM = new ComboBox(amPm);
         endTime.getChildren().addAll(endTimeText, endHours, endColon, endMinutes, endAmPM);
 
-        ColorPicker colorPicker = new ColorPicker();
-        colorPicker.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Color: " + colorPicker.getValue());
-            }
-        });
-
         Button createTaskButton = new Button();
         createTaskButton.setText("Create Task");
 
@@ -460,7 +452,7 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent event) {
 
-                //Label nameInput = new Label(addTaskName.getText());
+                Label nameInput = new Label(addTaskName.getText());
 
                 Object startHoursInput = startHours.getValue();
                 Object startMinutesInput = startMinutes.getValue();
@@ -471,7 +463,7 @@ public class Main extends Application {
                 Object endAMPMInput = endAmPM.getValue();
 
                 ArrayList taskAttributes = new ArrayList();
-                taskAttributes.addAll(Arrays.asList(startHoursInput, startMinutesInput, startAMPMInput, endHoursInput, endMinutesInput, endAMPMInput));
+                taskAttributes.addAll(Arrays.asList(nameInput, startHoursInput, startMinutesInput, startAMPMInput, endHoursInput, endMinutesInput, endAMPMInput));
 
                 // TODO: Make own method maybe in controller?
                 boolean allFieldsFilled = true;
@@ -494,7 +486,7 @@ public class Main extends Application {
                     // TODO: Figure out best way to do this
                     System.out.println("Task Attributes are: " + taskAttributes);
                     idealSchedule = controller.updateCalendar(taskAttributes);
-                    root.setCenter(addSchedule());
+                    root.setRight(addSchedule());
                 } else {
                     // TODO: make this a popup
                     System.out.println("Fill out everything");
@@ -505,8 +497,18 @@ public class Main extends Application {
 
         //HBox weekdays = createWeekday();
 
-        newTaskPane.getChildren().addAll(taskPanelDirections, taskNameInput, startTime,
-                endTime, /*frequency, */createTaskButton, colorPicker);
+        Button useSchedule = new Button("Use Schedule");
+        useSchedule.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                setMainPage();
+                idealSchedule.getCalendar();
+                root.setRight(addSchedule());
+            }
+        });
+
+        newTaskPane.getChildren().addAll(taskPanelDirections, addTaskName, taskNameInput, startTime,
+                endTime, createTaskButton, useSchedule);
 
         return newTaskPane;
     }

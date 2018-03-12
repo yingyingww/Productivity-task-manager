@@ -7,20 +7,24 @@ import java.util.ArrayList;
 
 public class Calendar extends Pane {
     ArrayList<CalendarTaskRectangle> todaysTask;
-    private Color[] calendarColors;
+    //private Color[] calendarColors;
     private int numberOfTasks;
     public int height;
 
     public Calendar() {
-        calendarColors = new Color[] {Color.CYAN, Color.MAGENTA, Color.YELLOW, Color.PINK, Color.ALICEBLUE, Color.VIOLET};
+        //calendarColors = new Color[] {Color.CYAN, Color.MAGENTA, Color.YELLOW, Color.PINK, Color.ALICEBLUE, Color.VIOLET};
         numberOfTasks = 0;
         // TODO: Figure out what it really should be
         height = 500;
         todaysTask = new ArrayList<>();
     }
 
+    public ArrayList<CalendarTaskRectangle> getCalendar() {
+        return todaysTask;
+    }
+
     public void addTaskToCalendar(Label taskName, float rectHeight, float rectStartPoint) {
-        todaysTask.add(new CalendarTaskRectangle(taskName, rectHeight, rectStartPoint, calendarColors[numberOfTasks]));
+        todaysTask.add(new CalendarTaskRectangle(taskName, rectHeight, rectStartPoint));
         numberOfTasks++;
     }
 

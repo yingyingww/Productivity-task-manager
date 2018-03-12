@@ -46,7 +46,7 @@ public class Task {
         int productivity = getProductivity();
         totalTimeSpent += duration;
         System.out.println("Task " + name + "\nstarted: " + start + "\nended: " + end + "\nproductivity: " + productivity);
-        TaskInstances.add(new TaskInstance(start, end, productivity, duration));
+        //TaskInstances.add(new TaskInstance(start, end, productivity, duration));
     }
 
     public int getProductivity() {

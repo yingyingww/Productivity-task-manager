@@ -57,10 +57,6 @@ public class Controller {
 
         float startPoint = ((float) startTime / (float) dayLength) * (float) calHeight;
 
-        System.out.println("calHeight: " + calHeight);
-        System.out.println("(startTime / dayLength): " + ((float) startTime / (float) dayLength));
-        System.out.println("startPoint: " + startPoint);
-
         return startPoint;
     }
 
