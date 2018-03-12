@@ -48,7 +48,8 @@ public class Task {
         int productivity = getProductivity();
         totalTimeSpent += duration;
         System.out.println("Task " + name + "\nstarted: " + start + "\nended: " + end + "\nproductivity: " + productivity);
-        controller.updateCalendar(createTaskAttributes(name, start, end));
+        //TODO: this needs to return the schedule created by this and then update root for it to work
+        controller.updateCurrentCalendar(createTaskAttributes(name, start, end));
         //TaskInstances.add(new TaskInstance(start, end, productivity, duration));
 
     }

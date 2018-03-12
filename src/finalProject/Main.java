@@ -16,8 +16,6 @@ import javafx.scene.layout.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 import java.net.URL;
 import java.util.*;
@@ -47,6 +45,7 @@ public class Main extends Application {
     Controller controller = new Controller(this);
     Controller2 c = new Controller2(this, controller);
     Schedule idealSchedule = new Schedule();
+    Schedule currentSchedule = new Schedule();
     TimeBackground timeBackground = new TimeBackground();
     //String presetDay;
     //Slider productivity;
@@ -78,8 +77,8 @@ public class Main extends Application {
     public void setMainPage(){
         createTaskPanel();
         HBox menuPane = setMenu();
-        ScrollPane schedules = makeScheduleScroll(combineSchedules(addSchedule(), addSchedule()));
-        //ScrollPane schedulePane = addSchedule();
+        ScrollPane schedules = makeScheduleScroll(combineSchedules(addIdealSchedule(), addIdealSchedule()));
+        //ScrollPane schedulePane = addIdealSchedule();
         //VBox currSchedulePane = addCurrentSchedule();
         Pane filler = new Pane();
         filler.setStyle("-fx-background-color: #9999ff");
@@ -95,7 +94,7 @@ public class Main extends Application {
     public void setSchedule() {
         VBox taskPanel = createTask();
         root.setCenter(taskPanel);
-        //ScrollPane schedule = addSchedule();
+        //ScrollPane schedule = addIdealSchedule();
         //root.setRight(schedule);
         onMain = false;
     }
@@ -379,8 +378,8 @@ public class Main extends Application {
                 if (allFieldsFilled && validTime) {
                     // TODO: Figure out best way to do this
                     System.out.println("Task Attributes are: " + taskAttributes);
-                    idealSchedule = controller.updateCalendar(taskAttributes);
-                    root.setRight(makeScheduleScroll(addSchedule()));
+                    idealSchedule = controller.updateIdealCalendar(taskAttributes);
+                    root.setRight(makeScheduleScroll(addIdealSchedule()));
                 } else {
                     // TODO: make this a popup
                     System.out.println("Fill out everything");
@@ -397,7 +396,8 @@ public class Main extends Application {
             public void handle(ActionEvent event) {
                 setMainPage();
                 idealSchedule.getCalendar();
-                root.setCenter(makeScheduleScroll(combineSchedules(addSchedule(), addSchedule())));
+                currentSchedule.getCalendar();
+                root.setCenter(makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule())));
             }
         });
 
@@ -411,7 +411,11 @@ public class Main extends Application {
         return idealSchedule;
     }
 
-    private Pane addSchedule() {
+    public Schedule getCurrentSchedule() {
+        return currentSchedule;
+    }
+
+    private Pane addIdealSchedule() {
         Pane idealSchedulePane = idealSchedule.displayCalendar();
         idealSchedulePane.setStyle("-fx-background-color: #9999ff");
         return idealSchedulePane;
@@ -427,6 +431,12 @@ public class Main extends Application {
 //        }
 //        chosenSchedule.getChildren().addAll(scrollSchedule, schedule);
 //        return chosenSchedule;
+    }
+
+    private Pane addCurrentSchedule() {
+        Pane currentSchedulePane = currentSchedule.displayCalendar();
+        currentSchedulePane.setStyle("-fx-background-color: #9999ff");
+        return currentSchedulePane;
     }
 
     //we probably don't need this any more

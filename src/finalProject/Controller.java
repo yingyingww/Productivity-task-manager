@@ -13,7 +13,7 @@ public class Controller {
     }
 
     // Changes the format of the time to something acceptable
-    public Schedule updateCalendar(ArrayList taskAttributes) {
+    public Schedule updateIdealCalendar(ArrayList taskAttributes) {
         Label taskName = (Label) taskAttributes.get(0);
 
         float startPoint = getStartPoint(taskAttributes);
@@ -33,6 +33,21 @@ public class Controller {
         //long totalTime = getTotalTime(startTime, endTime);
     }
 
+    public Schedule updateCurrentCalendar(ArrayList taskAttributes) {
+        Label taskName = (Label) taskAttributes.get(0);
+
+        float startPoint = getStartPoint(taskAttributes);
+        float heightOfRectangle = getHeightOfRectangle(taskAttributes);
+
+        Schedule currentSchedule = main.getCurrentSchedule();
+
+        currentSchedule.addTaskToCalendar(taskName, heightOfRectangle, startPoint);
+
+        return currentSchedule;
+
+        // TODO: Andrew wants me to send stuff to model to be stored, but errors.
+
+    }
 
     public int changeToMilitaryTime(String amPm, int hour) {
         if (amPm == "PM" && hour < 12) {

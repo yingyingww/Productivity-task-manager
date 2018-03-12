@@ -150,7 +150,7 @@
 //                if (allFieldsFilled && validTime) {
 //                    // TODO: Figure out best way to do this
 //                    System.out.println("Task Attributes are: " + taskAttributes);
-//                    idealSchedule = controller.updateCalendar(taskAttributes);
+//                    idealSchedule = controller.updateIdealCalendar(taskAttributes);
 //                    root.setCenter(addSchedule());
 //                } else {
 //                    // TODO: make this a popup
