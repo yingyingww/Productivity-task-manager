@@ -10,6 +10,7 @@ public class Task {
     private Timer t = new Timer();
     private List<TaskInstance> TaskInstances = new ArrayList<>();
     private Controller2 controller;
+    private int totalTimeSpent;
 
     public Task(String name, Controller2 controller) {
         this.name = name;
@@ -41,9 +42,11 @@ public class Task {
         t.logEndTime();
         Date start = t.getStartTime();
         Date end = t.getEndTime();
+        int duration = t.getTimeInterval();
         int productivity = getProductivity();
+        totalTimeSpent += duration;
         System.out.println("Task " + name + "\nstarted: " + start + "\nended: " + end + "\nproductivity: " + productivity);
-        TaskInstances.add(new TaskInstance(start, end, productivity));
+        TaskInstances.add(new TaskInstance(start, end, productivity, duration));
     }
 
     public int getProductivity() {
@@ -59,5 +62,10 @@ public class Task {
         }
         return (avgProductivity / TaskInstances.size());
     }
+
+    public int getTotalTimeSpent(){
+        return this.totalTimeSpent;
+    }
+
 
 }
