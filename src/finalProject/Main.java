@@ -79,7 +79,7 @@ public class Main extends Application {
         onMain = true;
         createTaskPanel();
         HBox menuPane = setMenu();
-        ScrollPane schedules = makeScheduleScroll(combineSchedules(addIdealSchedule(), addIdealSchedule()));
+        ScrollPane schedules = makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule()));
         //ScrollPane schedulePane = addIdealSchedule();
         //VBox currSchedulePane = addCurrentSchedule();
         Pane filler = new Pane();
