@@ -1,8 +1,11 @@
 package finalProject;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import javafx.scene.control.Label;
 
 import java.util.ArrayList;
+
+import static finalProject.Model.*;
 
 public class Controller {
     Main main;
@@ -134,4 +137,14 @@ public class Controller {
         return totalTime;
     }
     */
+
+    public String getTips(){
+        Task lowProductivity = Model.findLeastProductive();
+        String tip1 = Model.checkProductivityByDuration(lowProductivity);
+        Task highProductivity = Model.findMostProductive();
+        String tip2 = ("You usually rate your productivity during " + highProductivity.getName() + " activity highly, well done!");
+        String tip3 = "Here is some information about the five activities you spend the most time on:" + topFiveToTip();
+        String tips = tip1 + tip2 + tip3;
+        return (tips);
+    }
 }

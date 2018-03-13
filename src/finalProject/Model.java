@@ -3,8 +3,8 @@ package finalProject;
 import java.util.*;
 
 public class Model {
-    private HashMap<String, Task> tasks = new HashMap<>();
-    private Task currentTask;
+    private static HashMap<String, Task> tasks = new HashMap<>();
+    private static Task currentTask;
     private Controller controller;
     private List<TaskInstance> idealInstanceList;
 
@@ -84,7 +84,7 @@ public class Model {
     }
 
 
-    public Task findMostProductive() {
+    public static Task findMostProductive() {
         Task curMost = currentTask;
         int tempProductivity = 0;
         for (Task curTask : tasks.values()) {
@@ -96,7 +96,7 @@ public class Model {
         return  curMost;
     }
 
-    public Task findLeastProductive(){
+    public static Task findLeastProductive(){
         Task curLeast= currentTask;
         int tempProductivity = 0;
         for (Task curTask : tasks.values()) {
@@ -108,7 +108,7 @@ public class Model {
         return curLeast;
     }
 
-    public List<Task> findTopFiveByTime(){
+    public static List<Task> findTopFiveByTime(){
 
         List topTasks = new ArrayList<Task>();
 
@@ -120,7 +120,7 @@ public class Model {
         return topTasks;
     }
     
-    public String topFiveToTip(){
+    public static String topFiveToTip(){
         List<Task> topFive = findTopFiveByTime();
         String taskInfo = "";
         for (Task t: topFive){
@@ -142,75 +142,64 @@ public class Model {
     }
 
 
-    public String checkProductivityByDuration(Task testTask) {
-       int countOverTwoHours = 0;
-       int productivityOverTwoHours = 0;
-       int countUnderTwoHours = 0;
-       int productivityUnderTwoHours = 0;
-       boolean anyOverTwoHours = false;
-       boolean anyUnderTwoHours = false;
-       String tip = "";
-       for (TaskInstance instance: testTask.getTaskInstances()){
-           if (instance.getDuration() >= 120){
-               countOverTwoHours ++;
-               int tempProductivity = instance.getProductivity();
-               if (tempProductivity > 0){
-                   productivityOverTwoHours += tempProductivity;
-               }
-               anyOverTwoHours = true;
-           }
-           else {
-               countUnderTwoHours ++;
-               int tempProductivity = instance.getProductivity();
-               if (tempProductivity > 0) {
-                   productivityUnderTwoHours += tempProductivity;
-               }
-               anyUnderTwoHours = true;
-           }
-       }
-       if (anyOverTwoHours) {
-           productivityOverTwoHours = productivityOverTwoHours / countOverTwoHours;
-       }
-       else if (testTask.getAvgProductivity() < 5){
-           tip = "You only seem to do the " + testTask.getName() + " activity for short periods of time, and it does not have a high" +
-                   "productivity rating, try doing " + testTask.getName() +" for longer stretches to be more productive.";
-       }
-       else {
-           tip = "Doing the " + testTask.getName() + " activity for longer stretches seems to be effective, keep it up!";
-       }
-       if (anyUnderTwoHours){
-           productivityUnderTwoHours = productivityUnderTwoHours / countUnderTwoHours;
-       }
-       else if (testTask.getAvgProductivity() < 5){
-           tip = "You only seem to do the " + testTask.getName() + " activity for long periods of time, and it " +
-                   "does not have a high productivity rating, try breaking it up to be more productive.";
-       }
-       else {
-           tip = "Doing the " + testTask.getName() + " activity for shorter periods seems to be effective, keep it up!";
-       }
-       if (anyOverTwoHours && anyUnderTwoHours && productivityOverTwoHours > productivityUnderTwoHours){
-           tip = "You are more productive during " + testTask.getName() + "activity when you do it for long stretches." +
-                   "When you do this activity for at least 2 hours at a time you rate your productivity an average of " +
-                   (productivityOverTwoHours - productivityUnderTwoHours) + "points higher. Try setting time aside for it!";
-       }
-       if (anyUnderTwoHours && anyOverTwoHours && productivityUnderTwoHours > productivityUnderTwoHours){
-           tip = "You are more productive during " + testTask.getName() + "activity when you do it in shorter blocks." +
-                   " When you do this activity for less than 2 hours at a time, you rate your productivity an average of "
-           + (productivityUnderTwoHours - productivityOverTwoHours) + "points higher. Try breaking your work in to smaller chunks.";
-       }
-       return (tip);
-    }
+    public static String checkProductivityByDuration(Task testTask) {
+        int countOverTwoHours = 0;
+        int productivityOverTwoHours = 0;
+        int countUnderTwoHours = 0;
+        int productivityUnderTwoHours = 0;
+        boolean anyOverTwoHours = false;
+        boolean anyUnderTwoHours = false;
+        String tip = "";
+        for (TaskInstance instance: testTask.getTaskInstances()){
+            if (instance.getDuration() >= 120) {
+                countOverTwoHours++;
+                int tempProductivity = instance.getProductivity();
+                if (tempProductivity > 0) {
+                    productivityOverTwoHours += tempProductivity;
+                }
+                anyOverTwoHours = true;
+            }
+            else {
+                countUnderTwoHours ++;
+                int tempProductivity = instance.getProductivity();
+                if (tempProductivity > 0) {
+                    productivityUnderTwoHours += tempProductivity;
+                }
+                anyUnderTwoHours = true;
+            }
+        }
+        if (anyOverTwoHours) {
+            productivityOverTwoHours = productivityOverTwoHours / countOverTwoHours;
+        }
+        else if (testTask.getAvgProductivity() < 5){
+            tip = "You only seem to do the " + testTask.getName() + " activity for short periods of time, and it does not have a high" +
+                    "productivity rating, try doing " + testTask.getName() +" for longer stretches to be more productive.";
+        }
+        else {
+            tip = "Doing the " + testTask.getName() + " activity for longer stretches seems to be effective, keep it up!";
+        }
+        if (anyUnderTwoHours){
+            productivityUnderTwoHours = productivityUnderTwoHours / countUnderTwoHours;
+        }
+        else if (testTask.getAvgProductivity() < 5){
+            tip = "You only seem to do the " + testTask.getName() + " activity for long periods of time, and it " +
+                    "does not have a high productivity rating, try breaking it up to be more productive.";
+        }
+        else {
+            tip = "Doing the " + testTask.getName() + " activity for shorter periods seems to be effective, keep it up!";
+        }
+        if (anyOverTwoHours && anyUnderTwoHours && productivityOverTwoHours > productivityUnderTwoHours){
+            tip = "You are more productive during " + testTask.getName() + "activity when you do it for long stretches." +
+                    "When you do this activity for at least 2 hours at a time you rate your productivity an average of " +
+                    (productivityOverTwoHours - productivityUnderTwoHours) + "points higher. Try setting time aside for it!";
+        }
+        if (anyUnderTwoHours && anyOverTwoHours && productivityUnderTwoHours > productivityUnderTwoHours){
+            tip = "You are more productive during " + testTask.getName() + "activity when you do it in shorter blocks." +
+                    " When you do this activity for less than 2 hours at a time, you rate your productivity an average of "
+            + (productivityUnderTwoHours - productivityOverTwoHours) + "points higher. Try breaking your work in to smaller chunks.";
+        }
+        return (tip);
 
-    
-
-    public String getTips(){
-        Task lowProductivity = findLeastProductive();
-        String tip1 = checkProductivityByDuration(lowProductivity);
-        Task highProductivity = findMostProductive();
-        String tip2 = ("You usually rate your productivity during " + highProductivity.getName() + " activity highly, well done!");
-        String tip3 = "Here is some information about the five activities you spend the most time on:" + topFiveToTip();
-        String tips = tip1 + tip2 + tip3;
-        return (tips);
     }
 
 }

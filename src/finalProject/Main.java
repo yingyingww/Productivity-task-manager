@@ -253,7 +253,7 @@ public class Main extends Application {
         tips.setHeaderText(null);
         //String tip1 = "You haven't been sleeping much. Try getting 8 hours, and hopefully that will boost your mood.";
         //String tip2 = "Try breaking up the time you spend doing homework into smaller chunks.";
-        String allTips = model.getTips();
+        String allTips = controller.getTips();
         tips.setContentText(allTips);
         tips.showAndWait();
     }
