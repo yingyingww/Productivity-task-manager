@@ -17,7 +17,7 @@
 //            main.addTaskButton(name);
 //        } catch (EmptyTaskNameException e) {
 //            main.errorEnteringTasks(e.getMessage());
-//        } catch (taskAlreadyExistsException e) {
+//        } catch (TaskAlreadyExistsException e) {
 //            main.errorEnteringTasks(e.getMessage());
 //        }
 //    }

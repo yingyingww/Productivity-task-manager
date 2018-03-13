@@ -19,7 +19,7 @@ public class Controller {
             main.addTaskButton(name);
         } catch (EmptyTaskNameException e) {
             main.errorEnteringTasks(e.getMessage());
-        } catch (taskAlreadyExistsException e) {
+        } catch (TaskAlreadyExistsException e) {
             main.errorEnteringTasks(e.getMessage());
         }
     }
@@ -40,11 +40,11 @@ public class Controller {
         float startPoint = getStartPoint(taskAttributes);
         float heightOfRectangle = getHeightOfRectangle(taskAttributes);
 
-        Schedule currentSchedule = main.getIdealSchedule();
+        Schedule currentIdealSchedule = main.getIdealSchedule();
 
-        currentSchedule.addTaskToCalendar(taskName, heightOfRectangle, startPoint);
+        currentIdealSchedule.addTaskToCalendar(taskName, heightOfRectangle, startPoint);
 
-        return currentSchedule;
+        return currentIdealSchedule;
 
         // TODO: Andrew wants me to send stuff to model to be stored, but errors.
 

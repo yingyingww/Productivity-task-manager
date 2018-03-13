@@ -1,30 +1,32 @@
 package finalProject;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Model {
     private HashMap<String, Task> tasks = new HashMap<>();
     private Task currentTask;
     private Controller controller;
+    private List<TaskInstance> idealInstanceList;
 
     public Model(Controller controller) {
         this.controller = controller;
         //this.controller2 = controller2;
     }
 
-    public void addTask(String name) throws EmptyTaskNameException, taskAlreadyExistsException {
+    public void addTask(String name) throws EmptyTaskNameException, TaskAlreadyExistsException {
         if (name.isEmpty()) {
             throw new EmptyTaskNameException("Please choose a task name.");
         }
         name = name.toLowerCase();
         if (taskExists(name)){
-            throw new taskAlreadyExistsException("This task already exists.");
+            throw new TaskAlreadyExistsException("This task already exists.");
         } else {
-            tasks.put(name, new Task(name, controller)); // have to change task constructor
+            addTaskNoErrors(name); // have to change task constructor
         }
+    }
+
+    private void addTaskNoErrors(String name) {
+        tasks.put(name, new Task(name, controller));
     }
 
     public void switchTasks(Task newCurrent) {
@@ -48,6 +50,40 @@ public class Model {
         name = name.toLowerCase();
         return this.tasks.get(name);
     }
+
+    private void addTaskIdealSchedule(String name) throws EmptyTaskNameException {
+        if (name.isEmpty()) {
+            throw new EmptyTaskNameException("Please choose a task name.");
+        }
+        name = name.toLowerCase();
+        if (!taskExists(name)){
+            addTaskNoErrors(name);
+        }
+    }
+
+    public void addIdealInstance(String name, Date start, Date end) throws EmptyTaskNameException {
+        addTaskIdealSchedule(name);
+        if (end.compareTo(start) <= 0) {
+            // throw a invalid dates error
+        }
+        TaskInstance instance = new TaskInstance(start, end, 0, 0);
+        if (checkForInstanceOverlap(instance)) {
+            // throw overlap error
+        } else {
+            idealInstanceList.add(instance);
+        }
+
+    }
+
+    private boolean checkForInstanceOverlap(TaskInstance instance) {
+        for (TaskInstance i : idealInstanceList) {
+            if(i.compareTo(instance) == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     public Task findMostProductive() {
         Task curMost = currentTask;
@@ -85,7 +121,7 @@ public class Model {
         return topTasks;
     }
 
-   public String checkProductivityByDuration(Task testTask){
+    public String checkProductivityByDuration(Task testTask){
         int countOverTwoHours = 0;
         int productivityOverTwoHours = 0;
         int countUnderTwoHours = 0;
@@ -139,7 +175,3 @@ public class Model {
     }
 
 }
-
-
-
-//}
