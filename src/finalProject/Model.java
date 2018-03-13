@@ -128,9 +128,16 @@ public class Model {
             String tempName = t.getName();
             int tempTime = t.getTotalTimeSpent();
             int tempProductivity = t.getAvgProductivity();
-            taskInfo = taskInfo + "Activity name: " + tempName +
-                    " Total time spend on activity in hours " + (tempTime / 60) +
-                    " Average productivity rating " + tempProductivity;
+            if (tempProductivity < 0) {
+                taskInfo = taskInfo + "Activity name: " + tempName +
+                        " Total time spend on activity in hours " + (tempTime / 60) +
+                        " No productivity ratings entered";
+            }
+            else{
+                taskInfo = taskInfo + "Activity name: " + tempName +
+                        " Total time spend on activity in hours " + (tempTime / 60) +
+                        " Average productivity rating " + tempProductivity;
+            }
         }
         return taskInfo;
     }
