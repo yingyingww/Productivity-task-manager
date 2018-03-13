@@ -22,6 +22,30 @@ public class Task {
     public String getName() {
         return this.name;
     }
+    
+    public List<TaskInstance> getTaskInstances() {
+        return TaskInstances;
+    }
+    
+    
+    public int getTotalTimeSpent(){
+        return this.totalTimeSpent;
+    }
+    
+    public int getProductivity() {
+        return controller2.getProductivity(this.getName());
+    }
+    
+    public int getAvgProductivity() {
+        int avgProductivity = 0;
+        for (TaskInstance instance : TaskInstances) {
+            if (instance.getProductivity() != -1) {
+                avgProductivity += instance.getProductivity();
+            }
+        }
+        return (avgProductivity / TaskInstances.size());
+    }
+
 
     /**
      * Calls startTask() if its not running and endTask() if it is.
@@ -52,20 +76,6 @@ public class Task {
         controller.updateCurrentCalendar(createTaskAttributes(name, start, end));
         //TaskInstances.add(new TaskInstance(start, end, productivity, duration));
 
-    }
-
-    public int getProductivity() {
-        return controller2.getProductivity(this.getName());
-    }
-    
-    public int getAvgProductivity() {
-        int avgProductivity = 0;
-        for (TaskInstance instance : TaskInstances) {
-            if (instance.getProductivity() != -1) {
-                avgProductivity += instance.getProductivity();
-            }
-        }
-        return (avgProductivity / TaskInstances.size());
     }
 
     //maybe the worst piece of code I have ever written
@@ -107,10 +117,4 @@ public class Task {
         taskAttributes.addAll(Arrays.asList(nameInput, startHoursInput, startMinutesInput, startAMPMInput, endHoursInput, endMinutesInput, endAMPMInput));
         return taskAttributes;
     }
-
-    public int getTotalTimeSpent(){
-        return this.totalTimeSpent;
-    }
-
-
 }
