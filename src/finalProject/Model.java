@@ -23,7 +23,7 @@ public class Model {
         if (taskExists(name)){
             throw new taskAlreadyExistsException("This task already exists.");
         } else {
-            tasks.put(name, new Task(name, controller/*, controller2*/)); // have to change task constructor
+            tasks.put(name, new Task(name, controller)); // have to change task constructor
         }
     }
 

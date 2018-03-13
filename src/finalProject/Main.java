@@ -362,21 +362,24 @@ public class Main extends Application {
                 ArrayList taskAttributes = new ArrayList();
                 taskAttributes.addAll(Arrays.asList(nameInput, startHoursInput, startMinutesInput, startAMPMInput, endHoursInput, endMinutesInput, endAMPMInput));
 
+                //TODO: THIS IS ALL NONSENSE AND DOESN'T DO SHIT AND IT MAKES SENSE BUT STILL NEEDS FIXING
                 // TODO: Make own method maybe in controller/model?
-                boolean allFieldsFilled = true;
+                boolean allFieldsFilled = checkIfAllFieldsFilled(taskAttributes);
+                if(!allFieldsFilled) {
+                    // TODO: make this a popup
+                    System.out.println("Fill out everything");
+                    System.out.println("Input a valid time");
+                }
+
                 boolean validTime = true;
-                for(Object attribute : taskAttributes) {
-                    if(attribute == null || attribute.equals("")) {
-                        allFieldsFilled = false;
-                    } if(startAMPMInput.equals("PM") && endAMPMInput.equals("AM")) {
-                        validTime = false;
-                    } else if(startAMPMInput.equals(endAMPMInput) && (int) startHoursInput > (int) endHoursInput) {
-                        validTime = false;
-                    } else if(startAMPMInput.equals(endAMPMInput) && startHoursInput.equals(endHoursInput) && Integer.valueOf((String) startMinutesInput) > Integer.valueOf((String) endMinutesInput)) {
-                        validTime = false;
-                    } else if(startAMPMInput.equals(endAMPMInput) && startHoursInput.equals(endHoursInput) && startMinutesInput.equals(endMinutesInput)) {
-                        validTime = false;
-                    }
+                if(startAMPMInput.equals("PM") && endAMPMInput.equals("AM")) {
+                    validTime = false;
+                } else if(startAMPMInput.equals(endAMPMInput) && (int) startHoursInput > (int) endHoursInput) {
+                    validTime = false;
+                } else if(startAMPMInput.equals(endAMPMInput) && startHoursInput.equals(endHoursInput) && Integer.valueOf((String) startMinutesInput) > Integer.valueOf((String) endMinutesInput)) {
+                    validTime = false;
+                } else if(startAMPMInput.equals(endAMPMInput) && startHoursInput.equals(endHoursInput) && startMinutesInput.equals(endMinutesInput)) {
+                    validTime = false;
                 }
 
                 if (allFieldsFilled && validTime) {
@@ -409,6 +412,16 @@ public class Main extends Application {
                 endTime, createTaskButton, useSchedule);
 
         return newTaskPane;
+    }
+
+    // TODO: move to model
+    private boolean checkIfAllFieldsFilled(ArrayList taskAttributes) {
+        for(Object attribute : taskAttributes) {
+            if (attribute == null || attribute.equals("")) {
+                return false;
+            }
+        }
+        return true;
     }
 
     //TODO: this really shouldn't been here maybe in model or controller
