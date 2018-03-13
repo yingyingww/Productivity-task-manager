@@ -9,12 +9,11 @@ public class Task {
     private boolean isRunning = false;
     private Timer t = new Timer();
     private List<TaskInstance> TaskInstances = new ArrayList<>();
-    //private Controller2 controller2;
     private Controller controller;
     private int totalTimeSpent;
     private Schedule currentSchedule;
 
-    public Task(String name, Controller controller/*, Controller2 controller2*/) {
+    public Task(String name, Controller controller) {
         this.name = name;
         this.controller = controller;
         //this.controller2 = controller2;
@@ -27,7 +26,6 @@ public class Task {
     public List<TaskInstance> getTaskInstances() {
         return TaskInstances;
     }
-    
     
     public int getTotalTimeSpent(){
         return this.totalTimeSpent;
@@ -46,7 +44,6 @@ public class Task {
         }
         return (avgProductivity / TaskInstances.size());
     }
-
 
     /**
      * Calls startTask() if its not running and endTask() if it is.
@@ -77,8 +74,7 @@ public class Task {
         int productivity = getProductivity();
         totalTimeSpent += duration;
         System.out.println("Task " + name + "\nstarted: " + start + "\nended: " + end + "\nproductivity: " + productivity);
-        //TODO: this needs to return the schedule created by this and then update root for it to work
-        //currentSchedule = controller.updateCurrentCalendar(createTaskAttributes(name, start, end));
+        currentSchedule = controller.updateCurrentCalendar(createTaskAttributes(name, start, end));
         //return currentSchedule;
         //TaskInstances.add(new TaskInstance(start, end, productivity, duration));
 
@@ -98,8 +94,8 @@ public class Task {
             amPm = "AM";
         } else {
             amPm = "PM";
+            startHour = startHour - 12;
         }
-        startHour = startHour%12;
 
         Object startHoursInput = (Object) startHour;
         Object startMinutesInput = (Object) Integer.toString(startcal.get(Calendar.MINUTE));

@@ -24,11 +24,9 @@ public class Controller {
         }
     }
 
-    // Needs to return arraylist of "task attributes"
     public void taskClicked(String name) {
         Task t = model.getTask(name);
         model.switchTasks(t);
-
     }
 
     public int getProductivity(String name) {

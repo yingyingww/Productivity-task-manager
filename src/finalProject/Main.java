@@ -25,7 +25,8 @@ import javafx.geometry.Insets;
 public class Main extends Application {
     TextArea status = new TextArea("");
     private List<ToggleButton> taskButtons = new LinkedList<>();
-    VBox taskPanel=new VBox();
+    private ArrayList<String> taskNames = new ArrayList<>();
+    VBox taskPanel = new VBox();
     VBox taskButtonsView = new VBox();
     BorderPane root = new BorderPane();
     ObservableList<Integer> hours = FXCollections.observableArrayList(
@@ -75,6 +76,7 @@ public class Main extends Application {
     //    Stage primaryStage;
 
     public void setMainPage(){
+        onMain = true;
         createTaskPanel();
         HBox menuPane = setMenu();
         ScrollPane schedules = makeScheduleScroll(combineSchedules(addIdealSchedule(), addIdealSchedule()));
@@ -84,19 +86,17 @@ public class Main extends Application {
         filler.setStyle("-fx-background-color: #9999ff");
         filler.setPrefSize(210, 700);
 
-        root.setLeft(taskPanel);
+        root.setRight(taskPanel);
         root.setTop(menuPane);
-        root.setRight(filler);
+        root.setLeft(filler);
         root.setCenter(schedules);
-        onMain = true;
     }
 
     public void setSchedule() {
+        onMain = false;
         VBox taskPanel = createTask();
         root.setCenter(taskPanel);
-        //ScrollPane schedule = addIdealSchedule();
-        //root.setRight(schedule);
-        onMain = false;
+        root.setRight(makeScheduleScroll(addIdealSchedule()));
     }
 
     /**
@@ -129,6 +129,7 @@ public class Main extends Application {
         createTaskPanel();
     }
 
+    // TODO: maybe give this method a different name. I'm confused about what it does
     public void addTaskButton(String name) {
         ToggleButton t = new ToggleButton(name);
         // TODO: here is where the thing needs to happen
@@ -137,7 +138,7 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent event) {
                 controller.taskClicked(name);
-                //currentSchedule = controller.updateCurrentCalendar(taskAttributes);
+                currentSchedule.getCalendar();
                 root.setCenter(makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule())));
             }
         });
@@ -309,24 +310,17 @@ public class Main extends Application {
         Text taskPanelDirections = new Text("Set Your Schedule");
         taskPanelDirections.setFont(Font.font("Arial", FontWeight.BOLD, 16));
 
-        // We will deeal with the preset day if we have time later!
+        // We will deal with the preset day if we have time later!
         //Text chooseDay = new Text("Choose a preset schedule: ");
 
         newTaskPane.setPadding(new Insets(15, 12, 15, 12));
         newTaskPane.setSpacing(20);
         newTaskPane.setStyle("-fx-background-color: #999966");
 
-        // we either get rid of this task name entirely, or make it display the chosen task
-        //from select task bar
-        HBox taskNameInput = new HBox();
-        //String textName = Model.currentTask.getName();
-        //Text taskName = new Text("Task Name: " + textName);
-        //Text taskName = new Text("Task Name:(As selected from the 'Select Current Task')" );
-
-        TextField addTaskName = new TextField();
-        addTaskName.setPromptText("Create a New Task");
-
-        //taskNameInput.getChildren().addAll(taskName);
+        ComboBox taskNameOptions = new ComboBox();
+        updateTaskNames(taskNameOptions);
+        taskNameOptions.setPromptText("Create a New Task");
+        taskNameOptions.setEditable(true);
 
         HBox startTime= new HBox();
         Text startTimeText = new Text("Start Time: ");
@@ -353,8 +347,9 @@ public class Main extends Application {
         createTaskButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
-                Label nameInput = new Label(addTaskName.getText());
+                // Maybe should be in model, but very simple in here
+                newTaskNameCheck((String) taskNameOptions.getValue());
+                Label nameInput = new Label((String) taskNameOptions.getValue());
 
                 Object startHoursInput = startHours.getValue();
                 Object startMinutesInput = startMinutes.getValue();
@@ -367,7 +362,7 @@ public class Main extends Application {
                 ArrayList taskAttributes = new ArrayList();
                 taskAttributes.addAll(Arrays.asList(nameInput, startHoursInput, startMinutesInput, startAMPMInput, endHoursInput, endMinutesInput, endAMPMInput));
 
-                // TODO: Make own method maybe in controller?
+                // TODO: Make own method maybe in controller/model?
                 boolean allFieldsFilled = true;
                 boolean validTime = true;
                 for(Object attribute : taskAttributes) {
@@ -389,6 +384,7 @@ public class Main extends Application {
                     System.out.println("Task Attributes are: " + taskAttributes);
                     idealSchedule = controller.updateIdealCalendar(taskAttributes);
                     root.setRight(makeScheduleScroll(addIdealSchedule()));
+                    updateTaskNames(taskNameOptions);
                 } else {
                     // TODO: make this a popup
                     System.out.println("Fill out everything");
@@ -404,16 +400,27 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent event) {
                 setMainPage();
-                idealSchedule.getCalendar();
                 currentSchedule.getCalendar();
                 root.setCenter(makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule())));
             }
         });
 
-        newTaskPane.getChildren().addAll(taskPanelDirections, addTaskName, taskNameInput, startTime,
+        newTaskPane.getChildren().addAll(taskPanelDirections, taskNameOptions, startTime,
                 endTime, createTaskButton, useSchedule);
 
         return newTaskPane;
+    }
+
+    //TODO: this really shouldn't been here maybe in model or controller
+    private void newTaskNameCheck(String taskName) {
+        if(!taskNames.contains(taskName)) {
+            taskNames.add(taskName);
+        }
+    }
+
+    private void updateTaskNames(ComboBox taskNameOptions) {
+        taskNameOptions.getItems().clear();
+        taskNameOptions.getItems().addAll(taskNames);
     }
 
     public Schedule getIdealSchedule() {

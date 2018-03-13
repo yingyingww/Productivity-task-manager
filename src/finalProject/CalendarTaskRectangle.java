@@ -9,19 +9,35 @@ public class CalendarTaskRectangle extends StackPane {
     public Label taskName;
     public float height;
     public float startPoint;
-    //public Color color;
 
     public CalendarTaskRectangle(Label taskName, float height, float startPoint) {
         this.taskName = taskName;
         this.height = height;
         this.startPoint = startPoint;
-        //this.color = color;
     }
 
     public StackPane setTaskRectangleAsStack() {
         StackPane stack = new StackPane();
 
+        height = heightCheck(height);
+
         Rectangle taskRectangle = new Rectangle(200, height);
+        taskRectangle = makeRectanglePretty(taskRectangle);
+
+        stack.getChildren().addAll(taskRectangle, taskName);
+        stack.relocate(0,startPoint);
+
+        return stack;
+    }
+
+    private float heightCheck(float height) {
+        if(height < 15) {
+            height = 15;
+        }
+        return height;
+    }
+
+    private Rectangle makeRectanglePretty(Rectangle taskRectangle) {
         taskRectangle.setFill(Color.WHITE);
         taskRectangle.setStroke(Color.BLACK);
         taskRectangle.setArcWidth(10);
@@ -29,9 +45,6 @@ public class CalendarTaskRectangle extends StackPane {
 
         taskName.setTextFill(Color.BLACK);
 
-        stack.getChildren().addAll(taskRectangle, taskName);
-        stack.relocate(0,startPoint);
-
-        return stack;
+        return taskRectangle;
     }
 }

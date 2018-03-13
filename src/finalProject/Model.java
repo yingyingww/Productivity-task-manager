@@ -9,9 +9,8 @@ public class Model {
     private HashMap<String, Task> tasks = new HashMap<>();
     private Task currentTask;
     private Controller controller;
-    //private Controller2 controller2;
 
-    public Model(Controller controller/*, Controller2 controller2*/) {
+    public Model(Controller controller) {
         this.controller = controller;
         //this.controller2 = controller2;
     }
