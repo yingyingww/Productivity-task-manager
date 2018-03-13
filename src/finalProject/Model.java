@@ -120,6 +120,21 @@ public class Model {
         topTasks.subList(0,4);
         return topTasks;
     }
+    
+    public String topFiveToTip(){
+        List<Task> topFive = findTopFiveByTime();
+        String taskInfo = "";
+        for (Task t: topFive){
+            String tempName = t.getName();
+            int tempTime = t.getTotalTimeSpent();
+            int tempProductivity = t.getAvgProductivity();
+            taskInfo = taskInfo + "Activity name: " + tempName +
+                    " Total time spend on activity in hours " + (tempTime / 60) +
+                    " Average productivity rating " + tempProductivity;
+        }
+        return taskInfo;
+    }
+
 
     public String checkProductivityByDuration(Task testTask){
         int countOverTwoHours = 0;
@@ -172,6 +187,17 @@ public class Model {
             + (productivityUnderTwoHours - productivityOverTwoHours) + "points higher. Try breaking your work in to smaller chunks.";
         }
         return (tip);
+    }
+    
+    public static String getTips(){
+        Task lowProductivity = findLeastProductive();
+        String tip1 = checkProductivityByDuration(lowProductivity);
+        Task highProductivity = findMostProductive();
+        String tip2 = ("You usually rate your productivity during " + highProductivity.getName() + " activity highly, well done!");
+        String tip3 = "Here is some information about the five activities you spend the most time on:" + topFiveToTip();
+        String tips = tip1 + tip2 + tip3;
+        return (tips);
+
     }
 
 }
