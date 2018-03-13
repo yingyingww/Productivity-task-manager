@@ -43,7 +43,7 @@ public class Main extends Application {
             "AM","PM"
     );
     Controller controller = new Controller(this);
-    Controller2 c = new Controller2(this, controller);
+    //Controller2 c = new Controller2(this, controller);
     Schedule idealSchedule = new Schedule();
     Schedule currentSchedule = new Schedule();
     TimeBackground timeBackground = new TimeBackground();
@@ -131,7 +131,16 @@ public class Main extends Application {
 
     public void addTaskButton(String name) {
         ToggleButton t = new ToggleButton(name);
-        t.setOnAction(event -> c.taskClicked(name));
+        // TODO: here is where the thing needs to happen
+        // Things aren't happening in the right place right now blah
+        t.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                controller.taskClicked(name);
+                //currentSchedule = controller.updateCurrentCalendar(taskAttributes);
+                root.setCenter(makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule())));
+            }
+        });
         taskButtons.add(t);
         updateTaskButtons();
     }
@@ -149,7 +158,7 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent e) {
                 String name = taskCreatorField.getText();
-                c.addTask(name);
+                controller.addTask(name);
             }
         };
         taskCreatorField.setOnAction(addTask);

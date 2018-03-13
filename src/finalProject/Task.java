@@ -9,14 +9,15 @@ public class Task {
     private boolean isRunning = false;
     private Timer t = new Timer();
     private List<TaskInstance> TaskInstances = new ArrayList<>();
-    private Controller2 controller2;
+    //private Controller2 controller2;
     private Controller controller;
     private int totalTimeSpent;
+    private Schedule currentSchedule;
 
-    public Task(String name, Controller controller, Controller2 controller2) {
+    public Task(String name, Controller controller/*, Controller2 controller2*/) {
         this.name = name;
         this.controller = controller;
-        this.controller2 = controller2;
+        //this.controller2 = controller2;
     }
 
     public String getName() {
@@ -33,7 +34,7 @@ public class Task {
     }
     
     public int getProductivity() {
-        return controller2.getProductivity(this.getName());
+        return controller.getProductivity(this.getName());
     }
     
     public int getAvgProductivity() {
@@ -62,6 +63,10 @@ public class Task {
     // The following two methods will be used to call other classes.
     private void startTask() {
         t.logStartTime();
+
+        //TODO: maybe when either of these are called a schedule object is returned
+        //return currentSchedule;
+        // and when it's called here, it starts the scrolling line
     }
 
     private void endTask() {
@@ -73,7 +78,8 @@ public class Task {
         totalTimeSpent += duration;
         System.out.println("Task " + name + "\nstarted: " + start + "\nended: " + end + "\nproductivity: " + productivity);
         //TODO: this needs to return the schedule created by this and then update root for it to work
-        controller.updateCurrentCalendar(createTaskAttributes(name, start, end));
+        //currentSchedule = controller.updateCurrentCalendar(createTaskAttributes(name, start, end));
+        //return currentSchedule;
         //TaskInstances.add(new TaskInstance(start, end, productivity, duration));
 
     }

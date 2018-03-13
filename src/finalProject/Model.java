@@ -1,16 +1,19 @@
 package finalProject;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class Model {
     private HashMap<String, Task> tasks = new HashMap<>();
     private Task currentTask;
     private Controller controller;
-    private Controller2 controller2;
+    //private Controller2 controller2;
 
-    public Model(Controller controller, Controller2 controller2) {
+    public Model(Controller controller/*, Controller2 controller2*/) {
         this.controller = controller;
-        this.controller2 = controller2;
+        //this.controller2 = controller2;
     }
 
     public void addTask(String name) throws EmptyTaskNameException, taskAlreadyExistsException {
@@ -21,7 +24,7 @@ public class Model {
         if (taskExists(name)){
             throw new taskAlreadyExistsException("This task already exists.");
         } else {
-            tasks.put(name, new Task(name, controller, controller2)); // have to change task constructor
+            tasks.put(name, new Task(name, controller/*, controller2*/)); // have to change task constructor
         }
     }
 
@@ -46,7 +49,7 @@ public class Model {
         name = name.toLowerCase();
         return this.tasks.get(name);
     }
-    
+
     public Task findMostProductive() {
         Task curMost = currentTask;
         int tempProductivity = 0;
@@ -70,7 +73,7 @@ public class Model {
         }
         return curLeast;
     }
-    
+
     public List<Task> findTopFiveByTime(){
 
         List topTasks = new ArrayList<Task>();
@@ -82,7 +85,7 @@ public class Model {
         topTasks.subList(0,4);
         return topTasks;
     }
-    
+
    public String checkProductivityByDuration(Task testTask){
         int countOverTwoHours = 0;
         int productivityOverTwoHours = 0;
@@ -130,7 +133,7 @@ public class Model {
         }
         if (anyUnderTwoHours && anyOverTwoHours && productivityUnderTwoHours > productivityUnderTwoHours){
             tip = "You are more productive during " + testTask.getName() + "activity when you do it in shorter blocks." +
-                    " When you do this activity for less than 2 hours at a time, you rate your productivity an average of " 
+                    " When you do this activity for less than 2 hours at a time, you rate your productivity an average of "
             + (productivityUnderTwoHours - productivityOverTwoHours) + "points higher. Try breaking your work in to smaller chunks.";
         }
         return (tip);
@@ -140,4 +143,4 @@ public class Model {
 
 
 
-}
+//}

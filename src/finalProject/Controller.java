@@ -5,11 +5,34 @@ import javafx.scene.control.Label;
 import java.util.ArrayList;
 
 public class Controller {
-    //Model model = new Model();
     Main main;
+    Model model;
 
     public Controller(Main main) {
         this.main = main;
+        this.model = new Model(this);
+    }
+
+    public void addTask(String name) {
+        try {
+            model.addTask(name);
+            main.addTaskButton(name);
+        } catch (EmptyTaskNameException e) {
+            main.errorEnteringTasks(e.getMessage());
+        } catch (taskAlreadyExistsException e) {
+            main.errorEnteringTasks(e.getMessage());
+        }
+    }
+
+    // Needs to return arraylist of "task attributes"
+    public void taskClicked(String name) {
+        Task t = model.getTask(name);
+        model.switchTasks(t);
+
+    }
+
+    public int getProductivity(String name) {
+        return this.main.askForProductivity(name);
     }
 
     // Changes the format of the time to something acceptable
