@@ -10,7 +10,10 @@ public class Controller {
 
     public Controller(Main main) {
         this.main = main;
-        this.model = new Model(this);
+    }
+
+    public void setModel(Model m) {
+        this.model = m;
     }
 
     public void addTask(String name) {

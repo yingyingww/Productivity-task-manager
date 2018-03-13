@@ -43,7 +43,8 @@ public class Main extends Application {
     ObservableList<String> amPm = FXCollections.observableArrayList(
             "AM","PM"
     );
-    Controller controller = new Controller(this);
+    Controller controller;
+    Model model;
     //Controller2 c = new Controller2(this, controller);
     Schedule idealSchedule = new Schedule();
     Schedule currentSchedule = new Schedule();
@@ -57,6 +58,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        Controller controller = new Controller(this);
+        Model model = new Model();
+        controller.setModel(model);
+        model.setController(controller);
+
         setMainPage();
 
         primaryStage.setTitle("Productivity+");
@@ -241,13 +247,13 @@ public class Main extends Application {
     }
 
     // Provide the user with tips on being more production
-    public static void productivityTips() {
+    public void productivityTips() {
         Alert tips = new Alert(AlertType.INFORMATION);
         tips.setTitle("Productivity Tips");
         tips.setHeaderText(null);
         //String tip1 = "You haven't been sleeping much. Try getting 8 hours, and hopefully that will boost your mood.";
         //String tip2 = "Try breaking up the time you spend doing homework into smaller chunks.";
-        String allTips = Model.getTips();
+        String allTips = model.getTips();
         tips.setContentText(allTips);
         tips.showAndWait();
     }
