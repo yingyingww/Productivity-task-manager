@@ -71,6 +71,18 @@ public class Model {
         return curLeast;
     }
     
+    public List<Task> findTopFiveByTime(){
+
+        List topTasks = new ArrayList<Task>();
+
+        for (Task curTask : tasks.values()) {
+            topTasks.add(curTask);
+        }
+        Collections.sort(topTasks);
+        topTasks.subList(0,4);
+        return topTasks;
+    }
+    
    public String checkProductivityByDuration(Task testTask){
         int countOverTwoHours = 0;
         int productivityOverTwoHours = 0;
