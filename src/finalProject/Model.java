@@ -154,12 +154,17 @@ public class Model {
         for (TaskInstance instance: testTask.getTaskInstances()){
             if (instance.getDuration() >= 120){
                 countOverTwoHours ++;
-                productivityOverTwoHours += instance.getProductivity();
+                int tempProductivity = instance.getProductivity();
+                if (tempProductivity > 0){
+                    productivityOverTwoHours += tempProductivity;
                 anyOverTwoHours = true;
             }
             else {
                 countUnderTwoHours ++;
-                productivityUnderTwoHours += instance.getProductivity();
+                int tempProductivity1 = instance.getProductivity();
+                if (tempProductivity > 0) {
+                    productivityUnderTwoHours += tempProductivity1;
+                }
                 anyUnderTwoHours = true;
             }
         }
