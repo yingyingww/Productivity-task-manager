@@ -1,16 +1,14 @@
 package finalProject;
 
-//import com.sun.org.apache.xpath.internal.operations.Mod;
 import javafx.scene.control.Label;
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 /**
  * The is a Controller java file will supply Main with necessary 
- * information to display tasks and negotiate with other java files that 
- * work on a specific function
+ * information to display tasks and negotiate with other java files, such as the model that
+ * work on specific functions
  */
 
 public class Controller {
@@ -32,6 +30,7 @@ public class Controller {
         this.taskPanel = taskPanel;
     }
 
+    // TODO: can I delete this?
     public void addTask(String name) {
         try {
             model.addTask(name);
@@ -40,8 +39,11 @@ public class Controller {
         }
     }
 
+    /*
+     * After a task has been added, the drop down menu on set schedule and
+     * list of buttons on main need to be updated with this information
+     */
     public void noteTaskAdded(String name) {
-        //main.addTaskButton(name);
         taskPanel.addTaskButton(name);
         form.updateNameSelector(name);
     }
@@ -60,118 +62,96 @@ public class Controller {
         return this.main.askForProductivity(name);
     }
 
-    // Changes the format of the time to something acceptable
+    // TODO: Make it so these are not so redundant
+    /*
+     * Takes in all the information needed to make a CalendarTaskRectangle on the ideal calendar
+     * and adds the rectangle to the ideal schedule calendar
+     */
     public Schedule updateIdealCalendar(String name, Date start, Date end) {
         Label taskName = new Label(name);
-
         float startPoint = getSchedulePoint(start);
         float heightOfRectangle = getHeightOfRectangle(start, end);
 
+        // Needs the calendar in its current state before it can update it
         Schedule currentIdealSchedule = main.getIdealSchedule();
-
         currentIdealSchedule.addTaskToCalendar(taskName, heightOfRectangle, startPoint);
 
         return currentIdealSchedule;
-
-        // TODO: Andrew wants me to send stuff to model to be stored, but errors.
-
-        //Date startTime = changeIntsToDate(startArray);
-        //List endArray = Arrays.asList(taskAttributes).subList(4, 6);
-        //Date endTime = changeIntsToDate(endArray);
-        //long totalTime = getTotalTime(startTime, endTime);
     }
 
+    /*
+     * Takes in all the information needed to make a CalendarTaskRectangle on the current calendar
+     * and adds the rectangle to the current schedule calendar
+     */
     public Schedule updateCurrentCalendar(String name, Date start, Date end) {
         Label taskName = new Label(name);
-
         float startPoint = getSchedulePoint(start);
         float heightOfRectangle = getHeightOfRectangle(start, end);
 
+        // Needs the calendar in its current state before it can update it
         Schedule currentSchedule = main.getCurrentSchedule();
-
         currentSchedule.addTaskToCalendar(taskName, heightOfRectangle, startPoint);
 
         return currentSchedule;
     }
 
-//    public int changeToMilitaryTime(String amPm, int hour) {
-//        if (amPm == "PM" && hour < 12) {
-//            hour += 12;
-//        } if (amPm == "AM" && hour == 12) {
-//            hour = 0;
-//        }
-//        return hour;
-//    }
-
-//    public float getStartPoint(ArrayList startArray) {
-//        int startHour = changeToMilitaryTime((String) startArray.get(3), (int) startArray.get(1));
-//        int startMinute = Integer.valueOf((String) startArray.get(2));
-//        int startTime = startMinute + (60 * startHour);
-//
-//        Schedule schedule = new Schedule();
-//        int calHeight = schedule.height;
-//
-//        int dayLength = 60 * 24;
-//
-//        float startPoint = ((float) startTime / (float) dayLength) * (float) calHeight;
-//
-//        return startPoint;
-//    }
-
+    /*
+     * Finds the point on the grid pane where the top left CalendarTaskRectangle
+     * should be placed in the entire Calendar
+     */
     private float getSchedulePoint(Date date) {
         Calendar time = Calendar.getInstance();
         time.setTime(date);
         int hour = time.get(Calendar.HOUR_OF_DAY);
         int minute = time.get(Calendar.MINUTE);
-        int calTime = 60*hour + minute;
+        // The start time of the task in terms of minutes
+        int calTime = 60 * hour + minute;
+
         Schedule schedule = new Schedule();
         int calHeight = schedule.height;
+
+        // The length of the day in terms of minutes
         int dayLength = 60 * 24;
-        float point = ((float) calTime / (float) dayLength) * (float) calHeight;
-        return point;
+
+        // The start point is computed to make sense on the calendar pane
+        float startPoint = ((float) calTime / (float) dayLength) * (float) calHeight;
+        return startPoint;
     }
 
-//    public float getHeightOfRectangle(ArrayList timesArray) {
-//        int startHour = changeToMilitaryTime((String) timesArray.get(3), (int) timesArray.get(1));
-//        int startMinute = Integer.valueOf((String) timesArray.get(2));
-//        int endHour = changeToMilitaryTime((String) timesArray.get(6), (int) timesArray.get(4));;
-//        int endMinute = Integer.valueOf((String) timesArray.get(5));
-//
-//        int totalHours = endHour - startHour;
-//        int totalMinutes = endMinute - startMinute;
-//
-//        Schedule schedule = new Schedule();
-//        int calHeight = schedule.height;
-//        float dayLength = (float) (60 * 24);
-//
-//        float height = (((float) totalMinutes + (60 * (float) totalHours)) / dayLength) * (float) calHeight;
-//        System.out.println("height: " + height);
-//        return height;
-//    }
-
+    /*
+     * Finds how tall the CalendarTaskRectangle should be based on the height of the schedule
+     */
     private float getHeightOfRectangle(Date start, Date end) {
-        Calendar a = Calendar.getInstance();
-        a.setTime(start);
-        int startHour = a.get(Calendar.HOUR_OF_DAY);
-        int startMinute = a.get(Calendar.MINUTE);
+        Calendar startTime = Calendar.getInstance();
+        startTime.setTime(start);
+        int startHour = startTime.get(Calendar.HOUR_OF_DAY);
+        int startMinute = startTime.get(Calendar.MINUTE);
 
-        Calendar b = Calendar.getInstance();
-        b.setTime(end);
-        int endHour = b.get(Calendar.HOUR_OF_DAY);
-        int endMinute = b.get(Calendar.MINUTE);
+        Calendar endTime = Calendar.getInstance();
+        endTime.setTime(end);
+        int endHour = endTime.get(Calendar.HOUR_OF_DAY);
+        int endMinute = endTime.get(Calendar.MINUTE);
 
         int totalHours = endHour - startHour;
         int totalMinutes = endMinute - startMinute;
+        float totalTime = (float) totalMinutes + (60 * (float) totalHours);
 
         Schedule schedule = new Schedule();
         int calHeight = schedule.height;
         float dayLength = (float) (60 * 24);
 
-        float height = (((float) totalMinutes + (60 * (float) totalHours)) / dayLength) * (float) calHeight;
+        // Finds the height by getting the proportion of the day that is spent doing it and then
+        // having it make sense it terms of the calendar
+        float height = (totalTime / dayLength) * (float) calHeight;
         System.out.println("height: " + height);
         return height;
     }
 
+    /*
+     * Once the user says the want to do something at a time, this tries to send it to the model
+     * to be dealt with and add it to the ideal schedule. Won't happen if the form is incorrect or
+     * incomplete
+     */
     public void tryAddScheduleOccurrence() {
         try {
             TaskOccurrence contents = form.getContents();
@@ -182,6 +162,9 @@ public class Controller {
         }
     }
 
+    /*
+     * If the user wants to do a task that they've never done before, it is sent to the model to be added
+     */
     public void tryAddTask() {
          try {
              String name = taskPanel.getName();
@@ -191,29 +174,13 @@ public class Controller {
          }
     }
 
+
     /*
-    public Date changeIntsToDate(List taskAttributes) throws ParseException {
-        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
-
-        int hour = (int) taskAttributes.get(0);
-        int militaryHour = changeToMilitaryTime((String) taskAttributes.get(2), hour);
-
-        String timeString = militaryHour + ":" + taskAttributes.get(1).toString() + ":" + "00";
-        Date time = format.parse(timeString);
-
-        return time;
-    }
-
-    public long getTotalTime(Date startTime, Date endTime) {
-        long totalTime = startTime.getTime() - endTime.getTime();
-
-        return totalTime;
-    }
-    */
-
+     * Provides the user with productivity tips based on the data collected on their past schedules
+     * NOTE: currently isn't able to provide real tips because we did not get to the point of storing data
+     */
     public String getTips(){
         Task lowProductivity = Model.findLeastProductive();
-        //System.out.println(lowProductivity);
         String tip1 = "";
         String tip2 = "";
         if (lowProductivity == null){
@@ -229,15 +196,14 @@ public class Controller {
         else {
             tip2 = Model.checkProductivityByDuration(highProductivity);
         }
-        //String tip2 = ("You usually rate your productivity during " + highProductivity.getName() + " activity highly, well done!");
-        String tip3 = "Here is some information about the activities you spend the most time on:" + "\n" + model.topFiveToTip(); //TODO: fix topFiveToTip before this can be called
+        String tip3 = "Here is some information about the activities you spend the most time on:" + "\n" + model.topFiveToTip();
         String tips = tip1 + "\n" + tip2 + "\n" + tip3;
         return (tips);
     }
 
-    //@return A list containing the five Task objects with the highest total time recorded. 
+    // Gets a list containing the five Task objects with the highest total time recorded.
     public List<Task> getTopFive(){
-        List<Task> topFive = Model.findTopFiveByTime("real"); //TODO: fix findTopFiveByTime before this can method can work
+        List<Task> topFive = Model.findTopFiveByTime("real");
         return topFive;
     }
 }
