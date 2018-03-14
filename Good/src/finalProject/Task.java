@@ -2,7 +2,7 @@ package finalProject;
 
 import java.util.*;
 /**
- * The Task java file holds information about Task to be
+ * The Task java file holds information about Task to be sent to controller
  *
  */
 public class Task {
