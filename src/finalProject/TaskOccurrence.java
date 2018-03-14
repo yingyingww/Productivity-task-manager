@@ -2,13 +2,13 @@ package finalProject;
 
 import java.util.Date;
 
-public class TaskInstance implements Comparable<TaskInstance> {
+public class TaskOccurrence implements Comparable<TaskOccurrence> {
     private Date start;
     private Date end;
     private int productivity;
     private int duration;
 
-    public TaskInstance(Date start, Date end, int productivity, int duration) {
+    public TaskOccurrence(Date start, Date end, int productivity, int duration) {
         this.start = start;
         this.end = end;
         this.productivity = productivity;
@@ -16,10 +16,10 @@ public class TaskInstance implements Comparable<TaskInstance> {
     }
 
     @Override
-    public int compareTo(TaskInstance differentTaskInstance) {
-        if (this.start.compareTo(differentTaskInstance.end) >= 0) {
+    public int compareTo(TaskOccurrence differentTaskOccurrence) {
+        if (this.start.compareTo(differentTaskOccurrence.end) >= 0) {
             return 1;
-        } else if(this.end.compareTo(differentTaskInstance.start) <= 0) {
+        } else if(this.end.compareTo(differentTaskOccurrence.start) <= 0) {
             return 1;
         }
         return 0;

@@ -1,17 +1,14 @@
 package finalProject;
 
-import javafx.scene.control.Label;
-
 import java.util.*;
 
 public class Task {
     private String name;
     private boolean isRunning = false;
     private Timer t = new Timer();
-    private List<TaskInstance> TaskInstances = new ArrayList<>();
+    private List<TaskOccurrence> taskOccurrences = new ArrayList<>();
     private Controller controller;
     private int totalTimeSpent;
-    private Schedule currentSchedule;
 
     public Task(String name, Controller controller) {
         this.name = name;
@@ -22,26 +19,8 @@ public class Task {
         return this.name;
     }
     
-    public List<TaskInstance> getTaskInstances() {
-        return TaskInstances;
-    }
-    
-    public int getTotalTimeSpent(){
-        return this.totalTimeSpent;
-    }
-    
-    public int getProductivity() {
-        return controller.getProductivity(this.getName());
-    }
-    
-    public int getAvgProductivity() {
-        int avgProductivity = 0;
-        for (TaskInstance instance : TaskInstances) {
-            if (instance.getProductivity() != -1) {
-                avgProductivity += instance.getProductivity();
-            }
-        }
-        return (avgProductivity / TaskInstances.size());
+    public List<TaskOccurrence> getTaskOccurrences() {
+        return taskOccurrences;
     }
 
     /**
@@ -73,12 +52,31 @@ public class Task {
         int productivity = getProductivity();
         totalTimeSpent += duration;
         System.out.println("Task " + name + "\nstarted: " + start + "\nended: " + end + "\nproductivity: " + productivity);
-        currentSchedule = controller.updateCurrentCalendar(name, start, end);
+        Schedule currentSchedule = controller.updateCurrentCalendar(name, start, end);
         //return currentSchedule;
-        //TaskInstances.add(new TaskInstance(start, end, productivity, duration));
+        //taskOccurrences.add(new TaskOccurrence(start, end, productivity, duration));
 
     }
 
+    public int getTotalTimeSpent(){
+        return this.totalTimeSpent;
+    }
+
+    public int getProductivity() {
+        return controller.getProductivity(this.getName());
+    }
+
+    public int getAvgProductivity() {
+        int avgProductivity = 0;
+        for (TaskOccurrence occurrence : taskOccurrences) {
+            if (occurrence.getProductivity() != -1) {
+                avgProductivity += occurrence.getProductivity();
+            }
+        }
+        return (avgProductivity / taskOccurrences.size());
+    }
+
+//TODO delete stuff below
 //    //maybe the worst piece of code I have ever written
 //    private ArrayList<Object> createTaskAttributes(String name, Date start, Date end) {
 //        ArrayList<Object> taskAttributes = new ArrayList<>();

@@ -6,7 +6,7 @@ public class Model {
     private static HashMap<String, Task> tasks = new HashMap<>();
     private static Task currentTask;
     private Controller controller;
-    private List<TaskInstance> idealInstanceList;
+    private List<TaskOccurrence> scheduleOccurrences;
 
     public Model(Controller controller) {
         this.controller = controller;
@@ -60,29 +60,28 @@ public class Model {
         }
     }
 
-    public void addIdealInstance(String name, Date start, Date end) throws EmptyTaskNameException {
+    public void addIdealOccurrence(String name, Date start, Date end) throws EmptyTaskNameException {
         addTaskIdealSchedule(name);
         if (end.compareTo(start) <= 0) {
             // throw a invalid dates error
         }
-        TaskInstance instance = new TaskInstance(start, end, 0, 0);
-        if (checkForInstanceOverlap(instance)) {
+        TaskOccurrence occurrence = new TaskOccurrence(start, end, 0, 0);
+        if (checkForOccurrencesOverlap(occurrence)) {
             // throw overlap error
         } else {
-            idealInstanceList.add(instance);
+            scheduleOccurrences.add(occurrence);
         }
 
     }
 
-    private boolean checkForInstanceOverlap(TaskInstance instance) {
-        for (TaskInstance i : idealInstanceList) {
-            if(i.compareTo(instance) == 0) {
+    private boolean checkForOccurrencesOverlap(TaskOccurrence occurrence) {
+        for (TaskOccurrence i : scheduleOccurrences) {
+            if(i.compareTo(occurrence) == 0) {
                 return true;
             }
         }
         return false;
     }
-
 
     public static Task findMostProductive() {
         Task curMost = currentTask;
@@ -108,7 +107,6 @@ public class Model {
         return curLeast;
     }
 
-
 //    public List<Task> findTopFiveByTime(String type){
 //        List topTasks = new ArrayList<Task>();
 //        if (type.equals("real")) {
@@ -120,10 +118,10 @@ public class Model {
 //            return topTasks;
 //        }
 //        //else if type.equals("ideal"){
-//          //  List tempList = idealInstanceList;
+//          //  List tempList = scheduleOccurrences;
 //        //TODO: return statement
 //    }
-    
+
 //    public String topFiveToTip(){
 //        List<Task> topFive = findTopFiveByTime(); //TODO: this needs a parameter
 //        String taskInfo = "";
@@ -145,7 +143,6 @@ public class Model {
 //        return taskInfo;
 //    }
 
-
     public static String checkProductivityByDuration(Task testTask) {
         int countOverTwoHours = 0;
         int productivityOverTwoHours = 0;
@@ -154,10 +151,10 @@ public class Model {
         boolean anyOverTwoHours = false;
         boolean anyUnderTwoHours = false;
         String tip = "";
-        for (TaskInstance instance: testTask.getTaskInstances()){
-            if (instance.getDuration() >= 120) {
+        for (TaskOccurrence occurrence: testTask.getTaskOccurrences()){
+            if (occurrence.getDuration() >= 120) {
                 countOverTwoHours++;
-                int tempProductivity = instance.getProductivity();
+                int tempProductivity = occurrence.getProductivity();
                 if (tempProductivity > 0) {
                     productivityOverTwoHours += tempProductivity;
                 }
@@ -165,7 +162,7 @@ public class Model {
             }
             else {
                 countUnderTwoHours ++;
-                int tempProductivity = instance.getProductivity();
+                int tempProductivity = occurrence.getProductivity();
                 if (tempProductivity > 0) {
                     productivityUnderTwoHours += tempProductivity;
                 }

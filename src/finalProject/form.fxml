@@ -25,7 +25,7 @@
                 <Insets bottom="15.0" left="12.0" right="12.0" top="15.0" />
             </VBox.margin>
             <children>
-                <ComboBox fx:id="name" editable="true" prefWidth="200.0" promptText="Choose or Create a Task" />
+                <ComboBox fx:id="nameSelector" editable="true" prefWidth="200.0" promptText="Choose or Create a Task" />
                 <HBox alignment="CENTER_LEFT" spacing="5.0">
                     <children>
                         <Label text="Begin:">
@@ -33,13 +33,10 @@
                                 <Font name="Arial" size="18.0" />
                             </font>
                         </Label>
-                        <ComboBox fx:id="startHour">
-                            <cursor>
-                                <Cursor fx:constant="DEFAULT" />
-                            </cursor></ComboBox>
+                        <ComboBox fx:id="startHourSelector" />
                         <Label text=":" />
-                        <ComboBox fx:id="startMinute" layoutX="67.0" layoutY="47.0" />
-                        <ComboBox fx:id="startPeriod" layoutX="67.0" layoutY="47.0" />
+                        <ComboBox fx:id="startMinuteSelector" layoutX="67.0" layoutY="47.0" />
+                        <ComboBox fx:id="startPeriodSelector" layoutX="67.0" layoutY="47.0" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="57.0" spacing="5.0">
@@ -49,13 +46,13 @@
                                 <Font name="Arial" size="18.0" />
                             </font>
                         </Label>
-                        <ComboBox fx:id="endHour" />
+                        <ComboBox fx:id="endHourSelector" />
                         <Label text=":" />
-                        <ComboBox fx:id="endMinute" layoutX="67.0" layoutY="47.0" />
-                        <ComboBox fx:id="endPeriod" layoutX="67.0" layoutY="47.0" />
+                        <ComboBox fx:id="endMinuteSelector" layoutX="67.0" layoutY="47.0" />
+                        <ComboBox fx:id="endPeriodSelector" layoutX="67.0" layoutY="47.0" />
                     </children>
                 </HBox>
-                <Button mnemonicParsing="false" onAction="#createInstance" text="Create Task" />
+                <Button mnemonicParsing="false" onAction="#createScheduleOccurrence" text="Create Task" />
                 <Button mnemonicParsing="false" onAction="#useSchedule" text="Use Schedule" />
             </children>
         </VBox>
