@@ -112,7 +112,7 @@ public class Main extends Application {
 
         //TODO: What is trends??
 //        MenuItem topActivities = new MenuItem("Top Activities Chart");
-//        trends.setOnAction(new EventHandler<ActionEvent>() {
+//        topActivities.setOnAction(new EventHandler<ActionEvent>() {
 //            @Override
 //            public void handle(ActionEvent event) {
 //                //TODO: Error
