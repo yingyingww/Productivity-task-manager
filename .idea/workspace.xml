@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b49624fc-b4e9-454d-b738-678bb971d393" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/EmptyTaskNameException.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/EmptyTaskNameException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Form.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Form.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/FormNotCompleteException.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/FormNotCompleteException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/InvertedTimelineException.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/InvertedTimelineException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$1.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$2.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$3.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$4.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$5.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$6.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Model.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Model.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/EmptyTaskNameException.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/EmptyTaskNameException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/Form.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/Form.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/FormNotCompleteException.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/FormNotCompleteException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/InvertedTimelineException.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/InvertedTimelineException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/Main.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,9 +37,37 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="226" column="0" lean-forward="false" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="1155">
+              <caret line="339" column="47" lean-forward="false" selection-start-line="339" selection-start-column="47" selection-end-line="339" selection-end-column="47" />
+              <folding>
+                <element signature="docComment;class#Main#0" expanded="false" />
+                <element signature="method#start#0;class#Main#0" expanded="false" />
+                <element signature="method#setMainPage#0;class#Main#0" expanded="false" />
+                <element signature="method#setMenu#0;class#Main#0" expanded="false" />
+                <element signature="e#3301#3302#0" expanded="true" />
+                <element signature="e#3346#3347#0" expanded="true" />
+                <element signature="e#3560#3561#0" expanded="true" />
+                <element signature="e#3605#3606#0" expanded="true" />
+                <element signature="e#3864#3865#0" expanded="true" />
+                <element signature="e#3915#3916#0" expanded="true" />
+                <element signature="e#4185#4186#0" expanded="true" />
+                <element signature="e#4235#4236#0" expanded="true" />
+                <element signature="e#4973#4974#0" expanded="true" />
+                <element signature="e#5019#5020#0" expanded="true" />
+                <element signature="method#addIdealSchedule#0;class#Main#0" expanded="false" />
+                <element signature="method#addCurrentSchedule#0;class#Main#0" expanded="false" />
+                <element signature="method#combineSchedules#0;class#Main#0" expanded="false" />
+                <element signature="method#makeScheduleScroll#0;class#Main#0" expanded="false" />
+                <element signature="method#updateIdealSchedulePane#0;class#Main#0" expanded="false" />
+                <element signature="method#useSchedule#0;class#Main#0" expanded="false" />
+                <element signature="method#taskClicked#0;class#Main#0" expanded="false" />
+                <element signature="method#newUser#0;class#Main#0" expanded="false" />
+                <element signature="method#errorPopup#0;class#Main#0" expanded="false" />
+                <element signature="method#chartTopFiveTasks#0;class#Main#0" expanded="false" />
+                <element signature="method#productivityTips#0;class#Main#0" expanded="false" />
+                <element signature="method#askForProductivity#0;class#Main#0" expanded="false" />
+                <marker date="1521055931315" expanded="false" signature="2515:2716" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,7 +138,6 @@
         <option value="$PROJECT_DIR$/src/finalProject/Schedule.java" />
         <option value="$PROJECT_DIR$/src/finalProject/Main.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/Task.java" />
-        <option value="$PROJECT_DIR$/Good/src/finalProject/Main.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/CalendarTaskRectangle.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/Controller.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/Model.java" />
@@ -109,6 +145,7 @@
         <option value="$PROJECT_DIR$/Good/src/finalProject/Form.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/FormNotCompleteException.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/InvertedTimelineException.java" />
+        <option value="$PROJECT_DIR$/Good/src/finalProject/Main.java" />
       </list>
     </option>
   </component>
@@ -675,7 +712,7 @@
       <workItem from="1520971345398" duration="1458000" />
       <workItem from="1521009831917" duration="18535000" />
       <workItem from="1521051582437" duration="2181000" />
-      <workItem from="1521053833778" duration="468000" />
+      <workItem from="1521053833778" duration="2138000" />
     </task>
     <task id="LOCAL-00001" summary="made the productivityCheck work">
       <created>1520873294331</created>
@@ -775,11 +812,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521053665185</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added more comments">
+      <created>1521054317449</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1521054317449</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22642000" />
+    <option name="totallyTimeSpent" value="24312000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1732" height="976" extended-state="0" />
@@ -788,13 +832,14 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.320598" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16648291" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17089306" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17089306" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -811,7 +856,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.320598" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -849,11 +893,20 @@
     <MESSAGE value="made the TaskPanel into a new object" />
     <MESSAGE value="Got rid of old code and made the window smaller" />
     <MESSAGE value="Added comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added comments" />
+    <MESSAGE value="Added more comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Good/src/finalProject/Main.java</url>
+          <line>367</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -996,9 +1049,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="226" column="0" lean-forward="false" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="1155">
+          <caret line="339" column="47" lean-forward="false" selection-start-line="339" selection-start-column="47" selection-end-line="339" selection-end-column="47" />
+          <folding>
+            <element signature="docComment;class#Main#0" expanded="false" />
+            <element signature="method#start#0;class#Main#0" expanded="false" />
+            <element signature="method#setMainPage#0;class#Main#0" expanded="false" />
+            <element signature="method#setMenu#0;class#Main#0" expanded="false" />
+            <element signature="e#3301#3302#0" expanded="true" />
+            <element signature="e#3346#3347#0" expanded="true" />
+            <element signature="e#3560#3561#0" expanded="true" />
+            <element signature="e#3605#3606#0" expanded="true" />
+            <element signature="e#3864#3865#0" expanded="true" />
+            <element signature="e#3915#3916#0" expanded="true" />
+            <element signature="e#4185#4186#0" expanded="true" />
+            <element signature="e#4235#4236#0" expanded="true" />
+            <element signature="e#4973#4974#0" expanded="true" />
+            <element signature="e#5019#5020#0" expanded="true" />
+            <element signature="method#addIdealSchedule#0;class#Main#0" expanded="false" />
+            <element signature="method#addCurrentSchedule#0;class#Main#0" expanded="false" />
+            <element signature="method#combineSchedules#0;class#Main#0" expanded="false" />
+            <element signature="method#makeScheduleScroll#0;class#Main#0" expanded="false" />
+            <element signature="method#updateIdealSchedulePane#0;class#Main#0" expanded="false" />
+            <element signature="method#useSchedule#0;class#Main#0" expanded="false" />
+            <element signature="method#taskClicked#0;class#Main#0" expanded="false" />
+            <element signature="method#newUser#0;class#Main#0" expanded="false" />
+            <element signature="method#errorPopup#0;class#Main#0" expanded="false" />
+            <element signature="method#chartTopFiveTasks#0;class#Main#0" expanded="false" />
+            <element signature="method#productivityTips#0;class#Main#0" expanded="false" />
+            <element signature="method#askForProductivity#0;class#Main#0" expanded="false" />
+            <marker date="1521055931315" expanded="false" signature="2515:2716" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

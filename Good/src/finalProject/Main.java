@@ -2,7 +2,6 @@ package finalProject;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -12,9 +11,6 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.layout.*;
 import javafx.scene.control.Alert.AlertType;
@@ -22,13 +18,14 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.*;
-import javafx.geometry.Insets;
+
 /**
  * The Main java file is the starting file for Productivity+
  * It will start with setSchedule page and have the options to navigate to the mainPage to 
  * log their actual activities. 
  *
  */
+
 public class Main extends Application {
     private Controller controller = new Controller(this);
     private BorderPane root = new BorderPane();
@@ -44,6 +41,7 @@ public class Main extends Application {
         controller.setForm(setScheduleForm);
         controller.setTaskPanel(taskPanel);
 
+        // Want the user to set their schedule before tracking their hours
         setSchedule();
 
         primaryStage.setTitle("Productivity+");
@@ -61,6 +59,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    // Called whenever a button is clicked that switches to the main page
     private void setMainPage(){
         onMain = true;
         HBox menuPane = setMenu();
@@ -70,6 +69,7 @@ public class Main extends Application {
         root.setCenter(schedules);
     }
 
+    // Called whenever a button is clicked that switches to the set schedule page
     private void setSchedule() {
         onMain = false;
         HBox menuPane = setMenu();
@@ -78,13 +78,11 @@ public class Main extends Application {
         root.setRight(makeScheduleScroll(addIdealSchedule()));
     }
 
-    public void taskClicked() {
-        currentSchedule.getCalendar();
-        root.setCenter(makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule())));
-    }
-
-    // Create two menus. One main menu for navigation and popups
-    // The other for exiting.
+    /*
+     * Sets up three menus. One for the main navigation,
+     * one for instructions for new users
+     * and one for exiting
+     */
     private HBox setMenu() {
 
         HBox menuPane = new HBox();
@@ -93,6 +91,7 @@ public class Main extends Application {
         MenuBar menuBar = new MenuBar();
         menuBar.setMinWidth(795);
 
+        // MAIN MENU
         Menu mainMenu = new Menu("Menu");
 
         MenuItem mainPage = new MenuItem("Main Page");
@@ -129,8 +128,18 @@ public class Main extends Application {
             }
         });
 
-        mainMenu.getItems().addAll(mainPage, setSchedule, productivityTips, topActivities); //TODO what is topActivities?
+        mainMenu.getItems().addAll(mainPage, setSchedule, productivityTips, topActivities);
 
+        // NEW USER MENU
+        Menu instructionForNewUsers = new Menu("Instruction");
+        MenuItem newUserInfo = new MenuItem("Instructions for New Users");
+        newUserInfo.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {newUser();}
+        });
+        instructionForNewUsers.getItems().addAll(newUserInfo);
+
+        // EXIT MENU
         Menu exitMenu = new Menu("Exit");
         MenuItem exit = new MenuItem("Exit");
         exit.setOnAction(new EventHandler<ActionEvent>() {
@@ -142,20 +151,127 @@ public class Main extends Application {
 
         exitMenu.getItems().add(exit);
 
-        Menu instructionForNewUsers = new Menu("Instruction");
-        MenuItem newUserInfo = new MenuItem("Instructions for New Users");
-        newUserInfo.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {newUser();}
-        });
-        instructionForNewUsers.getItems().addAll(newUserInfo);
-
         menuBar.getMenus().addAll(mainMenu, instructionForNewUsers, exitMenu);
         menuPane.getChildren().add(menuBar);
 
         return menuPane;
     }
 
+    // Gets the ideal schedule as a pane with all the rectangles and changes the color
+    private Pane addIdealSchedule() {
+        Pane idealSchedulePane = idealSchedule.displayCalendar();
+        idealSchedulePane.setStyle("-fx-background-color: #63e1ff");
+        return idealSchedulePane;
+    }
+
+    // Gets the current schedule as a pane with all the rectangles and changes the color
+    private Pane addCurrentSchedule() {
+        Pane currentSchedulePane = currentSchedule.displayCalendar();
+        currentSchedulePane.setStyle("-fx-background-color: #dc82ff");
+        return currentSchedulePane;
+    }
+
+    // Combines the ideal and the current schedules in one grid pane so they are next to each other
+    private GridPane combineSchedules(Pane idealSchedule, Pane currSchedule) {
+        GridPane schedule = new GridPane();
+        schedule.setAlignment(Pos.TOP_CENTER);
+        schedule.add(idealSchedule, 1, 0);
+        schedule.add(currSchedule,2, 0);
+
+        return schedule;
+    }
+
+    /*
+     * Puts either just the ideal or both schedules in a scroll pane so that the user can see the day
+     * in smaller chunks at a time.
+     */
+    private ScrollPane makeScheduleScroll(Pane schedule) {
+        ScrollPane scrollingSchedule = new ScrollPane();
+        // Easy to make them scroll if on main because they are already in a gridpane
+        if(onMain) {
+            scrollingSchedule.setPrefSize(500, 700);
+            // Adds the time on the left
+            timeBackground.displayTimes((GridPane) schedule);
+            scrollingSchedule.setContent(schedule);
+        } else {
+            scrollingSchedule.setPrefSize(300, 700);
+            GridPane withTimes = new GridPane();
+            Pane idealSchedulePane = idealSchedule.displayCalendar();
+            // Changes the background color
+            idealSchedulePane.setStyle("-fx-background-color: #63e1ff");
+            withTimes.add(idealSchedulePane, 1, 0);
+            // Adds the time on the left
+            timeBackground.displayTimes(withTimes);
+            scrollingSchedule.setContent(withTimes);
+        }
+
+        return  scrollingSchedule;
+    }
+
+    // Allows other classes to get the current state of the ideal schedule
+    public Schedule getIdealSchedule() {
+        return idealSchedule;
+    }
+
+    // Allows other classes to get the current state of the current schedule
+    public Schedule getCurrentSchedule() {
+        return currentSchedule;
+    }
+
+    // Called when the user wants to add another task to their ideal schedule
+    public void updateIdealSchedulePane(TaskOccurrence occurrence) {
+        String name = occurrence.getName();
+        Date start = occurrence.getStart();
+        Date end = occurrence.getEnd();
+        // Updates the calendar
+        idealSchedule = controller.updateIdealCalendar(name, start, end);
+        // Updates the root
+        root.setRight(makeScheduleScroll(addIdealSchedule()));
+    }
+
+    // Called when a user makes an ideal schedule they want to use
+    public void useSchedule() {
+        setMainPage();
+        currentSchedule.getCalendar();
+        root.setCenter(makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule())));
+    }
+
+    // Changes the calendar after a task has been completed
+    public void taskClicked() {
+        currentSchedule.getCalendar();
+        root.setCenter(makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule())));
+    }
+
+    // TODO: fix this
+    // Provides helpful information for beginners in the form of a popup
+    private static void newUser() {
+        Alert info = new Alert(AlertType.INFORMATION);
+        info.setTitle("How to Use Productivity+");
+        info.setHeaderText("Welcome to Productivity+");
+        String info1 = "Thanks for using our app! Our goal is to help you develop your most productive \n" +
+                "schedule of the day.";
+        String info2 = "You can get started by entering your ideal schedule for the day in the Set Schedule Page.";
+        String info3 = "Simply type in the name of each activity you would like to do during the day, and enter the";
+        String info4 = "start and end times you would prefer. Once you have entered your schedule, head to \n" +
+                "the main page";
+        String info5 = "where you will keep track of your actual schedule. When you begin a task, click that task's button";
+        String info6 = "then click it again to end the task. We'll log your time and keep track of the rest!";
+        String allTips = info1 + "\n\n" + info2 + "\n\n" + info3 + "\n\n" + info4 + "\n\n" + info5 + "\n\n" + info6;
+        info.setContentText(allTips);
+
+        info.showAndWait();
+    }
+
+    // Structure of all popups that are created when some kind of error occurs
+    public void errorPopup(String error) {
+        Alert info = new Alert(AlertType.ERROR);
+        info.setTitle("Error!");
+        info.setHeaderText("Error: " + error);
+        info.showAndWait();
+    }
+
+    // Creates a chart with information about the top five tasks the user does
+    // NOTE: currently doesn't really do much because we did not get around to storing data
     public void chartTopFiveTasks(){
         Alert showChart = new Alert(AlertType.INFORMATION);
         showChart.setTitle("Top Five Tasks By Time Spent");
@@ -210,8 +326,7 @@ public class Main extends Application {
 
     }
 
-    //TODO: issue with this based on other issues
-     //Provide the user with tips on being more productive
+    //Provide the user with tips on being more productive
     public void productivityTips() {
         Alert tips = new Alert(AlertType.INFORMATION);
         tips.setTitle("Productivity Tips");
@@ -236,6 +351,7 @@ public class Main extends Application {
         VBox content = new VBox();
         content.getChildren().addAll(info, rating);
 
+        // The user can ignore this question if they don't feel as though the last task was related to productivity
         ButtonType ignoreButton = new ButtonType("Ignore", ButtonBar.ButtonData.CANCEL_CLOSE);
 
         Alert productivityAlert = new Alert(AlertType.CONFIRMATION, null, ButtonType.OK, ignoreButton);
@@ -249,94 +365,6 @@ public class Main extends Application {
         } else {
             return -1;
         }
-    }
-
-    private static void newUser() {
-        Alert info = new Alert(AlertType.INFORMATION);
-        info.setTitle("How to Use Productivity+");
-        info.setHeaderText("Welcome to Productivity+");
-        String info1 = "Thanks for using our app! Our goal is to help you develop your most productive \n" +
-                "schedule of the day.";
-        String info2 = "You can get started by entering your ideal schedule for the day in the Set Schedule Page.";
-        String info3 = "Simply type in the name of each activity you would like to do during the day, and enter the";
-        String info4 = "start and end times you would prefer. Once you have entered your schedule, head to \n" +
-                "the main page";
-        String info5 = "where you will keep track of your actual schedule. When you begin a task, click that task's button";
-        String info6 = "then click it again to end the task. We'll log your time and keep track of the rest!";
-        String allTips = info1 + "\n\n" + info2 + "\n\n" + info3 + "\n\n" + info4 + "\n\n" + info5 + "\n\n" + info6;
-        info.setContentText(allTips);
-
-        info.showAndWait();
-    }
-
-    public void errorPopup(String error) {
-        Alert info = new Alert(AlertType.ERROR);
-        info.setTitle("Error!");
-        info.setHeaderText("Error: " + error);
-        info.showAndWait();
-    }
-
-    public void updateIdealSchedulePane(TaskOccurrence occurrence) {
-        String name = occurrence.getName();
-        Date start = occurrence.getStart();
-        Date end = occurrence.getEnd();
-        idealSchedule = controller.updateIdealCalendar(name, start, end);
-        root.setRight(makeScheduleScroll(addIdealSchedule()));
-    }
-
-    public void useSchedule() {
-        setMainPage();
-        currentSchedule.getCalendar();
-        root.setCenter(makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule())));
-    }
-
-    public Schedule getIdealSchedule() {
-        return idealSchedule;
-    }
-
-    public Schedule getCurrentSchedule() {
-        return currentSchedule;
-    }
-
-    private Pane addIdealSchedule() {
-        Pane idealSchedulePane = idealSchedule.displayCalendar();
-        idealSchedulePane.setStyle("-fx-background-color: #63e1ff");
-        return idealSchedulePane;
-    }
-
-    private Pane addCurrentSchedule() {
-        Pane currentSchedulePane = currentSchedule.displayCalendar();
-        currentSchedulePane.setStyle("-fx-background-color: #dc82ff");
-        return currentSchedulePane;
-    }
-
-    private GridPane combineSchedules(Pane idealSchedule, Pane currSchedule) {
-        GridPane schedule = new GridPane();
-        schedule.setAlignment(Pos.TOP_CENTER);
-        schedule.add(idealSchedule, 1, 0);
-        schedule.add(currSchedule,2, 0);
-        timeBackground.displayTimes(schedule);
-
-        return schedule;
-    }
-
-    private ScrollPane makeScheduleScroll(Pane schedule) {
-        ScrollPane scrollingSchedule = new ScrollPane();
-        if(onMain) {
-            scrollingSchedule.setPrefSize(500, 700);
-            timeBackground.displayTimes((GridPane) schedule);
-            scrollingSchedule.setContent(schedule);
-        } else {
-            scrollingSchedule.setPrefSize(300, 700);
-            GridPane withTimes = new GridPane();
-            Pane idealSchedulePane = idealSchedule.displayCalendar();
-            idealSchedulePane.setStyle("-fx-background-color: #63e1ff");
-            withTimes.add(idealSchedulePane, 1, 0);
-            timeBackground.displayTimes(withTimes);
-            scrollingSchedule.setContent(withTimes);
-        }
-
-        return  scrollingSchedule;
     }
 
     public static void main(String[] args) {
