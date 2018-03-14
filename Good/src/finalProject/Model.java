@@ -3,8 +3,8 @@ package finalProject;
 import java.util.*;
 
 /**
- * The Model java file holds information about Task and send it to Controller java file
- * This file will also analyze the productivity by finding the most/lest productive tasks
+ * The Model java file holds information about Task and sends it to Controller java file
+ * This file will also analyze the productivity by finding the most/least productive tasks
  * and give top five tips
  *
  */
@@ -19,6 +19,7 @@ public class Model {
         this.controller = controller;
     }
 
+    // Catches errors if a task wasn't given a name or already exists
     public void addTask(String name) throws EmptyTaskNameException, TaskAlreadyExistsException {
         if (name.isEmpty()) {
             throw new EmptyTaskNameException("Please choose a task name.");
@@ -30,11 +31,16 @@ public class Model {
         addTaskNoErrors(name);
     }
 
+    /*
+     * Adds the new task to the hash map that stores all of the user's tasks and tells the controller
+     * that tasks have been added.
+     */
     private void addTaskNoErrors(String name) {
         tasks.put(name, new Task(name, controller));
         controller.noteTaskAdded(name);
     }
 
+    // Called if the user starts a new task before ending one they'd previously started
     public void switchTasks(Task newCurrent) {
         newCurrent.changeState();
         if (currentTask == null) {
@@ -47,8 +53,8 @@ public class Model {
         }
     }
 
+    // Determines if a task is already stored in the hash map and doesn't need to be stored again
     private boolean taskExists(String name) {
-        // check to see if the case is the same!!
         name = name.toUpperCase();
         return tasks.containsKey(name);
     }
@@ -58,6 +64,7 @@ public class Model {
         return this.tasks.get(name);
     }
 
+    // Adds a specific occurrence of a given task if possible
     public void addScheduleOccurrence(TaskOccurrence occurrence) throws OccurrenceOverlapException {
         String name = occurrence.getName().toUpperCase();
         if (!taskExists(name)) {
@@ -69,6 +76,7 @@ public class Model {
         scheduleOccurrences.add(occurrence);
     }
 
+    // If the user wants to add a task, but they already entered a task at that time, they are given an error message
     private boolean occurrenceOverlapExists(TaskOccurrence occurrence) {
         for (TaskOccurrence i : scheduleOccurrences) {
             if(i.compareTo(occurrence) == 0) {
@@ -116,6 +124,8 @@ public class Model {
         return curLeast;
     }
 
+    // Finds the top five tasks the user normally does
+    // NOTE: not really used because long term data is not stored
     public static List<Task> findTopFiveByTime(String type) {
 
         List topTasks = new ArrayList<Task>();
@@ -134,6 +144,8 @@ public class Model {
         }
     }
 
+    // Returns tips based on the top five tasks
+    // NOTE: not really used because long term data is not stored
     public static String topFiveToTip(){
         List<Task> topFive = findTopFiveByTime("real");
         String taskInfo = "";
@@ -160,6 +172,8 @@ public class Model {
         return taskInfo;
     }
 
+    // Evaluates productivity of a given task in relation to the time spent on a task
+    // NOTE: not really used because long term data is not stored
     public static String checkProductivityByDuration(Task testTask) {
         int countOverTwoHours = 0;
         int productivityOverTwoHours = 0;

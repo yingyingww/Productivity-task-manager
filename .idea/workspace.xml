@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b49624fc-b4e9-454d-b738-678bb971d393" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/EmptyTaskNameException.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/EmptyTaskNameException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Form.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Form.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/FormNotCompleteException.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/FormNotCompleteException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/InvertedTimelineException.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/InvertedTimelineException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$1.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$2.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$3.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$4.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$5.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$6.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Model.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Model.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/Main.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/Main.css" afterPath="$PROJECT_DIR$/Good/src/finalProject/Main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/Model.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main.css" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,39 +25,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Main.java">
+      <file leaf-file-name="Model.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1155">
-              <caret line="339" column="47" lean-forward="false" selection-start-line="339" selection-start-column="47" selection-end-line="339" selection-end-column="47" />
+            <state relative-caret-position="925">
+              <caret line="175" column="65" lean-forward="false" selection-start-line="175" selection-start-column="65" selection-end-line="175" selection-end-column="65" />
               <folding>
-                <element signature="docComment;class#Main#0" expanded="false" />
-                <element signature="method#start#0;class#Main#0" expanded="false" />
-                <element signature="method#setMainPage#0;class#Main#0" expanded="false" />
-                <element signature="method#setMenu#0;class#Main#0" expanded="false" />
-                <element signature="e#3301#3302#0" expanded="true" />
-                <element signature="e#3346#3347#0" expanded="true" />
-                <element signature="e#3560#3561#0" expanded="true" />
-                <element signature="e#3605#3606#0" expanded="true" />
-                <element signature="e#3864#3865#0" expanded="true" />
-                <element signature="e#3915#3916#0" expanded="true" />
-                <element signature="e#4185#4186#0" expanded="true" />
-                <element signature="e#4235#4236#0" expanded="true" />
-                <element signature="e#4973#4974#0" expanded="true" />
-                <element signature="e#5019#5020#0" expanded="true" />
-                <element signature="method#addIdealSchedule#0;class#Main#0" expanded="false" />
-                <element signature="method#addCurrentSchedule#0;class#Main#0" expanded="false" />
-                <element signature="method#combineSchedules#0;class#Main#0" expanded="false" />
-                <element signature="method#makeScheduleScroll#0;class#Main#0" expanded="false" />
-                <element signature="method#updateIdealSchedulePane#0;class#Main#0" expanded="false" />
-                <element signature="method#useSchedule#0;class#Main#0" expanded="false" />
-                <element signature="method#taskClicked#0;class#Main#0" expanded="false" />
-                <element signature="method#newUser#0;class#Main#0" expanded="false" />
-                <element signature="method#errorPopup#0;class#Main#0" expanded="false" />
-                <element signature="method#chartTopFiveTasks#0;class#Main#0" expanded="false" />
-                <element signature="method#productivityTips#0;class#Main#0" expanded="false" />
-                <element signature="method#askForProductivity#0;class#Main#0" expanded="false" />
-                <marker date="1521055931315" expanded="false" signature="2515:2716" ph="{...}" />
+                <element signature="method#addTask#0;class#Model#0" expanded="false" />
+                <element signature="method#addTaskNoErrors#0;class#Model#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -140,12 +106,13 @@
         <option value="$PROJECT_DIR$/Good/src/finalProject/Task.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/CalendarTaskRectangle.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/Controller.java" />
-        <option value="$PROJECT_DIR$/Good/src/finalProject/Model.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/EmptyTaskNameException.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/Form.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/FormNotCompleteException.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/InvertedTimelineException.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/Main.java" />
+        <option value="$PROJECT_DIR$/Good/src/finalProject/Main.css" />
+        <option value="$PROJECT_DIR$/Good/src/finalProject/Model.java" />
       </list>
     </option>
   </component>
@@ -712,7 +679,7 @@
       <workItem from="1520971345398" duration="1458000" />
       <workItem from="1521009831917" duration="18535000" />
       <workItem from="1521051582437" duration="2181000" />
-      <workItem from="1521053833778" duration="2138000" />
+      <workItem from="1521053833778" duration="2655000" />
     </task>
     <task id="LOCAL-00001" summary="made the productivityCheck work">
       <created>1520873294331</created>
@@ -819,11 +786,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521054317449</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added more comments mostly to main">
+      <created>1521055994056</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1521055994056</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24312000" />
+    <option name="totallyTimeSpent" value="24829000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1732" height="976" extended-state="0" />
@@ -894,7 +868,8 @@
     <MESSAGE value="Got rid of old code and made the window smaller" />
     <MESSAGE value="Added comments" />
     <MESSAGE value="Added more comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more comments" />
+    <MESSAGE value="Added more comments mostly to main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more comments mostly to main" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -915,7 +890,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Timer.java" />
     <entry file="file://$PROJECT_DIR$/src/finalProject/Model.java" />
     <entry file="file://$PROJECT_DIR$/src/finalProject/SetSchedule.java" />
     <entry file="file://$PROJECT_DIR$/src/finalProject/Main.java" />
@@ -1001,14 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="101" column="7" lean-forward="false" selection-start-line="101" selection-start-column="7" selection-end-line="101" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Form.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="930">
@@ -1079,6 +1045,25 @@
             <element signature="method#productivityTips#0;class#Main#0" expanded="false" />
             <element signature="method#askForProductivity#0;class#Main#0" expanded="false" />
             <marker date="1521055931315" expanded="false" signature="2515:2716" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="925">
+          <caret line="175" column="65" lean-forward="false" selection-start-line="175" selection-start-column="65" selection-end-line="175" selection-end-column="65" />
+          <folding>
+            <element signature="method#addTask#0;class#Model#0" expanded="false" />
+            <element signature="method#addTaskNoErrors#0;class#Model#0" expanded="false" />
           </folding>
         </state>
       </provider>
