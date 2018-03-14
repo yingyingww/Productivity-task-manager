@@ -23,7 +23,7 @@ public class Model {
         addTaskNoErrors(name);
     }
 
-    public void addTaskNoErrors(String name) {
+    private void addTaskNoErrors(String name) {
         tasks.put(name, new Task(name, controller));
         controller.noteTaskAdded(name);
     }

@@ -7,10 +7,10 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Controller {
-    Main main;
-    Model model;
-    Form form;
-    TaskPanel taskPanel;
+    private Main main;
+    private Model model;
+    private Form form;
+    private TaskPanel taskPanel;
 
     public Controller(Main main) {
         this.main = main;
@@ -111,7 +111,7 @@ public class Controller {
 //        return startPoint;
 //    }
 
-    public float getSchedulePoint(Date date) {
+    private float getSchedulePoint(Date date) {
         Calendar time = Calendar.getInstance();
         time.setTime(date);
         int hour = time.get(Calendar.HOUR_OF_DAY);
@@ -142,7 +142,7 @@ public class Controller {
 //        return height;
 //    }
 
-    public float getHeightOfRectangle(Date start, Date end) {
+    private float getHeightOfRectangle(Date start, Date end) {
         Calendar a = Calendar.getInstance();
         a.setTime(start);
         int startHour = a.get(Calendar.HOUR_OF_DAY);

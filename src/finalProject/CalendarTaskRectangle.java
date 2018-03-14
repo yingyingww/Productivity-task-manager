@@ -6,9 +6,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class CalendarTaskRectangle extends StackPane {
-    public Label taskName;
-    public float height;
-    public float startPoint;
+    private Label taskName;
+    private float height;
+    private float startPoint;
 
     public CalendarTaskRectangle(Label taskName, float height, float startPoint) {
         this.taskName = taskName;

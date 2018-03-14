@@ -33,7 +33,7 @@ public class Schedule extends Pane {
         return schedule;
     }
 
-    public boolean hasTasks() {
+    private boolean hasTasks() {
         if(todaysTask == null) {
             return false;
         }

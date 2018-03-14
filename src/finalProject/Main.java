@@ -25,14 +25,14 @@ import java.util.*;
 import javafx.geometry.Insets;
 
 public class Main extends Application {
-    Controller controller = new Controller(this);
-    BorderPane root = new BorderPane();
-    Schedule idealSchedule = new Schedule();
-    Schedule currentSchedule = new Schedule();
-    TimeBackground timeBackground = new TimeBackground();
-    boolean onMain = true;
-    Form setScheduleForm = new Form(controller);
-    TaskPanel taskPanel = new TaskPanel(controller);
+    private Controller controller = new Controller(this);
+    private BorderPane root = new BorderPane();
+    private Schedule idealSchedule = new Schedule();
+    private Schedule currentSchedule = new Schedule();
+    private TimeBackground timeBackground = new TimeBackground();
+    private boolean onMain = true;
+    private Form setScheduleForm = new Form(controller);
+    private TaskPanel taskPanel = new TaskPanel(controller);
 
     @Override
     public void start(Stage primaryStage) {
@@ -56,7 +56,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public void setMainPage(){
+    private void setMainPage(){
         onMain = true;
         HBox menuPane = setMenu();
         ScrollPane schedules = makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule()));
@@ -67,7 +67,7 @@ public class Main extends Application {
         root.setCenter(schedules);
     }
 
-    public void setSchedule() {
+    private void setSchedule() {
         onMain = false;
         //VBox taskPanel = createTask();
         //root.setCenter(taskPanel);
@@ -244,7 +244,7 @@ public class Main extends Application {
         }
     }
 
-    public static void newUser() {
+    private static void newUser() {
         Alert info = new Alert(AlertType.INFORMATION);
         info.setTitle("How to Use Productivity+");
         info.setHeaderText("Welcome to Productivity+");
