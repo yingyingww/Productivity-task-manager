@@ -13,6 +13,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * The java file will get inputs from setSchedule page and send information 
+ * to other java files
+ * 
+ */
+
 public class Form extends VBox {
     @FXML private ComboBox nameSelector;
     @FXML private ComboBox startHourSelector;
