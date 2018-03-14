@@ -52,8 +52,8 @@
                         <ComboBox fx:id="endPeriodSelector" layoutX="67.0" layoutY="47.0" />
                     </children>
                 </HBox>
-                <Button mnemonicParsing="false" onAction="#submitOccurrence" text="Create Task" />
-                <Button mnemonicParsing="false" onAction="#useSchedule" text="Use Schedule" />
+                <Button mnemonicParsing="false" onAction="#addOccurrenceClicked" text="Create Task" />
+                <Button mnemonicParsing="false" onAction="#useScheduleClicked" text="Use Schedule" />
             </children>
         </VBox>
     </children>

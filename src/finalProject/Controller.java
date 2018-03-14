@@ -35,6 +35,10 @@ public class Controller {
         form.updateNameSelector(name);
     }
 
+    public void useSchedule() {
+        main.useSchedule();
+    }
+
     public void taskClicked(String name) {
         Task t = model.getTask(name);
         model.switchTasks(t);

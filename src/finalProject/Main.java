@@ -34,7 +34,7 @@ public class Main extends Application {
     Schedule currentSchedule = new Schedule();
     TimeBackground timeBackground = new TimeBackground();
     boolean onMain = true;
-    Form setScheduleForm = new Form(controller, this);
+    Form setScheduleForm = new Form(controller);
 
     @Override
     public void start(Stage primaryStage) {
@@ -56,7 +56,6 @@ public class Main extends Application {
         scene.getStylesheets().add(css);
         primaryStage.show();
     }
-    //    Stage primaryStage;
 
     public void setMainPage(){
         onMain = true;
@@ -92,7 +91,7 @@ public class Main extends Application {
 
         //I want to move these to the CSS if possible
         taskPanel.setPadding(new Insets(10, 10, 10, 10));
-        
+
         //set the color...
         taskPanel.setStyle("-fx-background-color: #99ccff");
 
@@ -142,7 +141,7 @@ public class Main extends Application {
         EventHandler<ActionEvent> addTask = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                String name = taskCreatorField.getText();
+                String name = taskCreatorField.getText().toUpperCase();
                 controller.addTask(name);
             }
         };
@@ -226,7 +225,6 @@ public class Main extends Application {
 
         return menuPane;
     }
-
 
     //TODO: having issues with this based on other issues
     //Produces a Bar Chart in an Alert to allow users to compare their time usage 

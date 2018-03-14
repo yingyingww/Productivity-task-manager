@@ -24,9 +24,8 @@ public class Form extends VBox {
     @FXML private ComboBox endMinuteSelector;
     @FXML private ComboBox endPeriodSelector;
     private Controller controller;
-    private Main main;
 
-    public Form(Controller controller, Main main) {
+    public Form(Controller controller) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("form.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -37,7 +36,6 @@ public class Form extends VBox {
         }
 
         this.controller = controller;
-        this.main = main;
 
         startHourSelector.setItems(createHours());
         startMinuteSelector.setItems(createMinutes());
@@ -46,9 +44,6 @@ public class Form extends VBox {
         endHourSelector.setItems(createHours());
         endMinuteSelector.setItems(createMinutes());
         endPeriodSelector.setItems(FXCollections.observableArrayList("AM","PM"));
-
-//        ObservableList<String> oNames = FXCollections.observableArrayList();
-//        nameSelector.setItems(oNames);
     }
 
     private boolean isComplete() {
@@ -66,7 +61,7 @@ public class Form extends VBox {
         if (!isComplete()) {
             throw new FormNotCompleteException("Please fill out everything.");
         }
-        String name = getName();
+        String name = getName().toUpperCase();
         Date start = getStart();
         Date end = getEnd();
         if (end.before(start)) {
@@ -87,13 +82,13 @@ public class Form extends VBox {
     }
 
     @FXML
-    protected void submitOccurrence() {
+    protected void addOccurrenceClicked() {
         controller.tryAddScheduleOccurrence();
     }
 
     @FXML
-    protected void useSchedule() {
-        main.useSchedule();
+    protected void useScheduleClicked() {
+        controller.useSchedule();
     }
 
     /***** THE FOLLOWING 7 METHODS GET DATA FROM THE INPUT FIELDS *****/

@@ -16,7 +16,7 @@ public class Model {
         if (name.isEmpty()) {
             throw new EmptyTaskNameException("Please choose a task name.");
         }
-        name = name.toLowerCase();
+        name = name.toUpperCase();
         if (taskExists(name)){
             throw new TaskAlreadyExistsException("This task already exists.");
         } else {
@@ -43,17 +43,17 @@ public class Model {
 
     private boolean taskExists(String name) {
         // check to see if the case is the same!!
-        name = name.toLowerCase();
+        name = name.toUpperCase();
         return tasks.containsKey(name);
     }
 
     public Task getTask(String name) {
-        name = name.toLowerCase();
+        name = name.toUpperCase();
         return this.tasks.get(name);
     }
 
     public void addScheduleOccurrence(TaskOccurrence occurrence) throws OccurrenceOverlapException {
-        String name = occurrence.getName().toLowerCase();
+        String name = occurrence.getName().toUpperCase();
         if (!taskExists(name)) {
             addTaskNoErrors(name);
         }
