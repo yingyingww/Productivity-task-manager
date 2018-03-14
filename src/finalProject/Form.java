@@ -14,10 +14,12 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * The java file will get inputs from setSchedule page and send information 
+ * The java file will get inputs from setSchedule page and send information
  * to other java files
- * 
+ *
+ * Form.fxml file creates the necessary objects to display on GUI page
  */
+
 
 public class Form extends VBox {
     @FXML private ComboBox nameSelector;
