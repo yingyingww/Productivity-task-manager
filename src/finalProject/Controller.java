@@ -179,8 +179,9 @@ public class Controller {
         String tips = tip1 + tip2 + tip3;
         return (tips);
     }
-        public List<Task> getTopFive(){
-        List<Task> topFive = Model.findTopFiveByTime();
+    //@return A list containing the five Task objects with the highest total time recorded. 
+    public List<Task> getTopFive(){
+        List<Task> topFive = Model.findTopFiveByTime("real");
         return topFive;
     }
 }
