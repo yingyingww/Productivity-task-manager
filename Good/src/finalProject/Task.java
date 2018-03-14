@@ -2,7 +2,7 @@ package finalProject;
 
 import java.util.*;
 /**
- * The Task java file holds information about Task to be sent to controller
+ * The Task java file holds information about Tasks to be sent to controller and used by the model
  *
  */
 public class Task {
@@ -41,10 +41,6 @@ public class Task {
     // The following two methods will be used to call other classes.
     private void startTask() {
         t.logStartTime();
-
-        //TODO: maybe when either of these are called a schedule object is returned
-        //return currentSchedule;
-        // and when it's called here, it starts the scrolling line
     }
 
     private void endTask() {
@@ -55,7 +51,9 @@ public class Task {
         int productivity = getProductivity();
         totalTimeSpent += duration;
         System.out.println("Task " + name + "\nstarted: " + start + "\nended: " + end + "\nproductivity: " + productivity);
+        // Updates the current calendar when a task is ended with a information to create a rectangle
         controller.updateCurrentCalendar(name, start, end);
+        // Adds to the list of occurrences
         taskOccurrences.add(new TaskOccurrence(start, end, productivity, duration));
 
     }
@@ -64,10 +62,13 @@ public class Task {
         return this.totalTimeSpent;
     }
 
+    // NOTE: not really used because requires analysis of long term data
     public int getProductivity() {
         return controller.getProductivity(this.getName());
     }
 
+    // Finds the user's average productivity
+    // NOTE: not really used because requires analysis of long term data
     public int getAvgProductivity() {
         int avgProductivity = 0;
         for (TaskOccurrence occurrence : taskOccurrences) {
