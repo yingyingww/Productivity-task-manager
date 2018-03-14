@@ -10,11 +10,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/TaskPanel.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/TaskPanel.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/TimeBackground.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/TimeBackground.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/TaskAlreadyExistsException.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/TaskAlreadyExistsException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/TaskOccurrence.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/TaskOccurrence.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/TaskPanel.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/TaskPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/TimeBackground.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/TimeBackground.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/Timer.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/Timer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -747,7 +742,7 @@
       <workItem from="1520971345398" duration="1458000" />
       <workItem from="1521009831917" duration="18535000" />
       <workItem from="1521051582437" duration="2181000" />
-      <workItem from="1521053833778" duration="3966000" />
+      <workItem from="1521053833778" duration="4048000" />
     </task>
     <task id="LOCAL-00001" summary="made the productivityCheck work">
       <created>1520873294331</created>
@@ -875,11 +870,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521056939722</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Adding final comments... probably not, but for now">
+      <created>1521057832690</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1521057832690</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26140000" />
+    <option name="totallyTimeSpent" value="26222000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1732" height="976" extended-state="0" />
@@ -953,7 +955,8 @@
     <MESSAGE value="Added more comments mostly to main" />
     <MESSAGE value="Added more comments mostly to model" />
     <MESSAGE value="More comments! Getting closer..." />
-    <option name="LAST_COMMIT_MESSAGE" value="More comments! Getting closer..." />
+    <MESSAGE value="Adding final comments... probably not, but for now" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding final comments... probably not, but for now" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
