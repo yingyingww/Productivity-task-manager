@@ -19,9 +19,9 @@ We started this final project with pretty big goals in mind. As we anticipated, 
 
 Nothing the user does will shut down the app, but command line errors will currently occur when the productivity tips and the top five tasks buttons in the drop down menu are clicked. We had big plans for these, but unfortunately did not get around to storing data long term, which is necessary to make these parts function correctly.
 
-Also, the times along the left sides of the calendars on both pages is currently slight "off" in that towards the end of the day, the tasks appear to be starting slightly before and ending slightly after when the user said they wanted them to. We did not get around to fixing this.
+Also, the times along the left sides of the calendars on both pages are currently slightly "off" in that towards the end of the day, the tasks appear to be starting slightly before and ending slightly after when the user said they wanted them to. We did not get around to fixing this.
 
-We were not able to provide the functionality for resizing the window in a way that looked good and made sense to the user. If that is done, weird gray spaces show up and the height of the tasks on the calendars do not adjust.
+We were not able to provide the functionality for resizing the window in a way that looked good and made sense to the user. If that is done, gray spaces will show up and the height of the tasks on the calendars do not adjust properly
 
 ## Things to keep working on
 
