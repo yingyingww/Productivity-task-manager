@@ -11,7 +11,6 @@ import java.util.List;
  * The is a Controller java file will supply Main with necessary 
  * information to display tasks and negotiate with other java files that 
  * work on a specific function
- *
  */
 
 public class Controller {
