@@ -23,10 +23,16 @@ public class Controller {
     public void addTask(String name) {
         try {
             model.addTask(name);
-            main.addTaskButton(name);
         } catch (EmptyTaskNameException | TaskAlreadyExistsException e) {
             main.errorPopup(e.getMessage());
         }
+    }
+
+    public void noteTaskAdded(String name) {
+        main.addTaskButton(name);
+        System.out.println(form);
+        System.out.println(name);
+        form.updateNameSelector(name);
     }
 
     public void taskClicked(String name) {

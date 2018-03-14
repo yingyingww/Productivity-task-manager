@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -45,6 +46,9 @@ public class Form extends VBox {
         endHourSelector.setItems(createHours());
         endMinuteSelector.setItems(createMinutes());
         endPeriodSelector.setItems(FXCollections.observableArrayList("AM","PM"));
+
+//        ObservableList<String> oNames = FXCollections.observableArrayList();
+//        nameSelector.setItems(oNames);
     }
 
     private boolean isComplete() {
@@ -54,10 +58,8 @@ public class Form extends VBox {
         return nameComplete && startComplete && endComplete;
     }
 
-    //TODO
-    public void setNameSelector(List<String> names) {
-        ObservableList<String> oNames = FXCollections.observableArrayList(names);
-        nameSelector.setItems(oNames);
+    public void updateNameSelector(String name) {
+        nameSelector.getItems().add(name);
     }
 
     public TaskOccurrence getContents() throws FormNotCompleteException, InvertedTimelineException {

@@ -26,6 +26,7 @@ public class Model {
 
     private void addTaskNoErrors(String name) {
         tasks.put(name, new Task(name, controller));
+        controller.noteTaskAdded(name);
     }
 
     public void switchTasks(Task newCurrent) {

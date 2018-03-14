@@ -29,15 +29,16 @@ public class Main extends Application {
     VBox taskPanel = new VBox();
     VBox taskButtonsView = new VBox();
     BorderPane root = new BorderPane();
-    Controller controller;
+    Controller controller = new Controller(this);
     Schedule idealSchedule = new Schedule();
     Schedule currentSchedule = new Schedule();
     TimeBackground timeBackground = new TimeBackground();
     boolean onMain = true;
+    Form setScheduleForm = new Form(controller, this);
 
     @Override
     public void start(Stage primaryStage) {
-        controller = new Controller(this);
+        controller.setForm(setScheduleForm);
 
         setMainPage();
 
@@ -76,8 +77,6 @@ public class Main extends Application {
 
     public void setSchedule() {
         onMain = false;
-        Form setScheduleForm = new Form(controller, this);
-        controller.setForm(setScheduleForm);
         //VBox taskPanel = createTask();
         //root.setCenter(taskPanel);
         root.setCenter(setScheduleForm);
