@@ -7,6 +7,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -198,23 +202,26 @@ public class Main extends Application {
             }
         });
 
-        MenuItem topActivities = new MenuItem("Top Activities Chart");
-        trends.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                chartTopFiveTasks;
-            }
-        });
+        //TODO: What is trends??
+//        MenuItem topActivities = new MenuItem("Top Activities Chart");
+//        trends.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                //TODO: Error
+////                chartTopFiveTasks;
+//            }
+//        });
 
-        MenuItem productivityTips = new MenuItem("Productivity Tips");
-        productivityTips.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                productivityTips();
-            }
-        });
+        //TODO: this doesn't work either
+//        MenuItem productivityTips = new MenuItem("Productivity Tips");
+//        productivityTips.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                productivityTips();
+//            }
+//        });
 
-        mainMenu.getItems().addAll(mainPage, setSchedule, topActivities, productivityTips);
+        mainMenu.getItems().addAll(mainPage, setSchedule/*, topActivities, productivityTips*/); //TODO what is topActivities?
 
         Menu exitMenu = new Menu("Exit");
         MenuItem exit = new MenuItem("Exit");
@@ -240,64 +247,68 @@ public class Main extends Application {
 
         return menuPane;
     }
-    
+
+
+    //TODO: having issues with this based on other issues
     //Produces a Bar Chart in an Alert to allow users to compare their time usage 
     //for the five activities they spend the most time on.
-    public void chartTopFiveTasks(){
-        Alert showChart = new Alert(AlertType.INFORMATION);
-        showChart.setTitle("Top Five Tasks By Time Spent");
-        List<Task> topFive = controller.getTopFive();
-        String name1 = topFive.get(0).getName();
-        String name2 = topFive.get(1).getName();
-        String name3 = topFive.get(2).getName();
-        String name4 = topFive.get(3).getName();
-        String name5 = topFive.get(4).getName();
-        CategoryAxis xAxis = new CategoryAxis();
-        xAxis.setCategories(FXCollections.<String>observableArrayList(Arrays.asList("Time Spent")));
-        xAxis.setLabel("Task Name");
-        
-        NumberAxis yAxis = new NumberAxis();
-        yAxis.setLabel("Total Time Spent (in min.)");
-        
-        BarChart<String, Number> timeBarChart = new BarChart<>(xAxis, yAxis);
-        timeBarChart.setTitle("Your Top Five Activities by Time Spent");
-        
-        XYChart.Series<String, Number> series1 = new XYChart.Series<>();
-        series1.setName(name1);
-        series1.getData().add(new XYChart.Data<>("Time Spent", topFive.get(0).getTotalTimeSpent();
-                                                      
-        XYChart.Series<String, Number> series1 = new XYChart.Series<>();
-        series2.setName(name2);
-        series2.getData().add(new XYChart.Data<>("Time Spent", topFive.get(1).getTotalTimeSpent();
-                
-        XYChart.Series<String, Number> series3 = new XYChart.Series<>();
-        series3.setName(name3);
-        series3.getData().add(new XYChart.Data<>("Time Spent", topFive.get(2).getTotalTimeSpent();
-                
-        XYChart.Series<String, Number> series4 = new XYChart.Series<>();
-        series4.setName(name4);
-        series4.getData().add(new XYChart.Data<>("Time Spent", topFive.get(3).getTotalTimeSpent();
-                
-        XYChart.Series<String, Number> series1 = new XYChart.Series<>();
-        series5.setName(name5);
-        series5.getData().add(new XYChart.Data<>("Time Spent", topFive.get(4).getTotalTimeSpent();
-        
-        timeBarChart.getData().addAll(series1, series2, series3, series4, series5);
-                                                 
-        showChart.getDialogPane().setContent(timeBarChart);
-        showChart.shoAndWait();
+//    public void chartTopFiveTasks(){
+//        Alert showChart = new Alert(AlertType.INFORMATION);
+//        showChart.setTitle("Top Five Tasks By Time Spent");
+//        List<Task> topFive = controller.getTopFive();
+//        String name1 = topFive.get(0).getName();
+//        String name2 = topFive.get(1).getName();
+//        String name3 = topFive.get(2).getName();
+//        String name4 = topFive.get(3).getName();
+//        String name5 = topFive.get(4).getName();
+//        CategoryAxis xAxis = new CategoryAxis();
+//        xAxis.setCategories(FXCollections.<String>observableArrayList(Arrays.asList("Time Spent")));
+//        xAxis.setLabel("Task Name");
+//
+//        NumberAxis yAxis = new NumberAxis();
+//        yAxis.setLabel("Total Time Spent (in min.)");
+//
+//        BarChart<String, Number> timeBarChart = new BarChart<>(xAxis, yAxis);
+//        timeBarChart.setTitle("Your Top Five Activities by Time Spent");
+//
+//        XYChart.Series<String, Number> series1 = new XYChart.Series<>();
+//        series1.setName(name1);
+//        series1.getData().add(new XYChart.Data<>("Time Spent", topFive.get(0).getTotalTimeSpent()));
+//
+//        XYChart.Series<String, Number> series2 = new XYChart.Series<>();
+//        series2.setName(name2);
+//        series2.getData().add(new XYChart.Data<>("Time Spent", topFive.get(1).getTotalTimeSpent()));
+//
+//        XYChart.Series<String, Number> series3 = new XYChart.Series<>();
+//        series3.setName(name3);
+//        series3.getData().add(new XYChart.Data<>("Time Spent", topFive.get(2).getTotalTimeSpent()));
+//
+//        XYChart.Series<String, Number> series4 = new XYChart.Series<>();
+//        series4.setName(name4);
+//        series4.getData().add(new XYChart.Data<>("Time Spent", topFive.get(3).getTotalTimeSpent()));
+//
+//        XYChart.Series<String, Number> series5 = new XYChart.Series<>();
+//        series5.setName(name5);
+//        series5.getData().add(new XYChart.Data<>("Time Spent", topFive.get(4).getTotalTimeSpent()));
+//
+//        timeBarChart.getData().addAll(series1, series2, series3, series4, series5);
+//
+//        showChart.getDialogPane().setContent(timeBarChart);
+//        showChart.showAndWait();
+//
+//    }
 
-    }
-
+    //TODO: issue with this based on other issues
     // Provide the user with tips on being more productive
-    public void productivityTips() {
-        Alert tips = new Alert(AlertType.INFORMATION);
-        tips.setTitle("Productivity Tips");
-        tips.setHeaderText(null);
-        String allTips = controller.getTips();
-        tips.setContentText(allTips);
-        tips.showAndWait();
-    }
+//    public void productivityTips() {
+//        Alert tips = new Alert(AlertType.INFORMATION);
+//        tips.setTitle("Productivity Tips");
+//        tips.setHeaderText(null);
+//        String allTips = controller.getTips();
+//        tips.setContentText(allTips);
+//        tips.showAndWait();
+//    }
+
     //Asks users to rate the productivity of their last activity
     public int askForProductivity(String name) {
         Label info = new Label("Rate your productivity on a scale of 1 to 10, or click 'Ignore' to provide no rating.");

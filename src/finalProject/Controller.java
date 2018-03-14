@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import static finalProject.Model.*;
 
@@ -170,18 +171,19 @@ public class Controller {
     }
     */
 
-    public String getTips(){
-        Task lowProductivity = Model.findLeastProductive();
-        String tip1 = Model.checkProductivityByDuration(lowProductivity);
-        Task highProductivity = Model.findMostProductive();
-        String tip2 = ("You usually rate your productivity during " + highProductivity.getName() + " activity highly, well done!");
-        String tip3 = "Here is some information about the five activities you spend the most time on:" + topFiveToTip();
-        String tips = tip1 + tip2 + tip3;
-        return (tips);
-    }
+//    public String getTips(){
+//        Task lowProductivity = Model.findLeastProductive();
+//        String tip1 = Model.checkProductivityByDuration(lowProductivity);
+//        Task highProductivity = Model.findMostProductive();
+//        String tip2 = ("You usually rate your productivity during " + highProductivity.getName() + " activity highly, well done!");
+//        String tip3 = "Here is some information about the five activities you spend the most time on:" + topFiveToTip(); //TODO: fix topFiveToTip before this can be called
+//        String tips = tip1 + tip2 + tip3;
+//        return (tips);
+//    }
+
     //@return A list containing the five Task objects with the highest total time recorded. 
-    public List<Task> getTopFive(){
-        List<Task> topFive = Model.findTopFiveByTime("real");
-        return topFive;
-    }
+//    public List<Task> getTopFive(){
+//        List<Task> topFive = Model.findTopFiveByTime("real"); //TODO: fix findTopFiveByTime before this can method can work
+//        return topFive;
+//    }
 }

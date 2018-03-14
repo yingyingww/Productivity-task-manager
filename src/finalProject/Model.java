@@ -108,42 +108,42 @@ public class Model {
         return curLeast;
     }
 
-    public static List<Task> findTopFiveByTime(String type){
 
-        List topTasks = new ArrayList<Task>();
-        if type.equals("real"){
-            for (Task curTask : tasks.values()) {
-                topTasks.add(curTask);
-            }
-            Collections.sort(topTasks);
-            topTasks.subList(0,4);
-            return topTasks;
-        }
-        //else if type.equals("ideal"){
-          //  List tempList = idealInstanceList;
-           
-    }
+//    public List<Task> findTopFiveByTime(String type){
+//        List topTasks = new ArrayList<Task>();
+//        if (type.equals("real")) {
+//            for (Task curTask : tasks.values()) {
+//                topTasks.add(curTask);
+//            }
+//            Collections.sort(topTasks);
+//            topTasks.subList(0,4);
+//            return topTasks;
+//        }
+//        //else if type.equals("ideal"){
+//          //  List tempList = idealInstanceList;
+//        //TODO: return statement
+//    }
     
-    public static String topFiveToTip(){
-        List<Task> topFive = findTopFiveByTime();
-        String taskInfo = "";
-        for (Task t: topFive){
-            String tempName = t.getName();
-            int tempTime = t.getTotalTimeSpent();
-            int tempProductivity = t.getAvgProductivity();
-            if (tempProductivity < 0) {
-                taskInfo = taskInfo + "Activity name: " + tempName +
-                        " Total time spend on activity in hours " + (tempTime / 60) +
-                        " No productivity ratings entered";
-            }
-            else{
-                taskInfo = taskInfo + "Activity name: " + tempName +
-                        " Total time spend on activity in hours " + (tempTime / 60) +
-                        " Average productivity rating " + tempProductivity;
-            }
-        }
-        return taskInfo;
-    }
+//    public String topFiveToTip(){
+//        List<Task> topFive = findTopFiveByTime(); //TODO: this needs a parameter
+//        String taskInfo = "";
+//        for (Task t: topFive){
+//            String tempName = t.getName();
+//            int tempTime = t.getTotalTimeSpent();
+//            int tempProductivity = t.getAvgProductivity();
+//            if (tempProductivity < 0) {
+//                taskInfo = taskInfo + "Activity name: " + tempName +
+//                        " Total time spend on activity in hours " + (tempTime / 60) +
+//                        " No productivity ratings entered";
+//            }
+//            else{
+//                taskInfo = taskInfo + "Activity name: " + tempName +
+//                        " Total time spend on activity in hours " + (tempTime / 60) +
+//                        " Average productivity rating " + tempProductivity;
+//            }
+//        }
+//        return taskInfo;
+//    }
 
 
     public static String checkProductivityByDuration(Task testTask) {
