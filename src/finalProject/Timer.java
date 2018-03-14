@@ -1,6 +1,8 @@
 package finalProject;
+
 /**
- * The Timer java file is a will log the start/end Time of a Task
+ * The Timer java file is a controller file that
+ * will log the start/end Time of a Task and find the time interval of a task
  *
  */
 
@@ -41,7 +43,6 @@ public class Timer {
         long intervalInMinutes;
         long intervalInMs = endTime.getTime() - startTime.getTime();
         long intervalInSeconds = TimeUnit.MILLISECONDS.toSeconds(intervalInMs);
-        //System.out.println("Time Interval is: " + intervalInSeconds + " seconds");
         if (intervalInSeconds % 60 == 0){
             intervalInMinutes = TimeUnit.MILLISECONDS.toMinutes(intervalInMs);
             System.out.println("Time Interval is: " + intervalInMinutes + " minute(s)");

@@ -23,6 +23,12 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.*;
 import javafx.geometry.Insets;
+/**
+ * The Main java file is the starting file for Productivity+
+ * It will start with setSchedule page and have the options to navigate to the mainPage to
+ * log their actual activities.
+ *
+ */
 
 public class Main extends Application {
     private Controller controller = new Controller(this);
@@ -42,7 +48,7 @@ public class Main extends Application {
         setSchedule();
 
         primaryStage.setTitle("Productivity+");
-        Scene scene = new Scene(root, 1000, 700);
+        Scene scene = new Scene(root, 795, 700);
         primaryStage.setScene(scene);
 
         // Add css features
@@ -90,7 +96,7 @@ public class Main extends Application {
         menuPane.setAlignment(Pos.TOP_LEFT);
 
         MenuBar menuBar = new MenuBar();
-        menuBar.setMinWidth(1000);
+        menuBar.setMinWidth(795);
 
         Menu mainMenu = new Menu("Menu");
 
@@ -112,7 +118,7 @@ public class Main extends Application {
 
         //TODO: What is trends??
 //        MenuItem topActivities = new MenuItem("Top Activities Chart");
-//        trends.setOnAction(new EventHandler<ActionEvent>() {
+//        topActivities.setOnAction(new EventHandler<ActionEvent>() {
 //            @Override
 //            public void handle(ActionEvent event) {
 //                //TODO: Error
