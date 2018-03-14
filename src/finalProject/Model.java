@@ -120,7 +120,7 @@ public class Model {
     public static List<Task> findTopFiveByTime(String type){
 
         List topTasks = new ArrayList<Task>();
-        if type.equals("real"){
+        if (type.equals("real")){
             for (Task curTask : tasks.values()) {
                 topTasks.add(curTask);
             }
