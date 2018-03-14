@@ -1,9 +1,10 @@
 package finalProject;
 
 import java.util.Comparator;
-/*
-A class to allow Task objects to be compared and sorted according to total time spent.
-*/
+/**
+ * The java class allows task objects to be compared and sorted according to the total time spent
+ */
+
 public class TimeComparator implements Comparator<Task>{
     @Override
     public int compare(Task task1, Task task2) {

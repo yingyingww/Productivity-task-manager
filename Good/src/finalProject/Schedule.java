@@ -4,6 +4,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
 import java.util.ArrayList;
 
+/**
+ * The Schedule java file will create a schedule panel to be displayed on GUI pages
+ *
+ */
 public class Schedule extends Pane {
     ArrayList<CalendarTaskRectangle> todaysTask;
     public int height;

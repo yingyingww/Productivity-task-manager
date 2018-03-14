@@ -6,9 +6,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
-
 import java.io.IOException;
 
+/**
+ * The java file creates the buttons for Main GUI Page
+ */
 public class TaskPanel extends VBox{
     ToggleGroup toggleGroup = new ToggleGroup();
     @FXML private VBox buttonHolder;

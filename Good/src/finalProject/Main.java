@@ -23,7 +23,12 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.*;
 import javafx.geometry.Insets;
-
+/**
+ * The Main java file is the starting file for Productivity+
+ * It will start with setSchedule page and have the options to navigate to the mainPage to
+ * log their actual activities.
+ *
+ */
 public class Main extends Application {
     private Controller controller = new Controller(this);
     private BorderPane root = new BorderPane();
@@ -60,8 +65,6 @@ public class Main extends Application {
         onMain = true;
         HBox menuPane = setMenu();
         ScrollPane schedules = makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule()));
-        //ScrollPane schedulePane = addIdealSchedule();
-        //VBox currSchedulePane = addCurrentSchedule();
         root.setRight(taskPanel);
         root.setTop(menuPane);
         root.setCenter(schedules);
@@ -70,8 +73,6 @@ public class Main extends Application {
     private void setSchedule() {
         onMain = false;
         HBox menuPane = setMenu();
-        //VBox taskPanel = createTask();
-        //root.setCenter(taskPanel);
         root.setTop(menuPane);
         root.setCenter(setScheduleForm);
         root.setRight(makeScheduleScroll(addIdealSchedule()));
@@ -155,9 +156,6 @@ public class Main extends Application {
         return menuPane;
     }
 
-    //TODO: having issues with this based on other issues
-    //Produces a Bar Chart in an Alert to allow users to compare their time usage 
-    //for the five activities they spend the most time on.
     public void chartTopFiveTasks(){
         Alert showChart = new Alert(AlertType.INFORMATION);
         showChart.setTitle("Top Five Tasks By Time Spent");
@@ -257,12 +255,14 @@ public class Main extends Application {
         Alert info = new Alert(AlertType.INFORMATION);
         info.setTitle("How to Use Productivity+");
         info.setHeaderText("Welcome to Productivity+");
-        String info1 = "Thanks for using our app! Our goal is to help you develop your most productive schedule.";
-        String info2 = "You can get started by clicking 'Set Schedule' and entering the ideal schedule for your day.";
+        String info1 = "Thanks for using our app! Our goal is to help you develop your most productive \n" +
+                "schedule of the day.";
+        String info2 = "You can get started by entering your ideal schedule for the day in the Set Schedule Page.";
         String info3 = "Simply type in the name of each activity you would like to do during the day, and enter the";
-        String info4 = "start and end times you would prefer. Once you have entered your schedule, head to the main page";
+        String info4 = "start and end times you would prefer. Once you have entered your schedule, head to \n" +
+                "the main page";
         String info5 = "where you will keep track of your actual schedule. When you begin a task, click that task's button";
-        String info6 = "then click it again to end the task. We'll keep track of the rest!";
+        String info6 = "then click it again to end the task. We'll log your time and keep track of the rest!";
         String allTips = info1 + "\n\n" + info2 + "\n\n" + info3 + "\n\n" + info4 + "\n\n" + info5 + "\n\n" + info6;
         info.setContentText(allTips);
 
@@ -302,18 +302,6 @@ public class Main extends Application {
         Pane idealSchedulePane = idealSchedule.displayCalendar();
         idealSchedulePane.setStyle("-fx-background-color: #63e1ff");
         return idealSchedulePane;
-//        VBox chosenSchedule = new VBox();
-//        chosenSchedule.setStyle("-fx-background-color: #9999ff");
-//        ScrollPane schedule = new ScrollPane();
-//        Text scrollSchedule = new Text("Ideal Schedule");
-//        scrollSchedule.setFont(Font.font("Arial", FontWeight.BOLD, 16));
-//        schedule.setPrefSize(200, 1000);
-//
-//        if(idealSchedule.hasTasks()) {
-//            schedule.setContent(idealSchedule.displayCalendar());
-//        }
-//        chosenSchedule.getChildren().addAll(scrollSchedule, schedule);
-//        return chosenSchedule;
     }
 
     private Pane addCurrentSchedule() {
@@ -322,8 +310,6 @@ public class Main extends Application {
         return currentSchedulePane;
     }
 
-    //we probably don't need this any more
-    // Puts the two schedules next two each other to be compared
     private GridPane combineSchedules(Pane idealSchedule, Pane currSchedule) {
         GridPane schedule = new GridPane();
         schedule.setAlignment(Pos.TOP_CENTER);
@@ -352,278 +338,6 @@ public class Main extends Application {
 
         return  scrollingSchedule;
     }
-
-    // there is a lot of stuff in here!
-
-//    private void createTaskPanel() {
-//        taskPanel.getChildren().clear();
-//        //VBox taskPanel = new VBox();
-//
-//        //I want to move these to the CSS if possible
-//        taskPanel.setPadding(new Insets(10, 10, 10, 10));
-//
-//        //set the color...
-//        taskPanel.setStyle("-fx-background-color: #99ccff");
-//
-//        Label directions = new Label("Select Current Task");
-//
-//        HBox taskCreator = addTaskCreator();
-//
-//        taskPanel.getChildren().addAll(directions, taskButtonsView, taskCreator);
-//    }
-//
-//    private void updateTaskButtons() {
-//        taskButtonsView = new VBox();
-//        ToggleGroup taskButtonGroup = new ToggleGroup();
-//        for (int i=0; i<this.taskButtons.size(); i++) {
-//            taskButtonsView.getChildren().add(this.taskButtons.get(i));
-//            this.taskButtons.get(i).setToggleGroup(taskButtonGroup);
-//        }
-//        createTaskPanel();
-//    }
-//
-//    public void addTaskButton(String name) {
-//        ToggleButton t = new ToggleButton(name);
-//        // TODO: here is where the thing needs to happen
-//        // Things aren't happening in the right place right now blah
-//        t.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                controller.taskClicked(name);
-//                currentSchedule.getCalendar();
-//                root.setCenter(makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule())));
-//            }
-//        });
-//        taskButtons.add(t);
-//        updateTaskButtons();
-//    }
-//
-//    private HBox addTaskCreator() {
-//        HBox taskCreator = new HBox();
-//        TextField taskCreatorField = new TextField();
-//        taskCreatorField.setPromptText("Add a New Task");
-//        Button taskCreatorButton = new Button("Add Task");
-//        EventHandler<ActionEvent> addTask = new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent e) {
-//                String name = taskCreatorField.getText().toUpperCase();
-//                controller.addTask(name);
-//            }
-//        };
-//        taskCreatorField.setOnAction(addTask);
-//        taskCreatorButton.setOnAction(addTask);
-//
-//        taskCreator.getChildren().addAll(taskCreatorField, taskCreatorButton);
-//        return taskCreator;
-//    }
-
-    //    private HBox createWeekday(){
-//        HBox wkd = new HBox();
-//
-//        Button monday = new Button();
-//        monday.setText("Monday");
-//        monday.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                presetDay = "Monday";
-//
-//                System.out.println(presetDay);
-//            }
-//        });
-//        Button tuesday = new Button();
-//        tuesday.setText("Tuesday");
-//        tuesday.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                presetDay = "Tuesday";
-//                System.out.println(presetDay);
-//            }
-//        });
-//        Button wednesday = new Button();
-//        wednesday.setText("Wednesday");
-//        wednesday.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                presetDay = "Wednesday";
-//                System.out.println(presetDay);
-//
-//            }
-//        });
-//
-//        Button thursday = new Button();
-//        thursday.setText("Thursday");
-//        thursday.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                presetDay ="Thursday";
-//                System.out.println(presetDay);
-//            }
-//        });
-//        Button friday = new Button();
-//        friday.setText("Friday");
-//        friday.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                presetDay = "Friday";
-//                System.out.println(presetDay);
-//            }
-//        });
-//        Button saturday = new Button();
-//        saturday.setText("Saturday");
-//        saturday.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                presetDay = "Saturday";
-//                System.out.println(presetDay);
-//            }
-//        });
-//        Button sunday = new Button();
-//        sunday.setText("Sunday");
-//        sunday.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                presetDay = "Sunday";
-//                System.out.println(presetDay);
-//            }
-//        });
-//
-//
-//        wkd.getChildren().addAll(monday,tuesday, wednesday, thursday, friday, saturday,sunday);
-//
-//        return wkd;
-//    }
-
-    //    private VBox createTask() {
-//        VBox newTaskPane = new VBox();
-//        Text taskPanelDirections = new Text("Set Your Schedule");
-//        taskPanelDirections.setFont(Font.font("Arial", FontWeight.BOLD, 16));
-//
-//        // We will deal with the preset day if we have time later!
-//        //Text chooseDay = new Text("Choose a preset schedule: ");
-//
-//        newTaskPane.setPadding(new Insets(15, 12, 15, 12));
-//        newTaskPane.setSpacing(20);
-//        newTaskPane.setStyle("-fx-background-color: #999966");
-//
-//        ComboBox taskNameOptions = new ComboBox();
-//        updateTaskNames(taskNameOptions);
-//        taskNameOptions.setPromptText("Create a New Task");
-//        taskNameOptions.setEditable(true);
-//
-//        HBox startTime= new HBox();
-//        Text startTimeText = new Text("Start Time: ");
-//        ComboBox startHours = new ComboBox(hours);
-//        Text startColon = new Text(" : ");
-//        ComboBox startMinutes = new ComboBox(minutes);
-//        ComboBox startAmPM = new ComboBox(amPm);
-//        startTime.getChildren().addAll(startTimeText, startHours, startColon, startMinutes, startAmPM);
-//
-//        HBox endTime= new HBox();
-//        Text endTimeText = new Text("End Time: ");
-//        ComboBox endHours = new ComboBox(hours);
-//        Text endColon = new Text(" : ");
-//        ComboBox endMinutes = new ComboBox(minutes);
-//        ComboBox endAmPM = new ComboBox(amPm);
-//        endTime.getChildren().addAll(endTimeText, endHours, endColon, endMinutes, endAmPM);
-//
-//        Button createTaskButton = new Button();
-//        createTaskButton.setText("Create Task");
-//
-//        // When the create task button is clicked, all of the information
-//        // is put into an array and sends it to the controller so the
-//        // model can use that info.
-//        createTaskButton.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                // Maybe should be in model, but very simple in here
-//                newTaskNameCheck((String) taskNameOptions.getValue());
-//                Label nameInput = new Label((String) taskNameOptions.getValue());
-//
-//                Object startHoursInput = startHours.getValue();
-//                Object startMinutesInput = startMinutes.getValue();
-//                Object startAMPMInput = startAmPM.getValue();
-//
-//                Object endHoursInput = endHours.getValue();
-//                Object endMinutesInput = endMinutes.getValue();
-//                Object endAMPMInput = endAmPM.getValue();
-//
-//                ArrayList taskAttributes = new ArrayList();
-//                taskAttributes.addAll(Arrays.asList(nameInput, startHoursInput, startMinutesInput, startAMPMInput, endHoursInput, endMinutesInput, endAMPMInput));
-//
-//                //TODO: THIS IS ALL NONSENSE AND DOESN'T DO SHIT AND IT MAKES SENSE BUT STILL NEEDS FIXING
-//                // TODO: Make own method maybe in controller/model?
-//                boolean allFieldsFilled = checkIfAllFieldsFilled(taskAttributes);
-//                if(!allFieldsFilled) {
-//                    // TODO: make this a popup
-//                    System.out.println("Fill out everything");
-//                    System.out.println("Input a valid time");
-//                }
-//
-//                boolean validTime = true;
-//                if(startAMPMInput.equals("PM") && endAMPMInput.equals("AM")) {
-//                    validTime = false;
-//                } else if(startAMPMInput.equals(endAMPMInput) && (int) startHoursInput > (int) endHoursInput) {
-//                    validTime = false;
-//                } else if(startAMPMInput.equals(endAMPMInput) && startHoursInput.equals(endHoursInput) && Integer.valueOf((String) startMinutesInput) > Integer.valueOf((String) endMinutesInput)) {
-//                    validTime = false;
-//                } else if(startAMPMInput.equals(endAMPMInput) && startHoursInput.equals(endHoursInput) && startMinutesInput.equals(endMinutesInput)) {
-//                    validTime = false;
-//                }
-//
-//                if (allFieldsFilled && validTime) {
-//                    // TODO: Figure out best way to do this
-//                    System.out.println("Task Attributes are: " + taskAttributes);
-//                    System.out.println(controller);
-//                    idealSchedule = controller.updateIdealCalendar(taskAttributes);
-//                    root.setRight(makeScheduleScroll(addIdealSchedule()));
-//                    updateTaskNames(taskNameOptions);
-//                } else {
-//                    // TODO: make this a popup
-//                    System.out.println("Fill out everything");
-//                    System.out.println("Input a valid time");
-//                }
-//            }
-//        });
-//
-//        //HBox weekdays = createWeekday();
-//
-//        Button useSchedule = new Button("Use Schedule");
-//        useSchedule.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                setMainPage();
-//                currentSchedule.getCalendar();
-//                root.setCenter(makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule())));
-//            }
-//        });
-//
-//        newTaskPane.getChildren().addAll(taskPanelDirections, taskNameOptions, startTime,
-//                endTime, createTaskButton, useSchedule);
-//
-//        return newTaskPane;
-//    }
-//
-//    // TODO: move to model
-//    private boolean checkIfAllFieldsFilled(ArrayList taskAttributes) {
-//        for(Object attribute : taskAttributes) {
-//            if (attribute == null || attribute.equals("")) {
-//                return false;
-//            }
-//        }
-//        return true;
-//    }
-//
-//    //TODO: this really shouldn't been here maybe in model or controller
-//    private void newTaskNameCheck(String taskName) {
-//        if(!taskNames.contains(taskName)) {
-//            taskNames.add(taskName);
-//        }
-//    }
-//
-//    private void updateTaskNames(ComboBox taskNameOptions) {
-//        taskNameOptions.getItems().clear();
-//        taskNameOptions.getItems().addAll(taskNames);
-//    }
 
     public static void main(String[] args) {
         launch(args);

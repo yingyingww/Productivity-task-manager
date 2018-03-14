@@ -1,7 +1,10 @@
 package finalProject;
 
 import java.util.Date;
-
+/**
+ * The TaskOccurrence java file records the basic information of a task
+ *
+ */
 public class TaskOccurrence implements Comparable<TaskOccurrence> {
     private Date start;
     private Date end;
