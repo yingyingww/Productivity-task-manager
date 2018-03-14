@@ -9,7 +9,7 @@ Productivity+ is your new go-to daily schedule manager. Combining the visuals of
 
 ## Instructions 
 
-The app is started by running the main method in our Main.java class. This is currently located in "Productivity+/src/finalProject". A few days ago we ran into the issue of our contributers using different versions of Java with IntelliJ. If there are SDK errors, it is important that in the project structure (File --> Project Structure), the two middle drop down menus are set to the save version of Java (we've been using 1.8/8 and 9.0/9).
+The app is started by running the main method in our Main.java class. This is currently located in "Productivity+/src/finalProject". A few days ago we ran into the issue of our contributers using different versions of Java with IntelliJ. If there are SDK errors, it is important that in the project structure (File --> Project Structure), the two middle drop down menus are set to the save version of Java (we've been using 1.8/8 and 9.0/9). Additionally, to run in IntelliJ, the src folder in Productivity+ needs to be set as Source Root (right click src --> Mark Directory As --> Source Root).
 
 Running the main method of Main.java brings you to the Set Schedule page where you can create your schedule for the day. Before you do that though, feel free to read through the instructions for Productivity+ to help you get a feel for what we can help you do! After you set your schedule, you can navigate back to main either by clicking "Use Schedule" or the Main Page option in the navigation menu in the top left.
 
