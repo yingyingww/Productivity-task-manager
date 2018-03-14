@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b49624fc-b4e9-454d-b738-678bb971d393" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/EmptyTaskNameException.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/EmptyTaskNameException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/Form.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/Form.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/FormNotCompleteException.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/FormNotCompleteException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/InvertedTimelineException.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/InvertedTimelineException.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,26 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Controller.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#596#597#0" expanded="true" />
-                <element signature="e#628#629#0" expanded="true" />
-                <marker date="1521053333126" expanded="false" signature="795:978" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Model.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Model.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="664">
-              <caret line="101" column="7" lean-forward="false" selection-start-line="101" selection-start-column="7" selection-end-line="101" selection-end-column="7" />
+            <state relative-caret-position="15">
+              <caret line="226" column="0" lean-forward="false" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -113,10 +102,13 @@
         <option value="$PROJECT_DIR$/src/finalProject/Main.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/Task.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/Main.java" />
-        <option value="$PROJECT_DIR$/Good/src/finalProject/Form.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/CalendarTaskRectangle.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/Controller.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/Model.java" />
+        <option value="$PROJECT_DIR$/Good/src/finalProject/EmptyTaskNameException.java" />
+        <option value="$PROJECT_DIR$/Good/src/finalProject/Form.java" />
+        <option value="$PROJECT_DIR$/Good/src/finalProject/FormNotCompleteException.java" />
+        <option value="$PROJECT_DIR$/Good/src/finalProject/InvertedTimelineException.java" />
       </list>
     </option>
   </component>
@@ -147,7 +139,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -198,6 +189,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
@@ -682,7 +674,8 @@
       <updated>1520725298041</updated>
       <workItem from="1520971345398" duration="1458000" />
       <workItem from="1521009831917" duration="18535000" />
-      <workItem from="1521051582437" duration="2053000" />
+      <workItem from="1521051582437" duration="2181000" />
+      <workItem from="1521053833778" duration="468000" />
     </task>
     <task id="LOCAL-00001" summary="made the productivityCheck work">
       <created>1520873294331</created>
@@ -775,27 +768,33 @@
       <option name="project" value="LOCAL" />
       <updated>1521053604961</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added comments">
+      <created>1521053665185</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1521053665185</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22046000" />
+    <option name="totallyTimeSpent" value="22642000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1732" height="976" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.320598" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16648291" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17089306" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17089306" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -812,6 +811,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.320598" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -853,7 +853,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -862,10 +862,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/finalProject/SetSchedule.java" />
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Controller2.java" />
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Controller.java" />
     <entry file="file://$PROJECT_DIR$/src/finalProject/Timer.java" />
     <entry file="file://$PROJECT_DIR$/src/finalProject/Model.java" />
     <entry file="file://$PROJECT_DIR$/src/finalProject/SetSchedule.java" />
@@ -921,64 +917,6 @@
       </provider>
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/util/AbstractList.java" />
-    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Form.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="63" column="100" lean-forward="false" selection-start-line="63" selection-start-column="100" selection-end-line="63" selection-end-column="100" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2196#2197#0" expanded="false" />
-            <element signature="e#2245#2246#0" expanded="false" />
-            <element signature="e#3144#3145#0" expanded="false" />
-            <element signature="e#3197#3198#0" expanded="false" />
-            <element signature="e#3250#3251#0" expanded="false" />
-            <element signature="e#3290#3291#0" expanded="false" />
-            <element signature="e#3395#3396#0" expanded="false" />
-            <element signature="e#3450#3451#0" expanded="false" />
-            <element signature="e#3487#3488#0" expanded="false" />
-            <element signature="e#3547#3548#0" expanded="false" />
-            <element signature="e#3586#3587#0" expanded="false" />
-            <element signature="e#3648#3649#0" expanded="false" />
-            <element signature="e#3687#3688#0" expanded="false" />
-            <element signature="e#3749#3750#0" expanded="false" />
-            <element signature="e#3784#3785#0" expanded="false" />
-            <element signature="e#3842#3843#0" expanded="false" />
-            <element signature="e#3879#3880#0" expanded="false" />
-            <element signature="e#3939#3940#0" expanded="false" />
-            <element signature="e#3976#3977#0" expanded="false" />
-            <element signature="e#4036#4037#0" expanded="false" />
-            <element signature="e#5627#5628#0" expanded="false" />
-            <element signature="e#5661#5662#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="226" column="0" lean-forward="false" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3355#3356#0" expanded="false" />
-            <element signature="e#3400#3401#0" expanded="false" />
-            <element signature="e#3614#3615#0" expanded="false" />
-            <element signature="e#3659#3660#0" expanded="false" />
-            <element signature="e#3918#3919#0" expanded="false" />
-            <element signature="e#3969#3970#0" expanded="false" />
-            <element signature="e#4239#4240#0" expanded="false" />
-            <element signature="e#4289#4290#0" expanded="false" />
-            <element signature="e#4646#4647#0" expanded="false" />
-            <element signature="e#4692#4693#0" expanded="false" />
-            <element signature="e#11532#11533#0" expanded="false" />
-            <element signature="e#11568#11569#0" expanded="false" />
-            <element signature="e#11612#11613#0" expanded="false" />
-            <element signature="e#11650#11651#0" expanded="false" />
-            <element signature="e#13244#13245#0" expanded="false" />
-            <element signature="e#13272#13273#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Good/src/finalProject/CalendarTaskRectangle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -991,14 +929,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
+        <state relative-caret-position="360">
           <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#596#597#0" expanded="true" />
             <element signature="e#628#629#0" expanded="true" />
-            <marker date="1521053333126" expanded="false" signature="795:978" ph="{...}" />
+            <element signature="method#addTask#0;class#Controller#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/EmptyTaskNameException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="66" lean-forward="false" selection-start-line="3" selection-start-column="66" selection-end-line="3" selection-end-column="66" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1006,6 +952,52 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="664">
           <caret line="101" column="7" lean-forward="false" selection-start-line="101" selection-start-column="7" selection-end-line="101" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Form.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="98" column="89" lean-forward="false" selection-start-line="98" selection-start-column="89" selection-end-line="98" selection-end-column="89" />
+          <folding>
+            <element signature="e#2422#2423#0" expanded="true" />
+            <element signature="e#2471#2472#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Form.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-270">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/FormNotCompleteException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="70" lean-forward="false" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/InvertedTimelineException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="64" lean-forward="false" selection-start-line="3" selection-start-column="64" selection-end-line="3" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="226" column="0" lean-forward="false" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
           <folding />
         </state>
       </provider>

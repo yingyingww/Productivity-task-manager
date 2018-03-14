@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 /**
- * The java file will get inputs from setSchedule page and send information
+ * The java file will get inputs from the set schedule page and sends information
  * to other java files
  *
  * Form.fxml file creates the necessary objects to display on GUI page
@@ -41,6 +41,7 @@ public class Form extends VBox {
 
         this.controller = controller;
 
+        // Sets all of the values in the combo boxes
         startHourSelector.setItems(createHours());
         startMinuteSelector.setItems(createMinutes());
         startPeriodSelector.setItems(FXCollections.observableArrayList("AM","PM"));
@@ -50,6 +51,7 @@ public class Form extends VBox {
         endPeriodSelector.setItems(FXCollections.observableArrayList("AM","PM"));
     }
 
+    // Makes sure all of the form is filled out before allowing the user to create a task
     private boolean isComplete() {
         boolean nameComplete = !isNull(getName()) && !getName().isEmpty();
         boolean startComplete = !isNull(getStartHour()) && !isNull(getStartMinute()) && !isNull(getStartPeriod());
@@ -57,10 +59,12 @@ public class Form extends VBox {
         return nameComplete && startComplete && endComplete;
     }
 
+    // Add a new task name to the drop down menu of tasks previously created
     public void updateNameSelector(String name) {
         nameSelector.getItems().add(name);
     }
 
+    // Gets the input of the form in the desired format unless there were user input errors
     public TaskOccurrence getContents() throws FormNotCompleteException, InvertedTimelineException {
         if (!isComplete()) {
             throw new FormNotCompleteException("Please fill out everything.");
@@ -68,6 +72,7 @@ public class Form extends VBox {
         String name = getName().toUpperCase();
         Date start = getStart();
         Date end = getEnd();
+        // Makes sure the user doesn't want the task to end before it starts
         if (end.before(start)) {
             throw new InvertedTimelineException("End date occurs before start date.");
         }
@@ -85,11 +90,13 @@ public class Form extends VBox {
         return end;
     }
 
+    // Called with the user wants to add a task to their ideal schedule
     @FXML
     protected void addOccurrenceClicked() {
         controller.tryAddScheduleOccurrence();
     }
 
+    // Called when the user is done making their schedule and wants to use it for the day
     @FXML
     protected void useScheduleClicked() {
         controller.useSchedule();
