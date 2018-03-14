@@ -160,9 +160,6 @@ public class Main extends Application {
         return menuPane;
     }
 
-    //TODO: having issues with this based on other issues
-    //Produces a Bar Chart in an Alert to allow users to compare their time usage 
-    //for the five activities they spend the most time on.
     public void chartTopFiveTasks(){
         Alert showChart = new Alert(AlertType.INFORMATION);
         showChart.setTitle("Top Five Tasks By Time Spent");
@@ -307,18 +304,6 @@ public class Main extends Application {
         Pane idealSchedulePane = idealSchedule.displayCalendar();
         idealSchedulePane.setStyle("-fx-background-color: #63e1ff");
         return idealSchedulePane;
-//        VBox chosenSchedule = new VBox();
-//        chosenSchedule.setStyle("-fx-background-color: #9999ff");
-//        ScrollPane schedule = new ScrollPane();
-//        Text scrollSchedule = new Text("Ideal Schedule");
-//        scrollSchedule.setFont(Font.font("Arial", FontWeight.BOLD, 16));
-//        schedule.setPrefSize(200, 1000);
-//
-//        if(idealSchedule.hasTasks()) {
-//            schedule.setContent(idealSchedule.displayCalendar());
-//        }
-//        chosenSchedule.getChildren().addAll(scrollSchedule, schedule);
-//        return chosenSchedule;
     }
 
     private Pane addCurrentSchedule() {
@@ -327,8 +312,6 @@ public class Main extends Application {
         return currentSchedulePane;
     }
 
-    //we probably don't need this any more
-    // Puts the two schedules next two each other to be compared
     private GridPane combineSchedules(Pane idealSchedule, Pane currSchedule) {
         GridPane schedule = new GridPane();
         schedule.setAlignment(Pos.TOP_CENTER);
