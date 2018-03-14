@@ -1,12 +1,17 @@
 package finalProject;
 
 import java.util.*;
-
+/**
+ * The Model java file holds information about Task and send it to Controller java file
+ * This file will also analyze the productivity by finding the most/lest productive tasks
+ * and give top five tips
+ *
+ */
 public class Model {
     private static HashMap<String, Task> tasks = new HashMap<>();
     private static Task currentTask;
     private Controller controller;
-    private List<TaskOccurrence> scheduleOccurrences = new ArrayList<>();
+    private ArrayList<TaskInstance> idealInstanceList;
 
     public Model(Controller controller) {
         this.controller = controller;
@@ -16,16 +21,16 @@ public class Model {
         if (name.isEmpty()) {
             throw new EmptyTaskNameException("Please choose a task name.");
         }
-        name = name.toUpperCase();
+        name = name.toLowerCase();
         if (taskExists(name)){
             throw new TaskAlreadyExistsException("This task already exists.");
+        } else {
+            addTaskNoErrors(name); // have to change task constructor
         }
-        addTaskNoErrors(name);
     }
 
     private void addTaskNoErrors(String name) {
         tasks.put(name, new Task(name, controller));
-        controller.noteTaskAdded(name);
     }
 
     public void switchTasks(Task newCurrent) {
@@ -42,34 +47,51 @@ public class Model {
 
     private boolean taskExists(String name) {
         // check to see if the case is the same!!
-        name = name.toUpperCase();
         return tasks.containsKey(name);
     }
 
     public Task getTask(String name) {
-        name = name.toUpperCase();
+        name = name.toLowerCase();
         return this.tasks.get(name);
     }
 
-    public void addScheduleOccurrence(TaskOccurrence occurrence) throws OccurrenceOverlapException {
-        String name = occurrence.getName().toUpperCase();
-        if (!taskExists(name)) {
+    private void addTaskIdealSchedule(String name) throws EmptyTaskNameException {
+        if (name.isEmpty()) {
+            throw new EmptyTaskNameException("Please choose a task name.");
+        }
+        name = name.toLowerCase();
+        if (!taskExists(name)){
             addTaskNoErrors(name);
         }
-        if (occurrenceOverlapExists(occurrence)) {
-            throw new OccurrenceOverlapException("Your schedule already has a task at this time.");
-        }
-        scheduleOccurrences.add(occurrence);
     }
 
-    private boolean occurrenceOverlapExists(TaskOccurrence occurrence) {
-        for (TaskOccurrence i : scheduleOccurrences) {
-            if(i.compareTo(occurrence) == 0) {
+    public void addIdealInstance(String name, Date start, Date end) throws EmptyTaskNameException {
+        addTaskIdealSchedule(name);
+        if (end.compareTo(start) <= 0) {
+            // throw a invalid dates error
+        }
+        TaskInstance instance = new TaskInstance(start, end, 0, 0);
+        if (checkForInstanceOverlap(instance)) {
+            // throw overlap error
+        } else {
+            long plannedDuration = end.getTime() - start.getTime();
+            int durationInMinutes = plannedDuration / (60 * 1000) % 60;
+            idealInstanceList.add(instance);
+            tasks.get(name).addPlannedInstance();
+            tasks.get(name).addPlannedTime();
+        }
+
+    }
+
+    private boolean checkForInstanceOverlap(TaskInstance instance) {
+        for (TaskInstance i : idealInstanceList) {
+            if(i.compareTo(instance) == 0) {
                 return true;
             }
         }
         return false;
     }
+
 
     public static Task findMostProductive() {
         Task curMost = currentTask;
@@ -95,41 +117,45 @@ public class Model {
         return curLeast;
     }
 
-//    public List<Task> findTopFiveByTime(String type){
-//        List topTasks = new ArrayList<Task>();
-//        if (type.equals("real")) {
-//            for (Task curTask : tasks.values()) {
-//                topTasks.add(curTask);
-//            }
-//            Collections.sort(topTasks);
-//            topTasks.subList(0,4);
-//            return topTasks;
-//        }
-//        //else if type.equals("ideal"){
-//          //  List tempList = scheduleOccurrences;
-//        //TODO: return statement
-//    }
+    public static List<Task> findTopFiveByTime(String type){
 
-//    public String topFiveToTip(){
-//        List<Task> topFive = findTopFiveByTime(); //TODO: this needs a parameter
-//        String taskInfo = "";
-//        for (Task t: topFive){
-//            String tempName = t.getName();
-//            int tempTime = t.getTotalTimeSpent();
-//            int tempProductivity = t.getAvgProductivity();
-//            if (tempProductivity < 0) {
-//                taskInfo = taskInfo + "Activity name: " + tempName +
-//                        " Total time spend on activity in hours " + (tempTime / 60) +
-//                        " No productivity ratings entered";
-//            }
-//            else{
-//                taskInfo = taskInfo + "Activity name: " + tempName +
-//                        " Total time spend on activity in hours " + (tempTime / 60) +
-//                        " Average productivity rating " + tempProductivity;
-//            }
-//        }
-//        return taskInfo;
-//    }
+        List topTasks = new ArrayList<Task>();
+        if type.equals("real"){
+            for (Task curTask : tasks.values()) {
+                topTasks.add(curTask);
+            }
+            Collections.sort(topTasks);
+            topTasks.subList(0,4);
+            return topTasks;
+        }  
+    }
+    
+    public static String topFiveToTip(){
+        List<Task> topFive = findTopFiveByTime();
+        String taskInfo = "";
+        if (topFive.size() == 0){
+            taskInfo = "It looks like you don't have any activities logged, try tracking some activities!";
+        }
+        else{
+            for (Task t: topFive){
+                String tempName = t.getName();
+                int tempTime = t.getTotalTimeSpent();
+                int tempProductivity = t.getAvgProductivity();
+                if (tempProductivity < 0) {
+                    taskInfo = taskInfo + "Activity name: " + tempName +
+                            " Total time spend on activity in hours " + (tempTime / 60) +
+                            " No productivity ratings entered";
+                }
+                else{
+                    taskInfo = taskInfo + "Activity name: " + tempName +
+                            " Total time spend on activity in hours " + (tempTime / 60) +
+                            " Average productivity rating " + tempProductivity;
+                }
+            }
+        }
+        return taskInfo;
+    }
+
 
     public static String checkProductivityByDuration(Task testTask) {
         int countOverTwoHours = 0;
@@ -139,10 +165,10 @@ public class Model {
         boolean anyOverTwoHours = false;
         boolean anyUnderTwoHours = false;
         String tip = "";
-        for (TaskOccurrence occurrence: testTask.getTaskOccurrences()){
-            if (occurrence.getDuration() >= 120) {
+        for (TaskInstance instance: testTask.getTaskInstances()){
+            if (instance.getDuration() >= 120) {
                 countOverTwoHours++;
-                int tempProductivity = occurrence.getProductivity();
+                int tempProductivity = instance.getProductivity();
                 if (tempProductivity > 0) {
                     productivityOverTwoHours += tempProductivity;
                 }
@@ -150,7 +176,7 @@ public class Model {
             }
             else {
                 countUnderTwoHours ++;
-                int tempProductivity = occurrence.getProductivity();
+                int tempProductivity = instance.getProductivity();
                 if (tempProductivity > 0) {
                     productivityUnderTwoHours += tempProductivity;
                 }

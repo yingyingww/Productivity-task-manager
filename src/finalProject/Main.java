@@ -25,8 +25,8 @@ import java.util.*;
 import javafx.geometry.Insets;
 /**
  * The Main java file is the starting file for Productivity+
- * It will start with setSchedule page and have the options to navigate to the mainPage to
- * log their actual activities.
+ * It will start with setSchedule page and have the options to navigate to the mainPage to 
+ * log their actual activities. 
  *
  */
 

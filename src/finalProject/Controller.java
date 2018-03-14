@@ -6,8 +6,8 @@ import javafx.scene.control.Label;
 import java.util.Calendar;
 import java.util.Date;
 /**
- * The is a Controller java file will supply Main with necessary
- * information to display tasks and negotiate with other java files that
+ * The is a Controller java file will supply Main with necessary 
+ * information to display tasks and negotiate with other java files that 
  * work on a specific function
  *
  */
