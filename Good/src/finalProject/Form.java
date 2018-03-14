@@ -51,7 +51,7 @@ public class Form extends VBox {
     }
 
     private boolean isComplete() {
-        boolean nameComplete = !isNull(getName());
+        boolean nameComplete = !isNull(getName()) && !getName().isEmpty();
         boolean startComplete = !isNull(getStartHour()) && !isNull(getStartMinute()) && !isNull(getStartPeriod());
         boolean endComplete = !isNull(getEndHour()) && !isNull(getEndMinute()) && !isNull(getEndPeriod());
         return nameComplete && startComplete && endComplete;
