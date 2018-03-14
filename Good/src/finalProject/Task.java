@@ -71,8 +71,8 @@ public class Task {
     public int getAvgProductivity() {
         int avgProductivity = 0;
         for (TaskOccurrence occurrence : taskOccurrences) {
-            if (occurrence.getProductivity() != -1) {
-                avgProductivity += occurrence.getProductivity();
+            if (occurrence.getOccurrenceProductivity() != -1) {
+                avgProductivity += occurrence.getOccurrenceProductivity();
             }
         }
         return (avgProductivity / taskOccurrences.size());

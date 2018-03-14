@@ -165,14 +165,14 @@ public class Model {
             for (TaskOccurrence occurrence : testTask.getTaskOccurrences()) {
                 if (occurrence.getDuration() >= 120) {
                     countOverTwoHours++;
-                    int tempProductivity = occurrence.getProductivity();
+                    int tempProductivity = occurrence.getOccurrenceProductivity();
                     if (tempProductivity > 0) {
                         productivityOverTwoHours += tempProductivity;
                     }
                     anyOverTwoHours = true;
                 } else {
                     countUnderTwoHours++;
-                    int tempProductivity = occurrence.getProductivity();
+                    int tempProductivity = occurrence.getOccurrenceProductivity();
                     if (tempProductivity > 0) {
                         productivityUnderTwoHours += tempProductivity;
                     }

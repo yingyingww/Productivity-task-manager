@@ -44,7 +44,7 @@ public class TaskOccurrence implements Comparable<TaskOccurrence> {
         return 0;
     }
 
-    public int getProductivity() {
+    public int getOccurrenceProductivity() {
         return this.productivity;
     }
 

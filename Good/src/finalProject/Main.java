@@ -343,7 +343,9 @@ public class Main extends Application {
         } else {
             scrollingSchedule.setPrefSize(300, 700);
             GridPane withTimes = new GridPane();
-            withTimes.add(idealSchedule.displayCalendar(), 1, 0);
+            schedule = idealSchedule.displayCalendar();
+            schedule.setStyle("-fx-background-color: #63e1ff");
+            withTimes.add(schedule, 1, 0);
             timeBackground.displayTimes(withTimes);
             scrollingSchedule.setContent(withTimes);
         }
