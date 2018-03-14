@@ -198,11 +198,11 @@ public class Main extends Application {
             }
         });
 
-        MenuItem trends = new MenuItem("Trends");
+        MenuItem topActivities = new MenuItem("Top Activities Chart");
         trends.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                status.setText("Trends");
+                chartTopFiveTasks;
             }
         });
 
@@ -214,7 +214,7 @@ public class Main extends Application {
             }
         });
 
-        mainMenu.getItems().addAll(mainPage, setSchedule, trends, productivityTips);
+        mainMenu.getItems().addAll(mainPage, setSchedule, topActivities, productivityTips);
 
         Menu exitMenu = new Menu("Exit");
         MenuItem exit = new MenuItem("Exit");
@@ -241,7 +241,9 @@ public class Main extends Application {
         return menuPane;
     }
     
-    public void seeTopFive(){
+    //Produces a Bar Chart in an Alert to allow users to compare their time usage 
+    //for the five activities they spend the most time on.
+    public void chartTopFiveTasks(){
         Alert showChart = new Alert(AlertType.INFORMATION);
         showChart.setTitle("Top Five Tasks By Time Spent");
         List<Task> topFive = controller.getTopFive();
@@ -287,18 +289,16 @@ public class Main extends Application {
 
     }
 
-    // Provide the user with tips on being more production
+    // Provide the user with tips on being more productive
     public void productivityTips() {
         Alert tips = new Alert(AlertType.INFORMATION);
         tips.setTitle("Productivity Tips");
         tips.setHeaderText(null);
-        //String tip1 = "You haven't been sleeping much. Try getting 8 hours, and hopefully that will boost your mood.";
-        //String tip2 = "Try breaking up the time you spend doing homework into smaller chunks.";
         String allTips = controller.getTips();
         tips.setContentText(allTips);
         tips.showAndWait();
     }
-
+    //Asks users to rate the productivity of their last activity
     public int askForProductivity(String name) {
         Label info = new Label("Rate your productivity on a scale of 1 to 10, or click 'Ignore' to provide no rating.");
 
