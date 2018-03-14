@@ -108,16 +108,20 @@ public class Model {
         return curLeast;
     }
 
-    public static List<Task> findTopFiveByTime(){
+    public static List<Task> findTopFiveByTime(String type){
 
         List topTasks = new ArrayList<Task>();
-
-        for (Task curTask : tasks.values()) {
-            topTasks.add(curTask);
+        if type.equals("real"){
+            for (Task curTask : tasks.values()) {
+                topTasks.add(curTask);
+            }
+            Collections.sort(topTasks);
+            topTasks.subList(0,4);
+            return topTasks;
         }
-        Collections.sort(topTasks);
-        topTasks.subList(0,4);
-        return topTasks;
+        //else if type.equals("ideal"){
+          //  List tempList = idealInstanceList;
+           
     }
     
     public static String topFiveToTip(){
