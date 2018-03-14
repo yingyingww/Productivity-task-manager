@@ -179,4 +179,8 @@ public class Controller {
         String tips = tip1 + tip2 + tip3;
         return (tips);
     }
+        public List<Task> getTopFive(){
+        List<Task> topFive = Model.findTopFiveByTime();
+        return topFive;
+    }
 }

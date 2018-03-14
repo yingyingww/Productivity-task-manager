@@ -242,6 +242,18 @@ public class Main extends Application {
 
         return menuPane;
     }
+    
+    public void seeTopFive(){
+        Alert showChart = new Alert(AlertType.INFORMATION);
+        showChart.setTitle("Top Five Tasks By Time Spent");
+        List<Task> topFive = controller.getTopFive();
+        String name1 = topFive.get(0).getName();
+        String name2 = topFive.get(1).getName();
+        String name3 = topFive.get(2).getName();
+        String name4 = topFive.get(3).getName();
+        String name5 = topFive.get(4).getName();
+
+    }
 
     // Provide the user with tips on being more production
     public void productivityTips() {
