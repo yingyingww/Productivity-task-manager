@@ -7,7 +7,10 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.Label;
 import javafx.scene.layout.RowConstraints;
-
+/**
+ * The java file displays the timeBackground for the tasks to be added to the corresponding schedule.
+ *
+ */
 public class TimeBackground {
     ObservableList<String> hours = FXCollections.observableArrayList(
             "12 AM", "1 AM", "2 AM","3 AM","4 AM","5 AM","6 AM","7 AM","8 AM","9 AM","10 AM","11 AM","12 PM",
