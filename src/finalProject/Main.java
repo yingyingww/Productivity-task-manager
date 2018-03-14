@@ -48,8 +48,6 @@ public class Main extends Application {
     Schedule currentSchedule = new Schedule();
     TimeBackground timeBackground = new TimeBackground();
     //String presetDay;
-    //Slider productivity;
-    int productivityValue = -1;
     //String currentPage = "Main Page";
     boolean onMain = true;
 
