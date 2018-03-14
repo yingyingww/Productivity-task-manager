@@ -1,7 +1,12 @@
 package finalProject;
 
 import java.util.*;
-
+/**
+ * The Model java file holds information about Task and send it to Controller java file
+ * This file will also analyze the productivity by finding the most/lest productive tasks
+ * and give top five tips
+ *
+ */
 public class Model {
     private static HashMap<String, Task> tasks = new HashMap<>();
     private static Task currentTask;
