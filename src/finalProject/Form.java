@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -38,11 +37,11 @@ public class Form extends VBox {
 
         startHour.setItems(createHours());
         startMinute.setItems(createMinutes());
-        startPeriod.setItems(FXCollections.observableArrayList("am","pm"));
+        startPeriod.setItems(FXCollections.observableArrayList("AM","PM"));
 
         endHour.setItems(createHours());
         endMinute.setItems(createMinutes());
-        endPeriod.setItems(FXCollections.observableArrayList("am","pm"));
+        endPeriod.setItems(FXCollections.observableArrayList("AM","PM"));
     }
 
     private static ObservableList<String> createMinutes() {
@@ -56,8 +55,8 @@ public class Form extends VBox {
 
     private static ObservableList<String> createHours() {
         ObservableList<String> hours = FXCollections.observableArrayList();
-        for (int i=1; i<13; i++) {
-            String hour = String.format("%02d", i);
+        for (int i = 1; i < 13; i++) {
+            String hour = Integer.toString(i);
             hours.add(hour);
         }
         return hours;
@@ -107,6 +106,7 @@ public class Form extends VBox {
         int year = today.get(Calendar.YEAR);
         int month = today.get(Calendar.MONTH);
         int day = today.get(Calendar.DAY_OF_MONTH);
+        System.out.println(hour);
         String time = month + " " + day + " " + hour + ":" + minute + ":00 " + period + " " + year;
         DateFormat formatter = new SimpleDateFormat("MM dd hh:mm:ss a yyyy");
         Date date = formatter.parse(time);
@@ -119,6 +119,7 @@ public class Form extends VBox {
             String name = getName();
             try {
                 Date start = convertToDate(getStartHour(), getStartMinute(), getStartPeriod());
+                System.out.println(start);
                 Date end = convertToDate(getEndHour(), getEndMinute(), getEndPeriod());
                 main.updateIdealSchedulePane(name, start, end);
             } catch (ParseException e) {
@@ -130,7 +131,7 @@ public class Form extends VBox {
 
     @FXML
     protected void useSchedule() {
-        //TODO
+        main.useSchedule();
     }
 
 }

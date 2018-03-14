@@ -307,7 +307,157 @@ public class Main extends Application {
         info.showAndWait();
     }
 
-//    private VBox createTask() {
+    public void updateIdealSchedulePane(String name, Date start, Date end) {
+        idealSchedule = controller.updateIdealCalendar(name, start, end);
+        root.setRight(makeScheduleScroll(addIdealSchedule()));
+    }
+
+    public void useSchedule() {
+        setMainPage();
+        currentSchedule.getCalendar();
+        root.setCenter(makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule())));
+    }
+
+    public Schedule getIdealSchedule() {
+        return idealSchedule;
+    }
+
+    public Schedule getCurrentSchedule() {
+        return currentSchedule;
+    }
+
+    private Pane addIdealSchedule() {
+        Pane idealSchedulePane = idealSchedule.displayCalendar();
+        idealSchedulePane.setStyle("-fx-background-color: #9999ff");
+        return idealSchedulePane;
+//        VBox chosenSchedule = new VBox();
+//        chosenSchedule.setStyle("-fx-background-color: #9999ff");
+//        ScrollPane schedule = new ScrollPane();
+//        Text scrollSchedule = new Text("Ideal Schedule");
+//        scrollSchedule.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+//        schedule.setPrefSize(200, 1000);
+//
+//        if(idealSchedule.hasTasks()) {
+//            schedule.setContent(idealSchedule.displayCalendar());
+//        }
+//        chosenSchedule.getChildren().addAll(scrollSchedule, schedule);
+//        return chosenSchedule;
+    }
+
+    private Pane addCurrentSchedule() {
+        Pane currentSchedulePane = currentSchedule.displayCalendar();
+        currentSchedulePane.setStyle("-fx-background-color: #9999ff");
+        return currentSchedulePane;
+    }
+
+    //we probably don't need this any more
+    // Puts the two schedules next two each other to be compared
+    private GridPane combineSchedules(Pane idealSchedule, Pane currSchedule) {
+        GridPane schedule = new GridPane();
+        schedule.setAlignment(Pos.TOP_CENTER);
+        schedule.add(idealSchedule, 1, 0);
+        schedule.add(currSchedule,2, 0);
+        timeBackground.displayTimes(schedule);
+
+        return schedule;
+    }
+
+    private ScrollPane makeScheduleScroll(Pane schedule) {
+        ScrollPane scrollingSchedule = new ScrollPane();
+
+        if(onMain) {
+            scrollingSchedule.setPrefSize(500, 700);
+            timeBackground.displayTimes((GridPane) schedule);
+            scrollingSchedule.setContent(schedule);
+        } else {
+            scrollingSchedule.setPrefSize(300, 700);
+            GridPane withTimes = new GridPane();
+            withTimes.add(idealSchedule.displayCalendar(), 1, 0);
+            timeBackground.displayTimes(withTimes);
+            scrollingSchedule.setContent(withTimes);
+        }
+
+        return  scrollingSchedule;
+    }
+
+    // there is a lot of stuff in here!
+    //    private HBox createWeekday(){
+//        HBox wkd = new HBox();
+//
+//        Button monday = new Button();
+//        monday.setText("Monday");
+//        monday.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                presetDay = "Monday";
+//
+//                System.out.println(presetDay);
+//            }
+//        });
+//        Button tuesday = new Button();
+//        tuesday.setText("Tuesday");
+//        tuesday.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                presetDay = "Tuesday";
+//                System.out.println(presetDay);
+//            }
+//        });
+//        Button wednesday = new Button();
+//        wednesday.setText("Wednesday");
+//        wednesday.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                presetDay = "Wednesday";
+//                System.out.println(presetDay);
+//
+//            }
+//        });
+//
+//        Button thursday = new Button();
+//        thursday.setText("Thursday");
+//        thursday.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                presetDay ="Thursday";
+//                System.out.println(presetDay);
+//            }
+//        });
+//        Button friday = new Button();
+//        friday.setText("Friday");
+//        friday.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                presetDay = "Friday";
+//                System.out.println(presetDay);
+//            }
+//        });
+//        Button saturday = new Button();
+//        saturday.setText("Saturday");
+//        saturday.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                presetDay = "Saturday";
+//                System.out.println(presetDay);
+//            }
+//        });
+//        Button sunday = new Button();
+//        sunday.setText("Sunday");
+//        sunday.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                presetDay = "Sunday";
+//                System.out.println(presetDay);
+//            }
+//        });
+//
+//
+//        wkd.getChildren().addAll(monday,tuesday, wednesday, thursday, friday, saturday,sunday);
+//
+//        return wkd;
+//    }
+
+    //    private VBox createTask() {
 //        VBox newTaskPane = new VBox();
 //        Text taskPanelDirections = new Text("Set Your Schedule");
 //        taskPanelDirections.setFont(Font.font("Arial", FontWeight.BOLD, 16));
@@ -416,171 +566,27 @@ public class Main extends Application {
 //
 //        return newTaskPane;
 //    }
-
-    public void updateIdealSchedulePane(String name, Date start, Date end) {
-        idealSchedule = controller.updateIdealCalendar(name, start, end);
-        root.setRight(makeScheduleScroll(addIdealSchedule()));
-    }
-
-
-    // TODO: move to model
-    private boolean checkIfAllFieldsFilled(ArrayList taskAttributes) {
-        for(Object attribute : taskAttributes) {
-            if (attribute == null || attribute.equals("")) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    //TODO: this really shouldn't been here maybe in model or controller
-    private void newTaskNameCheck(String taskName) {
-        if(!taskNames.contains(taskName)) {
-            taskNames.add(taskName);
-        }
-    }
-
-    private void updateTaskNames(ComboBox taskNameOptions) {
-        taskNameOptions.getItems().clear();
-        taskNameOptions.getItems().addAll(taskNames);
-    }
-
-    public Schedule getIdealSchedule() {
-        return idealSchedule;
-    }
-
-    public Schedule getCurrentSchedule() {
-        return currentSchedule;
-    }
-
-    private Pane addIdealSchedule() {
-        Pane idealSchedulePane = idealSchedule.displayCalendar();
-        idealSchedulePane.setStyle("-fx-background-color: #9999ff");
-        return idealSchedulePane;
-//        VBox chosenSchedule = new VBox();
-//        chosenSchedule.setStyle("-fx-background-color: #9999ff");
-//        ScrollPane schedule = new ScrollPane();
-//        Text scrollSchedule = new Text("Ideal Schedule");
-//        scrollSchedule.setFont(Font.font("Arial", FontWeight.BOLD, 16));
-//        schedule.setPrefSize(200, 1000);
 //
-//        if(idealSchedule.hasTasks()) {
-//            schedule.setContent(idealSchedule.displayCalendar());
+//    // TODO: move to model
+//    private boolean checkIfAllFieldsFilled(ArrayList taskAttributes) {
+//        for(Object attribute : taskAttributes) {
+//            if (attribute == null || attribute.equals("")) {
+//                return false;
+//            }
 //        }
-//        chosenSchedule.getChildren().addAll(scrollSchedule, schedule);
-//        return chosenSchedule;
-    }
-
-    private Pane addCurrentSchedule() {
-        Pane currentSchedulePane = currentSchedule.displayCalendar();
-        currentSchedulePane.setStyle("-fx-background-color: #9999ff");
-        return currentSchedulePane;
-    }
-
-    //we probably don't need this any more
-    // Puts the two schedules next two each other to be compared
-    private GridPane combineSchedules(Pane idealSchedule, Pane currSchedule) {
-        GridPane schedule = new GridPane();
-        schedule.setAlignment(Pos.TOP_CENTER);
-        schedule.add(idealSchedule, 1, 0);
-        schedule.add(currSchedule,2, 0);
-        timeBackground.displayTimes(schedule);
-
-        return schedule;
-    }
-
-    private ScrollPane makeScheduleScroll(Pane schedule) {
-        ScrollPane scrollingSchedule = new ScrollPane();
-
-        if(onMain) {
-            scrollingSchedule.setPrefSize(500, 700);
-            timeBackground.displayTimes((GridPane) schedule);
-            scrollingSchedule.setContent(schedule);
-        } else {
-            scrollingSchedule.setPrefSize(300, 700);
-            GridPane withTimes = new GridPane();
-            withTimes.add(idealSchedule.displayCalendar(), 1, 0);
-            timeBackground.displayTimes(withTimes);
-            scrollingSchedule.setContent(withTimes);
-        }
-
-        return  scrollingSchedule;
-    }
-
-    //    private HBox createWeekday(){
-//        HBox wkd = new HBox();
+//        return true;
+//    }
 //
-//        Button monday = new Button();
-//        monday.setText("Monday");
-//        monday.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                presetDay = "Monday";
+//    //TODO: this really shouldn't been here maybe in model or controller
+//    private void newTaskNameCheck(String taskName) {
+//        if(!taskNames.contains(taskName)) {
+//            taskNames.add(taskName);
+//        }
+//    }
 //
-//                System.out.println(presetDay);
-//            }
-//        });
-//        Button tuesday = new Button();
-//        tuesday.setText("Tuesday");
-//        tuesday.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                presetDay = "Tuesday";
-//                System.out.println(presetDay);
-//            }
-//        });
-//        Button wednesday = new Button();
-//        wednesday.setText("Wednesday");
-//        wednesday.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                presetDay = "Wednesday";
-//                System.out.println(presetDay);
-//
-//            }
-//        });
-//
-//        Button thursday = new Button();
-//        thursday.setText("Thursday");
-//        thursday.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                presetDay ="Thursday";
-//                System.out.println(presetDay);
-//            }
-//        });
-//        Button friday = new Button();
-//        friday.setText("Friday");
-//        friday.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                presetDay = "Friday";
-//                System.out.println(presetDay);
-//            }
-//        });
-//        Button saturday = new Button();
-//        saturday.setText("Saturday");
-//        saturday.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                presetDay = "Saturday";
-//                System.out.println(presetDay);
-//            }
-//        });
-//        Button sunday = new Button();
-//        sunday.setText("Sunday");
-//        sunday.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                presetDay = "Sunday";
-//                System.out.println(presetDay);
-//            }
-//        });
-//
-//
-//        wkd.getChildren().addAll(monday,tuesday, wednesday, thursday, friday, saturday,sunday);
-//
-//        return wkd;
+//    private void updateTaskNames(ComboBox taskNameOptions) {
+//        taskNameOptions.getItems().clear();
+//        taskNameOptions.getItems().addAll(taskNames);
 //    }
 
     public static void main(String[] args) {
