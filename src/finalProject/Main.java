@@ -25,17 +25,14 @@ import java.util.*;
 import javafx.geometry.Insets;
 
 public class Main extends Application {
-    private List<ToggleButton> taskButtons = new LinkedList<>();
-    VBox taskButtonsView = new VBox();
-    BorderPane root = new BorderPane();
     Controller controller = new Controller(this);
+    BorderPane root = new BorderPane();
     Schedule idealSchedule = new Schedule();
     Schedule currentSchedule = new Schedule();
     TimeBackground timeBackground = new TimeBackground();
     boolean onMain = true;
     Form setScheduleForm = new Form(controller);
     TaskPanel taskPanel = new TaskPanel(controller);
-    //VBox taskPanel = new VBox();
 
     @Override
     public void start(Stage primaryStage) {
@@ -61,18 +58,12 @@ public class Main extends Application {
 
     public void setMainPage(){
         onMain = true;
-        //createTaskPanel();
         HBox menuPane = setMenu();
         ScrollPane schedules = makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule()));
         //ScrollPane schedulePane = addIdealSchedule();
         //VBox currSchedulePane = addCurrentSchedule();
-        Pane filler = new Pane();
-        filler.setStyle("-fx-background-color: #9999ff");
-        filler.setPrefSize(210, 700);
-
         root.setRight(taskPanel);
         root.setTop(menuPane);
-        root.setLeft(filler);
         root.setCenter(schedules);
     }
 
@@ -82,76 +73,6 @@ public class Main extends Application {
         //root.setCenter(taskPanel);
         root.setCenter(setScheduleForm);
         root.setRight(makeScheduleScroll(addIdealSchedule()));
-    }
-
-    /**
-     * @return the task panel on the right side of the main page
-     */
-    private void createTaskPanel() {
-        taskPanel.getChildren().clear();
-        //VBox taskPanel = new VBox();
-
-        //I want to move these to the CSS if possible
-        taskPanel.setPadding(new Insets(10, 10, 10, 10));
-
-        //set the color...
-        taskPanel.setStyle("-fx-background-color: #99ccff");
-
-        Label directions = new Label("Select Current Task");
-
-        HBox taskCreator = addTaskCreator();
-
-        taskPanel.getChildren().addAll(directions, taskButtonsView, taskCreator);
-    }
-
-    private void updateTaskButtons() {
-        taskButtonsView = new VBox();
-        ToggleGroup taskButtonGroup = new ToggleGroup();
-        for (int i=0; i<this.taskButtons.size(); i++) {
-            taskButtonsView.getChildren().add(this.taskButtons.get(i));
-            this.taskButtons.get(i).setToggleGroup(taskButtonGroup);
-        }
-        createTaskPanel();
-    }
-
-    // TODO: maybe give this method a different name. I'm confused about what it does
-    public void addTaskButton(String name) {
-        ToggleButton t = new ToggleButton(name);
-        // TODO: here is where the thing needs to happen
-        // Things aren't happening in the right place right now blah
-        t.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                controller.taskClicked(name);
-                currentSchedule.getCalendar();
-                root.setCenter(makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule())));
-            }
-        });
-        taskButtons.add(t);
-        updateTaskButtons();
-    }
-
-    /**
-     * @return the "task creator" text field that allows you
-     * to create a new task button
-     */
-    private HBox addTaskCreator() {
-        HBox taskCreator = new HBox();
-        TextField taskCreatorField = new TextField();
-        taskCreatorField.setPromptText("Add a New Task");
-        Button taskCreatorButton = new Button("Add Task");
-        EventHandler<ActionEvent> addTask = new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-                String name = taskCreatorField.getText().toUpperCase();
-                controller.addTask(name);
-            }
-        };
-        taskCreatorField.setOnAction(addTask);
-        taskCreatorButton.setOnAction(addTask);
-
-        taskCreator.getChildren().addAll(taskCreatorField, taskCreatorButton);
-        return taskCreator;
     }
 
     public void taskClicked() {
@@ -370,7 +291,7 @@ public class Main extends Application {
 
     private Pane addIdealSchedule() {
         Pane idealSchedulePane = idealSchedule.displayCalendar();
-        idealSchedulePane.setStyle("-fx-background-color: #9999ff");
+        idealSchedulePane.setStyle("-fx-background-color: #63e1ff");
         return idealSchedulePane;
 //        VBox chosenSchedule = new VBox();
 //        chosenSchedule.setStyle("-fx-background-color: #9999ff");
@@ -388,7 +309,7 @@ public class Main extends Application {
 
     private Pane addCurrentSchedule() {
         Pane currentSchedulePane = currentSchedule.displayCalendar();
-        currentSchedulePane.setStyle("-fx-background-color: #9999ff");
+        currentSchedulePane.setStyle("-fx-background-color: #dc82ff");
         return currentSchedulePane;
     }
 
@@ -406,7 +327,6 @@ public class Main extends Application {
 
     private ScrollPane makeScheduleScroll(Pane schedule) {
         ScrollPane scrollingSchedule = new ScrollPane();
-
         if(onMain) {
             scrollingSchedule.setPrefSize(500, 700);
             timeBackground.displayTimes((GridPane) schedule);
@@ -423,6 +343,69 @@ public class Main extends Application {
     }
 
     // there is a lot of stuff in here!
+
+//    private void createTaskPanel() {
+//        taskPanel.getChildren().clear();
+//        //VBox taskPanel = new VBox();
+//
+//        //I want to move these to the CSS if possible
+//        taskPanel.setPadding(new Insets(10, 10, 10, 10));
+//
+//        //set the color...
+//        taskPanel.setStyle("-fx-background-color: #99ccff");
+//
+//        Label directions = new Label("Select Current Task");
+//
+//        HBox taskCreator = addTaskCreator();
+//
+//        taskPanel.getChildren().addAll(directions, taskButtonsView, taskCreator);
+//    }
+//
+//    private void updateTaskButtons() {
+//        taskButtonsView = new VBox();
+//        ToggleGroup taskButtonGroup = new ToggleGroup();
+//        for (int i=0; i<this.taskButtons.size(); i++) {
+//            taskButtonsView.getChildren().add(this.taskButtons.get(i));
+//            this.taskButtons.get(i).setToggleGroup(taskButtonGroup);
+//        }
+//        createTaskPanel();
+//    }
+//
+//    public void addTaskButton(String name) {
+//        ToggleButton t = new ToggleButton(name);
+//        // TODO: here is where the thing needs to happen
+//        // Things aren't happening in the right place right now blah
+//        t.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                controller.taskClicked(name);
+//                currentSchedule.getCalendar();
+//                root.setCenter(makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule())));
+//            }
+//        });
+//        taskButtons.add(t);
+//        updateTaskButtons();
+//    }
+//
+//    private HBox addTaskCreator() {
+//        HBox taskCreator = new HBox();
+//        TextField taskCreatorField = new TextField();
+//        taskCreatorField.setPromptText("Add a New Task");
+//        Button taskCreatorButton = new Button("Add Task");
+//        EventHandler<ActionEvent> addTask = new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent e) {
+//                String name = taskCreatorField.getText().toUpperCase();
+//                controller.addTask(name);
+//            }
+//        };
+//        taskCreatorField.setOnAction(addTask);
+//        taskCreatorButton.setOnAction(addTask);
+//
+//        taskCreator.getChildren().addAll(taskCreatorField, taskCreatorButton);
+//        return taskCreator;
+//    }
+
     //    private HBox createWeekday(){
 //        HBox wkd = new HBox();
 //

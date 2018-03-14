@@ -1,9 +1,7 @@
 package finalProject;
 
-import javafx.geometry.Insets;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
 import java.util.ArrayList;
 
 public class Schedule extends Pane {
@@ -26,14 +24,12 @@ public class Schedule extends Pane {
 
     public Pane displayCalendar() {
         Pane schedule = new Pane();
-        schedule.setPrefSize(200,height);
-
-        if(hasTasks()) {
+        schedule.setPrefHeight(height);
+        if (hasTasks()) {
             for (CalendarTaskRectangle task : todaysTask) {
                 schedule.getChildren().add(task.setTaskRectangleAsStack());
             }
         }
-
         return schedule;
     }
 
