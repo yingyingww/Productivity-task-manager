@@ -39,7 +39,7 @@ public class Main extends Application {
         controller.setForm(setScheduleForm);
         controller.setTaskPanel(taskPanel);
 
-        setMainPage();
+        setSchedule();
 
         primaryStage.setTitle("Productivity+");
         Scene scene = new Scene(root, 1000, 700);
@@ -69,8 +69,10 @@ public class Main extends Application {
 
     private void setSchedule() {
         onMain = false;
+        HBox menuPane = setMenu();
         //VBox taskPanel = createTask();
         //root.setCenter(taskPanel);
+        root.setTop(menuPane);
         root.setCenter(setScheduleForm);
         root.setRight(makeScheduleScroll(addIdealSchedule()));
     }
