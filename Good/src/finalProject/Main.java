@@ -111,7 +111,6 @@ public class Main extends Application {
             }
         });
 
-        //TODO: What is trends??
         MenuItem topActivities = new MenuItem("Top Activities Chart");
         topActivities.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -119,8 +118,7 @@ public class Main extends Application {
                 chartTopFiveTasks();
             }
         });
-
-        //TODO: this doesn't work either
+        
         MenuItem productivityTips = new MenuItem("Productivity Tips");
         productivityTips.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -209,8 +207,7 @@ public class Main extends Application {
         }
 
     }
-
-    //TODO: issue with this based on other issues
+    
      //Provide the user with tips on being more productive
     public void productivityTips() {
         Alert tips = new Alert(AlertType.INFORMATION);
@@ -222,6 +219,7 @@ public class Main extends Application {
     }
 
     //Asks users to rate the productivity of their last activity
+    //@param String object representing the name of the completed activity.
     public int askForProductivity(String name) {
         Label info = new Label("Rate your productivity on a scale of 1 to 10, or click 'Ignore' to provide no rating.");
 
