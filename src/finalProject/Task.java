@@ -1,7 +1,10 @@
 package finalProject;
 
 import java.util.*;
-
+/**
+ * The Task java file holds information about Task to be
+ *
+ */
 public class Task {
     private String name;
     private boolean isRunning = false;
