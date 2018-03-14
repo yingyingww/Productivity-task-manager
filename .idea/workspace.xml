@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b49624fc-b4e9-454d-b738-678bb971d393" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Model.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Model.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/OccurrenceOverlapException.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/OccurrenceOverlapException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Schedule.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Schedule.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Task.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Task.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/TaskAlreadyExistsException.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/TaskAlreadyExistsException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/TaskOccurrence.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/TaskOccurrence.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/TaskPanel.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/TaskPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/TimeBackground.class" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/TimeBackground.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/Main.css" afterPath="$PROJECT_DIR$/Good/src/finalProject/Main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/Model.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main.css" afterPath="$PROJECT_DIR$/out/production/final-project-final-project-h/finalProject/Main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/TaskAlreadyExistsException.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/TaskAlreadyExistsException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/TaskOccurrence.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/TaskOccurrence.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/TaskPanel.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/TaskPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/TimeBackground.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/TimeBackground.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Good/src/finalProject/Timer.java" afterPath="$PROJECT_DIR$/Good/src/finalProject/Timer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,15 +33,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Model.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Model.java">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="925">
-              <caret line="175" column="65" lean-forward="false" selection-start-line="175" selection-start-column="65" selection-end-line="175" selection-end-column="65" />
+            <state relative-caret-position="390">
+              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding>
-                <element signature="method#addTask#0;class#Model#0" expanded="false" />
-                <element signature="method#addTaskNoErrors#0;class#Model#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#addTask#0;class#Controller#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Good/src/finalProject/TaskPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="490">
+              <caret line="47" column="55" lean-forward="false" selection-start-line="47" selection-start-column="55" selection-end-line="47" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskPanel.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Good/src/finalProject/TaskPanel.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimeBackground.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Good/src/finalProject/TimeBackground.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="23" column="87" lean-forward="false" selection-start-line="23" selection-start-column="87" selection-end-line="23" selection-end-column="87" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimeComparator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Good/src/finalProject/TimeComparator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Timer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Timer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="36" column="79" lean-forward="true" selection-start-line="36" selection-start-column="79" selection-end-line="36" selection-end-column="79" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -103,7 +164,6 @@
         <option value="$PROJECT_DIR$/src/finalProject/Form.fxml" />
         <option value="$PROJECT_DIR$/src/finalProject/Schedule.java" />
         <option value="$PROJECT_DIR$/src/finalProject/Main.java" />
-        <option value="$PROJECT_DIR$/Good/src/finalProject/Task.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/CalendarTaskRectangle.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/Controller.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/EmptyTaskNameException.java" />
@@ -113,6 +173,14 @@
         <option value="$PROJECT_DIR$/Good/src/finalProject/Main.java" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/Main.css" />
         <option value="$PROJECT_DIR$/Good/src/finalProject/Model.java" />
+        <option value="$PROJECT_DIR$/Good/src/finalProject/OccurrenceOverlapException.java" />
+        <option value="$PROJECT_DIR$/Good/src/finalProject/Schedule.java" />
+        <option value="$PROJECT_DIR$/Good/src/finalProject/Task.java" />
+        <option value="$PROJECT_DIR$/Good/src/finalProject/TaskAlreadyExistsException.java" />
+        <option value="$PROJECT_DIR$/Good/src/finalProject/TaskOccurrence.java" />
+        <option value="$PROJECT_DIR$/Good/src/finalProject/TaskPanel.java" />
+        <option value="$PROJECT_DIR$/Good/src/finalProject/TimeBackground.java" />
+        <option value="$PROJECT_DIR$/Good/src/finalProject/Timer.java" />
       </list>
     </option>
   </component>
@@ -679,7 +747,7 @@
       <workItem from="1520971345398" duration="1458000" />
       <workItem from="1521009831917" duration="18535000" />
       <workItem from="1521051582437" duration="2181000" />
-      <workItem from="1521053833778" duration="2655000" />
+      <workItem from="1521053833778" duration="3966000" />
     </task>
     <task id="LOCAL-00001" summary="made the productivityCheck work">
       <created>1520873294331</created>
@@ -793,11 +861,25 @@
       <option name="project" value="LOCAL" />
       <updated>1521055994056</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added more comments mostly to model">
+      <created>1521056507428</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1521056507428</updated>
+    </task>
+    <task id="LOCAL-00018" summary="More comments! Getting closer...">
+      <created>1521056939722</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1521056939722</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24829000" />
+    <option name="totallyTimeSpent" value="26140000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1732" height="976" extended-state="0" />
@@ -818,7 +900,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19399539" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19399539" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -869,7 +951,9 @@
     <MESSAGE value="Added comments" />
     <MESSAGE value="Added more comments" />
     <MESSAGE value="Added more comments mostly to main" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more comments mostly to main" />
+    <MESSAGE value="Added more comments mostly to model" />
+    <MESSAGE value="More comments! Getting closer..." />
+    <option name="LAST_COMMIT_MESSAGE" value="More comments! Getting closer..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -880,8 +964,14 @@
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Good/src/finalProject/Schedule.java</url>
+          <line>20</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="8" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -890,15 +980,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Model.java" />
-    <entry file="file://$PROJECT_DIR$/src/finalProject/SetSchedule.java" />
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Controller2.java" />
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Controller.java" />
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Model.java" />
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Timer.java" />
-    <entry file="file://$PROJECT_DIR$/src/finalProject/SetSchedule.java" />
-    <entry file="file://$PROJECT_DIR$/src/finalProject/SetSchedule.java" />
     <entry file="file://$PROJECT_DIR$/src/finalProject/Main.java" />
     <entry file="file://$PROJECT_DIR$/src/finalProject/SetSchedule.java" />
     <entry file="file://$PROJECT_DIR$/src/finalProject/Controller.java" />
@@ -935,57 +1016,7 @@
     <entry file="file://$PROJECT_DIR$/src/finalProject/CalendarTaskRectangle.java" />
     <entry file="file://$PROJECT_DIR$/src/finalProject/Controller.java" />
     <entry file="file://$PROJECT_DIR$/src/finalProject/Main.java" />
-    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="39" lean-forward="false" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/util/AbstractList.java" />
-    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/CalendarTaskRectangle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="7" lean-forward="false" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#628#629#0" expanded="true" />
-            <element signature="method#addTask#0;class#Controller#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/EmptyTaskNameException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="66" lean-forward="false" selection-start-line="3" selection-start-column="66" selection-end-line="3" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Form.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="98" column="89" lean-forward="false" selection-start-line="98" selection-start-column="89" selection-end-line="98" selection-end-column="89" />
-          <folding>
-            <element signature="e#2422#2423#0" expanded="true" />
-            <element signature="e#2471#2472#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Form.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-270">
@@ -1013,6 +1044,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/OccurrenceOverlapException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="102" lean-forward="false" selection-start-line="3" selection-start-column="102" selection-end-line="3" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Schedule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="40" column="62" lean-forward="false" selection-start-line="40" selection-start-column="62" selection-end-line="40" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2415">
+          <caret line="175" column="65" lean-forward="false" selection-start-line="175" selection-start-column="65" selection-end-line="175" selection-end-column="65" />
+          <folding>
+            <element signature="method#addTask#0;class#Model#0" expanded="false" />
+            <element signature="method#addTaskNoErrors#0;class#Model#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1155">
@@ -1021,17 +1087,8 @@
             <element signature="docComment;class#Main#0" expanded="false" />
             <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="method#setMainPage#0;class#Main#0" expanded="false" />
+            <element signature="method#setSchedule#0;class#Main#0" expanded="false" />
             <element signature="method#setMenu#0;class#Main#0" expanded="false" />
-            <element signature="e#3301#3302#0" expanded="true" />
-            <element signature="e#3346#3347#0" expanded="true" />
-            <element signature="e#3560#3561#0" expanded="true" />
-            <element signature="e#3605#3606#0" expanded="true" />
-            <element signature="e#3864#3865#0" expanded="true" />
-            <element signature="e#3915#3916#0" expanded="true" />
-            <element signature="e#4185#4186#0" expanded="true" />
-            <element signature="e#4235#4236#0" expanded="true" />
-            <element signature="e#4973#4974#0" expanded="true" />
-            <element signature="e#5019#5020#0" expanded="true" />
             <element signature="method#addIdealSchedule#0;class#Main#0" expanded="false" />
             <element signature="method#addCurrentSchedule#0;class#Main#0" expanded="false" />
             <element signature="method#combineSchedules#0;class#Main#0" expanded="false" />
@@ -1044,27 +1101,120 @@
             <element signature="method#chartTopFiveTasks#0;class#Main#0" expanded="false" />
             <element signature="method#productivityTips#0;class#Main#0" expanded="false" />
             <element signature="method#askForProductivity#0;class#Main#0" expanded="false" />
-            <marker date="1521055931315" expanded="false" signature="2515:2716" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Main.css">
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Form.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Model.java">
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/EmptyTaskNameException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="925">
-          <caret line="175" column="65" lean-forward="false" selection-start-line="175" selection-start-column="65" selection-end-line="175" selection-end-column="65" />
+        <state relative-caret-position="90">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/CalendarTaskRectangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="7" lean-forward="false" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
           <folding>
-            <element signature="method#addTask#0;class#Model#0" expanded="false" />
-            <element signature="method#addTaskNoErrors#0;class#Model#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="70" column="72" lean-forward="false" selection-start-line="70" selection-start-column="72" selection-end-line="70" selection-end-column="72" />
+          <folding>
+            <element signature="docComment;method#changeState#0;class#Task#0" expanded="false" />
+            <element signature="method#changeState#0;class#Task#0" expanded="false" />
+            <element signature="e#1065#1066#0" expanded="true" />
+            <element signature="e#1097#1098#0" expanded="true" />
+            <element signature="method#endTask#0;class#Task#0" expanded="false" />
+            <element signature="method#getAvgProductivity#0;class#Task#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/TaskAlreadyExistsException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="73" lean-forward="false" selection-start-line="3" selection-start-column="73" selection-end-line="3" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/TaskOccurrence.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="39" column="56" lean-forward="false" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
+          <folding>
+            <element signature="method#compareTo#0;class#TaskOccurrence#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#addTask#0;class#Controller#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/TaskPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="47" column="55" lean-forward="false" selection-start-line="47" selection-start-column="55" selection-end-line="47" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/TaskPanel.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/TimeBackground.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="23" column="87" lean-forward="false" selection-start-line="23" selection-start-column="87" selection-end-line="23" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/TimeComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Good/src/finalProject/Timer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="36" column="79" lean-forward="true" selection-start-line="36" selection-start-column="79" selection-end-line="36" selection-end-column="79" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -11,6 +11,7 @@ import java.io.IOException;
 /**
  * The java file creates the buttons for Main GUI Page 
  */
+
 public class TaskPanel extends VBox{
     ToggleGroup toggleGroup = new ToggleGroup();
     @FXML private VBox buttonHolder;
@@ -30,6 +31,7 @@ public class TaskPanel extends VBox{
         this.controller = controller;
     }
 
+    // Called when the user wants to add a button/task to their list of tasks for the day
     @FXML
     protected void addButton() {
         controller.tryAddTask();
@@ -43,6 +45,7 @@ public class TaskPanel extends VBox{
         return name;
     }
 
+    // Adds a new button to the list of buttons on main
     public void addTaskButton(String name) {
         ToggleButton t = new ToggleButton(name);
         t.setOnAction(event -> controller.taskClicked(name));

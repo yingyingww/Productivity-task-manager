@@ -37,6 +37,7 @@ public class TaskOccurrence implements Comparable<TaskOccurrence> {
         return this.end;
     }
 
+    // Used to determine if two task occurrences overlap
     @Override
     public int compareTo(TaskOccurrence differentTaskOccurrence) {
         if (this.start.compareTo(differentTaskOccurrence.end) >= 0) {

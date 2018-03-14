@@ -35,7 +35,6 @@ public class Timer {
         long intervalInMinutes;
         long intervalInMs = endTime.getTime() - startTime.getTime();
         long intervalInSeconds = TimeUnit.MILLISECONDS.toSeconds(intervalInMs);
-        //System.out.println("Time Interval is: " + intervalInSeconds + " seconds");
         if (intervalInSeconds % 60 == 0){
             intervalInMinutes = TimeUnit.MILLISECONDS.toMinutes(intervalInMs);
             System.out.println("Time Interval is: " + intervalInMinutes + " minute(s)");
@@ -55,6 +54,7 @@ public class Timer {
         return endTime;
     }
 
+    // Tests the timers
      public static void main(String[] args) {
         Timer a = new Timer();
         a.logStartTime();
