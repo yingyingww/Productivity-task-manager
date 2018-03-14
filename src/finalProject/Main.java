@@ -26,7 +26,6 @@ import javafx.geometry.Insets;
 
 public class Main extends Application {
     private List<ToggleButton> taskButtons = new LinkedList<>();
-    VBox taskPanel = new VBox();
     VBox taskButtonsView = new VBox();
     BorderPane root = new BorderPane();
     Controller controller = new Controller(this);
@@ -35,10 +34,13 @@ public class Main extends Application {
     TimeBackground timeBackground = new TimeBackground();
     boolean onMain = true;
     Form setScheduleForm = new Form(controller);
+    TaskPanel taskPanel = new TaskPanel(controller);
+    //VBox taskPanel = new VBox();
 
     @Override
     public void start(Stage primaryStage) {
         controller.setForm(setScheduleForm);
+        controller.setTaskPanel(taskPanel);
 
         setMainPage();
 
@@ -59,7 +61,7 @@ public class Main extends Application {
 
     public void setMainPage(){
         onMain = true;
-        createTaskPanel();
+        //createTaskPanel();
         HBox menuPane = setMenu();
         ScrollPane schedules = makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule()));
         //ScrollPane schedulePane = addIdealSchedule();
@@ -150,6 +152,11 @@ public class Main extends Application {
 
         taskCreator.getChildren().addAll(taskCreatorField, taskCreatorButton);
         return taskCreator;
+    }
+
+    public void taskClicked() {
+        currentSchedule.getCalendar();
+        root.setCenter(makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule())));
     }
 
     // Create two menus. One main menu for navigation and popups

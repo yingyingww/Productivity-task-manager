@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<fx:root type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Set Your Schedule">
+            <font>
+                <Font name="Arial Bold" size="20.0" />
+            </font>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </Text>
+        <VBox maxHeight="200.0" spacing="20.0">
+            <VBox.margin>
+                <Insets bottom="15.0" left="12.0" right="12.0" top="15.0" />
+            </VBox.margin>
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="5.0">
+                    <children>
+                        <Label text="Choose a Task:">
+                            <font>
+                                <Font name="Arial" size="18.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="nameSelector" editable="true" prefWidth="230.0" promptText="Choose or Create a Task" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="5.0">
+                    <children>
+                        <Label text="Begin:">
+                            <font>
+                                <Font name="Arial" size="18.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="startHourSelector" />
+                        <Label text=":" />
+                        <ComboBox fx:id="startMinuteSelector" layoutX="67.0" layoutY="47.0" />
+                        <ComboBox fx:id="startPeriodSelector" layoutX="67.0" layoutY="47.0" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="57.0" spacing="5.0">
+                    <children>
+                        <Label text="End:">
+                            <font>
+                                <Font name="Arial" size="18.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="endHourSelector" />
+                        <Label text=":" />
+                        <ComboBox fx:id="endMinuteSelector" layoutX="67.0" layoutY="47.0" />
+                        <ComboBox fx:id="endPeriodSelector" layoutX="67.0" layoutY="47.0" />
+                    </children>
+                </HBox>
+                <Button mnemonicParsing="false" onAction="#addOccurrenceClicked" text="Create Task" />
+                <Button mnemonicParsing="false" onAction="#useScheduleClicked" text="Use Schedule" />
+            </children>
+        </VBox>
+    </children>
+    <padding>
+        <Insets bottom="15.0" left="12.0" right="12.0" top="15.0" />
+    </padding>
+</fx:root>

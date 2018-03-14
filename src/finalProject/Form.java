@@ -10,10 +10,8 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 public class Form extends VBox {
     @FXML private ComboBox nameSelector;
@@ -26,7 +24,7 @@ public class Form extends VBox {
     private Controller controller;
 
     public Form(Controller controller) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("form.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Form.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {

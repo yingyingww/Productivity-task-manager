@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b49624fc-b4e9-454d-b738-678bb971d393" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/finalProject/Form.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/finalProject/TaskPanel.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/finalProject/TaskPanel.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/finalProject/form.fxml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/finalProject/Controller.java" afterPath="$PROJECT_DIR$/src/finalProject/Controller.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/finalProject/Form.java" afterPath="$PROJECT_DIR$/src/finalProject/Form.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/finalProject/Main.java" afterPath="$PROJECT_DIR$/src/finalProject/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/finalProject/Model.java" afterPath="$PROJECT_DIR$/src/finalProject/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/finalProject/form.fxml" afterPath="$PROJECT_DIR$/src/finalProject/form.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,46 +32,43 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/finalProject/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="152" column="5" lean-forward="false" selection-start-line="152" selection-start-column="5" selection-end-line="152" selection-end-column="5" />
+            <state relative-caret-position="202">
+              <caret line="89" column="35" lean-forward="false" selection-start-line="89" selection-start-column="35" selection-end-line="89" selection-end-column="35" />
               <folding>
-                <element signature="method#start#0;class#Main#0" expanded="false" />
                 <element signature="method#setMainPage#0;class#Main#0" expanded="false" />
-                <element signature="e#2131#2178#0" expanded="false" />
+                <element signature="e#2232#2279#0" expanded="false" />
                 <element signature="method#setSchedule#0;class#Main#0" expanded="false" />
-                <element signature="e#2567#2599#0" expanded="false" />
+                <element signature="e#2668#2700#0" expanded="false" />
                 <element signature="docComment;method#createTaskPanel#0;class#Main#0" expanded="false" />
                 <element signature="method#createTaskPanel#0;class#Main#0" expanded="false" />
-                <element signature="e#2915#2945#0" expanded="false" />
+                <element signature="e#3016#3046#0" expanded="false" />
                 <element signature="method#updateTaskButtons#0;class#Main#0" expanded="false" />
                 <element signature="method#addTaskButton#0;class#Main#0" expanded="false" />
-                <element signature="e#3909#3957#0" expanded="false" />
-                <element signature="class#4053:4385" expanded="false" />
-                <element signature="method#handle#0;class#4053:4385" expanded="false" />
-                <element signature="docComment;method#addTaskCreator#0;class#Main#0" expanded="false" />
+                <element signature="e#4010#4058#0" expanded="false" />
                 <element signature="method#addTaskCreator#0;class#Main#0" expanded="false" />
-                <element signature="class#4858:5095" expanded="false" />
-                <element signature="method#handle#0;class#4858:5095" expanded="false" />
+                <element signature="class#4959:5196" expanded="false" />
+                <element signature="method#handle#0;class#4959:5196" expanded="false" />
+                <element signature="method#taskClicked#0;class#Main#0" expanded="false" />
                 <element signature="method#setMenu#0;class#Main#0" expanded="false" />
-                <element signature="class#5722:5880" expanded="false" />
-                <element signature="class#5981:6139" expanded="false" />
-                <element signature="e#6151#6175#0" expanded="false" />
-                <element signature="class#7070:7229" expanded="false" />
-                <element signature="class#7447:7571" expanded="false" />
-                <element signature="method#handle#0;class#7447:7571" expanded="false" />
-                <element signature="e#7799#7852#0" expanded="false" />
+                <element signature="class#6005:6163" expanded="false" />
+                <element signature="class#6264:6422" expanded="false" />
+                <element signature="e#6434#6458#0" expanded="false" />
+                <element signature="class#7353:7512" expanded="false" />
+                <element signature="class#7730:7854" expanded="false" />
+                <element signature="method#handle#0;class#7730:7854" expanded="false" />
+                <element signature="e#8082#8135#0" expanded="false" />
                 <element signature="method#askForProductivity#0;class#Main#0" expanded="false" />
                 <element signature="method#newUser#0;class#Main#0" expanded="false" />
                 <element signature="method#errorPopup#0;class#Main#0" expanded="false" />
                 <element signature="method#updateIdealSchedulePane#0;class#Main#0" expanded="false" />
                 <element signature="method#useSchedule#0;class#Main#0" expanded="false" />
                 <element signature="method#addIdealSchedule#0;class#Main#0" expanded="false" />
-                <element signature="e#14138#14181#0" expanded="false" />
+                <element signature="e#14421#14464#0" expanded="false" />
                 <element signature="method#addCurrentSchedule#0;class#Main#0" expanded="false" />
                 <element signature="method#combineSchedules#0;class#Main#0" expanded="false" />
                 <element signature="method#makeScheduleScroll#0;class#Main#0" expanded="false" />
-                <element signature="e#16033#16068#0" expanded="false" />
-                <marker date="1521022861016" expanded="false" signature="8564:8572" ph="&lt;~&gt;" />
+                <element signature="e#16316#16351#0" expanded="false" />
+                <marker date="1521026408315" expanded="false" signature="8847:8855" ph="&lt;~&gt;" />
               </folding>
             </state>
           </provider>
@@ -77,8 +77,8 @@
       <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/finalProject/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+            <state relative-caret-position="555">
+              <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
               <folding>
                 <element signature="method#findMostProductive#0;class#Model#0" expanded="false" />
                 <element signature="method#findLeastProductive#0;class#Model#0" expanded="false" />
@@ -98,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Form.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Form.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/finalProject/Form.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+            <state relative-caret-position="285">
+              <caret line="86" column="9" lean-forward="true" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
               <folding>
                 <element signature="method#Form#0;class#Form#0" expanded="false" />
                 <element signature="method#isComplete#0;class#Form#0" expanded="false" />
@@ -117,37 +117,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskOccurrence.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/finalProject/TaskOccurrence.java">
+      <file leaf-file-name="TaskPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/finalProject/TaskPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+            <state relative-caret-position="555">
+              <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
               <folding>
-                <element signature="method#TaskOccurrence#0;class#TaskOccurrence#0" expanded="false" />
-                <element signature="method#compareTo#0;class#TaskOccurrence#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#TaskPanel#0;class#TaskPanel#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Task.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/finalProject/Task.java">
+      <file leaf-file-name="TaskPanel.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/finalProject/TaskPanel.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="65" column="26" lean-forward="false" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
-              <folding>
-                <element signature="method#Task#0;class#Task#0" expanded="false" />
-                <element signature="docComment;method#changeState#0;class#Task#0" expanded="false" />
-                <element signature="method#changeState#0;class#Task#0" expanded="false" />
-                <element signature="method#startTask#0;class#Task#0" expanded="false" />
-                <element signature="e#993#1068#0" expanded="false" />
-                <element signature="e#1649#1674#0" expanded="false" />
-                <element signature="e#1882#1883#0" expanded="true" />
-                <element signature="e#1947#1948#0" expanded="true" />
-                <element signature="method#getAvgProductivity#0;class#Task#0" expanded="false" />
-                <element signature="e#2290#2315#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="495">
+              <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+              <folding />
             </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
@@ -161,11 +153,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/finalProject/form.fxml">
+      <file leaf-file-name="Form.fxml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/finalProject/Form.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="57" column="15" lean-forward="true" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="15" />
+            <state relative-caret-position="660">
+              <caret line="44" column="42" lean-forward="true" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -174,14 +166,27 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="FormNotCompleteException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/finalProject/FormNotCompleteException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="5" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="5" selection-end-column="5" />
+              <folding>
+                <element signature="e#133#134#0" expanded="true" />
+                <element signature="e#163#164#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/finalProject/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+            <state relative-caret-position="335">
+              <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding>
-                <element signature="e#859#860#0" expanded="true" />
-                <element signature="e#893#894#0" expanded="true" />
+                <element signature="e#952#953#0" expanded="true" />
+                <element signature="e#986#987#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -238,12 +243,14 @@
         <option value="$PROJECT_DIR$/src/finalProject/InvertedTimelineException.java" />
         <option value="$PROJECT_DIR$/src/finalProject/TaskOccurrence.java" />
         <option value="$PROJECT_DIR$/src/finalProject/OccurrenceOverlapException.java" />
-        <option value="$PROJECT_DIR$/src/finalProject/Model.java" />
         <option value="$PROJECT_DIR$/src/finalProject/form.fxml" />
-        <option value="$PROJECT_DIR$/src/finalProject/Controller.java" />
         <option value="$PROJECT_DIR$/src/finalProject/Form.java" />
+        <option value="$PROJECT_DIR$/src/finalProject/Model.java" />
+        <option value="$PROJECT_DIR$/src/finalProject/Controller.java" />
         <option value="$PROJECT_DIR$/src/finalProject/Main.java" />
+        <option value="$PROJECT_DIR$/src/finalProject/TaskPanel.fxml" />
         <option value="$PROJECT_DIR$/src/finalProject/TaskPanel.java" />
+        <option value="$PROJECT_DIR$/src/finalProject/Form.fxml" />
       </list>
     </option>
   </component>
@@ -254,10 +261,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="110" />
-    <option name="y" value="112" />
-    <option name="width" value="1491" />
-    <option name="height" value="855" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -324,6 +329,7 @@
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/egrench/Desktop/final-project-final-project-h/src/finalProject/form.fxml" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -791,7 +797,7 @@
       <option name="presentableId" value="Default" />
       <updated>1520725298041</updated>
       <workItem from="1520971345398" duration="1458000" />
-      <workItem from="1521009831917" duration="12865000" />
+      <workItem from="1521009831917" duration="17497000" />
     </task>
     <task id="LOCAL-00001" summary="made the productivityCheck work">
       <created>1520873294331</created>
@@ -856,14 +862,21 @@
       <option name="project" value="LOCAL" />
       <updated>1521021734632</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="clean up">
+      <created>1521022972670</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1521022972670</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14323000" />
+    <option name="totallyTimeSpent" value="18955000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="110" y="112" width="1491" height="855" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -875,13 +888,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2519084" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30152673" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25169408" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16650532" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24681422" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19166666" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -955,10 +968,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="made the productivityCheck work" />
     <MESSAGE value="commented out code that wasn't working..." />
-    <MESSAGE value="clean up" />
     <MESSAGE value="refactoring" />
     <MESSAGE value="adding error catching" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding error catching" />
+    <MESSAGE value="clean up" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean up" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -971,18 +984,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
-          <folding>
-            <element signature="method#findMostProductive#0;class#Model#0" expanded="false" />
-            <element signature="method#findLeastProductive#0;class#Model#0" expanded="false" />
-            <element signature="method#checkProductivityByDuration#0;class#Model#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/finalProject/Timer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1003,43 +1004,40 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="method#setMainPage#0;class#Main#0" expanded="false" />
-            <element signature="e#2131#2178#0" expanded="false" />
+            <element signature="e#2232#2279#0" expanded="false" />
             <element signature="method#setSchedule#0;class#Main#0" expanded="false" />
-            <element signature="e#2567#2599#0" expanded="false" />
+            <element signature="e#2668#2700#0" expanded="false" />
             <element signature="docComment;method#createTaskPanel#0;class#Main#0" expanded="false" />
             <element signature="method#createTaskPanel#0;class#Main#0" expanded="false" />
-            <element signature="e#2915#2945#0" expanded="false" />
+            <element signature="e#3016#3046#0" expanded="false" />
             <element signature="method#updateTaskButtons#0;class#Main#0" expanded="false" />
             <element signature="method#addTaskButton#0;class#Main#0" expanded="false" />
-            <element signature="e#3909#3957#0" expanded="false" />
-            <element signature="class#4053:4385" expanded="false" />
-            <element signature="method#handle#0;class#4053:4385" expanded="false" />
-            <element signature="docComment;method#addTaskCreator#0;class#Main#0" expanded="false" />
+            <element signature="e#4010#4058#0" expanded="false" />
             <element signature="method#addTaskCreator#0;class#Main#0" expanded="false" />
-            <element signature="class#4858:5095" expanded="false" />
-            <element signature="method#handle#0;class#4858:5095" expanded="false" />
+            <element signature="class#4959:5196" expanded="false" />
+            <element signature="method#handle#0;class#4959:5196" expanded="false" />
+            <element signature="method#taskClicked#0;class#Main#0" expanded="false" />
             <element signature="method#setMenu#0;class#Main#0" expanded="false" />
-            <element signature="class#5722:5880" expanded="false" />
-            <element signature="class#5981:6139" expanded="false" />
-            <element signature="e#6151#6175#0" expanded="false" />
-            <element signature="class#7070:7229" expanded="false" />
-            <element signature="class#7447:7571" expanded="false" />
-            <element signature="method#handle#0;class#7447:7571" expanded="false" />
-            <element signature="e#7799#7852#0" expanded="false" />
+            <element signature="class#6005:6163" expanded="false" />
+            <element signature="class#6264:6422" expanded="false" />
+            <element signature="e#6434#6458#0" expanded="false" />
+            <element signature="class#7353:7512" expanded="false" />
+            <element signature="class#7730:7854" expanded="false" />
+            <element signature="method#handle#0;class#7730:7854" expanded="false" />
+            <element signature="e#8082#8135#0" expanded="false" />
             <element signature="method#askForProductivity#0;class#Main#0" expanded="false" />
             <element signature="method#newUser#0;class#Main#0" expanded="false" />
             <element signature="method#errorPopup#0;class#Main#0" expanded="false" />
             <element signature="method#updateIdealSchedulePane#0;class#Main#0" expanded="false" />
             <element signature="method#useSchedule#0;class#Main#0" expanded="false" />
             <element signature="method#addIdealSchedule#0;class#Main#0" expanded="false" />
-            <element signature="e#14138#14181#0" expanded="false" />
+            <element signature="e#14421#14464#0" expanded="false" />
             <element signature="method#addCurrentSchedule#0;class#Main#0" expanded="false" />
             <element signature="method#combineSchedules#0;class#Main#0" expanded="false" />
             <element signature="method#makeScheduleScroll#0;class#Main#0" expanded="false" />
-            <element signature="e#16033#16068#0" expanded="false" />
-            <marker date="1521022861016" expanded="false" signature="8564:8572" ph="&lt;~&gt;" />
+            <element signature="e#16316#16351#0" expanded="false" />
+            <marker date="1521026408315" expanded="false" signature="8847:8855" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1085,43 +1083,40 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="method#setMainPage#0;class#Main#0" expanded="false" />
-            <element signature="e#2131#2178#0" expanded="false" />
+            <element signature="e#2232#2279#0" expanded="false" />
             <element signature="method#setSchedule#0;class#Main#0" expanded="false" />
-            <element signature="e#2567#2599#0" expanded="false" />
+            <element signature="e#2668#2700#0" expanded="false" />
             <element signature="docComment;method#createTaskPanel#0;class#Main#0" expanded="false" />
             <element signature="method#createTaskPanel#0;class#Main#0" expanded="false" />
-            <element signature="e#2915#2945#0" expanded="false" />
+            <element signature="e#3016#3046#0" expanded="false" />
             <element signature="method#updateTaskButtons#0;class#Main#0" expanded="false" />
             <element signature="method#addTaskButton#0;class#Main#0" expanded="false" />
-            <element signature="e#3909#3957#0" expanded="false" />
-            <element signature="class#4053:4385" expanded="false" />
-            <element signature="method#handle#0;class#4053:4385" expanded="false" />
-            <element signature="docComment;method#addTaskCreator#0;class#Main#0" expanded="false" />
+            <element signature="e#4010#4058#0" expanded="false" />
             <element signature="method#addTaskCreator#0;class#Main#0" expanded="false" />
-            <element signature="class#4858:5095" expanded="false" />
-            <element signature="method#handle#0;class#4858:5095" expanded="false" />
+            <element signature="class#4959:5196" expanded="false" />
+            <element signature="method#handle#0;class#4959:5196" expanded="false" />
+            <element signature="method#taskClicked#0;class#Main#0" expanded="false" />
             <element signature="method#setMenu#0;class#Main#0" expanded="false" />
-            <element signature="class#5722:5880" expanded="false" />
-            <element signature="class#5981:6139" expanded="false" />
-            <element signature="e#6151#6175#0" expanded="false" />
-            <element signature="class#7070:7229" expanded="false" />
-            <element signature="class#7447:7571" expanded="false" />
-            <element signature="method#handle#0;class#7447:7571" expanded="false" />
-            <element signature="e#7799#7852#0" expanded="false" />
+            <element signature="class#6005:6163" expanded="false" />
+            <element signature="class#6264:6422" expanded="false" />
+            <element signature="e#6434#6458#0" expanded="false" />
+            <element signature="class#7353:7512" expanded="false" />
+            <element signature="class#7730:7854" expanded="false" />
+            <element signature="method#handle#0;class#7730:7854" expanded="false" />
+            <element signature="e#8082#8135#0" expanded="false" />
             <element signature="method#askForProductivity#0;class#Main#0" expanded="false" />
             <element signature="method#newUser#0;class#Main#0" expanded="false" />
             <element signature="method#errorPopup#0;class#Main#0" expanded="false" />
             <element signature="method#updateIdealSchedulePane#0;class#Main#0" expanded="false" />
             <element signature="method#useSchedule#0;class#Main#0" expanded="false" />
             <element signature="method#addIdealSchedule#0;class#Main#0" expanded="false" />
-            <element signature="e#14138#14181#0" expanded="false" />
+            <element signature="e#14421#14464#0" expanded="false" />
             <element signature="method#addCurrentSchedule#0;class#Main#0" expanded="false" />
             <element signature="method#combineSchedules#0;class#Main#0" expanded="false" />
             <element signature="method#makeScheduleScroll#0;class#Main#0" expanded="false" />
-            <element signature="e#16033#16068#0" expanded="false" />
-            <marker date="1521022861016" expanded="false" signature="8564:8572" ph="&lt;~&gt;" />
+            <element signature="e#16316#16351#0" expanded="false" />
+            <marker date="1521026408315" expanded="false" signature="8847:8855" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1167,43 +1162,40 @@
         <state relative-caret-position="8460">
           <caret line="606" column="5" lean-forward="false" selection-start-line="606" selection-start-column="5" selection-end-line="606" selection-end-column="5" />
           <folding>
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="method#setMainPage#0;class#Main#0" expanded="false" />
-            <element signature="e#2131#2178#0" expanded="false" />
+            <element signature="e#2232#2279#0" expanded="false" />
             <element signature="method#setSchedule#0;class#Main#0" expanded="false" />
-            <element signature="e#2567#2599#0" expanded="false" />
+            <element signature="e#2668#2700#0" expanded="false" />
             <element signature="docComment;method#createTaskPanel#0;class#Main#0" expanded="false" />
             <element signature="method#createTaskPanel#0;class#Main#0" expanded="false" />
-            <element signature="e#2915#2945#0" expanded="false" />
+            <element signature="e#3016#3046#0" expanded="false" />
             <element signature="method#updateTaskButtons#0;class#Main#0" expanded="false" />
             <element signature="method#addTaskButton#0;class#Main#0" expanded="false" />
-            <element signature="e#3909#3957#0" expanded="false" />
-            <element signature="class#4053:4385" expanded="false" />
-            <element signature="method#handle#0;class#4053:4385" expanded="false" />
-            <element signature="docComment;method#addTaskCreator#0;class#Main#0" expanded="false" />
+            <element signature="e#4010#4058#0" expanded="false" />
             <element signature="method#addTaskCreator#0;class#Main#0" expanded="false" />
-            <element signature="class#4858:5095" expanded="false" />
-            <element signature="method#handle#0;class#4858:5095" expanded="false" />
+            <element signature="class#4959:5196" expanded="false" />
+            <element signature="method#handle#0;class#4959:5196" expanded="false" />
+            <element signature="method#taskClicked#0;class#Main#0" expanded="false" />
             <element signature="method#setMenu#0;class#Main#0" expanded="false" />
-            <element signature="class#5722:5880" expanded="false" />
-            <element signature="class#5981:6139" expanded="false" />
-            <element signature="e#6151#6175#0" expanded="false" />
-            <element signature="class#7070:7229" expanded="false" />
-            <element signature="class#7447:7571" expanded="false" />
-            <element signature="method#handle#0;class#7447:7571" expanded="false" />
-            <element signature="e#7799#7852#0" expanded="false" />
+            <element signature="class#6005:6163" expanded="false" />
+            <element signature="class#6264:6422" expanded="false" />
+            <element signature="e#6434#6458#0" expanded="false" />
+            <element signature="class#7353:7512" expanded="false" />
+            <element signature="class#7730:7854" expanded="false" />
+            <element signature="method#handle#0;class#7730:7854" expanded="false" />
+            <element signature="e#8082#8135#0" expanded="false" />
             <element signature="method#askForProductivity#0;class#Main#0" expanded="false" />
             <element signature="method#newUser#0;class#Main#0" expanded="false" />
             <element signature="method#errorPopup#0;class#Main#0" expanded="false" />
             <element signature="method#updateIdealSchedulePane#0;class#Main#0" expanded="false" />
             <element signature="method#useSchedule#0;class#Main#0" expanded="false" />
             <element signature="method#addIdealSchedule#0;class#Main#0" expanded="false" />
-            <element signature="e#14138#14181#0" expanded="false" />
+            <element signature="e#14421#14464#0" expanded="false" />
             <element signature="method#addCurrentSchedule#0;class#Main#0" expanded="false" />
             <element signature="method#combineSchedules#0;class#Main#0" expanded="false" />
             <element signature="method#makeScheduleScroll#0;class#Main#0" expanded="false" />
-            <element signature="e#16033#16068#0" expanded="false" />
-            <marker date="1521022861016" expanded="false" signature="8564:8572" ph="&lt;~&gt;" />
+            <element signature="e#16316#16351#0" expanded="false" />
+            <marker date="1521026408315" expanded="false" signature="8847:8855" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1250,43 +1242,40 @@
         <state relative-caret-position="5595">
           <caret line="373" column="0" lean-forward="false" selection-start-line="373" selection-start-column="0" selection-end-line="373" selection-end-column="0" />
           <folding>
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="method#setMainPage#0;class#Main#0" expanded="false" />
-            <element signature="e#2131#2178#0" expanded="false" />
+            <element signature="e#2232#2279#0" expanded="false" />
             <element signature="method#setSchedule#0;class#Main#0" expanded="false" />
-            <element signature="e#2567#2599#0" expanded="false" />
+            <element signature="e#2668#2700#0" expanded="false" />
             <element signature="docComment;method#createTaskPanel#0;class#Main#0" expanded="false" />
             <element signature="method#createTaskPanel#0;class#Main#0" expanded="false" />
-            <element signature="e#2915#2945#0" expanded="false" />
+            <element signature="e#3016#3046#0" expanded="false" />
             <element signature="method#updateTaskButtons#0;class#Main#0" expanded="false" />
             <element signature="method#addTaskButton#0;class#Main#0" expanded="false" />
-            <element signature="e#3909#3957#0" expanded="false" />
-            <element signature="class#4053:4385" expanded="false" />
-            <element signature="method#handle#0;class#4053:4385" expanded="false" />
-            <element signature="docComment;method#addTaskCreator#0;class#Main#0" expanded="false" />
+            <element signature="e#4010#4058#0" expanded="false" />
             <element signature="method#addTaskCreator#0;class#Main#0" expanded="false" />
-            <element signature="class#4858:5095" expanded="false" />
-            <element signature="method#handle#0;class#4858:5095" expanded="false" />
+            <element signature="class#4959:5196" expanded="false" />
+            <element signature="method#handle#0;class#4959:5196" expanded="false" />
+            <element signature="method#taskClicked#0;class#Main#0" expanded="false" />
             <element signature="method#setMenu#0;class#Main#0" expanded="false" />
-            <element signature="class#5722:5880" expanded="false" />
-            <element signature="class#5981:6139" expanded="false" />
-            <element signature="e#6151#6175#0" expanded="false" />
-            <element signature="class#7070:7229" expanded="false" />
-            <element signature="class#7447:7571" expanded="false" />
-            <element signature="method#handle#0;class#7447:7571" expanded="false" />
-            <element signature="e#7799#7852#0" expanded="false" />
+            <element signature="class#6005:6163" expanded="false" />
+            <element signature="class#6264:6422" expanded="false" />
+            <element signature="e#6434#6458#0" expanded="false" />
+            <element signature="class#7353:7512" expanded="false" />
+            <element signature="class#7730:7854" expanded="false" />
+            <element signature="method#handle#0;class#7730:7854" expanded="false" />
+            <element signature="e#8082#8135#0" expanded="false" />
             <element signature="method#askForProductivity#0;class#Main#0" expanded="false" />
             <element signature="method#newUser#0;class#Main#0" expanded="false" />
             <element signature="method#errorPopup#0;class#Main#0" expanded="false" />
             <element signature="method#updateIdealSchedulePane#0;class#Main#0" expanded="false" />
             <element signature="method#useSchedule#0;class#Main#0" expanded="false" />
             <element signature="method#addIdealSchedule#0;class#Main#0" expanded="false" />
-            <element signature="e#14138#14181#0" expanded="false" />
+            <element signature="e#14421#14464#0" expanded="false" />
             <element signature="method#addCurrentSchedule#0;class#Main#0" expanded="false" />
             <element signature="method#combineSchedules#0;class#Main#0" expanded="false" />
             <element signature="method#makeScheduleScroll#0;class#Main#0" expanded="false" />
-            <element signature="e#16033#16068#0" expanded="false" />
-            <marker date="1521022861016" expanded="false" signature="8564:8572" ph="&lt;~&gt;" />
+            <element signature="e#16316#16351#0" expanded="false" />
+            <marker date="1521026408315" expanded="false" signature="8847:8855" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1305,43 +1294,40 @@
         <state relative-caret-position="2025">
           <caret line="373" column="0" lean-forward="false" selection-start-line="373" selection-start-column="0" selection-end-line="373" selection-end-column="0" />
           <folding>
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="method#setMainPage#0;class#Main#0" expanded="false" />
-            <element signature="e#2131#2178#0" expanded="false" />
+            <element signature="e#2232#2279#0" expanded="false" />
             <element signature="method#setSchedule#0;class#Main#0" expanded="false" />
-            <element signature="e#2567#2599#0" expanded="false" />
+            <element signature="e#2668#2700#0" expanded="false" />
             <element signature="docComment;method#createTaskPanel#0;class#Main#0" expanded="false" />
             <element signature="method#createTaskPanel#0;class#Main#0" expanded="false" />
-            <element signature="e#2915#2945#0" expanded="false" />
+            <element signature="e#3016#3046#0" expanded="false" />
             <element signature="method#updateTaskButtons#0;class#Main#0" expanded="false" />
             <element signature="method#addTaskButton#0;class#Main#0" expanded="false" />
-            <element signature="e#3909#3957#0" expanded="false" />
-            <element signature="class#4053:4385" expanded="false" />
-            <element signature="method#handle#0;class#4053:4385" expanded="false" />
-            <element signature="docComment;method#addTaskCreator#0;class#Main#0" expanded="false" />
+            <element signature="e#4010#4058#0" expanded="false" />
             <element signature="method#addTaskCreator#0;class#Main#0" expanded="false" />
-            <element signature="class#4858:5095" expanded="false" />
-            <element signature="method#handle#0;class#4858:5095" expanded="false" />
+            <element signature="class#4959:5196" expanded="false" />
+            <element signature="method#handle#0;class#4959:5196" expanded="false" />
+            <element signature="method#taskClicked#0;class#Main#0" expanded="false" />
             <element signature="method#setMenu#0;class#Main#0" expanded="false" />
-            <element signature="class#5722:5880" expanded="false" />
-            <element signature="class#5981:6139" expanded="false" />
-            <element signature="e#6151#6175#0" expanded="false" />
-            <element signature="class#7070:7229" expanded="false" />
-            <element signature="class#7447:7571" expanded="false" />
-            <element signature="method#handle#0;class#7447:7571" expanded="false" />
-            <element signature="e#7799#7852#0" expanded="false" />
+            <element signature="class#6005:6163" expanded="false" />
+            <element signature="class#6264:6422" expanded="false" />
+            <element signature="e#6434#6458#0" expanded="false" />
+            <element signature="class#7353:7512" expanded="false" />
+            <element signature="class#7730:7854" expanded="false" />
+            <element signature="method#handle#0;class#7730:7854" expanded="false" />
+            <element signature="e#8082#8135#0" expanded="false" />
             <element signature="method#askForProductivity#0;class#Main#0" expanded="false" />
             <element signature="method#newUser#0;class#Main#0" expanded="false" />
             <element signature="method#errorPopup#0;class#Main#0" expanded="false" />
             <element signature="method#updateIdealSchedulePane#0;class#Main#0" expanded="false" />
             <element signature="method#useSchedule#0;class#Main#0" expanded="false" />
             <element signature="method#addIdealSchedule#0;class#Main#0" expanded="false" />
-            <element signature="e#14138#14181#0" expanded="false" />
+            <element signature="e#14421#14464#0" expanded="false" />
             <element signature="method#addCurrentSchedule#0;class#Main#0" expanded="false" />
             <element signature="method#combineSchedules#0;class#Main#0" expanded="false" />
             <element signature="method#makeScheduleScroll#0;class#Main#0" expanded="false" />
-            <element signature="e#16033#16068#0" expanded="false" />
-            <marker date="1521022861016" expanded="false" signature="8564:8572" ph="&lt;~&gt;" />
+            <element signature="e#16316#16351#0" expanded="false" />
+            <marker date="1521026408315" expanded="false" signature="8847:8855" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1352,43 +1338,40 @@
         <state relative-caret-position="375">
           <caret line="25" column="64" lean-forward="true" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
           <folding>
-            <element signature="method#start#0;class#Main#0" expanded="false" />
             <element signature="method#setMainPage#0;class#Main#0" expanded="false" />
-            <element signature="e#2131#2178#0" expanded="false" />
+            <element signature="e#2232#2279#0" expanded="false" />
             <element signature="method#setSchedule#0;class#Main#0" expanded="false" />
-            <element signature="e#2567#2599#0" expanded="false" />
+            <element signature="e#2668#2700#0" expanded="false" />
             <element signature="docComment;method#createTaskPanel#0;class#Main#0" expanded="false" />
             <element signature="method#createTaskPanel#0;class#Main#0" expanded="false" />
-            <element signature="e#2915#2945#0" expanded="false" />
+            <element signature="e#3016#3046#0" expanded="false" />
             <element signature="method#updateTaskButtons#0;class#Main#0" expanded="false" />
             <element signature="method#addTaskButton#0;class#Main#0" expanded="false" />
-            <element signature="e#3909#3957#0" expanded="false" />
-            <element signature="class#4053:4385" expanded="false" />
-            <element signature="method#handle#0;class#4053:4385" expanded="false" />
-            <element signature="docComment;method#addTaskCreator#0;class#Main#0" expanded="false" />
+            <element signature="e#4010#4058#0" expanded="false" />
             <element signature="method#addTaskCreator#0;class#Main#0" expanded="false" />
-            <element signature="class#4858:5095" expanded="false" />
-            <element signature="method#handle#0;class#4858:5095" expanded="false" />
+            <element signature="class#4959:5196" expanded="false" />
+            <element signature="method#handle#0;class#4959:5196" expanded="false" />
+            <element signature="method#taskClicked#0;class#Main#0" expanded="false" />
             <element signature="method#setMenu#0;class#Main#0" expanded="false" />
-            <element signature="class#5722:5880" expanded="false" />
-            <element signature="class#5981:6139" expanded="false" />
-            <element signature="e#6151#6175#0" expanded="false" />
-            <element signature="class#7070:7229" expanded="false" />
-            <element signature="class#7447:7571" expanded="false" />
-            <element signature="method#handle#0;class#7447:7571" expanded="false" />
-            <element signature="e#7799#7852#0" expanded="false" />
+            <element signature="class#6005:6163" expanded="false" />
+            <element signature="class#6264:6422" expanded="false" />
+            <element signature="e#6434#6458#0" expanded="false" />
+            <element signature="class#7353:7512" expanded="false" />
+            <element signature="class#7730:7854" expanded="false" />
+            <element signature="method#handle#0;class#7730:7854" expanded="false" />
+            <element signature="e#8082#8135#0" expanded="false" />
             <element signature="method#askForProductivity#0;class#Main#0" expanded="false" />
             <element signature="method#newUser#0;class#Main#0" expanded="false" />
             <element signature="method#errorPopup#0;class#Main#0" expanded="false" />
             <element signature="method#updateIdealSchedulePane#0;class#Main#0" expanded="false" />
             <element signature="method#useSchedule#0;class#Main#0" expanded="false" />
             <element signature="method#addIdealSchedule#0;class#Main#0" expanded="false" />
-            <element signature="e#14138#14181#0" expanded="false" />
+            <element signature="e#14421#14464#0" expanded="false" />
             <element signature="method#addCurrentSchedule#0;class#Main#0" expanded="false" />
             <element signature="method#combineSchedules#0;class#Main#0" expanded="false" />
             <element signature="method#makeScheduleScroll#0;class#Main#0" expanded="false" />
-            <element signature="e#16033#16068#0" expanded="false" />
-            <marker date="1521022861016" expanded="false" signature="8564:8572" ph="&lt;~&gt;" />
+            <element signature="e#16316#16351#0" expanded="false" />
+            <marker date="1521026408315" expanded="false" signature="8847:8855" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1477,14 +1460,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalProject/FormNotCompleteException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="5" column="5" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="5" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/finalProject/TaskOccurrence.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -1533,8 +1508,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/finalProject/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+        <state relative-caret-position="555">
+          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
           <folding>
             <element signature="method#findMostProductive#0;class#Model#0" expanded="false" />
             <element signature="method#findLeastProductive#0;class#Model#0" expanded="false" />
@@ -1543,86 +1518,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalProject/form.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="57" column="15" lean-forward="true" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-          <folding>
-            <element signature="e#859#860#0" expanded="true" />
-            <element signature="e#893#894#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="152" column="5" lean-forward="false" selection-start-line="152" selection-start-column="5" selection-end-line="152" selection-end-column="5" />
-          <folding>
-            <element signature="method#start#0;class#Main#0" expanded="false" />
-            <element signature="method#setMainPage#0;class#Main#0" expanded="false" />
-            <element signature="e#2131#2178#0" expanded="false" />
-            <element signature="method#setSchedule#0;class#Main#0" expanded="false" />
-            <element signature="e#2567#2599#0" expanded="false" />
-            <element signature="docComment;method#createTaskPanel#0;class#Main#0" expanded="false" />
-            <element signature="method#createTaskPanel#0;class#Main#0" expanded="false" />
-            <element signature="e#2915#2945#0" expanded="false" />
-            <element signature="method#updateTaskButtons#0;class#Main#0" expanded="false" />
-            <element signature="method#addTaskButton#0;class#Main#0" expanded="false" />
-            <element signature="e#3909#3957#0" expanded="false" />
-            <element signature="class#4053:4385" expanded="false" />
-            <element signature="method#handle#0;class#4053:4385" expanded="false" />
-            <element signature="docComment;method#addTaskCreator#0;class#Main#0" expanded="false" />
-            <element signature="method#addTaskCreator#0;class#Main#0" expanded="false" />
-            <element signature="class#4858:5095" expanded="false" />
-            <element signature="method#handle#0;class#4858:5095" expanded="false" />
-            <element signature="method#setMenu#0;class#Main#0" expanded="false" />
-            <element signature="class#5722:5880" expanded="false" />
-            <element signature="class#5981:6139" expanded="false" />
-            <element signature="e#6151#6175#0" expanded="false" />
-            <element signature="class#7070:7229" expanded="false" />
-            <element signature="class#7447:7571" expanded="false" />
-            <element signature="method#handle#0;class#7447:7571" expanded="false" />
-            <element signature="e#7799#7852#0" expanded="false" />
-            <element signature="method#askForProductivity#0;class#Main#0" expanded="false" />
-            <element signature="method#newUser#0;class#Main#0" expanded="false" />
-            <element signature="method#errorPopup#0;class#Main#0" expanded="false" />
-            <element signature="method#updateIdealSchedulePane#0;class#Main#0" expanded="false" />
-            <element signature="method#useSchedule#0;class#Main#0" expanded="false" />
-            <element signature="method#addIdealSchedule#0;class#Main#0" expanded="false" />
-            <element signature="e#14138#14181#0" expanded="false" />
-            <element signature="method#addCurrentSchedule#0;class#Main#0" expanded="false" />
-            <element signature="method#combineSchedules#0;class#Main#0" expanded="false" />
-            <element signature="method#makeScheduleScroll#0;class#Main#0" expanded="false" />
-            <element signature="e#16033#16068#0" expanded="false" />
-            <marker date="1521022861016" expanded="false" signature="8564:8572" ph="&lt;~&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalProject/TaskPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/finalProject/Form.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+        <state relative-caret-position="285">
+          <caret line="86" column="9" lean-forward="true" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
           <folding>
             <element signature="method#Form#0;class#Form#0" expanded="false" />
             <element signature="method#isComplete#0;class#Form#0" expanded="false" />
@@ -1634,6 +1533,104 @@
             <element signature="method#createHours#0;class#Form#0" expanded="false" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalProject/TaskPanel.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalProject/TaskPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#TaskPanel#0;class#TaskPanel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalProject/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="89" column="35" lean-forward="false" selection-start-line="89" selection-start-column="35" selection-end-line="89" selection-end-column="35" />
+          <folding>
+            <element signature="method#setMainPage#0;class#Main#0" expanded="false" />
+            <element signature="e#2232#2279#0" expanded="false" />
+            <element signature="method#setSchedule#0;class#Main#0" expanded="false" />
+            <element signature="e#2668#2700#0" expanded="false" />
+            <element signature="docComment;method#createTaskPanel#0;class#Main#0" expanded="false" />
+            <element signature="method#createTaskPanel#0;class#Main#0" expanded="false" />
+            <element signature="e#3016#3046#0" expanded="false" />
+            <element signature="method#updateTaskButtons#0;class#Main#0" expanded="false" />
+            <element signature="method#addTaskButton#0;class#Main#0" expanded="false" />
+            <element signature="e#4010#4058#0" expanded="false" />
+            <element signature="method#addTaskCreator#0;class#Main#0" expanded="false" />
+            <element signature="class#4959:5196" expanded="false" />
+            <element signature="method#handle#0;class#4959:5196" expanded="false" />
+            <element signature="method#taskClicked#0;class#Main#0" expanded="false" />
+            <element signature="method#setMenu#0;class#Main#0" expanded="false" />
+            <element signature="class#6005:6163" expanded="false" />
+            <element signature="class#6264:6422" expanded="false" />
+            <element signature="e#6434#6458#0" expanded="false" />
+            <element signature="class#7353:7512" expanded="false" />
+            <element signature="class#7730:7854" expanded="false" />
+            <element signature="method#handle#0;class#7730:7854" expanded="false" />
+            <element signature="e#8082#8135#0" expanded="false" />
+            <element signature="method#askForProductivity#0;class#Main#0" expanded="false" />
+            <element signature="method#newUser#0;class#Main#0" expanded="false" />
+            <element signature="method#errorPopup#0;class#Main#0" expanded="false" />
+            <element signature="method#updateIdealSchedulePane#0;class#Main#0" expanded="false" />
+            <element signature="method#useSchedule#0;class#Main#0" expanded="false" />
+            <element signature="method#addIdealSchedule#0;class#Main#0" expanded="false" />
+            <element signature="e#14421#14464#0" expanded="false" />
+            <element signature="method#addCurrentSchedule#0;class#Main#0" expanded="false" />
+            <element signature="method#combineSchedules#0;class#Main#0" expanded="false" />
+            <element signature="method#makeScheduleScroll#0;class#Main#0" expanded="false" />
+            <element signature="e#16316#16351#0" expanded="false" />
+            <marker date="1521026408315" expanded="false" signature="8847:8855" ph="&lt;~&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalProject/FormNotCompleteException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="5" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="5" selection-end-column="5" />
+          <folding>
+            <element signature="e#133#134#0" expanded="true" />
+            <element signature="e#163#164#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalProject/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <element signature="e#952#953#0" expanded="true" />
+            <element signature="e#986#987#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalProject/Form.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="44" column="42" lean-forward="true" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
   </component>

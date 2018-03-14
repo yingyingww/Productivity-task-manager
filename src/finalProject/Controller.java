@@ -10,6 +10,7 @@ public class Controller {
     Main main;
     Model model;
     Form form;
+    TaskPanel taskPanel;
 
     public Controller(Main main) {
         this.main = main;
@@ -18,6 +19,10 @@ public class Controller {
 
     public void setForm(Form form) {
         this.form = form;
+    }
+
+    public void setTaskPanel(TaskPanel taskPanel) {
+        this.taskPanel = taskPanel;
     }
 
     public void addTask(String name) {
@@ -29,9 +34,8 @@ public class Controller {
     }
 
     public void noteTaskAdded(String name) {
-        main.addTaskButton(name);
-        System.out.println(form);
-        System.out.println(name);
+        //main.addTaskButton(name);
+        taskPanel.addTaskButton(name);
         form.updateNameSelector(name);
     }
 
@@ -42,6 +46,7 @@ public class Controller {
     public void taskClicked(String name) {
         Task t = model.getTask(name);
         model.switchTasks(t);
+        main.taskClicked();
     }
 
     public int getProductivity(String name) {
@@ -168,6 +173,15 @@ public class Controller {
         } catch (FormNotCompleteException | InvertedTimelineException | OccurrenceOverlapException e) {
             main.errorPopup(e.getMessage());
         }
+    }
+
+    public void tryAddTask() {
+         try {
+             String name = taskPanel.getName();
+             model.addTask(name);
+         } catch (EmptyTaskNameException | TaskAlreadyExistsException e) {
+             main.errorPopup(e.getMessage());
+         }
     }
 
     /*

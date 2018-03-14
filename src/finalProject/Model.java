@@ -19,12 +19,11 @@ public class Model {
         name = name.toUpperCase();
         if (taskExists(name)){
             throw new TaskAlreadyExistsException("This task already exists.");
-        } else {
-            addTaskNoErrors(name); // have to change task constructor
         }
+        addTaskNoErrors(name);
     }
 
-    private void addTaskNoErrors(String name) {
+    public void addTaskNoErrors(String name) {
         tasks.put(name, new Task(name, controller));
         controller.noteTaskAdded(name);
     }
