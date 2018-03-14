@@ -95,8 +95,10 @@ public class Main extends Application {
 
     public void setSchedule() {
         onMain = false;
-        VBox taskPanel = createTask();
-        root.setCenter(taskPanel);
+        Form setScheduleForm = new Form(this);
+        //VBox taskPanel = createTask();
+        //root.setCenter(taskPanel);
+        root.setCenter(setScheduleForm);
         root.setRight(makeScheduleScroll(addIdealSchedule()));
     }
 
@@ -305,115 +307,121 @@ public class Main extends Application {
         info.showAndWait();
     }
 
-    private VBox createTask() {
-        VBox newTaskPane = new VBox();
-        Text taskPanelDirections = new Text("Set Your Schedule");
-        taskPanelDirections.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+//    private VBox createTask() {
+//        VBox newTaskPane = new VBox();
+//        Text taskPanelDirections = new Text("Set Your Schedule");
+//        taskPanelDirections.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+//
+//        // We will deal with the preset day if we have time later!
+//        //Text chooseDay = new Text("Choose a preset schedule: ");
+//
+//        newTaskPane.setPadding(new Insets(15, 12, 15, 12));
+//        newTaskPane.setSpacing(20);
+//        newTaskPane.setStyle("-fx-background-color: #999966");
+//
+//        ComboBox taskNameOptions = new ComboBox();
+//        updateTaskNames(taskNameOptions);
+//        taskNameOptions.setPromptText("Create a New Task");
+//        taskNameOptions.setEditable(true);
+//
+//        HBox startTime= new HBox();
+//        Text startTimeText = new Text("Start Time: ");
+//        ComboBox startHours = new ComboBox(hours);
+//        Text startColon = new Text(" : ");
+//        ComboBox startMinutes = new ComboBox(minutes);
+//        ComboBox startAmPM = new ComboBox(amPm);
+//        startTime.getChildren().addAll(startTimeText, startHours, startColon, startMinutes, startAmPM);
+//
+//        HBox endTime= new HBox();
+//        Text endTimeText = new Text("End Time: ");
+//        ComboBox endHours = new ComboBox(hours);
+//        Text endColon = new Text(" : ");
+//        ComboBox endMinutes = new ComboBox(minutes);
+//        ComboBox endAmPM = new ComboBox(amPm);
+//        endTime.getChildren().addAll(endTimeText, endHours, endColon, endMinutes, endAmPM);
+//
+//        Button createTaskButton = new Button();
+//        createTaskButton.setText("Create Task");
+//
+//        // When the create task button is clicked, all of the information
+//        // is put into an array and sends it to the controller so the
+//        // model can use that info.
+//        createTaskButton.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                // Maybe should be in model, but very simple in here
+//                newTaskNameCheck((String) taskNameOptions.getValue());
+//                Label nameInput = new Label((String) taskNameOptions.getValue());
+//
+//                Object startHoursInput = startHours.getValue();
+//                Object startMinutesInput = startMinutes.getValue();
+//                Object startAMPMInput = startAmPM.getValue();
+//
+//                Object endHoursInput = endHours.getValue();
+//                Object endMinutesInput = endMinutes.getValue();
+//                Object endAMPMInput = endAmPM.getValue();
+//
+//                ArrayList taskAttributes = new ArrayList();
+//                taskAttributes.addAll(Arrays.asList(nameInput, startHoursInput, startMinutesInput, startAMPMInput, endHoursInput, endMinutesInput, endAMPMInput));
+//
+//                //TODO: THIS IS ALL NONSENSE AND DOESN'T DO SHIT AND IT MAKES SENSE BUT STILL NEEDS FIXING
+//                // TODO: Make own method maybe in controller/model?
+//                boolean allFieldsFilled = checkIfAllFieldsFilled(taskAttributes);
+//                if(!allFieldsFilled) {
+//                    // TODO: make this a popup
+//                    System.out.println("Fill out everything");
+//                    System.out.println("Input a valid time");
+//                }
+//
+//                boolean validTime = true;
+//                if(startAMPMInput.equals("PM") && endAMPMInput.equals("AM")) {
+//                    validTime = false;
+//                } else if(startAMPMInput.equals(endAMPMInput) && (int) startHoursInput > (int) endHoursInput) {
+//                    validTime = false;
+//                } else if(startAMPMInput.equals(endAMPMInput) && startHoursInput.equals(endHoursInput) && Integer.valueOf((String) startMinutesInput) > Integer.valueOf((String) endMinutesInput)) {
+//                    validTime = false;
+//                } else if(startAMPMInput.equals(endAMPMInput) && startHoursInput.equals(endHoursInput) && startMinutesInput.equals(endMinutesInput)) {
+//                    validTime = false;
+//                }
+//
+//                if (allFieldsFilled && validTime) {
+//                    // TODO: Figure out best way to do this
+//                    System.out.println("Task Attributes are: " + taskAttributes);
+//                    System.out.println(controller);
+//                    idealSchedule = controller.updateIdealCalendar(taskAttributes);
+//                    root.setRight(makeScheduleScroll(addIdealSchedule()));
+//                    updateTaskNames(taskNameOptions);
+//                } else {
+//                    // TODO: make this a popup
+//                    System.out.println("Fill out everything");
+//                    System.out.println("Input a valid time");
+//                }
+//            }
+//        });
+//
+//        //HBox weekdays = createWeekday();
+//
+//        Button useSchedule = new Button("Use Schedule");
+//        useSchedule.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                setMainPage();
+//                currentSchedule.getCalendar();
+//                root.setCenter(makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule())));
+//            }
+//        });
+//
+//        newTaskPane.getChildren().addAll(taskPanelDirections, taskNameOptions, startTime,
+//                endTime, createTaskButton, useSchedule);
+//
+//        return newTaskPane;
+//    }
 
-        // We will deal with the preset day if we have time later!
-        //Text chooseDay = new Text("Choose a preset schedule: ");
-
-        newTaskPane.setPadding(new Insets(15, 12, 15, 12));
-        newTaskPane.setSpacing(20);
-        newTaskPane.setStyle("-fx-background-color: #999966");
-
-        ComboBox taskNameOptions = new ComboBox();
-        updateTaskNames(taskNameOptions);
-        taskNameOptions.setPromptText("Create a New Task");
-        taskNameOptions.setEditable(true);
-
-        HBox startTime= new HBox();
-        Text startTimeText = new Text("Start Time: ");
-        ComboBox startHours = new ComboBox(hours);
-        Text startColon = new Text(" : ");
-        ComboBox startMinutes = new ComboBox(minutes);
-        ComboBox startAmPM = new ComboBox(amPm);
-        startTime.getChildren().addAll(startTimeText, startHours, startColon, startMinutes, startAmPM);
-
-        HBox endTime= new HBox();
-        Text endTimeText = new Text("End Time: ");
-        ComboBox endHours = new ComboBox(hours);
-        Text endColon = new Text(" : ");
-        ComboBox endMinutes = new ComboBox(minutes);
-        ComboBox endAmPM = new ComboBox(amPm);
-        endTime.getChildren().addAll(endTimeText, endHours, endColon, endMinutes, endAmPM);
-
-        Button createTaskButton = new Button();
-        createTaskButton.setText("Create Task");
-
-        // When the create task button is clicked, all of the information
-        // is put into an array and sends it to the controller so the
-        // model can use that info.
-        createTaskButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // Maybe should be in model, but very simple in here
-                newTaskNameCheck((String) taskNameOptions.getValue());
-                Label nameInput = new Label((String) taskNameOptions.getValue());
-
-                Object startHoursInput = startHours.getValue();
-                Object startMinutesInput = startMinutes.getValue();
-                Object startAMPMInput = startAmPM.getValue();
-
-                Object endHoursInput = endHours.getValue();
-                Object endMinutesInput = endMinutes.getValue();
-                Object endAMPMInput = endAmPM.getValue();
-
-                ArrayList taskAttributes = new ArrayList();
-                taskAttributes.addAll(Arrays.asList(nameInput, startHoursInput, startMinutesInput, startAMPMInput, endHoursInput, endMinutesInput, endAMPMInput));
-
-                //TODO: THIS IS ALL NONSENSE AND DOESN'T DO SHIT AND IT MAKES SENSE BUT STILL NEEDS FIXING
-                // TODO: Make own method maybe in controller/model?
-                boolean allFieldsFilled = checkIfAllFieldsFilled(taskAttributes);
-                if(!allFieldsFilled) {
-                    // TODO: make this a popup
-                    System.out.println("Fill out everything");
-                    System.out.println("Input a valid time");
-                }
-
-                boolean validTime = true;
-                if(startAMPMInput.equals("PM") && endAMPMInput.equals("AM")) {
-                    validTime = false;
-                } else if(startAMPMInput.equals(endAMPMInput) && (int) startHoursInput > (int) endHoursInput) {
-                    validTime = false;
-                } else if(startAMPMInput.equals(endAMPMInput) && startHoursInput.equals(endHoursInput) && Integer.valueOf((String) startMinutesInput) > Integer.valueOf((String) endMinutesInput)) {
-                    validTime = false;
-                } else if(startAMPMInput.equals(endAMPMInput) && startHoursInput.equals(endHoursInput) && startMinutesInput.equals(endMinutesInput)) {
-                    validTime = false;
-                }
-
-                if (allFieldsFilled && validTime) {
-                    // TODO: Figure out best way to do this
-                    System.out.println("Task Attributes are: " + taskAttributes);
-                    System.out.println(controller);
-                    idealSchedule = controller.updateIdealCalendar(taskAttributes);
-                    root.setRight(makeScheduleScroll(addIdealSchedule()));
-                    updateTaskNames(taskNameOptions);
-                } else {
-                    // TODO: make this a popup
-                    System.out.println("Fill out everything");
-                    System.out.println("Input a valid time");
-                }
-            }
-        });
-
-        //HBox weekdays = createWeekday();
-
-        Button useSchedule = new Button("Use Schedule");
-        useSchedule.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                setMainPage();
-                currentSchedule.getCalendar();
-                root.setCenter(makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule())));
-            }
-        });
-
-        newTaskPane.getChildren().addAll(taskPanelDirections, taskNameOptions, startTime,
-                endTime, createTaskButton, useSchedule);
-
-        return newTaskPane;
+    public void updateIdealSchedulePane(String name, Date start, Date end) {
+        idealSchedule = controller.updateIdealCalendar(name, start, end);
+        root.setRight(makeScheduleScroll(addIdealSchedule()));
     }
+
 
     // TODO: move to model
     private boolean checkIfAllFieldsFilled(ArrayList taskAttributes) {

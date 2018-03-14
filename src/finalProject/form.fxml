@@ -11,55 +11,56 @@
 <?import javafx.scene.text.Text?>
 
 <fx:root prefWidth="500.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Set Your Schedule">
-         <font>
-            <Font name="Arial Bold" size="20.0" />
-         </font>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-      </Text>
-      <VBox maxHeight="200.0" spacing="20.0">
-         <VBox.margin>
-            <Insets bottom="15.0" left="12.0" right="12.0" top="15.0" />
-         </VBox.margin>
-         <children>
-            <ComboBox fx:id="name" editable="true" prefWidth="200.0" promptText="Choose or Create a Task" />
-            <HBox alignment="CENTER_LEFT" spacing="5.0">
-               <children>
-                  <Label text="Begin:">
-                     <font>
-                        <Font name="Arial" size="18.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="startHour">
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor></ComboBox>
-                  <Label text=":" />
-                  <ComboBox fx:id="startMinute" layoutX="67.0" layoutY="47.0" />
-                  <ComboBox fx:id="startPeriod" layoutX="67.0" layoutY="47.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="57.0" spacing="5.0">
-               <children>
-                  <Label text="End:">
-                     <font>
-                        <Font name="Arial" size="18.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="endHour" />
-                  <Label text=":" />
-                  <ComboBox fx:id="endMinute" layoutX="67.0" layoutY="47.0" />
-                  <ComboBox fx:id="endPeriod" layoutX="67.0" layoutY="47.0" />
-               </children>
-            </HBox>
-            <Button mnemonicParsing="false" onAction="#submit" text="Create Task" />
-         </children>
-      </VBox>
-   </children>
-   <padding>
-      <Insets bottom="15.0" left="12.0" right="12.0" top="15.0" />
-   </padding>
+    <children>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Set Your Schedule">
+            <font>
+                <Font name="Arial Bold" size="20.0" />
+            </font>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </Text>
+        <VBox maxHeight="200.0" spacing="20.0">
+            <VBox.margin>
+                <Insets bottom="15.0" left="12.0" right="12.0" top="15.0" />
+            </VBox.margin>
+            <children>
+                <ComboBox fx:id="name" editable="true" prefWidth="200.0" promptText="Choose or Create a Task" />
+                <HBox alignment="CENTER_LEFT" spacing="5.0">
+                    <children>
+                        <Label text="Begin:">
+                            <font>
+                                <Font name="Arial" size="18.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="startHour">
+                            <cursor>
+                                <Cursor fx:constant="DEFAULT" />
+                            </cursor></ComboBox>
+                        <Label text=":" />
+                        <ComboBox fx:id="startMinute" layoutX="67.0" layoutY="47.0" />
+                        <ComboBox fx:id="startPeriod" layoutX="67.0" layoutY="47.0" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="57.0" spacing="5.0">
+                    <children>
+                        <Label text="End:">
+                            <font>
+                                <Font name="Arial" size="18.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="endHour" />
+                        <Label text=":" />
+                        <ComboBox fx:id="endMinute" layoutX="67.0" layoutY="47.0" />
+                        <ComboBox fx:id="endPeriod" layoutX="67.0" layoutY="47.0" />
+                    </children>
+                </HBox>
+                <Button mnemonicParsing="false" onAction="#createInstance" text="Create Task" />
+                <Button mnemonicParsing="false" onAction="#useSchedule" text="Use Schedule" />
+            </children>
+        </VBox>
+    </children>
+    <padding>
+        <Insets bottom="15.0" left="12.0" right="12.0" top="15.0" />
+    </padding>
 </fx:root>

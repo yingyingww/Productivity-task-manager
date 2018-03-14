@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -21,8 +22,10 @@ public class Form extends VBox {
     @FXML private ComboBox endHour;
     @FXML private ComboBox endMinute;
     @FXML private ComboBox endPeriod;
+    private Main main;
 
-    public Form() {
+    public Form(Main main) {
+        this.main = main;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("form.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -111,14 +114,23 @@ public class Form extends VBox {
     }
 
     @FXML
-    protected void submit() {
-        System.out.println(isComplete());
-        try {
-            System.out.println(convertToDate(getStartHour(), getStartMinute(), getStartPeriod()));
+    protected void createInstance() {
+        if(isComplete()) {
+            String name = getName();
+            try {
+                Date start = convertToDate(getStartHour(), getStartMinute(), getStartPeriod());
+                Date end = convertToDate(getEndHour(), getEndMinute(), getEndPeriod());
+                main.updateIdealSchedulePane(name, start, end);
+            } catch (ParseException e) {
+                System.out.println(e.getMessage());
+                System.exit(-1);
+            }
         }
-        catch (Exception e) {
-            System.out.println("issue");
-        }
+    }
+
+    @FXML
+    protected void useSchedule() {
+        //TODO
     }
 
 }
