@@ -128,19 +128,24 @@ public class Model {
     public static String topFiveToTip(){
         List<Task> topFive = findTopFiveByTime();
         String taskInfo = "";
-        for (Task t: topFive){
-            String tempName = t.getName();
-            int tempTime = t.getTotalTimeSpent();
-            int tempProductivity = t.getAvgProductivity();
-            if (tempProductivity < 0) {
-                taskInfo = taskInfo + "Activity name: " + tempName +
-                        " Total time spend on activity in hours " + (tempTime / 60) +
-                        " No productivity ratings entered";
-            }
-            else{
-                taskInfo = taskInfo + "Activity name: " + tempName +
-                        " Total time spend on activity in hours " + (tempTime / 60) +
-                        " Average productivity rating " + tempProductivity;
+        if (topFive.size() == 0){
+            taskInfo = "It looks like you don't have any activities logged, try tracking some activities!";
+        }
+        else{
+            for (Task t: topFive){
+                String tempName = t.getName();
+                int tempTime = t.getTotalTimeSpent();
+                int tempProductivity = t.getAvgProductivity();
+                if (tempProductivity < 0) {
+                    taskInfo = taskInfo + "Activity name: " + tempName +
+                            " Total time spend on activity in hours " + (tempTime / 60) +
+                            " No productivity ratings entered";
+                }
+                else{
+                    taskInfo = taskInfo + "Activity name: " + tempName +
+                            " Total time spend on activity in hours " + (tempTime / 60) +
+                            " Average productivity rating " + tempProductivity;
+                }
             }
         }
         return taskInfo;
