@@ -65,8 +65,6 @@ public class Main extends Application {
         onMain = true;
         HBox menuPane = setMenu();
         ScrollPane schedules = makeScheduleScroll(combineSchedules(addIdealSchedule(), addCurrentSchedule()));
-        //ScrollPane schedulePane = addIdealSchedule();
-        //VBox currSchedulePane = addCurrentSchedule();
         root.setRight(taskPanel);
         root.setTop(menuPane);
         root.setCenter(schedules);
@@ -75,8 +73,6 @@ public class Main extends Application {
     private void setSchedule() {
         onMain = false;
         HBox menuPane = setMenu();
-        //VBox taskPanel = createTask();
-        //root.setCenter(taskPanel);
         root.setTop(menuPane);
         root.setCenter(setScheduleForm);
         root.setRight(makeScheduleScroll(addIdealSchedule()));
@@ -259,12 +255,14 @@ public class Main extends Application {
         Alert info = new Alert(AlertType.INFORMATION);
         info.setTitle("How to Use Productivity+");
         info.setHeaderText("Welcome to Productivity+");
-        String info1 = "Thanks for using our app! Our goal is to help you develop your most productive schedule.";
-        String info2 = "You can get started by clicking 'Set Schedule' and entering the ideal schedule for your day.";
+        String info1 = "Thanks for using our app! Our goal is to help you develop your most productive \n" +
+                "schedule of the day.";
+        String info2 = "You can get started by entering your ideal schedule for the day in the Set Schedule Page.";
         String info3 = "Simply type in the name of each activity you would like to do during the day, and enter the";
-        String info4 = "start and end times you would prefer. Once you have entered your schedule, head to the main page";
+        String info4 = "start and end times you would prefer. Once you have entered your schedule, head to \n" +
+                "the main page";
         String info5 = "where you will keep track of your actual schedule. When you begin a task, click that task's button";
-        String info6 = "then click it again to end the task. We'll keep track of the rest!";
+        String info6 = "then click it again to end the task. We'll log your time and keep track of the rest!";
         String allTips = info1 + "\n\n" + info2 + "\n\n" + info3 + "\n\n" + info4 + "\n\n" + info5 + "\n\n" + info6;
         info.setContentText(allTips);
 
