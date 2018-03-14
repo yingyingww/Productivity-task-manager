@@ -8,8 +8,8 @@ public class Model {
     private Controller controller;
     private List<TaskInstance> idealInstanceList;
 
-    public void setController(Controller c){
-        this.controller = c;
+    public Model(Controller controller) {
+        this.controller = controller;
     }
 
     public void addTask(String name) throws EmptyTaskNameException, TaskAlreadyExistsException {

@@ -44,8 +44,6 @@ public class Main extends Application {
             "AM","PM"
     );
     Controller controller;
-    Model model;
-    //Controller2 c = new Controller2(this, controller);
     Schedule idealSchedule = new Schedule();
     Schedule currentSchedule = new Schedule();
     TimeBackground timeBackground = new TimeBackground();
@@ -58,10 +56,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Controller controller = new Controller(this);
-        Model model = new Model();
-        controller.setModel(model);
-        model.setController(controller);
+        controller = new Controller(this);
 
         setMainPage();
 
@@ -390,6 +385,7 @@ public class Main extends Application {
                 if (allFieldsFilled && validTime) {
                     // TODO: Figure out best way to do this
                     System.out.println("Task Attributes are: " + taskAttributes);
+                    System.out.println(controller);
                     idealSchedule = controller.updateIdealCalendar(taskAttributes);
                     root.setRight(makeScheduleScroll(addIdealSchedule()));
                     updateTaskNames(taskNameOptions);
