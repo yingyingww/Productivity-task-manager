@@ -77,7 +77,11 @@ public class Model {
         }
         return false;
     }
-
+    
+    /*
+    Checks the list tasks to find the activity the user has rated with the highest productivity
+    @return the Task object with the highest average productivity 
+    */
     public static Task findMostProductive() {
         Task curMost = null;
         if (tasks.size() > 0) {
@@ -91,7 +95,10 @@ public class Model {
         }
         return  curMost;
     }
-
+    /*
+    Checks the list tasks to find the activity the user has rated with the lowest productivity
+    @return the Task object with the lowest average productivity 
+    */
     public static Task findLeastProductive(){
         Task curLeast = null;
         if (tasks.size() > 0) {
