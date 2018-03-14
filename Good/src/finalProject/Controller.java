@@ -213,7 +213,6 @@ public class Controller {
 
     public String getTips(){
         Task lowProductivity = Model.findLeastProductive();
-        //System.out.println(lowProductivity);
         String tip1 = "";
         String tip2 = "";
         if (lowProductivity == null){
@@ -229,7 +228,7 @@ public class Controller {
         else {
             tip2 = Model.checkProductivityByDuration(highProductivity);
         }
-        //String tip2 = ("You usually rate your productivity during " + highProductivity.getName() + " activity highly, well done!");
+        
         String tip3 = "Here is some information about the activities you spend the most time on:" + "\n" + model.topFiveToTip(); //TODO: fix topFiveToTip before this can be called
         String tips = tip1 + "\n" + tip2 + "\n" + tip3;
         return (tips);
