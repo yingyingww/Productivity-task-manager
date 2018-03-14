@@ -1,15 +1,11 @@
 package finalProject;
+
 /**
- * The Timer java file is a will log the start/end Time of a Task
+ * The Timer java file is a controller file that
+ * will log the start/end Time of a Task and find the time interval of a task
  *
  */
 
-// controller
-// Timer Logic (Model)
-// Start/stop timer function// Ask for productivity when stop is called
-// Store task, start, stop, and productivity
-// Find total time
-// still need to work on finding the time interval
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -19,7 +15,6 @@ import java.util.concurrent.TimeUnit;
 public class Timer {
     private Date startTime;
     private Date endTime;
-    private int duration;
 
 
     public void logStartTime(){
@@ -41,7 +36,6 @@ public class Timer {
         long intervalInMinutes;
         long intervalInMs = endTime.getTime() - startTime.getTime();
         long intervalInSeconds = TimeUnit.MILLISECONDS.toSeconds(intervalInMs);
-        //System.out.println("Time Interval is: " + intervalInSeconds + " seconds");
         if (intervalInSeconds % 60 == 0){
             intervalInMinutes = TimeUnit.MILLISECONDS.toMinutes(intervalInMs);
             System.out.println("Time Interval is: " + intervalInMinutes + " minute(s)");
