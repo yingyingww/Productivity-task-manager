@@ -127,7 +127,7 @@ public class Main extends Application {
             }
         });
 
-        mainMenu.getItems().addAll(mainPage, setSchedule, productivityTips, topActivities); //TODO what is topActivities?
+        mainMenu.getItems().addAll(mainPage, setSchedule, productivityTips, topActivities); 
 
         Menu exitMenu = new Menu("Exit");
         MenuItem exit = new MenuItem("Exit");
@@ -153,7 +153,8 @@ public class Main extends Application {
 
         return menuPane;
     }
-
+     
+    //Shows a Bar Chart of the user's top 5 activities by total time
     public void chartTopFiveTasks(){
         Alert showChart = new Alert(AlertType.INFORMATION);
         showChart.setTitle("Top Five Tasks By Time Spent");
