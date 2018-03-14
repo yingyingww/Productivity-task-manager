@@ -3,30 +3,29 @@ package finalProject;
 //import com.sun.org.apache.xpath.internal.operations.Mod;
 import javafx.scene.control.Label;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-
-import static finalProject.Model.*;
 
 public class Controller {
     Main main;
     Model model;
+    Form form;
 
     public Controller(Main main) {
         this.main = main;
         model = new Model(this);
     }
 
+    public void setForm(Form form) {
+        this.form = form;
+    }
+
     public void addTask(String name) {
         try {
             model.addTask(name);
             main.addTaskButton(name);
-        } catch (EmptyTaskNameException e) {
-            main.errorEnteringTasks(e.getMessage());
-        } catch (TaskAlreadyExistsException e) {
-            main.errorEnteringTasks(e.getMessage());
+        } catch (EmptyTaskNameException | TaskAlreadyExistsException e) {
+            main.errorPopup(e.getMessage());
         }
     }
 
@@ -149,6 +148,16 @@ public class Controller {
         float height = (((float) totalMinutes + (60 * (float) totalHours)) / dayLength) * (float) calHeight;
         System.out.println("height: " + height);
         return height;
+    }
+
+    public void tryAddScheduleOccurrence() {
+        try {
+            TaskOccurrence contents = form.getContents();
+            model.addScheduleOccurrence(contents);
+            main.updateIdealSchedulePane(contents);
+        } catch (FormNotCompleteException | InvertedTimelineException | OccurrenceOverlapException e) {
+            main.errorPopup(e.getMessage());
+        }
     }
 
     /*

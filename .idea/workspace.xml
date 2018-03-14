@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b49624fc-b4e9-454d-b738-678bb971d393" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/finalProject/TaskInstance.java" afterPath="$PROJECT_DIR$/src/finalProject/TaskOccurrence.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/finalProject/FormNotCompleteException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/finalProject/InvertedTimelineException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/finalProject/OccurrenceOverlapException.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/finalProject/Controller.java" afterPath="$PROJECT_DIR$/src/finalProject/Controller.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/finalProject/Form.java" afterPath="$PROJECT_DIR$/src/finalProject/Form.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/finalProject/Main.java" afterPath="$PROJECT_DIR$/src/finalProject/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/finalProject/Model.java" afterPath="$PROJECT_DIR$/src/finalProject/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/finalProject/Task.java" afterPath="$PROJECT_DIR$/src/finalProject/Task.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/finalProject/TimeBackground.java" afterPath="$PROJECT_DIR$/src/finalProject/TimeBackground.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/finalProject/TaskOccurrence.java" afterPath="$PROJECT_DIR$/src/finalProject/TaskOccurrence.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/finalProject/form.fxml" afterPath="$PROJECT_DIR$/src/finalProject/form.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,21 +33,80 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/finalProject/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+            <state relative-caret-position="1262">
+              <caret line="352" column="31" lean-forward="true" selection-start-line="352" selection-start-column="31" selection-end-line="352" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1521011049147" expanded="false" signature="8562:8570" ph="&lt;~&gt;" />
+                <marker date="1521019697286" expanded="false" signature="8619:8627" ph="&lt;~&gt;" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Task.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Model.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/finalProject/Model.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="57" column="9" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
+              <folding>
+                <element signature="method#switchTasks#0;class#Model#0" expanded="false" />
+                <element signature="method#getTask#0;class#Model#0" expanded="false" />
+                <element signature="method#findMostProductive#0;class#Model#0" expanded="false" />
+                <element signature="method#findLeastProductive#0;class#Model#0" expanded="false" />
+                <element signature="method#checkProductivityByDuration#0;class#Model#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OccurrenceOverlapException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/finalProject/OccurrenceOverlapException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Form.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/finalProject/Form.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="92" column="34" lean-forward="true" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="34" />
+              <folding>
+                <element signature="method#isComplete#0;class#Form#0" expanded="false" />
+                <element signature="method#getStart#0;class#Form#0" expanded="false" />
+                <element signature="method#getEnd#0;class#Form#0" expanded="false" />
+                <element signature="e#3097#3098#0" expanded="true" />
+                <element signature="e#3150#3151#0" expanded="true" />
+                <element signature="e#3230#3231#0" expanded="true" />
+                <element signature="method#convertToDate#0;class#Form#0" expanded="false" />
+                <element signature="method#createMinutes#0;class#Form#0" expanded="false" />
+                <element signature="method#createHours#0;class#Form#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskOccurrence.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/finalProject/TaskOccurrence.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+              <folding>
+                <element signature="method#TaskOccurrence#0;class#TaskOccurrence#0" expanded="false" />
+                <element signature="method#compareTo#0;class#TaskOccurrence#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Task.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/finalProject/Task.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state relative-caret-position="600">
+              <caret line="65" column="26" lean-forward="false" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
               <folding>
                 <element signature="method#Task#0;class#Task#0" expanded="false" />
                 <element signature="docComment;method#changeState#0;class#Task#0" expanded="false" />
@@ -52,17 +114,53 @@
                 <element signature="method#startTask#0;class#Task#0" expanded="false" />
                 <element signature="e#993#1068#0" expanded="false" />
                 <element signature="e#1649#1674#0" expanded="false" />
+                <element signature="e#1882#1883#0" expanded="true" />
+                <element signature="e#1947#1948#0" expanded="true" />
                 <element signature="method#getAvgProductivity#0;class#Task#0" expanded="false" />
+                <element signature="e#2290#2315#0" expanded="false" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InvertedTimelineException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/finalProject/InvertedTimelineException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="5" column="5" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="5" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/finalProject/form.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="366">
+              <caret line="57" column="15" lean-forward="true" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/finalProject/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="72" column="27" lean-forward="false" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
+            <state relative-caret-position="-418">
+              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FormNotCompleteException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/finalProject/FormNotCompleteException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="5" column="5" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="5" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -70,11 +168,17 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>productivity</find>
       <find>check</find>
-      <find>error</find>
       <find>productivityVal</find>
       <find>product</find>
       <find>model</find>
@@ -82,6 +186,9 @@
       <find>findTopFiveByTime</find>
       <find>Instance</find>
       <find>instance</find>
+      <find>error</find>
+      <find>form</find>
+      <find>toLower</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -98,16 +205,19 @@
         <option value="$PROJECT_DIR$/src/finalProject/SetSchedule.java" />
         <option value="$PROJECT_DIR$/.idea/misc.xml" />
         <option value="$PROJECT_DIR$/src/finalProject/Timer.java" />
-        <option value="$PROJECT_DIR$/src/finalProject/Main.java" />
         <option value="$PROJECT_DIR$/src/finalProject/TaskOccurance.java" />
         <option value="$PROJECT_DIR$/src/finalProject/TaskInstance.java" />
-        <option value="$PROJECT_DIR$/src/finalProject/TaskOccurrence.java" />
-        <option value="$PROJECT_DIR$/src/finalProject/Controller.java" />
-        <option value="$PROJECT_DIR$/src/finalProject/form.fxml" />
-        <option value="$PROJECT_DIR$/src/finalProject/Form.java" />
-        <option value="$PROJECT_DIR$/src/finalProject/Model.java" />
         <option value="$PROJECT_DIR$/src/finalProject/TimeBackground.java" />
         <option value="$PROJECT_DIR$/src/finalProject/Task.java" />
+        <option value="$PROJECT_DIR$/src/finalProject/form.fxml" />
+        <option value="$PROJECT_DIR$/src/finalProject/FormNotCompleteException.java" />
+        <option value="$PROJECT_DIR$/src/finalProject/InvertedTimelineException.java" />
+        <option value="$PROJECT_DIR$/src/finalProject/TaskOccurrence.java" />
+        <option value="$PROJECT_DIR$/src/finalProject/Form.java" />
+        <option value="$PROJECT_DIR$/src/finalProject/OccurrenceOverlapException.java" />
+        <option value="$PROJECT_DIR$/src/finalProject/Model.java" />
+        <option value="$PROJECT_DIR$/src/finalProject/Main.java" />
+        <option value="$PROJECT_DIR$/src/finalProject/Controller.java" />
       </list>
     </option>
   </component>
@@ -190,6 +300,9 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/egrench/Desktop/final-project-final-project-h/src/finalProject/form.fxml" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="finalProject" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/finalProject" />
     </key>
@@ -652,7 +765,7 @@
       <option name="presentableId" value="Default" />
       <updated>1520725298041</updated>
       <workItem from="1520971345398" duration="1458000" />
-      <workItem from="1521009831917" duration="4441000" />
+      <workItem from="1521009831917" duration="9810000" />
     </task>
     <task id="LOCAL-00001" summary="made the productivityCheck work">
       <created>1520873294331</created>
@@ -696,11 +809,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521011072684</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="refactoring">
+      <created>1521014407201</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1521014407201</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5899000" />
+    <option name="totallyTimeSpent" value="11268000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="63" width="1491" height="855" extended-state="0" />
@@ -715,13 +835,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2519084" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30152673" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2519084" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30152673" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24681422" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24681422" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -796,11 +916,12 @@
     <MESSAGE value="made the productivityCheck work" />
     <MESSAGE value="commented out code that wasn't working..." />
     <MESSAGE value="clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up" />
+    <MESSAGE value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -809,35 +930,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3075">
-          <caret line="205" column="0" lean-forward="true" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
-          <folding>
-            <element signature="method#addTask#0;class#Model#0" expanded="false" />
-            <element signature="method#switchTasks#0;class#Model#0" expanded="false" />
-            <element signature="method#taskExists#0;class#Model#0" expanded="false" />
-            <element signature="method#getTask#0;class#Model#0" expanded="false" />
-            <element signature="method#addTaskIdealSchedule#0;class#Model#0" expanded="false" />
-            <element signature="method#findMostProductive#0;class#Model#0" expanded="false" />
-            <element signature="method#findLeastProductive#0;class#Model#0" expanded="false" />
-            <element signature="method#checkProductivityByDuration#0;class#Model#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1521011049147" expanded="false" signature="8562:8570" ph="&lt;~&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Controller2.java" />
     <entry file="file://$PROJECT_DIR$/src/finalProject/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -851,11 +943,8 @@
         <state relative-caret-position="75">
           <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
           <folding>
-            <element signature="method#addTask#0;class#Model#0" expanded="false" />
             <element signature="method#switchTasks#0;class#Model#0" expanded="false" />
-            <element signature="method#taskExists#0;class#Model#0" expanded="false" />
             <element signature="method#getTask#0;class#Model#0" expanded="false" />
-            <element signature="method#addTaskIdealSchedule#0;class#Model#0" expanded="false" />
             <element signature="method#findMostProductive#0;class#Model#0" expanded="false" />
             <element signature="method#findLeastProductive#0;class#Model#0" expanded="false" />
             <element signature="method#checkProductivityByDuration#0;class#Model#0" expanded="false" />
@@ -884,7 +973,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1521011049147" expanded="false" signature="8562:8570" ph="&lt;~&gt;" />
+            <marker date="1521019697286" expanded="false" signature="8619:8627" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -903,11 +992,8 @@
         <state relative-caret-position="75">
           <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
           <folding>
-            <element signature="method#addTask#0;class#Model#0" expanded="false" />
             <element signature="method#switchTasks#0;class#Model#0" expanded="false" />
-            <element signature="method#taskExists#0;class#Model#0" expanded="false" />
             <element signature="method#getTask#0;class#Model#0" expanded="false" />
-            <element signature="method#addTaskIdealSchedule#0;class#Model#0" expanded="false" />
             <element signature="method#findMostProductive#0;class#Model#0" expanded="false" />
             <element signature="method#findLeastProductive#0;class#Model#0" expanded="false" />
             <element signature="method#checkProductivityByDuration#0;class#Model#0" expanded="false" />
@@ -936,7 +1022,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1521011049147" expanded="false" signature="8562:8570" ph="&lt;~&gt;" />
+            <marker date="1521019697286" expanded="false" signature="8619:8627" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -969,11 +1055,8 @@
         <state relative-caret-position="75">
           <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
           <folding>
-            <element signature="method#addTask#0;class#Model#0" expanded="false" />
             <element signature="method#switchTasks#0;class#Model#0" expanded="false" />
-            <element signature="method#taskExists#0;class#Model#0" expanded="false" />
             <element signature="method#getTask#0;class#Model#0" expanded="false" />
-            <element signature="method#addTaskIdealSchedule#0;class#Model#0" expanded="false" />
             <element signature="method#findMostProductive#0;class#Model#0" expanded="false" />
             <element signature="method#findLeastProductive#0;class#Model#0" expanded="false" />
             <element signature="method#checkProductivityByDuration#0;class#Model#0" expanded="false" />
@@ -988,7 +1071,7 @@
           <caret line="606" column="5" lean-forward="false" selection-start-line="606" selection-start-column="5" selection-end-line="606" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1521011049147" expanded="false" signature="8562:8570" ph="&lt;~&gt;" />
+            <marker date="1521019697286" expanded="false" signature="8619:8627" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1007,11 +1090,8 @@
         <state relative-caret-position="75">
           <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
           <folding>
-            <element signature="method#addTask#0;class#Model#0" expanded="false" />
             <element signature="method#switchTasks#0;class#Model#0" expanded="false" />
-            <element signature="method#taskExists#0;class#Model#0" expanded="false" />
             <element signature="method#getTask#0;class#Model#0" expanded="false" />
-            <element signature="method#addTaskIdealSchedule#0;class#Model#0" expanded="false" />
             <element signature="method#findMostProductive#0;class#Model#0" expanded="false" />
             <element signature="method#findLeastProductive#0;class#Model#0" expanded="false" />
             <element signature="method#checkProductivityByDuration#0;class#Model#0" expanded="false" />
@@ -1041,7 +1121,7 @@
           <caret line="373" column="0" lean-forward="false" selection-start-line="373" selection-start-column="0" selection-end-line="373" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1521011049147" expanded="false" signature="8562:8570" ph="&lt;~&gt;" />
+            <marker date="1521019697286" expanded="false" signature="8619:8627" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1061,7 +1141,7 @@
           <caret line="373" column="0" lean-forward="false" selection-start-line="373" selection-start-column="0" selection-end-line="373" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1521011049147" expanded="false" signature="8562:8570" ph="&lt;~&gt;" />
+            <marker date="1521019697286" expanded="false" signature="8619:8627" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1073,7 +1153,7 @@
           <caret line="25" column="64" lean-forward="true" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1521011049147" expanded="false" signature="8562:8570" ph="&lt;~&gt;" />
+            <marker date="1521019697286" expanded="false" signature="8619:8627" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -1106,44 +1186,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalProject/EmptyTaskNameException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Form.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="112" column="14" lean-forward="true" selection-start-line="112" selection-start-column="14" selection-end-line="112" selection-end-column="14" />
-          <folding>
-            <element signature="method#Form#0;class#Form#0" expanded="false" />
-            <element signature="method#isComplete#0;class#Form#0" expanded="false" />
-            <element signature="method#createMinutes#0;class#Form#0" expanded="false" />
-            <element signature="method#createHours#0;class#Form#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="122" column="7" lean-forward="true" selection-start-line="122" selection-start-column="7" selection-end-line="122" selection-end-column="7" />
-          <folding>
-            <element signature="method#addTask#0;class#Model#0" expanded="false" />
-            <element signature="method#switchTasks#0;class#Model#0" expanded="false" />
-            <element signature="method#taskExists#0;class#Model#0" expanded="false" />
-            <element signature="method#getTask#0;class#Model#0" expanded="false" />
-            <element signature="method#addTaskIdealSchedule#0;class#Model#0" expanded="false" />
-            <element signature="method#findMostProductive#0;class#Model#0" expanded="false" />
-            <element signature="method#findLeastProductive#0;class#Model#0" expanded="false" />
-            <element signature="method#checkProductivityByDuration#0;class#Model#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/finalProject/Schedule.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
@@ -1157,19 +1199,6 @@
         <state relative-caret-position="30">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalProject/TaskOccurrence.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
-          <folding>
-            <element signature="method#TaskOccurrence#0;class#TaskOccurrence#0" expanded="false" />
-            <element signature="method#compareTo#0;class#TaskOccurrence#0" expanded="false" />
-            <element signature="e#968#969#0" expanded="true" />
-            <element signature="e#1004#1005#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1197,17 +1226,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalProject/form.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="36" column="15" lean-forward="false" selection-start-line="36" selection-start-column="15" selection-end-line="36" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/finalProject/CalendarTaskRectangle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1216,29 +1234,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/finalProject/EmptyTaskNameException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1521011049147" expanded="false" signature="8562:8570" ph="&lt;~&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalProject/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="72" column="27" lean-forward="false" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
+        <state relative-caret-position="60">
+          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalProject/FormNotCompleteException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="5" column="5" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="5" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalProject/TaskOccurrence.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+          <folding>
+            <element signature="method#TaskOccurrence#0;class#TaskOccurrence#0" expanded="false" />
+            <element signature="method#compareTo#0;class#TaskOccurrence#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalProject/form.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="57" column="15" lean-forward="true" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/finalProject/Task.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state relative-caret-position="600">
+          <caret line="65" column="26" lean-forward="false" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
           <folding>
             <element signature="method#Task#0;class#Task#0" expanded="false" />
             <element signature="docComment;method#changeState#0;class#Task#0" expanded="false" />
@@ -1246,7 +1283,77 @@
             <element signature="method#startTask#0;class#Task#0" expanded="false" />
             <element signature="e#993#1068#0" expanded="false" />
             <element signature="e#1649#1674#0" expanded="false" />
+            <element signature="e#1882#1883#0" expanded="true" />
+            <element signature="e#1947#1948#0" expanded="true" />
             <element signature="method#getAvgProductivity#0;class#Task#0" expanded="false" />
+            <element signature="e#2290#2315#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalProject/Form.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="92" column="34" lean-forward="true" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="34" />
+          <folding>
+            <element signature="method#isComplete#0;class#Form#0" expanded="false" />
+            <element signature="method#getStart#0;class#Form#0" expanded="false" />
+            <element signature="method#getEnd#0;class#Form#0" expanded="false" />
+            <element signature="e#3097#3098#0" expanded="true" />
+            <element signature="e#3150#3151#0" expanded="true" />
+            <element signature="e#3230#3231#0" expanded="true" />
+            <element signature="method#convertToDate#0;class#Form#0" expanded="false" />
+            <element signature="method#createMinutes#0;class#Form#0" expanded="false" />
+            <element signature="method#createHours#0;class#Form#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalProject/InvertedTimelineException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="5" column="5" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="5" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalProject/OccurrenceOverlapException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalProject/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-418">
+          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalProject/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1262">
+          <caret line="352" column="31" lean-forward="true" selection-start-line="352" selection-start-column="31" selection-end-line="352" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1521019697286" expanded="false" signature="8619:8627" ph="&lt;~&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalProject/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="57" column="9" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
+          <folding>
+            <element signature="method#switchTasks#0;class#Model#0" expanded="false" />
+            <element signature="method#getTask#0;class#Model#0" expanded="false" />
+            <element signature="method#findMostProductive#0;class#Model#0" expanded="false" />
+            <element signature="method#findLeastProductive#0;class#Model#0" expanded="false" />
+            <element signature="method#checkProductivityByDuration#0;class#Model#0" expanded="false" />
           </folding>
         </state>
       </provider>

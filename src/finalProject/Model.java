@@ -6,7 +6,7 @@ public class Model {
     private static HashMap<String, Task> tasks = new HashMap<>();
     private static Task currentTask;
     private Controller controller;
-    private List<TaskOccurrence> scheduleOccurrences;
+    private List<TaskOccurrence> scheduleOccurrences = new ArrayList<>();
 
     public Model(Controller controller) {
         this.controller = controller;
@@ -42,6 +42,7 @@ public class Model {
 
     private boolean taskExists(String name) {
         // check to see if the case is the same!!
+        name = name.toLowerCase();
         return tasks.containsKey(name);
     }
 
@@ -50,31 +51,18 @@ public class Model {
         return this.tasks.get(name);
     }
 
-    private void addTaskIdealSchedule(String name) throws EmptyTaskNameException {
-        if (name.isEmpty()) {
-            throw new EmptyTaskNameException("Please choose a task name.");
-        }
-        name = name.toLowerCase();
-        if (!taskExists(name)){
+    public void addScheduleOccurrence(TaskOccurrence occurrence) throws OccurrenceOverlapException {
+        String name = occurrence.getName().toLowerCase();
+        if (!taskExists(name)) {
             addTaskNoErrors(name);
         }
+        if (occurrenceOverlapExists(occurrence)) {
+            throw new OccurrenceOverlapException("Your schedule already has a task at this time.");
+        }
+        scheduleOccurrences.add(occurrence);
     }
 
-    public void addIdealOccurrence(String name, Date start, Date end) throws EmptyTaskNameException {
-        addTaskIdealSchedule(name);
-        if (end.compareTo(start) <= 0) {
-            // throw a invalid dates error
-        }
-        TaskOccurrence occurrence = new TaskOccurrence(start, end, 0, 0);
-        if (checkForOccurrencesOverlap(occurrence)) {
-            // throw overlap error
-        } else {
-            scheduleOccurrences.add(occurrence);
-        }
-
-    }
-
-    private boolean checkForOccurrencesOverlap(TaskOccurrence occurrence) {
+    private boolean occurrenceOverlapExists(TaskOccurrence occurrence) {
         for (TaskOccurrence i : scheduleOccurrences) {
             if(i.compareTo(occurrence) == 0) {
                 return true;

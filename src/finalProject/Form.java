@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -23,9 +22,10 @@ public class Form extends VBox {
     @FXML private ComboBox endHourSelector;
     @FXML private ComboBox endMinuteSelector;
     @FXML private ComboBox endPeriodSelector;
+    private Controller controller;
     private Main main;
 
-    public Form(Main main) {
+    public Form(Controller controller, Main main) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("form.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -35,6 +35,7 @@ public class Form extends VBox {
             throw new RuntimeException(exception);
         }
 
+        this.controller = controller;
         this.main = main;
 
         startHourSelector.setItems(createHours());
@@ -54,30 +55,38 @@ public class Form extends VBox {
     }
 
     //TODO
-    private boolean isStartBeforeEnd(Date start, Date end) {
-        return start.before(end);
-    }
-
-    //TODO
     public void setNameSelector(List<String> names) {
         ObservableList<String> oNames = FXCollections.observableArrayList(names);
         nameSelector.setItems(oNames);
     }
 
-    @FXML
-    protected void createScheduleOccurrence() {
-        if(isComplete()) {
-            String name = getName();
-            try {
-                Date start = convertToDate(getStartHour(), getStartMinute(), getStartPeriod());
-                System.out.println(start);
-                Date end = convertToDate(getEndHour(), getEndMinute(), getEndPeriod());
-                main.updateIdealSchedulePane(name, start, end);
-            } catch (ParseException e) {
-                System.out.println(e.getMessage());
-                System.exit(-1);
-            }
+    public TaskOccurrence getContents() throws FormNotCompleteException, InvertedTimelineException {
+        if (!isComplete()) {
+            throw new FormNotCompleteException("Please fill out everything.");
         }
+        String name = getName();
+        Date start = getStart();
+        Date end = getEnd();
+        if (end.before(start)) {
+            throw new InvertedTimelineException("End date occurs before start date.");
+        }
+        TaskOccurrence contents = new TaskOccurrence(name, start, end);
+        return contents;
+    }
+
+    private Date getStart() {
+        Date start = convertToDate(getStartHour(), getStartMinute(), getStartPeriod());
+        return start;
+    }
+
+    private Date getEnd() {
+        Date end = convertToDate(getEndHour(), getEndMinute(), getEndPeriod());
+        return end;
+    }
+
+    @FXML
+    protected void submitOccurrence() {
+        controller.tryAddScheduleOccurrence();
     }
 
     @FXML
@@ -115,15 +124,20 @@ public class Form extends VBox {
     }
 
     /***** STATIC METHOD THAT CLEANS UP TIME INPUTS BEFORE FURTHER USE *****/
-    private static Date convertToDate(String hour, String minute, String period) throws ParseException {
+    private static Date convertToDate(String hour, String minute, String period) {
         Calendar today = Calendar.getInstance();
         int year = today.get(Calendar.YEAR);
         int month = today.get(Calendar.MONTH);
         int day = today.get(Calendar.DAY_OF_MONTH);
-        System.out.println(hour);
-        String time = month + " " + day + " " + hour + ":" + minute + ":00 " + period + " " + year;
+        String fullDay = month + " " + day + " " + hour + ":" + minute + ":00 " + period + " " + year;
         DateFormat formatter = new SimpleDateFormat("MM dd hh:mm:ss a yyyy");
-        Date date = formatter.parse(time);
+        Date date = null;
+        try {
+            date = formatter.parse(fullDay);
+        } catch (ParseException e) {
+            System.out.println("This definitely should not happen: " + e.getMessage());
+            System.exit(-1);
+        }
         return date;
     }
 

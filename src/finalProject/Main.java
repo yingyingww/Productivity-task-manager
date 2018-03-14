@@ -76,7 +76,8 @@ public class Main extends Application {
 
     public void setSchedule() {
         onMain = false;
-        Form setScheduleForm = new Form(this);
+        Form setScheduleForm = new Form(controller, this);
+        controller.setForm(setScheduleForm);
         //VBox taskPanel = createTask();
         //root.setCenter(taskPanel);
         root.setCenter(setScheduleForm);
@@ -334,14 +335,17 @@ public class Main extends Application {
         info.showAndWait();
     }
 
-    public void errorEnteringTasks(String error) {
+    public void errorPopup(String error) {
         Alert info = new Alert(AlertType.ERROR);
         info.setTitle("Error!");
         info.setHeaderText("Error: " + error);
         info.showAndWait();
     }
 
-    public void updateIdealSchedulePane(String name, Date start, Date end) {
+    public void updateIdealSchedulePane(TaskOccurrence occurrence) {
+        String name = occurrence.getName();
+        Date start = occurrence.getStart();
+        Date end = occurrence.getEnd();
         idealSchedule = controller.updateIdealCalendar(name, start, end);
         root.setRight(makeScheduleScroll(addIdealSchedule()));
     }

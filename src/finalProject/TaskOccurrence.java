@@ -7,12 +7,31 @@ public class TaskOccurrence implements Comparable<TaskOccurrence> {
     private Date end;
     private int productivity;
     private int duration;
+    private String name;
 
     public TaskOccurrence(Date start, Date end, int productivity, int duration) {
         this.start = start;
         this.end = end;
         this.productivity = productivity;
         this.duration = duration;
+    }
+
+    public TaskOccurrence(String name, Date start, Date end) {
+        this.name = name;
+        this.start = start;
+        this.end = end;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public Date getStart() {
+        return this.start;
+    }
+
+    public Date getEnd() {
+        return this.end;
     }
 
     @Override
@@ -23,14 +42,6 @@ public class TaskOccurrence implements Comparable<TaskOccurrence> {
             return 1;
         }
         return 0;
-    }
-
-    public Date getStart() {
-        return this.start;
-    }
-
-    public Date getEnd() {
-        return this.end;
     }
 
     public int getProductivity() {
