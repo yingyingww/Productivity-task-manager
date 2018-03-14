@@ -55,9 +55,8 @@ public class Task {
         int productivity = getProductivity();
         totalTimeSpent += duration;
         System.out.println("Task " + name + "\nstarted: " + start + "\nended: " + end + "\nproductivity: " + productivity);
-        Schedule currentSchedule = controller.updateCurrentCalendar(name, start, end);
-        //return currentSchedule;
-        //taskOccurrences.add(new TaskOccurrence(start, end, productivity, duration));
+        controller.updateCurrentCalendar(name, start, end);
+        taskOccurrences.add(new TaskOccurrence(start, end, productivity, duration));
 
     }
 

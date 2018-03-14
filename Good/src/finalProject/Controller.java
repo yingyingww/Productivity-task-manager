@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * The is a Controller java file will supply Main with necessary 
@@ -211,19 +212,33 @@ public class Controller {
     }
     */
 
-//    public String getTips(){
-//        Task lowProductivity = Model.findLeastProductive();
-//        String tip1 = Model.checkProductivityByDuration(lowProductivity);
-//        Task highProductivity = Model.findMostProductive();
-//        String tip2 = ("You usually rate your productivity during " + highProductivity.getName() + " activity highly, well done!");
-//        String tip3 = "Here is some information about the five activities you spend the most time on:" + topFiveToTip(); //TODO: fix topFiveToTip before this can be called
-//        String tips = tip1 + tip2 + tip3;
-//        return (tips);
-//    }
+    public String getTips(){
+        Task lowProductivity = Model.findLeastProductive();
+        //System.out.println(lowProductivity);
+        String tip1 = "";
+        String tip2 = "";
+        if (lowProductivity == null){
+             tip1 = "You don't have enough data to find your least productive task";
+        }
+        else {
+             tip1 = Model.checkProductivityByDuration(lowProductivity);
+        }
+        Task highProductivity = Model.findMostProductive();
+        if (highProductivity == null){
+            tip2 = "You don't have enough data to find your most productive task";
+        }
+        else {
+            tip2 = Model.checkProductivityByDuration(highProductivity);
+        }
+        //String tip2 = ("You usually rate your productivity during " + highProductivity.getName() + " activity highly, well done!");
+        String tip3 = "Here is some information about the activities you spend the most time on:" + "\n" + model.topFiveToTip(); //TODO: fix topFiveToTip before this can be called
+        String tips = tip1 + "\n" + tip2 + "\n" + tip3;
+        return (tips);
+    }
 
     //@return A list containing the five Task objects with the highest total time recorded. 
-//    public List<Task> getTopFive(){
-//        List<Task> topFive = Model.findTopFiveByTime("real"); //TODO: fix findTopFiveByTime before this can method can work
-//        return topFive;
-//    }
+    public List<Task> getTopFive(){
+        List<Task> topFive = Model.findTopFiveByTime("real"); //TODO: fix findTopFiveByTime before this can method can work
+        return topFive;
+    }
 }
