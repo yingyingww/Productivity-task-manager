@@ -4,6 +4,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+/**
+ * The java class creates rectangels that holds information for calendar to be displayed on GUI pages
+ */
 
 public class CalendarTaskRectangle extends StackPane {
     private Label taskName;
